@@ -1,0 +1,3 @@
+# libraryofisaac
+
+Library of Isaac is a universal library full of any tool you could think of needed for modding, functioning as the complete API this game was missing. The library would be community contributable, basically acting as a built in version of resources. All the information needed able to be accessed through docs on an external website, as well as being able to be implemented directly through an extension through Virtual Studio Code. With the extension, you could autofill functions from library, automatically putting only the code necessary in its own file. Doing this would make it so the entire library wouldn't have to be put into the mod for it to function.
