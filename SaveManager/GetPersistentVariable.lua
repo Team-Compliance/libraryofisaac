@@ -3,12 +3,12 @@
 ---@param variableName string
 ---@return any
 function TSIL.SaveManager.GetPersistentVariable(mod, variableName)
-    local PersistentData = TSIL.VERSION_PERSISTENT_DATA.PersistentData
+    local PersistentData = TSIL.__VERSION_PERSISTENT_DATA.PersistentData
 
     local tables = TSIL.Utils.Tables
 
     local modPersistentData = tables.FindFirst(PersistentData, function (_, modPersistentData)
-        return modPersistentData.mod == mod
+        return modPersistentData.mod == mod.Name
     end)
 
     if modPersistentData == nil then

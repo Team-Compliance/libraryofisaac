@@ -1,17 +1,17 @@
-local CustomCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList
+local VanillaCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.VanillaCallbacksList
 
 ---@param mod table
----@param callback CustomCallback
+---@param callback ModCallbacks
 ---@param funct function
 function TSIL.RemoveCustomCallback(mod, callback, funct)
-    if not CustomCallbacksList then return end
+    if not VanillaCallbacksList then return end
 
-    ---@type {Callback : ModCallbacks, Functions : TSILCustomCallback[]}
+    ---@type {Callback : ModCallbacks, Functions : TSILVanillaCallback[]}
     local foundCallbacksFunctions = nil
 
-    for _, customCallback in ipairs(CustomCallbacksList) do
-        if customCallback.Callback == callback then
-            foundCallbacksFunctions = customCallback
+    for _, vanillaCallback in ipairs(VanillaCallbacksList) do
+        if vanillaCallback.Callback == callback then
+            foundCallbacksFunctions = vanillaCallback
             break
         end
     end

@@ -2,13 +2,13 @@
 ---@param mod table
 ---@param variableName string
 ---@param newValue any
-function TSIL.SaveManager.GetPersistentVariable(mod, variableName, newValue)
-    local PersistentData = TSIL.VERSION_PERSISTENT_DATA.PersistentData
+function TSIL.SaveManager.SetPersistentVariable(mod, variableName, newValue)
+    local PersistentData = TSIL.__VERSION_PERSISTENT_DATA.PersistentData
 
     local tables = TSIL.Utils.Tables
 
     local modPersistentData = tables.FindFirst(PersistentData, function (_, modPersistentData)
-        return modPersistentData.mod == mod
+        return modPersistentData.mod == mod.Name
     end)
 
     if modPersistentData == nil then
