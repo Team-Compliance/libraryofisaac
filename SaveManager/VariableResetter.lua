@@ -5,5 +5,5 @@
 ---@field persistenceMode VariablePersistenceMode
 
 ---@class ModPersistentData
----@field mod table
+---@field mod string
 ---@field variables PersistentVariable[]

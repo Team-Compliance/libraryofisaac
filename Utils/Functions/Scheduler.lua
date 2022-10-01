@@ -13,8 +13,12 @@ local function OnFrameUpdate()
         return scheduledFunction.frames > 0
     end)
 end
-TSIL.CALLBACKS["SCHEDULER_POST_UPDATE"] =
-{callback = ModCallbacks.MC_POST_UPDATE, funct = OnFrameUpdate}
+TSIL.__AddInternalVanillaCallback(
+    "SCHEDULER_POST_UPDATE",
+    ModCallbacks.MC_POST_UPDATE,
+    OnFrameUpdate,
+    TSIL.Enums.CallbackPriority.MEDIUM
+)
 
 ---Runs a function in a given number of frames.
 ---@param funct function

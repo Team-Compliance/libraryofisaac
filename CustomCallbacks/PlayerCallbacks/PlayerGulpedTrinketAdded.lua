@@ -1,17 +1,22 @@
-local CustomCallbacksList = TSIL.VERSION_PERSISTENT_DATA.CustomCallbacksList
+local CustomCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList
 
 ---@param player EntityPlayer
 ---@param trinketId TrinketType
 return function (player, trinketId)
     local tableUtils = TSIL.Utils.Tables
 
-    local PlayerGulpedTrinketAddedCallbacks = tableUtils.Filter(CustomCallbacksList, function (_, customCallback)
-        local callbackCollectible = customCallback.params[1]
-        return customCallback.callback == TSIL.Enums.CustomCallback.MC_POST_PLAYER_GULPED_TRINKET_ADDED and
-        (callbackCollectible == nil or callbackCollectible == trinketId)
+    local PlayerGulpedTrinketAddedCallbacks = tableUtils.FindFirst(CustomCallbacksList, function (_, CustomCallback)
+        return CustomCallback.Callback == TSIL.Enums.CustomCallback.MC_POST_PLAYER_GULPED_TRINKET_ADDED
     end)
 
-    tableUtils.ForEach(PlayerGulpedTrinketAddedCallbacks, function (_, customCallback)
-        customCallback.funct(customCallback.mod, player, trinketId)
+    if not PlayerGulpedTrinketAddedCallbacks then return end
+
+    local filteredCallbacks = tableUtils.Filter(PlayerGulpedTrinketAddedCallbacks.Functions, function(_, customCallback)
+        local callbackTrinket = customCallback.OptionalParam[1]
+        return callbackTrinket == nil or callbackTrinket == trinketId
+    end)
+
+    tableUtils.ForEach(filteredCallbacks, function(_, customCallback)
+        customCallback.Funct(customCallback.Mod, player, trinketId)
     end)
 end
