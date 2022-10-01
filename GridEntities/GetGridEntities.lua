@@ -8,7 +8,7 @@ function TSIL.GridEntities.GetGridEntities(isBlackList, ...)
         isBlackList = true
     end
 
-    local IsInTable = TSIL.Utils.Tables.IsInTable
+    local IsInTable = TSIL.Utils.Tables.IsIn
     local blackList = {...}
 
     local gridEntities = {}

@@ -1,8 +1,8 @@
 ---@class TSILVanillaCallback
 ---@field Mod table
 ---@field Funct function
----@field Priority integer | CallbackPriority
----@field OptionalParam integer
+---@field Priority CallbackPriority | integer
+---@field OptionalParam integer | nil
 
 local VanillaCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.VanillaCallbacksList
 
@@ -13,8 +13,8 @@ local VanillaCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.VanillaCallbacksList
 ---@param mod table
 ---@param callback ModCallbacks
 ---@param funct function
----@param priority integer
----@param optionalParam integer
+---@param priority CallbackPriority | integer
+---@param optionalParam? integer
 function TSIL.AddVanillaCallback(mod, callback, funct, priority, optionalParam)
     if not VanillaCallbacksList then
         TSIL.__VERSION_PERSISTENT_DATA.VanillaCallbacksList = {}

@@ -93,6 +93,7 @@ function LOCAL_TSIL.Init(FolderName)
         "CustomCallbacks.InternalCallbacks",
         --Grid Entity Callbacks
         "CustomCallbacks.GridEntityCallbacks.GridUpdateCallback",
+        "CustomCallbacks.GridEntityCallbacks.GridCollisionCallback",
         --Player Callbacks
         "CustomCallbacks.PlayerCallbacks.PlayerCollectibleAdded",
         "CustomCallbacks.PlayerCallbacks.PlayerCollectibleRemoved",
@@ -102,6 +103,9 @@ function LOCAL_TSIL.Init(FolderName)
         "CustomCallbacks.SlotCallbacks.SlotInitCallback",
         "CustomCallbacks.SlotCallbacks.SlotPrizeCallback",
         "CustomCallbacks.SlotCallbacks.SlotUpdateCallback",
+
+        --ENTITIES
+        "Entities.IsCollidingWithGrid",
 
         --GRID ENTITIES
         "GridEntities.GetGridEntities",
@@ -142,6 +146,8 @@ function LOCAL_TSIL.Init(FolderName)
         "Utils.Functions.RunNextLevel",
         "Utils.Functions.RunNextRoom",
         "Utils.Functions.Scheduler",
+        --Geometry
+        "Utils.Geometry.CircleIntersectingRectangle",
         --Random
         "Utils.Random.RandomFloat",
         "Utils.Random.RandomFromTable",
@@ -159,12 +165,14 @@ function LOCAL_TSIL.Init(FolderName)
     local TSILmodules = {
         "Collectibles",
         "Enums",
+        "Entities",
         "GridEntities",
         "Players",
         "SaveManager",
         ["Utils"] = {
             "Flags",
             "Functions",
+            "Geometry",
             "Random",
             "Tables"
         }
@@ -245,7 +253,7 @@ function LOCAL_TSIL.Init(FolderName)
             for _, toCall in ipairs(functions) do
                 if IsDefaultOptionalArg(toCall.OptionalParam) or
                 vanillaCallback.ShouldExecute(paramsWithoutMod, toCall.OptionalParam) then
-                    toCall.Funct(params)
+                    toCall.Funct(toCall.Mod, table.unpack(paramsWithoutMod))
                 end
             end
         end)
