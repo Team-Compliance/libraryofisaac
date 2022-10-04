@@ -98,6 +98,8 @@ function LOCAL_TSIL.Init(FolderName)
         "Utils.Functions.RunNextLevel",
         "Utils.Functions.RunNextRoom",
         "Utils.Functions.Scheduler",
+        "Utils.Functions.Entity",
+        
         --Random
         "Utils.Random.RandomFloat",
         "Utils.Random.RandomFromTable",
