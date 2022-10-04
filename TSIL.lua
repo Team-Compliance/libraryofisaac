@@ -93,6 +93,7 @@ function LOCAL_TSIL.Init(FolderName)
         "CustomCallbacks.InternalCallbacks",
         --Grid Entity Callbacks
         "CustomCallbacks.GridEntityCallbacks.GridUpdateCallback",
+        "CustomCallbacks.GridEntityCallbacks.GridInitCallback",
         "CustomCallbacks.GridEntityCallbacks.GridCollisionCallback",
         --Player Callbacks
         "CustomCallbacks.PlayerCallbacks.PlayerCollectibleAdded",
