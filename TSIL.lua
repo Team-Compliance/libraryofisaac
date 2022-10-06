@@ -120,7 +120,7 @@ function LOCAL_TSIL.Init(FolderName)
         --Players Inventory
         "Players.Inventory.AnyPlayerHasItem",
         "Players.Inventory.AnyPlayerHasTrinket",
-        --"Players.Inventory.PlayerInventory",
+        "Players.Inventory.PlayerInventory",
         --Player Index
         "Players.PlayerIndex.PlayerByIndex",
         "Players.PlayerIndex.PlayerIndex",
@@ -196,13 +196,13 @@ function LOCAL_TSIL.Init(FolderName)
     end
 
     for _, script in ipairs(scripts) do
-        local hasError = pcall(function ()
+        local hasError, error = pcall(function ()
             require(TSIL.__LOCAL_FOLDER .. "." ..  script)
         end)
 
-        --TODO: Handle not found files (it is expected)
+        --TODO: Handle not found files better (it is expected)
         if not hasError then
-            print("Script not found (" .. TSIL.__LOCAL_FOLDER .. "." .. script .. ")")
+            print("Error loading script (" .. TSIL.__LOCAL_FOLDER .. "." .. script .. ") : " .. error)
         end
     end
 
@@ -228,6 +228,7 @@ function LOCAL_TSIL.Init(FolderName)
     end
 
     --Add all vanilla callbacks in one, so as to avoid conflicts (PRE_PLAYER_COLLISION)
+    --TODO: Callbacks that return things (how did I even forget about that)
 
     ---@param arg integer
     ---@return boolean
