@@ -9,8 +9,9 @@ local OptionalArgCheckType = {
     ITSELF = 1,
     TYPE = 2,
     VARIANT = 3,
-    PLAYER_TYPE = 4,
-    SECOND_ARG = 5
+    SUBTYPE = 4,
+    PLAYER_TYPE = 5,
+    SECOND_ARG = 6
 }
 
 ---@enum ReturnType
@@ -54,6 +55,10 @@ local function RegisterVanillaCallback(callback, checkType, returnType)
     elseif checkType == OptionalArgCheckType.VARIANT then
         shouldExecute = function (params, optionalArg)
             return params[1].Variant == optionalArg
+        end
+    elseif checkType == OptionalArgCheckType.SUBTYPE then
+        shouldExecute = function (params, optionalArg)
+            return params[1].SubType == optionalArg
         end
     elseif checkType == OptionalArgCheckType.PLAYER_TYPE then
         shouldExecute = function (params, optionalArg)
@@ -167,13 +172,13 @@ RegisterVanillaCallback(ModCallbacks.MC_POST_LASER_UPDATE, OptionalArgCheckType.
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_LASER_RENDER, OptionalArgCheckType.VARIANT)
 
-RegisterVanillaCallback(ModCallbacks.MC_POST_KNIFE_INIT, OptionalArgCheckType.VARIANT)
+RegisterVanillaCallback(ModCallbacks.MC_POST_KNIFE_INIT, OptionalArgCheckType.SUBTYPE)
 
-RegisterVanillaCallback(ModCallbacks.MC_POST_KNIFE_UPDATE, OptionalArgCheckType.VARIANT)
+RegisterVanillaCallback(ModCallbacks.MC_POST_KNIFE_UPDATE, OptionalArgCheckType.SUBTYPE)
 
-RegisterVanillaCallback(ModCallbacks.MC_POST_KNIFE_RENDER, OptionalArgCheckType.VARIANT)
+RegisterVanillaCallback(ModCallbacks.MC_POST_KNIFE_RENDER, OptionalArgCheckType.SUBTYPE)
 
-RegisterVanillaCallback(ModCallbacks.MC_PRE_KNIFE_COLLISION, OptionalArgCheckType.VARIANT, ReturnType.SKIP_NEXT)
+RegisterVanillaCallback(ModCallbacks.MC_PRE_KNIFE_COLLISION, OptionalArgCheckType.SUBTYPE, ReturnType.SKIP_NEXT)
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_EFFECT_INIT, OptionalArgCheckType.VARIANT)
 
