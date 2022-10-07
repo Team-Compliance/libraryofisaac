@@ -236,6 +236,13 @@ function LOCAL_TSIL.Init(FolderName)
         return not arg or arg == -1
     end
 
+    local ReturnType = {
+        NONE = 0,
+        SKIP_NEXT = 1,
+        LAST_WINS = 2,
+        NEXT_ARGUMENT = 3
+    }
+
     for _, vanillaCallback in ipairs(TSIL.__REGISTERED_VANILLA_CALLBACKS) do
         TSIL.__MOD:AddCallback(vanillaCallback.Callback, function (...)
             local params = {...}
@@ -252,11 +259,25 @@ function LOCAL_TSIL.Init(FolderName)
                 end
             end
 
+            local returnedValue
+
             for _, toCall in ipairs(functions) do
                 if IsDefaultOptionalArg(toCall.OptionalParam) or
                 vanillaCallback.ShouldExecute(paramsWithoutMod, toCall.OptionalParam) then
-                    toCall.Funct(toCall.Mod, table.unpack(paramsWithoutMod))
+                    returnedValue = toCall.Funct(toCall.Mod, table.unpack(paramsWithoutMod))
+
+                    if returnedValue ~= nil then
+                        if vanillaCallback.ReturnType == ReturnType.SKIP_NEXT then
+                            return returnedValue
+                        elseif vanillaCallback.ReturnType == ReturnType.NEXT_ARGUMENT then
+                            paramsWithoutMod[1] = returnedValue
+                        end
+                    end
                 end
+            end
+
+            if vanillaCallback.ReturnType == ReturnType.LAST_WINS then
+                return returnedValue
             end
         end)
     end

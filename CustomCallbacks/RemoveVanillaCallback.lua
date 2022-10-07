@@ -3,7 +3,7 @@ local VanillaCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.VanillaCallbacksList
 ---@param mod table
 ---@param callback ModCallbacks
 ---@param funct function
-function TSIL.RemoveCustomCallback(mod, callback, funct)
+function TSIL.RemoveVanillaCallback(mod, callback, funct)
     if not VanillaCallbacksList then return end
 
     ---@type {Callback : ModCallbacks, Functions : TSILVanillaCallback[]}

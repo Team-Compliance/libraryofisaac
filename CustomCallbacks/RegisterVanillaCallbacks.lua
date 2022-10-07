@@ -1,6 +1,7 @@
 ---@class RegisteredVanillaCallback
 ---@field Callback ModCallbacks
 ---@field ShouldExecute fun(params: table, optionalArg: integer):boolean
+---@field ReturnType ReturnType
 
 ---@enum OptionalArgCheckType
 local OptionalArgCheckType = {
@@ -12,20 +13,32 @@ local OptionalArgCheckType = {
     SECOND_ARG = 5
 }
 
+---@enum ReturnType
+local ReturnType = {
+    NONE = 0,
+    SKIP_NEXT = 1,
+    LAST_WINS = 2,
+    NEXT_ARGUMENT = 3
+}
+
 ---@param callback ModCallbacks
 ---@param shouldExecute fun(params: table, optionalArg: integer):boolean
+---@param returnType ReturnType
 ---@return RegisteredVanillaCallback
-local function NewRegisteredCallback(callback, shouldExecute)
+local function NewRegisteredCallback(callback, shouldExecute, returnType)
     return {
         Callback = callback,
-        shouldExecute = shouldExecute
+        ShouldExecute = shouldExecute,
+        ReturnType = returnType
     }
 end
 
 
 ---@param callback ModCallbacks
 ---@param checkType? OptionalArgCheckType
-local function RegisterVanillaCallback(callback, checkType)
+---@param returnType? ReturnType
+local function RegisterVanillaCallback(callback, checkType, returnType)
+    if not returnType then returnType = ReturnType.NONE end
     local shouldExecute = function ()
         return true
     end
@@ -52,7 +65,7 @@ local function RegisterVanillaCallback(callback, checkType)
         end
     end
 
-    table.insert(TSIL.__REGISTERED_VANILLA_CALLBACKS, NewRegisteredCallback(callback, shouldExecute))
+    table.insert(TSIL.__REGISTERED_VANILLA_CALLBACKS, NewRegisteredCallback(callback, shouldExecute, returnType))
 end
 
 
@@ -62,7 +75,7 @@ RegisterVanillaCallback(ModCallbacks.MC_POST_UPDATE)
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_RENDER)
 
-RegisterVanillaCallback(ModCallbacks.MC_USE_ITEM, OptionalArgCheckType.ITSELF)
+RegisterVanillaCallback(ModCallbacks.MC_USE_ITEM, OptionalArgCheckType.ITSELF, ReturnType.LAST_WINS)
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE, OptionalArgCheckType.PLAYER_TYPE)
 
@@ -78,11 +91,11 @@ RegisterVanillaCallback(ModCallbacks.MC_POST_PLAYER_INIT, OptionalArgCheckType.P
 
 RegisterVanillaCallback(ModCallbacks.MC_USE_PILL, OptionalArgCheckType.ITSELF)
 
-RegisterVanillaCallback(ModCallbacks.MC_ENTITY_TAKE_DMG, OptionalArgCheckType.TYPE)
+RegisterVanillaCallback(ModCallbacks.MC_ENTITY_TAKE_DMG, OptionalArgCheckType.TYPE, ReturnType.SKIP_NEXT)
 
-RegisterVanillaCallback(ModCallbacks.MC_POST_CURSE_EVAL)
+RegisterVanillaCallback(ModCallbacks.MC_POST_CURSE_EVAL, OptionalArgCheckType.NONE, ReturnType.NEXT_ARGUMENT)
 
-RegisterVanillaCallback(ModCallbacks.MC_INPUT_ACTION, OptionalArgCheckType.SECOND_ARG)
+RegisterVanillaCallback(ModCallbacks.MC_INPUT_ACTION, OptionalArgCheckType.SECOND_ARG, ReturnType.LAST_WINS)
 
 RegisterVanillaCallback(ModCallbacks.MC_LEVEL_GENERATOR)
 
@@ -94,19 +107,19 @@ RegisterVanillaCallback(ModCallbacks.MC_POST_NEW_LEVEL)
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_NEW_ROOM)
 
-RegisterVanillaCallback(ModCallbacks.MC_GET_CARD)
+RegisterVanillaCallback(ModCallbacks.MC_GET_CARD, OptionalArgCheckType.NONE, ReturnType.LAST_WINS)
 
 RegisterVanillaCallback(ModCallbacks.MC_GET_SHADER_PARAMS)
 
 RegisterVanillaCallback(ModCallbacks.MC_EXECUTE_CMD)
 
-RegisterVanillaCallback(ModCallbacks.MC_PRE_USE_ITEM, OptionalArgCheckType.ITSELF)
+RegisterVanillaCallback(ModCallbacks.MC_PRE_USE_ITEM, OptionalArgCheckType.ITSELF, ReturnType.SKIP_NEXT)
 
-RegisterVanillaCallback(ModCallbacks.MC_PRE_ENTITY_SPAWN)
+RegisterVanillaCallback(ModCallbacks.MC_PRE_ENTITY_SPAWN, OptionalArgCheckType.NONE, ReturnType.LAST_WINS)
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_FAMILIAR_RENDER, OptionalArgCheckType.VARIANT)
 
-RegisterVanillaCallback(ModCallbacks.MC_PRE_FAMILIAR_COLLISION, OptionalArgCheckType.VARIANT)
+RegisterVanillaCallback(ModCallbacks.MC_PRE_FAMILIAR_COLLISION, OptionalArgCheckType.VARIANT, ReturnType.SKIP_NEXT)
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_NPC_INIT, OptionalArgCheckType.TYPE)
 
@@ -114,13 +127,13 @@ RegisterVanillaCallback(ModCallbacks.MC_POST_NPC_RENDER, OptionalArgCheckType.TY
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_NPC_DEATH, OptionalArgCheckType.TYPE)
 
-RegisterVanillaCallback(ModCallbacks.MC_PRE_NPC_COLLISION, OptionalArgCheckType.TYPE)
+RegisterVanillaCallback(ModCallbacks.MC_PRE_NPC_COLLISION, OptionalArgCheckType.TYPE, ReturnType.SKIP_NEXT)
 
-RegisterVanillaCallback(ModCallbacks.MC_POST_PLAYER_UPDATE, OptionalArgCheckType.PLAYER_TYPE)
+RegisterVanillaCallback(ModCallbacks.MC_POST_PLAYER_UPDATE, OptionalArgCheckType.VARIANT)
 
-RegisterVanillaCallback(ModCallbacks.MC_POST_PLAYER_RENDER, OptionalArgCheckType.PLAYER_TYPE)
+RegisterVanillaCallback(ModCallbacks.MC_POST_PLAYER_RENDER, OptionalArgCheckType.VARIANT)
 
-RegisterVanillaCallback(ModCallbacks.MC_PRE_PLAYER_COLLISION, OptionalArgCheckType.PLAYER_TYPE)
+RegisterVanillaCallback(ModCallbacks.MC_PRE_PLAYER_COLLISION, OptionalArgCheckType.VARIANT, ReturnType.SKIP_NEXT)
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_PICKUP_INIT, OptionalArgCheckType.VARIANT)
 
@@ -128,9 +141,9 @@ RegisterVanillaCallback(ModCallbacks.MC_POST_PICKUP_UPDATE, OptionalArgCheckType
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_PICKUP_RENDER, OptionalArgCheckType.VARIANT)
 
-RegisterVanillaCallback(ModCallbacks.MC_POST_PICKUP_SELECTION)
+RegisterVanillaCallback(ModCallbacks.MC_POST_PICKUP_SELECTION, OptionalArgCheckType.NONE, ReturnType.LAST_WINS)
 
-RegisterVanillaCallback(ModCallbacks.MC_PRE_PICKUP_COLLISION, OptionalArgCheckType.VARIANT)
+RegisterVanillaCallback(ModCallbacks.MC_PRE_PICKUP_COLLISION, OptionalArgCheckType.VARIANT, ReturnType.SKIP_NEXT)
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_TEAR_INIT, OptionalArgCheckType.VARIANT)
 
@@ -138,7 +151,7 @@ RegisterVanillaCallback(ModCallbacks.MC_POST_TEAR_UPDATE, OptionalArgCheckType.V
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_TEAR_RENDER, OptionalArgCheckType.VARIANT)
 
-RegisterVanillaCallback(ModCallbacks.MC_PRE_TEAR_COLLISION, OptionalArgCheckType.VARIANT)
+RegisterVanillaCallback(ModCallbacks.MC_PRE_TEAR_COLLISION, OptionalArgCheckType.VARIANT, ReturnType.SKIP_NEXT)
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_PROJECTILE_INIT, OptionalArgCheckType.VARIANT)
 
@@ -146,7 +159,7 @@ RegisterVanillaCallback(ModCallbacks.MC_POST_PROJECTILE_UPDATE, OptionalArgCheck
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_PROJECTILE_RENDER, OptionalArgCheckType.VARIANT)
 
-RegisterVanillaCallback(ModCallbacks.MC_PRE_PROJECTILE_COLLISION, OptionalArgCheckType.VARIANT)
+RegisterVanillaCallback(ModCallbacks.MC_PRE_PROJECTILE_COLLISION, OptionalArgCheckType.VARIANT, ReturnType.SKIP_NEXT)
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_LASER_INIT, OptionalArgCheckType.VARIANT)
 
@@ -160,7 +173,7 @@ RegisterVanillaCallback(ModCallbacks.MC_POST_KNIFE_UPDATE, OptionalArgCheckType.
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_KNIFE_RENDER, OptionalArgCheckType.VARIANT)
 
-RegisterVanillaCallback(ModCallbacks.MC_PRE_KNIFE_COLLISION, OptionalArgCheckType.VARIANT)
+RegisterVanillaCallback(ModCallbacks.MC_PRE_KNIFE_COLLISION, OptionalArgCheckType.VARIANT, ReturnType.SKIP_NEXT)
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_EFFECT_INIT, OptionalArgCheckType.VARIANT)
 
@@ -174,17 +187,17 @@ RegisterVanillaCallback(ModCallbacks.MC_POST_BOMB_UPDATE, OptionalArgCheckType.V
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_BOMB_RENDER, OptionalArgCheckType.VARIANT)
 
-RegisterVanillaCallback(ModCallbacks.MC_PRE_BOMB_COLLISION, OptionalArgCheckType.VARIANT)
+RegisterVanillaCallback(ModCallbacks.MC_PRE_BOMB_COLLISION, OptionalArgCheckType.VARIANT, ReturnType.SKIP_NEXT)
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_FIRE_TEAR)
 
-RegisterVanillaCallback(ModCallbacks.MC_PRE_GET_COLLECTIBLE)
+RegisterVanillaCallback(ModCallbacks.MC_PRE_GET_COLLECTIBLE, OptionalArgCheckType.NONE, ReturnType.LAST_WINS)
 
-RegisterVanillaCallback(ModCallbacks.MC_POST_GET_COLLECTIBLE)
+RegisterVanillaCallback(ModCallbacks.MC_POST_GET_COLLECTIBLE, OptionalArgCheckType.NONE, ReturnType.LAST_WINS)
 
-RegisterVanillaCallback(ModCallbacks.MC_GET_PILL_COLOR)
+RegisterVanillaCallback(ModCallbacks.MC_GET_PILL_COLOR, OptionalArgCheckType.NONE, ReturnType.LAST_WINS)
 
-RegisterVanillaCallback(ModCallbacks.MC_GET_PILL_EFFECT)
+RegisterVanillaCallback(ModCallbacks.MC_GET_PILL_EFFECT, OptionalArgCheckType.NONE, ReturnType.LAST_WINS)
 
 RegisterVanillaCallback(ModCallbacks.MC_GET_TRINKET)
 
@@ -192,8 +205,8 @@ RegisterVanillaCallback(ModCallbacks.MC_POST_ENTITY_REMOVE, OptionalArgCheckType
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_ENTITY_KILL, OptionalArgCheckType.TYPE)
 
-RegisterVanillaCallback(ModCallbacks.MC_PRE_NPC_UPDATE, OptionalArgCheckType.TYPE)
+RegisterVanillaCallback(ModCallbacks.MC_PRE_NPC_UPDATE, OptionalArgCheckType.TYPE, ReturnType.SKIP_NEXT)
 
-RegisterVanillaCallback(ModCallbacks.MC_PRE_SPAWN_CLEAN_AWARD)
+RegisterVanillaCallback(ModCallbacks.MC_PRE_SPAWN_CLEAN_AWARD, OptionalArgCheckType.NONE, ReturnType.SKIP_NEXT)
 
 RegisterVanillaCallback(ModCallbacks.MC_PRE_ROOM_ENTITY_SPAWN)
