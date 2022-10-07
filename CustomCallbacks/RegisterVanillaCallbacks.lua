@@ -1,7 +1,6 @@
 ---@class RegisteredVanillaCallback
 ---@field Callback ModCallbacks
----@field ShouldExecute fun(params: table, optionalArg: integer):boolean
----@field ReturnType ReturnType
+---@field Funct function
 
 ---@enum OptionalArgCheckType
 local OptionalArgCheckType = {
@@ -22,6 +21,12 @@ local ReturnType = {
     NEXT_ARGUMENT = 3
 }
 
+---@param arg integer
+---@return boolean
+local function IsDefaultOptionalArg(arg)
+    return not arg or arg == -1
+end
+
 ---@param callback ModCallbacks
 ---@param shouldExecute fun(params: table, optionalArg: integer):boolean
 ---@param returnType ReturnType
@@ -29,8 +34,42 @@ local ReturnType = {
 local function NewRegisteredCallback(callback, shouldExecute, returnType)
     return {
         Callback = callback,
-        ShouldExecute = shouldExecute,
-        ReturnType = returnType
+        Funct = function (...)
+            local params = {...}
+            local paramsWithoutMod = {}
+            for i = 2, #params, 1 do
+                paramsWithoutMod[#paramsWithoutMod+1] = params[i]
+            end
+
+            local functions = {}
+
+            for _, TSILVanillaCallback in ipairs(TSIL.__VERSION_PERSISTENT_DATA.VanillaCallbacksList) do
+                if TSILVanillaCallback.Callback == callback then
+                    functions = TSILVanillaCallback.Functions
+                end
+            end
+
+            local returnedValue
+
+            for _, toCall in ipairs(functions) do
+                if IsDefaultOptionalArg(toCall.OptionalParam) or
+                shouldExecute(paramsWithoutMod, toCall.OptionalParam) then
+                    returnedValue = toCall.Funct(toCall.Mod, table.unpack(paramsWithoutMod))
+
+                    if returnedValue ~= nil then
+                        if returnType == ReturnType.SKIP_NEXT then
+                            return returnedValue
+                        elseif returnType == ReturnType.NEXT_ARGUMENT then
+                            paramsWithoutMod[1] = returnedValue
+                        end
+                    end
+                end
+            end
+
+            if returnType == ReturnType.LAST_WINS then
+                return returnedValue
+            end
+        end
     }
 end
 

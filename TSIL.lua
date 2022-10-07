@@ -26,16 +26,18 @@ function LOCAL_TSIL.Init(FolderName)
                 InternalCustomCallback.Funct
             )
         end
+
+        for _, vanillaCallback in ipairs(TSIL.__REGISTERED_VANILLA_CALLBACKS) do
+            TSIL.__MOD:RemoveCallback(vanillaCallback.Callback, vanillaCallback.Funct)
+        end
     end
 
     TSIL.__MOD = RegisterMod("TSILMOD", 1)
     TSIL.__VERSION = LOCAL_TSIL_VERSION
     TSIL.__LOCAL_FOLDER = FolderName
 
-    if not TSIL.__REGISTERED_VANILLA_CALLBACKS then
-        ---@type RegisteredVanillaCallback[]
-        TSIL.__REGISTERED_VANILLA_CALLBACKS = {}
-    end
+    ---@type RegisteredVanillaCallback[]
+    TSIL.__REGISTERED_VANILLA_CALLBACKS = {}
 
     ---@class InternalTSILVanillaCallback
     ---@field Id string
@@ -228,58 +230,8 @@ function LOCAL_TSIL.Init(FolderName)
     end
 
     --Add all vanilla callbacks in one, so as to avoid conflicts (PRE_PLAYER_COLLISION)
-    --TODO: Callbacks that return things (how did I even forget about that)
-
-    ---@param arg integer
-    ---@return boolean
-    local function IsDefaultOptionalArg(arg)
-        return not arg or arg == -1
-    end
-
-    local ReturnType = {
-        NONE = 0,
-        SKIP_NEXT = 1,
-        LAST_WINS = 2,
-        NEXT_ARGUMENT = 3
-    }
-
     for _, vanillaCallback in ipairs(TSIL.__REGISTERED_VANILLA_CALLBACKS) do
-        TSIL.__MOD:AddCallback(vanillaCallback.Callback, function (...)
-            local params = {...}
-            local paramsWithoutMod = {}
-            for i = 2, #params, 1 do
-                paramsWithoutMod[#paramsWithoutMod+1] = params[i]
-            end
-
-            local functions = {}
-
-            for _, TSILVanillaCallback in ipairs(TSIL.__VERSION_PERSISTENT_DATA.VanillaCallbacksList) do
-                if TSILVanillaCallback.Callback == vanillaCallback.Callback then
-                    functions = TSILVanillaCallback.Functions
-                end
-            end
-
-            local returnedValue
-
-            for _, toCall in ipairs(functions) do
-                if IsDefaultOptionalArg(toCall.OptionalParam) or
-                vanillaCallback.ShouldExecute(paramsWithoutMod, toCall.OptionalParam) then
-                    returnedValue = toCall.Funct(toCall.Mod, table.unpack(paramsWithoutMod))
-
-                    if returnedValue ~= nil then
-                        if vanillaCallback.ReturnType == ReturnType.SKIP_NEXT then
-                            return returnedValue
-                        elseif vanillaCallback.ReturnType == ReturnType.NEXT_ARGUMENT then
-                            paramsWithoutMod[1] = returnedValue
-                        end
-                    end
-                end
-            end
-
-            if vanillaCallback.ReturnType == ReturnType.LAST_WINS then
-                return returnedValue
-            end
-        end)
+        TSIL.__MOD:AddCallback(vanillaCallback.Callback, vanillaCallback.Funct)
     end
 
     print("TSIL (" .. TSIL.__VERSION .. ") has been properly initialized.")
