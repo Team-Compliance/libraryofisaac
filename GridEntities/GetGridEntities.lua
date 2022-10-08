@@ -3,12 +3,12 @@
 ---@param isBlackList? boolean @default: true
 ---@param ... GridEntityType
 ---@return GridEntity[]
-function TSIL.GetGridEntities(isBlackList, ...)
+function TSIL.GridEntities.GetGridEntities(isBlackList, ...)
     if isBlackList == nil then
         isBlackList = true
     end
 
-    local IsInTable = TSIL.Utils.Tables.IsInTable
+    local IsInTable = TSIL.Utils.Tables.IsIn
     local blackList = {...}
 
     local gridEntities = {}
