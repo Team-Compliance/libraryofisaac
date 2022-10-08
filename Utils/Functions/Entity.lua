@@ -30,7 +30,7 @@ end
 ---@param ignoreFriendly boolean? Optional. If set to true, it will exclude friendly NPCs from being returned. Default is false. Will only be taken into account if the `entityType` is specified.
 ---@return EntityNPC[]
 function TSIL.Utils.Functions.GetNPCs(entityType, variant, subType, ignoreFriendly)
-    local entities = TSIL.Utils.Functions.GetNPCs(entityType, variant, subType, ignoreFriendly)
+    local entities = TSIL.Utils.Functions.GetEntities(entityType, variant, subType, ignoreFriendly)
     local npcs = {}
 
     for _, v in pairs(entities) do
@@ -93,7 +93,7 @@ function TSIL.Utils.Functions.GetFamiliars(familiarVariant, subType)
     familiarVariant = familiarVariant or -1
     subType = subType or -1
     
-    local entities = TSIL.Utils.Functions.GetEntities(EntityType.ENTITY_EFFECT, familiarVariant, subType)
+    local entities = TSIL.Utils.Functions.GetEntities(EntityType.ENTITY_FAMILIAR, familiarVariant, subType)
     local familiars = {}
 
     for _, v in pairs(entities) do
