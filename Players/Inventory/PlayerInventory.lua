@@ -8,6 +8,7 @@
 ---@field GulpedTrinkets integer[]
 ---@field CollectedItems integer[]
 
+--TODO: Make it so these callbacks aren't actually required (so the user can choose not to pick them)
 local PlayerCollectibleAddedCallback = require(TSIL.__LOCAL_FOLDER .. ".CustomCallbacks.PlayerCallbacks.PlayerCollectibleAdded")
 local PlayerCollectibleRemovedCallback = require(TSIL.__LOCAL_FOLDER .. ".CustomCallbacks.PlayerCallbacks.PlayerCollectibleRemoved")
 local PlayerGulpedTrinketAddedCallback = require(TSIL.__LOCAL_FOLDER .. ".CustomCallbacks.PlayerCallbacks.PlayerGulpedTrinketAdded")
@@ -122,9 +123,9 @@ local function OnPeffectUpdate(_, player)
     ---@type PlayerInventory[]
     local playerInventories = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "PLAYER_INVENTORIES")
     local playerIndex = TSIL.Players.GetPlayerIndex(player)
-    local playerInventory = TSIL.Utils.Tables.Filter(playerInventories, function(_, playerInventory)
+    local playerInventory = TSIL.Utils.Tables.FindFirst(playerInventories, function(_, playerInventory)
         return playerInventory.PlayerIndex == playerIndex
-    end)[1]
+    end)
 
     if not playerInventory then
         local newInventory = {

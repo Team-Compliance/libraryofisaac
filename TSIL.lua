@@ -32,7 +32,7 @@ function LOCAL_TSIL.Init(FolderName)
         end
     end
 
-    TSIL.__MOD = RegisterMod("TSILMOD", 1)
+    TSIL.__MOD = RegisterMod("TSILMOD_" .. FolderName, 1)
     TSIL.__VERSION = LOCAL_TSIL_VERSION
     TSIL.__LOCAL_FOLDER = FolderName
 
@@ -85,6 +85,7 @@ function LOCAL_TSIL.Init(FolderName)
         --COLLECTIBLES
         "Collectibles.GetCollectibles",
         "Collectibles.GetCollectiblesByQuality",
+        "Collectibles.TryRemoveCollectible",
 
         --CUSTOM CALLBACKS
         "CustomCallbacks.AddCustomCallback",
