@@ -1,5 +1,5 @@
 ---Helper function to get all of the knives in the room.
----@param knifeVariant integer? Optional. Default is -1, which matches all variants.
+---@param knifeVariant KnifeVariant|integer? Optional. Default is -1, which matches all variants.
 ---@param subType integer? Optional. Default is -1, which matches all sub-types.
 ---@return EntityKnife[]
 function TSIL.Entities.GetKnives(knifeVariant, subType)

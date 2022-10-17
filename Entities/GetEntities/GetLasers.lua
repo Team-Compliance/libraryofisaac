@@ -1,5 +1,5 @@
 ---Helper function to get all of the lasers in the room.
----@param laserVariant integer? Optional. Default is -1, which matches all variants.
+---@param laserVariant LaserVariant|integer? Optional. Default is -1, which matches all variants.
 ---@param subType integer? Optional. Default is -1, which matches all sub-types.
 ---@return EntityLaser[]
 function TSIL.Entities.GetLasers(laserVariant, subType)

@@ -1,0 +1,18 @@
+---@enum LaserVariant
+TSIL.Enums.LaserVariant = {
+    THICK_RED = 1,
+    THIN_RED = 2,
+    SHOOP_DA_WHOOP = 3,
+    PRIDE = 4,
+    LIGHT_BEAM = 5,
+    GIANT_RED = 6,
+    TRACTOR_BEAM = 7,
+    LIGHT_RING = 8,
+    BRIMSTONE_TECHNOLOGY = 9,
+    ELECTRIC = 10,
+    THICKER_RED = 11,
+    THICK_BROWN = 12,
+    BEAST = 13,
+    THICKER_BRIMSTONE_TECHNOLOGY = 14,
+    GIANT_BRIMSTONE_TECHNOLOGY = 15
+}
