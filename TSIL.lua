@@ -110,6 +110,18 @@ function LOCAL_TSIL.Init(FolderName)
 
         --ENTITIES
         "Entities.IsCollidingWithGrid",
+        --Get Entities
+        "Entities.GetEntities.GetBombs",
+        "Entities.GetEntities.GetEffects",
+        "Entities.GetEntities.GetEntities",
+        "Entities.GetEntities.GetFamiliars",
+        "Entities.GetEntities.GetKnives",
+        "Entities.GetEntities.GetLasers",
+        "Entities.GetEntities.GetNPCs",
+        "Entities.GetEntities.GetPickups",
+        "Entities.GetEntities.GetProjectiles",
+        "Entities.GetEntities.GetSlots",
+        "Entities.GetEntities.GetTears",
 
         --GRID ENTITIES
         "GridEntities.GetGridEntities",
