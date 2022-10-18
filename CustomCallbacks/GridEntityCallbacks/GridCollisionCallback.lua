@@ -22,7 +22,7 @@ local function OnGridUpdate(_, grid)
     local closeEntities = Isaac.FindInRadius(grid.Position, 120)
 
     local filteredEntities = tableUtils.Filter(closeEntities, function (_, entity)
-        return TSIL.Utils.Geometry.IsCircleIntersectingWithRectangle(grid.Position, Vector(40, 40), entity.Position, entity.Size)
+        return TSIL.Utils.Math.IsCircleIntersectingWithRectangle(grid.Position, Vector(40, 40), entity.Position, entity.Size)
     end)
 
     tableUtils.ForEach(filteredEntities, function (_, entity)

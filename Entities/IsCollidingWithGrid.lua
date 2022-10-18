@@ -12,7 +12,7 @@ function TSIL.Entities.IsCollidingWithGrid(entity)
                 local gridEntity = room:GetGridEntityFromPos(gridPosition)
 
                 if gridEntity and
-                TSIL.Utils.Geometry.IsCircleIntersectingWithRectangle(gridEntity.Position, Vector(40, 40), entity.Position, entity.Size) then
+                TSIL.Utils.Math.IsCircleIntersectingWithRectangle(gridEntity.Position, Vector(40, 40), entity.Position, entity.Size) then
                     return gridEntity
                 end
             end
