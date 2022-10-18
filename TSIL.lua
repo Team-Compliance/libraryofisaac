@@ -210,7 +210,9 @@ function LOCAL_TSIL.Init(FolderName)
         "Utils.Tables.Filter",
         "Utils.Tables.FindFirst",
         "Utils.Tables.ForEach",
-        "Utils.Tables.IsInTable"
+        "Utils.Tables.IsInTable",
+        "Utils.Tables.Equals",
+        "Utils.Tables.Remove",
     }
 
     local TSILmodules = {
