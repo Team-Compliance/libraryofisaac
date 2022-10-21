@@ -1,16 +1,15 @@
 local LOCAL_TSIL = {}
 local LOCAL_TSIL_VERSION = 0.1
 
+---Initializes the TSIL library
+---@param FolderName string
 function LOCAL_TSIL.Init(FolderName)
     if not TSIL then
         --If TSIL hasnt been initialized yet, initialize it
         TSIL = {}
-    elseif TSIL.__VERSION >= LOCAL_TSIL_VERSION then
-        --If theres already an instance with a higher version, we don't need to overwrite it
-        --TODO: Change the >= to > to avoid overwritting same version (there for testing)
-        return
+        TSIL.__PROXY = {}
     else
-        --There's an older TSIL version, overwrite it
+        --There's another version of TSIL version, overwrite it
         for _, InternalVanillaCallback in pairs(TSIL.__INTERNAL_VANILLA_CALLBACKS) do
             TSIL.RemoveVanillaCallback(
                 TSIL.__MOD,
@@ -32,20 +31,58 @@ function LOCAL_TSIL.Init(FolderName)
         end
     end
 
+    --METATABLE
+    local OldTSILVersion = TSIL.__VERSION or -1
+    local TSIL_META = {}
+
+    function TSIL_META.__index(module, key)
+        local proxy = rawget(module, "__PROXY")
+
+        if proxy[key] == nil then
+            local newModule = {}
+            newModule.__PROXY = {}
+            setmetatable(newModule, TSIL_META)
+            proxy[key] = newModule
+        end
+
+        return proxy[key]
+    end
+
+    function TSIL_META.__newindex(module, key, value)
+        local proxy = rawget(module, "__PROXY")
+
+        if proxy[key] and LOCAL_TSIL_VERSION <= OldTSILVersion then
+            --Trying to update from same/older version
+            return
+        end
+
+        proxy[key] = value
+    end
+
+    setmetatable(TSIL, TSIL_META)
+
+    --VARIABLES INITIALIZATION
     TSIL.__MOD = RegisterMod("TSILMOD_" .. FolderName, 1)
+    --Is always the highest version loaded
     TSIL.__VERSION = LOCAL_TSIL_VERSION
+    --Is the last version loaded
+    TSIL.__LOCAL_VERSION = LOCAL_TSIL_VERSION
+    rawget(TSIL, "__PROXY").__LOCAL_VERSION = LOCAL_TSIL_VERSION
+    --Is the last folder loaded
     TSIL.__LOCAL_FOLDER = FolderName
+    rawget(TSIL, "__PROXY").__LOCAL_FOLDER = FolderName
 
     ---@type RegisteredVanillaCallback[]
     TSIL.__REGISTERED_VANILLA_CALLBACKS = {}
+    rawget(TSIL, "__PROXY").__REGISTERED_VANILLA_CALLBACKS = {} --Always needs to be reset
 
     ---@class InternalTSILVanillaCallback
     ---@field Id string
     ---@field Callback ModCallbacks
     ---@field Funct function
     ---@field Priority integer | CallbackPriority
-    ---@field OptionalParam integer
-    if not TSIL.__INTERNAL_VANILLA_CALLBACKS then
+    ---@field OptionalParam integer?
+    if not rawget(TSIL, "__PROXY").__INTERNAL_VANILLA_CALLBACKS then
         ---@type InternalTSILVanillaCallback[]
         TSIL.__INTERNAL_VANILLA_CALLBACKS = {}
     end
@@ -56,12 +93,12 @@ function LOCAL_TSIL.Init(FolderName)
     ---@field Funct function
     ---@field Priority integer | CallbackPriority
     ---@field OptionalParam integer[]
-    if not TSIL.__INTERNAL_CUSTOM_CALLBACKS then
+    if not rawget(TSIL, "__PROXY").__INTERNAL_CUSTOM_CALLBACKS then
         ---@type InternalTSILCustomCallback[]
         TSIL.__INTERNAL_CUSTOM_CALLBACKS = {}
     end
 
-    if not TSIL.__VERSION_PERSISTENT_DATA then
+    if not rawget(TSIL, "__PROXY").__VERSION_PERSISTENT_DATA then
         TSIL.__VERSION_PERSISTENT_DATA = {}
 
         ---@type {Callback : ModCallbacks, Functions : TSILVanillaCallback[]}[]
@@ -74,6 +111,7 @@ function LOCAL_TSIL.Init(FolderName)
         TSIL.__VERSION_PERSISTENT_DATA.PersistentData = {}
     end
 
+    --LOAD SCRIPTS
     local scripts = {
         --ENUMS
         "Enums.CallbackPriority",
@@ -186,39 +224,6 @@ function LOCAL_TSIL.Init(FolderName)
         "Utils.Tables.Remove",
     }
 
-    local TSILmodules = {
-        "Collectibles",
-        "Enums",
-        "Entities",
-        "GridEntities",
-        "Players",
-        "SaveManager",
-        ["Utils"] = {
-            "Easings",
-            "Flags",
-            "Functions",
-            "Math",
-            "Random",
-            "Tables"
-        }
-    }
-
-    for key, value in pairs(TSILmodules) do
-        if type(value) == "table" then
-            if not TSIL[key] then
-                TSIL[key] = {}
-            end
-
-            for _, TSILmodule in ipairs(value) do
-                if not TSIL[key][TSILmodule] then
-                    TSIL[key][TSILmodule] = {}
-                end
-            end
-        else
-            TSIL[value] = {}
-        end
-    end
-
     for _, script in ipairs(scripts) do
         local hasError, error = pcall(function ()
             require(TSIL.__LOCAL_FOLDER .. "." ..  script)
@@ -230,7 +235,7 @@ function LOCAL_TSIL.Init(FolderName)
         end
     end
 
-    --Add the internal TSIL callbacks
+    --ADD INTERNAL CALLBACKS
     for _, InternalVanillaCallback in ipairs(TSIL.__INTERNAL_VANILLA_CALLBACKS) do
         TSIL.AddVanillaCallback(
             TSIL.__MOD,
@@ -256,7 +261,7 @@ function LOCAL_TSIL.Init(FolderName)
         TSIL.__MOD:AddCallback(vanillaCallback.Callback, vanillaCallback.Funct)
     end
 
-    print("TSIL (" .. TSIL.__VERSION .. ") has been properly initialized.")
+    print("TSIL (" .. TSIL.__LOCAL_VERSION .. ") has been properly initialized.")
 end
 
 return LOCAL_TSIL

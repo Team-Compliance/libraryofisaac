@@ -12,7 +12,7 @@ function TSIL.__AddInternalVanillaCallback(id, callback, funct, priority, option
         end
     end
 
-    if foundInternalCallback then
+    if foundInternalCallback and TSIL.__LOCAL_VERSION >= TSIL.__VERSION then
         foundInternalCallback.Callback = callback
         foundInternalCallback.Funct = funct
         foundInternalCallback.Priority = priority
