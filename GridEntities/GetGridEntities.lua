@@ -1,5 +1,5 @@
 ---Returns a list with all grid entities in the room.
----IsBlackList indicates wether the given grid entities should be the only ones added or the only ones not added.
+---IsBlackList indicates whether the given grid entities should be the only ones added or the only ones not added.
 ---@param isBlackList? boolean @default: true
 ---@param ... GridEntityType
 ---@return GridEntity[]

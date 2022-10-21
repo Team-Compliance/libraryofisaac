@@ -164,7 +164,13 @@ function LOCAL_TSIL.Init(FolderName)
         "Entities.GetEntities.GetTears",
 
         --GRID ENTITIES
+        "GridEntities.ConvertXMLGridEntityType",
+        "GridEntities.GetAllGridIndexes",
+        "GridEntities.GetCollidingEntitiesWithGridEntity",
         "GridEntities.GetGridEntities",
+        "GridEntities.GetSurroundingGridEntities",
+        "GridEntities.GetTopLeftWall",
+        "GridEntities.IsGridIndexInRoom",
 
         --PLAYERS
         --Get Players
