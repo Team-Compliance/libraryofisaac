@@ -1,12 +1,13 @@
----Returns true if at least one player has the given trinket.
----@param trinketId TrinketType
----@return boolean
+--- Returns true if at least one player has the given trinket.
+--- @param trinketId TrinketType
+--- @return boolean
+--- @within TSIL.Players
 function TSIL.Players.DoesAnyPlayerHasTrinket(trinketId)
-    local players = TSIL.Players.GetPlayers()
+	local players = TSIL.Players.GetPlayers()
 
-    local numPlayersWithTrinket = TSIL.Utils.Tables.Count(players, function (_, player)
-        return player:HasTrinket(trinketId)
-    end)
+	local numPlayersWithTrinket = TSIL.Utils.Tables.Count(players, function (_, player)
+		return player:HasTrinket(trinketId)
+	end)
 
-    return numPlayersWithTrinket > 0
+	return numPlayersWithTrinket > 0
 end

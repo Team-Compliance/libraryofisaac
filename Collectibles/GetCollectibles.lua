@@ -1,19 +1,20 @@
----Returns a list with all item ids currently loaded.
----Use only inside a callback or not all modded items may be loaded.
----@return CollectibleType[]
+--- Returns a list with all item ids currently loaded.
+--- Use only inside a callback or not all modded items may be loaded.
+--- @return CollectibleType[]
+--- @within TSIL.Collectibles
 function TSIL.Collectibles.GetCollectibles()
-    local collectibles = {}
+	local collectibles = {}
 
-    local itemConfig = Isaac.GetItemConfig()
-    local itemList = itemConfig:GetCollectibles()
+	local itemConfig = Isaac.GetItemConfig()
+	local itemList = itemConfig:GetCollectibles()
 
-    --itemList.Size actually returns the last item id, not the actual size
-    for id = 1, itemList.Size - 1, 1 do
-        local item = itemConfig:GetCollectible(id)
-        if item then
-            table.insert(collectibles, item)
-        end
-    end
+	--itemList.Size actually returns the last item id, not the actual size
+	for id = 1, itemList.Size - 1, 1 do
+		local item = itemConfig:GetCollectible(id)
+		if item then
+			table.insert(collectibles, item)
+		end
+	end
 
-    return collectibles
+	return collectibles
 end

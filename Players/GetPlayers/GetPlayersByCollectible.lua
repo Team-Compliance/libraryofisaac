@@ -1,10 +1,11 @@
----Returns a list of all players that have a certain item
----@param collectibleId CollectibleType
----@return EntityPlayer[]
+--- Returns a list of all players that have a certain item
+--- @param collectibleId CollectibleType
+--- @return EntityPlayer[]
+--- @within TSIL.Players
 function TSIL.Players.GetPlayersByCollectible(collectibleId)
-    local players = TSIL.Players.GetPlayers()
+	local players = TSIL.Players.GetPlayers()
 
-    return TSIL.Utils.Tables.Filter(players, function (_, player)
-        return player:HasCollectible(collectibleId)
-    end)
+	return TSIL.Utils.Tables.Filter(players, function (_, player)
+		return player:HasCollectible(collectibleId)
+	end)
 end

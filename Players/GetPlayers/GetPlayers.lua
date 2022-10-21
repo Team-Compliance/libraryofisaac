@@ -1,20 +1,21 @@
----Returns a list of all players.
----@param ignoreCoopBabies? boolean @default: true
----@return EntityPlayer[]
+--- Returns a list of all players.
+--- @param ignoreCoopBabies? boolean @default: true
+--- @return EntityPlayer[]
+--- @within TSIL.Players
 function TSIL.Players.GetPlayers(ignoreCoopBabies)
-    if ignoreCoopBabies == nil then
-        ignoreCoopBabies = true
-    end
+	if ignoreCoopBabies == nil then
+		ignoreCoopBabies = true
+	end
 
-    local players = {}
+	local players = {}
 
-    for i = 0, Game():GetNumPlayers() - 1, 1 do
-        local player = Game():GetPlayer(i)
+	for i = 0, Game():GetNumPlayers() - 1, 1 do
+		local player = Game():GetPlayer(i)
 
-        if not ignoreCoopBabies or player.Variant ~= 1 then
-            table.insert(players, player)
-        end
-    end
+		if not ignoreCoopBabies or player.Variant ~= 1 then
+			table.insert(players, player)
+		end
+	end
 
-    return players
+	return players
 end

@@ -1,5 +1,6 @@
----@enum RockVariant
+--- @enum RockVariant
+--- @within TSIL.Enums
 TSIL.Enums.RockVariant = {
-    NORMAL = 0,
-    EVENT = 1
+	NORMAL = 0,
+	EVENT = 1
 }

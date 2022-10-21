@@ -1,5 +1,6 @@
----@enum StatueVariant
+--- @enum StatueVariant
+--- @within TSIL.Enums
 TSIL.Enums.StatueVariant = {
-    DEVIL = 0,
-    ANGEL = 1
+	DEVIL = 0,
+	ANGEL = 1
 }

@@ -1,115 +1,115 @@
----@class RegisteredVanillaCallback
----@field Callback ModCallbacks
----@field Funct function
+--- @class RegisteredVanillaCallback
+--- @field Callback ModCallbacks
+--- @field Funct function
 
----@enum OptionalArgCheckType
+--- @enum OptionalArgCheckType
 local OptionalArgCheckType = {
-    NONE = 0,
-    ITSELF = 1,
-    TYPE = 2,
-    VARIANT = 3,
-    SUBTYPE = 4,
-    PLAYER_TYPE = 5,
-    SECOND_ARG = 6
+	NONE = 0,
+	ITSELF = 1,
+	TYPE = 2,
+	VARIANT = 3,
+	SUBTYPE = 4,
+	PLAYER_TYPE = 5,
+	SECOND_ARG = 6
 }
 
----@enum ReturnType
+--- @enum ReturnType
 local ReturnType = {
-    NONE = 0,
-    SKIP_NEXT = 1,
-    LAST_WINS = 2,
-    NEXT_ARGUMENT = 3
+	NONE = 0,
+	SKIP_NEXT = 1,
+	LAST_WINS = 2,
+	NEXT_ARGUMENT = 3
 }
 
----@param arg integer
----@return boolean
+--- @param arg integer
+--- @return boolean
 local function IsDefaultOptionalArg(arg)
-    return not arg or arg == -1
+	return not arg or arg == -1
 end
 
----@param callback ModCallbacks
----@param shouldExecute fun(params: table, optionalArg: integer):boolean
----@param returnType ReturnType
----@return RegisteredVanillaCallback
+--- @param callback ModCallbacks
+--- @param shouldExecute fun(params: table, optionalArg: integer):boolean
+--- @param returnType ReturnType
+--- @return RegisteredVanillaCallback
 local function NewRegisteredCallback(callback, shouldExecute, returnType)
-    return {
-        Callback = callback,
-        Funct = function (...)
-            local params = {...}
-            local paramsWithoutMod = {}
-            for i = 2, #params, 1 do
-                paramsWithoutMod[#paramsWithoutMod+1] = params[i]
-            end
+	return {
+		Callback = callback,
+		Funct = function (...)
+			local params = {...}
+			local paramsWithoutMod = {}
+			for i = 2, #params, 1 do
+				paramsWithoutMod[#paramsWithoutMod+1] = params[i]
+			end
 
-            local functions = {}
+			local functions = {}
 
-            for _, TSILVanillaCallback in ipairs(TSIL.__VERSION_PERSISTENT_DATA.VanillaCallbacksList) do
-                if TSILVanillaCallback.Callback == callback then
-                    functions = TSILVanillaCallback.Functions
-                end
-            end
+			for _, TSILVanillaCallback in ipairs(TSIL.__VERSION_PERSISTENT_DATA.VanillaCallbacksList) do
+				if TSILVanillaCallback.Callback == callback then
+					functions = TSILVanillaCallback.Functions
+				end
+			end
 
-            local returnedValue
+			local returnedValue
 
-            for _, toCall in ipairs(functions) do
-                if IsDefaultOptionalArg(toCall.OptionalParam) or
-                shouldExecute(paramsWithoutMod, toCall.OptionalParam) then
-                    returnedValue = toCall.Funct(toCall.Mod, table.unpack(paramsWithoutMod))
+			for _, toCall in ipairs(functions) do
+				if IsDefaultOptionalArg(toCall.OptionalParam) or
+				shouldExecute(paramsWithoutMod, toCall.OptionalParam) then
+					returnedValue = toCall.Funct(toCall.Mod, table.unpack(paramsWithoutMod))
 
-                    if returnedValue ~= nil then
-                        if returnType == ReturnType.SKIP_NEXT then
-                            return returnedValue
-                        elseif returnType == ReturnType.NEXT_ARGUMENT then
-                            paramsWithoutMod[1] = returnedValue
-                        end
-                    end
-                end
-            end
+					if returnedValue ~= nil then
+						if returnType == ReturnType.SKIP_NEXT then
+							return returnedValue
+						elseif returnType == ReturnType.NEXT_ARGUMENT then
+							paramsWithoutMod[1] = returnedValue
+						end
+					end
+				end
+			end
 
-            if returnType == ReturnType.LAST_WINS then
-                return returnedValue
-            end
-        end
-    }
+			if returnType == ReturnType.LAST_WINS then
+				return returnedValue
+			end
+		end
+	}
 end
 
 
----@param callback ModCallbacks
----@param checkType? OptionalArgCheckType
----@param returnType? ReturnType
+--- @param callback ModCallbacks
+--- @param checkType? OptionalArgCheckType
+--- @param returnType? ReturnType
 local function RegisterVanillaCallback(callback, checkType, returnType)
-    if not returnType then returnType = ReturnType.NONE end
-    local shouldExecute = function ()
-        return true
-    end
+	if not returnType then returnType = ReturnType.NONE end
+	local shouldExecute = function ()
+		return true
+	end
 
-    if checkType == OptionalArgCheckType.ITSELF then
-        shouldExecute = function (params, optionalArg)
-            return params[1] == optionalArg
-        end
-    elseif checkType == OptionalArgCheckType.TYPE then
-        shouldExecute = function (params, optionalArg)
-            return params[1].Type == optionalArg
-        end
-    elseif checkType == OptionalArgCheckType.VARIANT then
-        shouldExecute = function (params, optionalArg)
-            return params[1].Variant == optionalArg
-        end
-    elseif checkType == OptionalArgCheckType.SUBTYPE then
-        shouldExecute = function (params, optionalArg)
-            return params[1].SubType == optionalArg
-        end
-    elseif checkType == OptionalArgCheckType.PLAYER_TYPE then
-        shouldExecute = function (params, optionalArg)
-            return params[1]:GetPlayerType() == optionalArg
-        end
-    elseif checkType == OptionalArgCheckType.SECOND_ARG then
-        shouldExecute = function (params, optionalArg)
-            return params[2] == optionalArg
-        end
-    end
+	if checkType == OptionalArgCheckType.ITSELF then
+		shouldExecute = function (params, optionalArg)
+			return params[1] == optionalArg
+		end
+	elseif checkType == OptionalArgCheckType.TYPE then
+		shouldExecute = function (params, optionalArg)
+			return params[1].Type == optionalArg
+		end
+	elseif checkType == OptionalArgCheckType.VARIANT then
+		shouldExecute = function (params, optionalArg)
+			return params[1].Variant == optionalArg
+		end
+	elseif checkType == OptionalArgCheckType.SUBTYPE then
+		shouldExecute = function (params, optionalArg)
+			return params[1].SubType == optionalArg
+		end
+	elseif checkType == OptionalArgCheckType.PLAYER_TYPE then
+		shouldExecute = function (params, optionalArg)
+			return params[1]:GetPlayerType() == optionalArg
+		end
+	elseif checkType == OptionalArgCheckType.SECOND_ARG then
+		shouldExecute = function (params, optionalArg)
+			return params[2] == optionalArg
+		end
+	end
 
-    table.insert(TSIL.__REGISTERED_VANILLA_CALLBACKS, NewRegisteredCallback(callback, shouldExecute, returnType))
+	table.insert(TSIL.__REGISTERED_VANILLA_CALLBACKS, NewRegisteredCallback(callback, shouldExecute, returnType))
 end
 
 

@@ -1,15 +1,16 @@
----Returns wether a given flag has all of the other given flags.
----@param flags integer
----@param ... integer
----@return boolean
+--- Returns wether a given flag has all of the other given flags.
+--- @param flags integer
+--- @param ... integer
+--- @return boolean
+--- @within TSIL.Utils.Flags
 function TSIL.Utils.Flags.HasFlags(flags, ...)
-    local flagsToCheck = {...}
+	local flagsToCheck = {...}
 
-    for _, flag in ipairs(flagsToCheck) do
-        if flags & flag ~= flag then
-            return false
-        end
-    end
+	for _, flag in ipairs(flagsToCheck) do
+		if flags & flag ~= flag then
+			return false
+		end
+	end
 
-    return true
+	return true
 end

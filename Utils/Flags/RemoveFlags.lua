@@ -1,13 +1,14 @@
----Removes the given flags from another one.
----@param flags integer
----@param ... integer
----@return integer
+--- Removes the given flags from another one.
+--- @param flags integer
+--- @param ... integer
+--- @return integer
+--- @within TSIL.Utils.Flags
 function TSIL.Utils.Flags.RemoveFlags(flags, ...)
-    local flagsToRemove = {...}
+	local flagsToRemove = {...}
 
-    for _, flag in ipairs(flagsToRemove) do
-        flags = flags & ~flag
-    end
+	for _, flag in ipairs(flagsToRemove) do
+		flags = flags & ~flag
+	end
 
-    return flags
+	return flags
 end

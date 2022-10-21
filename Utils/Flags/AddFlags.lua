@@ -1,13 +1,14 @@
----Adds the given flag to another one.
----@param flags integer
----@param ... integer
----@return integer
+--- Adds the given flag to another one.
+--- @param flags integer
+--- @param ... integer
+--- @return integer
+--- @within TSIL.Utils.Flags
 function TSIL.Utils.Flags.AddFlags(flags, ...)
-    local flagsToAdd = {...}
+	local flagsToAdd = {...}
 
-    for _, flag in ipairs(flagsToAdd) do
-        flags = flags | flag
-    end
+	for _, flag in ipairs(flagsToAdd) do
+		flags = flags | flag
+	end
 
-    return flags
+	return flags
 end
