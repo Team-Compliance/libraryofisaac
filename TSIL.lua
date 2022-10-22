@@ -31,23 +31,6 @@ function LOCAL_TSIL.Init(FolderName)
 		end
 	end
 
-	--CLASSES (FOR DOCS)
-	--- @class TSIL
-	--- @class TSIL_INTERNAL
-	--- @class TSIL.Collectibles
-	--- @class TSIL.Enums
-	--- @class TSIL.Entities
-	--- @class TSIL.GridEntities
-	--- @class TSIL.Players
-	--- @class TSIL.SaveManager
-	--- @class TSIL.Utils
-	--- @class TSIL.Utils.Easings
-	--- @class TSIL.Utils.Flags
-	--- @class TSIL.Utils.Functions
-	--- @class TSIL.Utils.Math
-	--- @class TSIL.Utils.Random
-	--- @class TSIL.Utils.Tables	
-
 	--METATABLE
 	local OldTSILVersion = TSIL.__VERSION or -1
 	local TSIL_META = {}
@@ -156,6 +139,7 @@ function LOCAL_TSIL.Init(FolderName)
 		"Collectibles.GetCollectibles",
 		"Collectibles.GetCollectiblesByQuality",
 		"Collectibles.TryRemoveCollectible",
+		"Collectibles.GetCollectibleMaxCharges",
 
 		--CUSTOM CALLBACKS
 		"CustomCallbacks.AddCustomCallback",
@@ -267,6 +251,12 @@ function LOCAL_TSIL.Init(FolderName)
 		"Utils.Tables.IsInTable",
 		"Utils.Tables.Equals",
 		"Utils.Tables.Remove",
+
+		--Charge
+		"Charge.AddCharge",
+		"Charge.GetChargesAwayFromMax",
+		"Charge.GetTotalCharge",
+		"Charge.IsActiveSlotDoubleCharged"
 	}
 
 	for _, script in ipairs(scripts) do
