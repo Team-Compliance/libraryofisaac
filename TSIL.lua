@@ -132,11 +132,24 @@ function LOCAL_TSIL.Init(FolderName)
 	local scripts = {
 		--ENUMS
 		"Enums.CallbackPriority",
+		"Enums.CrawlSpaceVariant",
 		"Enums.CustomCallback",
+		"Enums.GridEntityXMLType",
 		"Enums.InventoryType",
 		"Enums.KnifeVariant",
 		"Enums.LaserVariant",
+		"Enums.LockState",
+		"Enums.PitVariant",
+		"Enums.PoopGridEntityVariant",
+		"Enums.PoopState",
+		"Enums.PressurePlateVariant",
+		"Enums.RockState",
+		"Enums.RockVariant",
 		"Enums.SlotVariant",
+		"Enums.SpiderWebState",
+		"Enums.StatueVariant",
+		"Enums.TNTState",
+		"Enums.TrapdoorVariant",
 		"Enums.VariablePersistenceMode",
 
 		--COLLECTIBLES
@@ -167,6 +180,7 @@ function LOCAL_TSIL.Init(FolderName)
 
 		--ENTITIES
 		"Entities.IsCollidingWithGrid",
+		"Entities.GetSetEntityPositionsVelocities.lua",
 		--Get Entities
 		"Entities.GetEntities.GetBombs",
 		"Entities.GetEntities.GetEffects",
@@ -187,7 +201,10 @@ function LOCAL_TSIL.Init(FolderName)
 		"GridEntities.GetGridEntities",
 		"GridEntities.GetSurroundingGridEntities",
 		"GridEntities.GetTopLeftWall",
-		"GridEntities.IsGridIndexInRoom",
+		"GridEntities.IsGridEntityBroken",
+		"GridEntities.IsGridEntityBreakableByExplosion",
+		"GridEntities.RemoveGridEntity",
+		"GridEntities.SpawnGridEntity",
 
 		--PLAYERS
 		--Get Players
@@ -207,6 +224,11 @@ function LOCAL_TSIL.Init(FolderName)
 		--Trinkets
 		"Players.Trinkets.AddSmeltedTrinket",
 		"Players.Trinkets.SmeltedTrinketMultiplier",
+
+		--ROOMS
+		"Rooms.GetGridWidth",
+		"Rooms.IsGridIndexInRoom",
+		"Rooms.UpdateRoom",
 
 		--SAVE MANAGER
 		"SaveManager.AddPersistentVariable",

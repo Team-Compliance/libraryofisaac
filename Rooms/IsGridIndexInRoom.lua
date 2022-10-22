@@ -56,8 +56,8 @@ local GridInRoomShape = {
 --- @param gridIndex integer
 --- @param roomShape RoomShape
 --- @return boolean
---- @within TSIL.GridEntities
-function TSIL.GridEntities.IsGridIndexInRoomShape(gridIndex, roomShape)
+--- @within TSIL.Rooms
+function TSIL.Rooms.IsGridIndexInRoomShape(gridIndex, roomShape)
 	local IsInRoom = GridInRoomShape[roomShape]
 
 	return not IsInRoom or IsInRoom(gridIndex)
@@ -68,11 +68,11 @@ end
 --- Acounts for room shape.
 --- @param gridIndex integer
 --- @return boolean
---- @within TSIL.GridEntities
-function TSIL.GridEntities.IsGridIndexInRoom(gridIndex)
+--- @within TSIL.Rooms
+function TSIL.Rooms.IsGridIndexInRoom(gridIndex)
 	local room = Game():GetRoom()
 	local shape = room:GetRoomShape()
 
 	return gridIndex >= 0 and gridIndex <= room:GetGridSize() and
-	TSIL.GridEntities.IsGridIndexInRoomShape(gridIndex, shape)
+	TSIL.Rooms.IsGridIndexInRoomShape(gridIndex, shape)
 end

@@ -14,7 +14,7 @@ function TSIL.GridEntities.GetAllGridIndexes(onlyInRoom)
 	local gridIndexes = {}
 
 	for i = 0, gridSize, 1 do
-		if not onlyInRoom or TSIL.GridEntities.IsGridIndexInRoomShape(i, roomShape) then
+		if not onlyInRoom or TSIL.Rooms.IsGridIndexInRoomShape(i, roomShape) then
 			gridIndexes[#gridIndexes+1] = gridIndexes
 		end
 	end

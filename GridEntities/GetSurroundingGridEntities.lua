@@ -4,16 +4,8 @@
 --- @within TSIL.GridEntities
 function TSIL.GridEntities.GetSurroundingGridEntities(gridEntity)
 	local room = Game():GetRoom()
-	local shape = room:GetRoomShape()
 
-	local gridWidth = 15
-
-	if shape == RoomShape.ROOMSHAPE_2x1 or shape == RoomShape.ROOMSHAPE_IIV or
-	shape == RoomShape.ROOMSHAPE_2x2 or shape == RoomShape.ROOMSHAPE_LTL or
-	shape == RoomShape.ROOMSHAPE_LTR or shape == RoomShape.ROOMSHAPE_LBL or
-	shape == RoomShape.ROOMSHAPE_LBR then
-		gridWidth = 28
-	end
+	local gridWidth = TSIL.Rooms.GetGridWidth()
 
 	local gridIndex = gridEntity:GetGridIndex()
 
