@@ -125,6 +125,9 @@ local TSIL_SCRIPTS = {
 "Charge.AddCharge",
 "Charge.GetChargesAwayFromMax",
 "Charge.GetTotalCharge",
-"Charge.IsActiveSlotDoubleCharged"
+"Charge.IsActiveSlotDoubleCharged",
+"Benchmark.Benchmark",
+"Log.Log",
+"Log.GetParentFunctionDescription"
 }
 return TSIL_SCRIPTS
