@@ -122,5 +122,9 @@ local TSIL_SCRIPTS = {
 "Utils.Tables.ForEach",
 "Utils.Tables.IsInTable",
 "Utils.Tables.Remove",
+"Charge.AddCharge",
+"Charge.GetChargesAwayFromMax",
+"Charge.GetTotalCharge",
+"Charge.IsActiveSlotDoubleCharged"
 }
 return TSIL_SCRIPTS
