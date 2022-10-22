@@ -7,7 +7,7 @@ function TSIL.GridEntities.GetTopLeftWallGridIndex()
 	local roomShape = room:GetRoomShape()
 
 	for i = 0, gridSize, 1 do
-		if TSIL.GridEntities.IsGridIndexInRoomShape(i, roomShape) then
+		if TSIL.Rooms.IsGridIndexInRoomShape(i, roomShape) then
 			return i
 		end
 	end
