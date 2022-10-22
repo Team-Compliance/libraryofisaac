@@ -38,16 +38,26 @@ end
 function TSIL.IsGlitchedCollectible(collectible)
     if collectible.Type ~= EntityType.ENTITY_PICKUP or
     collectible.Variant ~= PickupVariant.PICKUP_COLLECTIBLE then
-        error("The IsBlindCollectible function was given a non collectible: " .. collectible.Type)
+        error("The IsGlitchedCollectible function was given a non collectible: " .. collectible.Type)
     end
 
     return collectible.SubType > 4000000000
 end
 
 
---- Returns true if the collectible is a modded item.
+--- Returns true if the collectible type corresponds a modded item.
 --- @param collectibleType CollectibleType
 --- @return boolean
 function TSIL.IsModdedColllectible(collectibleType)
     return collectibleType >= CollectibleType.NUM_COLLECTIBLES and collectibleType < 4000000000
+end
+
+
+--- Returns true if the collectible is either `ITEM_PASSIVE` or `ITEM_FAMILIAR`
+--- @param collectibleType CollectibleType
+--- @return boolean
+function TSIL.IsPassiveCollectible(collectibleType)
+    local itemConfigItem = Isaac.GetItemConfig():GetCollectible(collectibleType)
+
+    return itemConfigItem.Type == ItemType.ITEM_PASSIVE or itemConfigItem.Type == ItemType.ITEM_FAMILIAR
 end
