@@ -1,5 +1,6 @@
+---@enum BlueFlySubType
 -- For `EntityType.FAMILIAR` (3), `FamiliarVariant.BLUE_FLY` (43). 
-TSIL.Enums.SubTypes.BlueFlySubType = {
+TSIL.Enums.BlueFlySubType = {
   -- A standard fly, like what you get from using Guppy's Head. 
   BLUE_FLY = 0,
 
@@ -19,8 +20,9 @@ TSIL.Enums.SubTypes.BlueFlySubType = {
   CONQUEST = 5,
 }
 
+---@enum DipFamiliarSubType
 -- For `EntityType.FAMILIAR` (3), `FamiliarVariant.DIP` (201). 
-TSIL.Enums.SubTypes.DipFamiliarSubType = {
+TSIL.Enums.DipFamiliarSubType = {
   NORMAL = 0,
   RED = 1,
   CORNY = 2,
@@ -34,8 +36,9 @@ TSIL.Enums.SubTypes.DipFamiliarSubType = {
   BROWNIE = 20,
 }
 
+---@enum BloodClotSubType
 -- For `EntityType.FAMILIAR` (3), `FamiliarVariant.BLOOD_BABY` (238). 
-TSIL.Enums.SubTypes.BloodClotSubType = {
+TSIL.Enums.BloodClotSubType = {
   RED = 0,
   SOUL = 1,
   BLACK = 2,
@@ -48,8 +51,9 @@ TSIL.Enums.SubTypes.BloodClotSubType = {
   RED_NO_SUMPTORIUM = 7,
 }
 
+---@enum PickupNullSubType
 -- For `EntityType.PICKUP` (5), `PickupVariant.NULL` (0). 
-TSIL.Enums.SubTypes.PickupNullSubType = {
+TSIL.Enums.PickupNullSubType = {
   -- Has a chance to spawn any possible pickup, including collectibles. 
   ALL = 0,
 
@@ -59,32 +63,36 @@ TSIL.Enums.SubTypes.PickupNullSubType = {
   EXCLUDE_COLLECTIBLES_TRINKETS_CHESTS = 4,
 }
 
+---@enum ChargerSubType
 -- For `EntityType.CHARGER` (23), `ChargerVariant.CHARGER` (0). 
-TSIL.Enums.SubTypes.ChargerSubType = {
+TSIL.Enums.ChargerSubType = {
   CHARGER = 0,
   MY_SHADOW = 1,
 }
 
+---@enum ConstantStoneShooterSubType
 --[[
     For `EntityType.CONSTANT_STONE_SHOOTER` (202),
     `ConstantStoneShooterVariant.CONSTANT_STONE_SHOOTER` (0).
     This is the same as the `Direction` enum.
  ]]--
-TSIL.Enums.SubTypes.ConstantStoneShooterSubType = {
+TSIL.Enums.ConstantStoneShooterSubType = {
   LEFT = 0,
   UP = 1,
   RIGHT = 2,
   DOWN = 3,
 }
 
+---@enum MotherSubType
 -- For `EntityType.MOTHER` (912), `MotherVariant.MOTHER_1` (0). 
-TSIL.Enums.SubTypes.MotherSubType = {
+TSIL.Enums.MotherSubType = {
   PHASE_1 = 0,
   PHASE_2 = 1,
 }
 
+---@enum BloodExplosionSubType
 -- For `EntityType.EFFECT` (1000), `EffectVariant.BLOOD_EXPLOSION` (2). 
-TSIL.Enums.SubTypes.BloodExplosionSubType = {
+TSIL.Enums.BloodExplosionSubType = {
   MEDIUM_WITH_LEFTOVER_BLOOD = 0,
   SMALL = 1,
   MEDIUM = 2,
@@ -93,8 +101,9 @@ TSIL.Enums.SubTypes.BloodExplosionSubType = {
   SWIRL = 5,
 }
 
+---@enum PoofSubType
 -- For `EntityType.EFFECT` (1000), `EffectVariant.POOF_1` (15). 
-TSIL.Enums.SubTypes.PoofSubType = {
+TSIL.Enums.PoofSubType = {
   NORMAL = 0,
   SMALL = 1,
 
@@ -103,14 +112,16 @@ TSIL.Enums.SubTypes.PoofSubType = {
   LARGE = 3,
 }
 
+---@enum HeavenLightDoorSubType
 -- For `EntityType.EFFECT` (1000), `EffectVariant.HEAVEN_LIGHT_DOOR` (39). 
-TSIL.Enums.SubTypes.HeavenLightDoorSubType = {
+TSIL.Enums.HeavenLightDoorSubType = {
   HEAVEN_DOOR = 0,
   MOONLIGHT = 1,
 }
 
+---@enum DiceFloorSubType
 -- For `EntityType.EFFECT` (1000), `EffectVariant.DICE_FLOOR` (76). 
-TSIL.Enums.SubTypes.DiceFloorSubType = {
+TSIL.Enums.DiceFloorSubType = {
   -- Has the same effect as using a D4. 
   ONE_PIP = 0,
 
@@ -133,14 +144,16 @@ TSIL.Enums.SubTypes.DiceFloorSubType = {
   SIX_PIP = 5,
 }
 
+---@enum TallLadderSubType
 -- For `EntityType.EFFECT` (1000), `EffectVariant.TALL_LADDER` (156). 
-TSIL.Enums.SubTypes.TallLadderSubType = {
+TSIL.Enums.TallLadderSubType = {
   TALL_LADDER = 0,
   STAIRWAY = 1,
 }
 
+---@enum PurgatorySubType
 -- For `EntityType.EFFECT` (1000), `EffectVariant.PURGATORY` (189). 
-TSIL.Enums.SubTypes.PurgatorySubType = {
+TSIL.Enums.PurgatorySubType = {
   RIFT = 0,
   GHOST = 1,
 }
