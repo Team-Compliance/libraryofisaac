@@ -5,7 +5,6 @@
 --- @param rngOrSeed RNG | integer
 --- @param ... {chance : integer, value : any}
 --- @return any
---- @within TSIL.Utils.Random
 function TSIL.Utils.Random.GetRandomElementFromWeightedList(rngOrSeed, ...)
 	local rng
 
