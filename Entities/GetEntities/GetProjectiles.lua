@@ -2,7 +2,6 @@
 --- @param projectileVariant ProjectileVariant|integer? Optional. Default is -1, which matches all variants.
 --- @param subType integer? Optional. Default is -1, which matches all sub-types.
 --- @return EntityProjectile[]
---- @within TSIL.Entities
 function TSIL.Entities.GetProjectiles(projectileVariant, subType)
 	local entities = TSIL.Entities.GetEntities(EntityType.ENTITY_PROJECTILE, projectileVariant, subType)
 	local projectiles = {}

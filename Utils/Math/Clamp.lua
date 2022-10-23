@@ -3,7 +3,6 @@
 --- @param min number
 --- @param max number
 --- @return number
---- @within TSIL.Utils.Math
 function TSIL.Utils.Math.Clamp(a, min, max)
 	return math.max(min, math.min(a, max))
 end

@@ -2,7 +2,6 @@
 --- @param flags integer
 --- @param ... integer
 --- @return integer
---- @within TSIL.Utils.Flags
 function TSIL.Utils.Flags.AddFlags(flags, ...)
 	local flagsToAdd = {...}
 

@@ -1,10 +1,11 @@
 --- Returns a random value from a weighted list of possibilities.
---- Each value must be given as a pair of chance and value.
+--- Each choice must be given as a pair of chance and value.
 --- 
 --- `{chance = x, value = y}`
+--- @generic T any
 --- @param rngOrSeed RNG | integer
---- @param ... {chance : integer, value : any}
---- @return any
+--- @param ... {chance : integer, value : T}
+--- @return T
 function TSIL.Utils.Random.GetRandomElementFromWeightedList(rngOrSeed, ...)
 	local rng
 

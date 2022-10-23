@@ -52,7 +52,7 @@ local GridInRoomShape = {
 --- Helper function to check if a grid index is valid in a certain room shape.
 --- 
 --- Doesn't account for being out of bounds (less than 0 or greater than the grid size).
---- For that use `GridEntities.IsGridIndexInRoom`
+--- For that use `TSIL.GridEntities.IsGridIndexInRoom`
 --- @param gridIndex integer
 --- @param roomShape RoomShape
 --- @return boolean

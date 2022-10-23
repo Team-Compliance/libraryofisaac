@@ -41,7 +41,7 @@ end
 
 --- Returns a list of all vanilla items.
 --- @return ItemConfig_Item[]
-function TSIL.Collectibles.GetModdedCollectibles()
+function TSIL.Collectibles.GetVanillaCollectibles()
 	local collectibles = {}
 
 	local itemConfig = Isaac.GetItemConfig()

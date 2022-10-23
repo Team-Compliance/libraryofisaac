@@ -1,15 +1,18 @@
----Gets a random color/
----@param seedOrRNG number | RNG | nil Optional. The `Seed` or `RNG` object to use. If an `RNG` object is provided, the `RNG:Next` method will be called. Default is `TSIL.RNG.GetRandomSeed()`
+---Gets a random color.
+---@param seedOrRNG? integer | RNG Optional. The `Seed` or `RNG` object to use. If an `RNG` object is provided, the `RNG:Next` method will be called. Default is `TSIL.RNG.GetRandomSeed()`
 ---@param alpha number? Optional. The alpha value to use. Default is 1.
 ---@return Color
-function TSIL.Color.GetRandomolor(seedOrRNG, alpha)
+function TSIL.Color.GetRandomColor(seedOrRNG, alpha)
     seedOrRNG = seedOrRNG or TSIL.RNG.GetRandomSeed()
     
+    ---@type RNG
     local rng
 
     if TSIL.IsaacAPIClass.IsRNG(seedOrRNG) then
-       rng = seedOrRNG
+        ---@cast seedOrRNG RNG
+        rng = seedOrRNG
     else
+        ---@cast seedOrRNG integer?
         rng = TSIL.RNG.NewRNG(seedOrRNG)
     end
 

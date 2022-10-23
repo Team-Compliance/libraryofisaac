@@ -3,7 +3,6 @@
 --- @param table1 T[]
 --- @param table2 T[]
 --- @return boolean
---- @within TSIL.Utils.Tables
 function TSIL.Utils.Tables.Equals(table1, table2)
 	if #table1 ~= #table2 then
 		return false

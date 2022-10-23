@@ -1,8 +1,9 @@
 --- Returns wether the given form of tainted lazarus is the active one.
 --- If the given player is not tainted lazarus, it'll always return false.
+--- 
+--- Accounts for when the player has Birthright.
 --- @param player EntityPlayer
 --- @return boolean
---- @within TSIL.Players
 function TSIL.Players.IsActiveTaintedLazForm(player)
 	if player:GetPlayerType() ~= PlayerType.PLAYER_LAZARUS2 and player:GetPlayerType() ~= PlayerType.PLAYER_LAZARUS2_B then return false end
 

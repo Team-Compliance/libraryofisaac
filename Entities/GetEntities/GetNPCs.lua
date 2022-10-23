@@ -4,7 +4,6 @@
 --- @param subType integer? Optional. Default is -1, which matches all sub-types.
 --- @param ignoreFriendly boolean? Optional. If set to true, it will exclude friendly NPCs from being returned. Default is false. Will only be taken into account if the `entityType` is specified.
 --- @return EntityNPC[]
---- @within TSIL.Entities
 function TSIL.Entities.GetNPCs(entityType, variant, subType, ignoreFriendly)
 	local entities = TSIL.Entities.GetEntities(entityType, variant, subType, ignoreFriendly)
 

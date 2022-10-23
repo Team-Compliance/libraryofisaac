@@ -1,8 +1,9 @@
 --- Returns n randomly selected elements from a table.
+--- @generic T any
 --- @param rngOrSeed RNG | integer
---- @param toChoose table
+--- @param toChoose T[]
 --- @param numberOfElements? integer @default: 1
---- @return table
+--- @return T[]
 function TSIL.Utils.Random.GetRandomElementsFromTable(rngOrSeed, toChoose, numberOfElements)
 	local rng
 

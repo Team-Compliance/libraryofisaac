@@ -11,7 +11,6 @@
 --- @param originalTable T[]
 --- @vararg any
 --- @return T[]
---- @within TSIL.Utils.Tables
 function TSIL.Utils.Tables.Remove(originalTable, ...)
 	local copiedTable = TSIL.Utils.Tables.Copy(originalTable)
 	TSIL.Utils.Tables.RemoveInPlace(copiedTable, ...)
@@ -30,7 +29,6 @@ end
 --- @param originalTable T[]
 --- @vararg any
 --- @return T[]
---- @within TSIL.Utils.Tables
 function TSIL.Utils.Tables.RemoveAll(originalTable, ...)
 	local copiedTable = TSIL.Utils.Tables.Copy(originalTable)
 	TSIL.Utils.Tables.RemoveAllInPlace(copiedTable, ...)
@@ -49,7 +47,6 @@ end
 --- @param originalTable T[]
 --- @vararg any
 --- @return boolean # True if one or more elements were removed, false otherwise. 
---- @within TSIL.Utils.Tables
 function TSIL.Utils.Tables.RemoveAllInPlace(originalTable, ...)
 	local removedElement = false
 	for _, elementToRemove in pairs({...}) do
@@ -75,7 +72,6 @@ end
 --- @param originalTable any
 --- @vararg any
 --- @return boolean # True if one or more elements were removed, false otherwise. 
---- @within TSIL.Utils.Tables
 function TSIL.Utils.Tables.RemoveInPlace(originalTable, ...)
 	local removedElement = false
 

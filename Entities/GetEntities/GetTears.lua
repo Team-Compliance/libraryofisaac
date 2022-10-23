@@ -2,7 +2,6 @@
 --- @param tearVariant TearVariant|integer? Optional. Default is -1, which matches all variants.
 --- @param subType integer? Optional. Default is -1, which matches all sub-types.
 --- @return EntityTear[]
---- @within TSIL.Entities
 function TSIL.Entities.GetTears(tearVariant, subType)
 	local entities = TSIL.Entities.GetEntities(EntityType.ENTITY_TEAR, tearVariant, subType)
 	local tears = {}

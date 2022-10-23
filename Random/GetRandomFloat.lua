@@ -1,7 +1,7 @@
----This returns a random float between min and max
+---This returns a random float between min and max.
 ---@param min number The lower bound for the random number (inclusive).
 ---@param max number The upper bound for the random number (exclusive)
----@param seedOrRNG number | RNG | nil Optional. The `Seed` or `RNG` object to use. If an `RNG` object is provided, the `RNG.Next` method will be called. Default is `TSIL.RNG.GetRandomSeed()`.
+---@param seedOrRNG number | RNG? Optional. The `Seed` or `RNG` object to use. If an `RNG` object is provided, the `RNG.Next` method will be called. Default is `TSIL.RNG.GetRandomSeed()`.
 ---@return number
 function TSIL.Random.GetRandomFloat(min, max, seedOrRNG)
     if min > max then

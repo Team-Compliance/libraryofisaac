@@ -2,7 +2,6 @@
 --- @param flags integer
 --- @param ... integer
 --- @return boolean
---- @within TSIL.Utils.Flags
 function TSIL.Utils.Flags.HasFlags(flags, ...)
 	local flagsToCheck = {...}
 

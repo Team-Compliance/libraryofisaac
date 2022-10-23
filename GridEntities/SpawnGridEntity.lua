@@ -1,7 +1,9 @@
 --- Helper function to spawn a grid entity.
 ---
---- Use this instead of `Isaac.GridSpawn` as it handles walls and pits collision,
---- removing existing grid entities and allows you to use the grid index.
+--- Use this instead of `Isaac.GridSpawn` as it handles:
+--- - Walls and pits collision
+--- - Removing existing grid entities
+--- - Allows you to use the grid index
 --- @param gridEntityType GridEntityType
 --- @param gridEntityVariant integer
 --- @param gridIndexOrPosition Vector | integer
@@ -87,8 +89,8 @@ end
 --- Helper function to spawn a giant poop.
 --- 
 --- Will return true if the poop has succesfully spawned.
---- @param topLeftGridIndexOrPosition Vector | integer
---- @param force boolean @Default : true. Set this to true if you want to replace existing grid entities in the same tile.
+--- @param topLeftGridIndexOrPosition Vector | integer @Where the top left corner of the poop will be placed.
+--- @param force boolean @Default : true. Set this to true if you want to replace existing grid entities in the same tiles.
 --- @return boolean
 function TSIL.GridEntities.SpawnGigaPoop(topLeftGridIndexOrPosition, force)
     local room = Game():GetRoom()

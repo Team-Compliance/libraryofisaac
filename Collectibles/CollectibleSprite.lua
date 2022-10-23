@@ -34,7 +34,7 @@ function TSIL.Collectibles.SetCollectibleSprite(collectible, spriteSheet)
         sprite:ReplaceSpritesheet(1, "")
         sprite:ReplaceSpritesheet(3, "")
     else
-        sprite:ReplaceSpritesheet(1, "")
+        sprite:ReplaceSpritesheet(1, spriteSheet)
     end
     sprite:LoadGraphics()
 end

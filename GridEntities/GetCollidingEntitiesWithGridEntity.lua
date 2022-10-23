@@ -4,7 +4,6 @@
 --- entities don't have collision yet.
 --- @param gridEntity GridEntity
 --- @return Entity[]
---- @within TSIL.GridEntities
 function TSIL.GridEntities.GetCollidingEntitiesWithGridEntity(gridEntity)
 	local closeEntities = Isaac.FindInRadius(gridEntity.Position, 80)
 

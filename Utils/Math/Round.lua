@@ -4,7 +4,6 @@
 --- @param n number
 --- @param decimalPlaces integer? @default : 0
 --- @return number
---- @within TSIL.Utils.Math
 function TSIL.Utils.Math.Round(n, decimalPlaces)
 	decimalPlaces = decimalPlaces or 0
 	local mult = 10^(decimalPlaces or 0)

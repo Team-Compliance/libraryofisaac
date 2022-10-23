@@ -2,7 +2,6 @@
 --- @param flags integer
 --- @param ... integer
 --- @return integer
---- @within TSIL.Utils.Flags
 function TSIL.Utils.Flags.RemoveFlags(flags, ...)
 	local flagsToRemove = {...}
 

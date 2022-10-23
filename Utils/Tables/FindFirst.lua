@@ -1,7 +1,7 @@
 --- Returns the first value of a table that matches a given predicate.
 --- 
 --- If it doesn't find any, it returns nil.
---- @generic T :any
+--- @generic T : any
 --- @param toFind T[]
 --- @param predicate fun(key: integer | string, value: T): boolean
 --- @return T | nil

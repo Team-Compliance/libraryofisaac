@@ -1,7 +1,6 @@
 --- Empties an item pedestal. If it's a shop item, it removes it completely.
 --- @param collectible EntityPickup
 --- @return boolean
---- @within TSIL.Collectibles
 function TSIL.Collectibles.TryRemoveCollectible(collectible)
 	if collectible.Variant ~= PickupVariant.PICKUP_COLLECTIBLE or collectible.SubType == CollectibleType.COLLECTIBLE_NULL then return false end
 

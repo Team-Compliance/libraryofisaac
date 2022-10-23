@@ -2,7 +2,6 @@
 --- @param pickupVariant PickupVariant|integer? Optional. Default is -1, which matches all variants.
 --- @param subType integer? Optional. Default is -1, which matches all sub-types.
 --- @return EntityPickup[]
---- @within TSIL.Entities
 function TSIL.Entities.GetPickups(pickupVariant, subType)
 	local entities = TSIL.Entities.GetEntities(EntityType.ENTITY_PICKUP, pickupVariant, subType)
 	local pickups = {}

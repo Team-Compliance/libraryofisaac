@@ -1,6 +1,5 @@
 --- Helper function to get the grid index of the top left wall.
 --- @return integer
---- @within TSIL.GridEntities
 function TSIL.GridEntities.GetTopLeftWallGridIndex()
 	local room = Game():GetRoom()
 	local gridSize = room:GetGridSize()
@@ -18,7 +17,6 @@ end
 
 --- Helper function to get the top left wall grid entity.
 --- @return GridEntity
---- @within TSIL.GridEntities
 function TSIL.GridEntities.GetTopLeftWall()
 	local room = Game():GetRoom()
 

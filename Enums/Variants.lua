@@ -1,5 +1,5 @@
 ---@enum SlotVariant
---- For `EntityType.FAMILIAR` (3).
+--- For `EntityType.SLOT` (6).
 TSIL.Enums.SlotVariant = {
 	SLOT_MACHINE = 1,
 	BLOOD_DONATION_MACHINE = 2,

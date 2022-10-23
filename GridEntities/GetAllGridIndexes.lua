@@ -1,9 +1,8 @@
 --- Helper function to get every legal grid index for the current room.
 --- If `onlyInRoom` is set to true it will only return those that are actually in the room,
 --- accounting for L and small rooms.
---- @param onlyInRoom boolean? @default : true
+--- @param onlyInRoom boolean? @ Default : true
 --- @return integer[]
---- @within TSIL.GridEntities
 function TSIL.GridEntities.GetAllGridIndexes(onlyInRoom)
 	if onlyInRoom == nil then onlyInRoom = true end
 

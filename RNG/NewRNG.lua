@@ -1,5 +1,5 @@
 ---Helper function to initialize an RNG object using Blade's recommended shift index.
----@param seed number? The seed to initialize it with. Default is `TSIL.RNG.GetRandomSeed`
+---@param seed integer? The seed to initialize it with. Default is `TSIL.RNG.GetRandomSeed`
 ---@return RNG
 function TSIL.RNG.NewRNG(seed)
     seed = seed or TSIL.RNG.GetRandomSeed()

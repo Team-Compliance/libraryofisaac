@@ -3,7 +3,6 @@
 --- It copies the tables inside it recursively.
 --- @param toCopy table
 --- @return table
---- @within TSIL.Utils.Tables
 function TSIL.Utils.Tables.Copy(toCopy)
 	local copy = {}
 	for index, value in pairs(toCopy) do

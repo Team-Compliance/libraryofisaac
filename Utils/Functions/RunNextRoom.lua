@@ -15,7 +15,7 @@ TSIL.__AddInternalVanillaCallback(
 )
 
 
---- Runs a given function on the next room
+--- Runs a given function on the next `POST_NEW_ROOM` callback.
 --- @param funct function
 --- @param ... any
 --- @within TSIL.Utils.Functions

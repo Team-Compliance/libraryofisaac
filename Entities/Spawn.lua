@@ -1,12 +1,12 @@
 ---Helper function to spawn an entity. Use this instead of the `Isaac.Spawn` method if you do not
 ---need to specify the velocity or spawner.
----@param entityType number
----@param variant number 
----@param subType number
+---@param entityType EntityType
+---@param variant integer 
+---@param subType integer
 ---@param position Vector
 ---@param velocity Vector?
 ---@param spawner Entity?
----@param seedOrRNG number | RNG | nil
+---@param seedOrRNG integer | RNG?
 function TSIL.Entities.Spawn(entityType, variant, subType, position, velocity, spawner, seedOrRNG)
     velocity = velocity or Vector.Zero
 
@@ -14,11 +14,13 @@ function TSIL.Entities.Spawn(entityType, variant, subType, position, velocity, s
         return Isaac.Spawn(entityType, variant, subType, position, velocity, spawner)
     end
 
+    ---@type integer
     local seed
 
     if TSIL.IsaacAPIClass.IsRNG(seedOrRNG) then
         seed = seedOrRNG:Next()
     else
+        ---@cast seedOrRNG integer
         seed = seedOrRNG
     end
 

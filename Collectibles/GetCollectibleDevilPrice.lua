@@ -21,7 +21,7 @@ end
 
 --- Helper function to get the heart cost a collectible would have if it were being offered as a
 --- Devil Room Deal.
---- @param collectibleType CollectibleType
+--- @param collectibleType CollectibleType # If this is set to `COLLECTIBLE_NULL` then it'll return `PRICE_FREE`
 --- @param player EntityPlayer
 --- @return PickupPrice
 function TSIL.Collectibles.GetCollectibleDevilHeartPrice(collectibleType, player)

@@ -2,7 +2,6 @@
 --- @generic T:any
 --- @param toIterate T[] 
 --- @param funct fun(index: string|integer, value:T)
---- @within TSIL.Utils.Tables
 function TSIL.Utils.Tables.ForEach(toIterate, funct)
 	for index, value in pairs(toIterate) do
 		funct(index, value)

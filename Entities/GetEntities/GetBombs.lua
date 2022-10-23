@@ -2,7 +2,6 @@
 --- @param bombVariant BombVariant|integer? Optional. Default is -1, which matches all variants.
 --- @param subType integer? Optional. Default is -1, which matches all sub-types.
 --- @return EntityBomb[]
---- @within TSIL.Entities
 function TSIL.Entities.GetBombs(bombVariant, subType)
 	local entities = TSIL.Entities.GetEntities(EntityType.ENTITY_BOMB, bombVariant, subType)
 

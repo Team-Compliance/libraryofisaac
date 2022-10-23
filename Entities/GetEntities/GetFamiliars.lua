@@ -2,7 +2,6 @@
 --- @param familiarVariant integer? Optional. Default is -1, which matches all variants.
 --- @param subType integer? Optional. Default is -1, which matches all sub-types.
 --- @return EntityFamiliar[]
---- @within TSIL.Entities
 function TSIL.Entities.GetFamiliars(familiarVariant, subType)
 	local entities = TSIL.Entities.GetEntities(EntityType.ENTITY_FAMILIAR, familiarVariant, subType)
 	local familiars = {}

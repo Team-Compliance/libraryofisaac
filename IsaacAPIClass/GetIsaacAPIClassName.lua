@@ -3,7 +3,7 @@
 ---
 ---For example, a `Vector` class is has a name of "Vector".
 ---
----Returns undefined if the object is not of type `userdata` or if the "__type" metatable key does
+---Returns nil if the object is not of type `userdata` or if the "__type" metatable key does
 ---not exist.
 ---
 ---In some cases, Isaac classes can be a read-only. If this is the case, the "__type" field will be
@@ -13,16 +13,16 @@
 ---@return string?
 function TSIL.IsaacAPIClass.GetIsaacAPIClassName(object)
     if !type(object) == "userdata" then
-        return 
+        return
     end
 
     local metatable = getmetatable(object)
 
     if metatable == nil then
-        return 
+        return
     end
 
-    local classType = metatable.__index
+    local classType = metatable.__type
 
     if type(classType) ~= "string" then
         return

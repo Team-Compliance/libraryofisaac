@@ -47,7 +47,7 @@ end
 ---@param position Vector 
 ---@param velocity Vector?
 ---@param spawner Entity?
----@param seedOrRNG number | RNG | nil
+---@param seedOrRNG? number | RNG
 ---@param numSegments number?
 ---@return EntityNPC
 function TSIL.Bosses.SpawnBoss(entityType, variant, subType, position, velocity, spawner, seedOrRNG, numSegments)
@@ -64,9 +64,13 @@ function TSIL.Bosses.SpawnBoss(entityType, variant, subType, position, velocity,
     local boss = TSIL.EntitySpecific.SpawnNPC(entityType, variant, subType, position, velocity, spawner, seed)
 
     if BOSSES_THAT_REQUIRE_MULTIPLE_SPAWNS[boss.Type] then
-        local bossNumSegments = getNumBossSegments(entityType, variant, subType)
-        local remainingSegments = bossNumSegments - 1
-        for i = 1, remainingSegments do
+        if not numSegments then
+            numSegments = getNumBossSegments(entityType, variant, subType)
+        end
+
+        local remainingSegments = numSegments - 1
+
+        for _ = 1, remainingSegments do
             TSIL.EntitySpecific.SpawnNPC(entityType, variant, subType, position, velocity, spawner, seed)
         end
     end

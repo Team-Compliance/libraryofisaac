@@ -14,10 +14,9 @@ TSIL.__AddInternalVanillaCallback(
 	TSIL.Enums.CallbackPriority.MEDIUM
 )
 
---- Runs a given function on the next level
+--- Runs a given function on the next `POST_NEW_LEVEL` callback.
 --- @param funct function
 --- @param ... any
---- @within TSIL.Utils.Functions
 function TSIL.Utils.Functions.RunNextLevel(funct, ...)
 	local args = {...}
 

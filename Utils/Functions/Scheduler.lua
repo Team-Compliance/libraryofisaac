@@ -20,6 +20,7 @@ TSIL.__AddInternalVanillaCallback(
 	TSIL.Enums.CallbackPriority.MEDIUM
 )
 
+
 --- Runs a function in a given number of frames.
 --- @param funct function
 --- @param frames integer

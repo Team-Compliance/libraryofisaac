@@ -1,8 +1,6 @@
---- Gives the player an smelted trinket.
---- Will not change the player's current held trinkets.
+--- Gives the player an smelted trinket without changing the player's current held trinkets.
 --- @param player EntityPlayer
 --- @param trinketId TrinketType
---- @within TSIL.Players
 function TSIL.Players.AddSmeltedTrinket(player, trinketId)
 	local heldTrinket = player:GetTrinket(0)
 	local heldTrinket2 = player:GetTrinket(1)

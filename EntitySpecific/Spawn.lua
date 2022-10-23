@@ -2,13 +2,13 @@
 ---
 ---Note that if you pass a non-NPC `EntityType` to this function, it will cause a run-time error,
 ---since the `Entity.ToNPC` method will return undefined.
----@param entityType number
----@param variant number
----@param subType number
+---@param entityType EntityType
+---@param variant integer
+---@param subType integer
 ---@param position Vector
 ---@param velocity Vector?
----@param spawner Entity
----@param seedOrRNG number | RNG | nil
+---@param spawner? Entity
+---@param seedOrRNG? integer | RNG
 ---@return EntityNPC
 function TSIL.EntitySpecific.SpawnNPC(entityType, variant, subType, position, velocity, spawner, seedOrRNG)
     velocity = velocity or Vector.Zero
@@ -23,12 +23,12 @@ function TSIL.EntitySpecific.SpawnNPC(entityType, variant, subType, position, ve
 end
 
 ---Helper function to spawn a bomb.
----@param bombVariant number
----@param subType number
+---@param bombVariant BombVariant
+---@param subType integer
 ---@param position Vector
 ---@param velocity Vector?
 ---@param spawner Entity
----@param seedOrRNG number | RNG | nil
+---@param seedOrRNG integer | RNG?
 ---@return EntityBomb
 function TSIL.EntitySpecific.SpawnBomb(bombVariant, subType, position, velocity, spawner, seedOrRNG)
     velocity = velocity or Vector.Zero
@@ -43,12 +43,12 @@ function TSIL.EntitySpecific.SpawnBomb(bombVariant, subType, position, velocity,
 end
 
 ---Helper function to spawn an effect.
----@param effectVariant number
----@param subType number
+---@param effectVariant EffectVariant
+---@param subType integer
 ---@param position Vector
 ---@param velocity Vector?
 ---@param spawner Entity
----@param seedOrRNG number | RNG | nil
+---@param seedOrRNG integer | RNG?
 ---@return EntityEffect
 function TSIL.EntitySpecific.SpawnEffect(effectVariant, subType, position, velocity, spawner, seedOrRNG)
     velocity = velocity or Vector.Zero
@@ -63,12 +63,12 @@ function TSIL.EntitySpecific.SpawnEffect(effectVariant, subType, position, veloc
 end
 
 ---Helper function to spawn a familiar.
----@param familiarVariant number
----@param subType number
+---@param familiarVariant FamiliarVariant
+---@param subType integer
 ---@param position Vector
 ---@param velocity Vector?
 ---@param spawner Entity
----@param seedOrRNG number | RNG | nil
+---@param seedOrRNG integer | RNG?
 ---@return EntityFamiliar
 function TSIL.EntitySpecific.SpawnFamiliar(familiarVariant, subType, position, velocity, spawner, seedOrRNG)
     velocity = velocity or Vector.Zero
@@ -83,12 +83,12 @@ function TSIL.EntitySpecific.SpawnFamiliar(familiarVariant, subType, position, v
 end
 
 ---Helper function to spawn a knife.
----@param knifeVariant number
----@param subType number
+---@param knifeVariant KnifeVariant
+---@param subType integer
 ---@param position Vector
 ---@param velocity Vector?
 ---@param spawner Entity
----@param seedOrRNG number | RNG | nil
+---@param seedOrRNG integer | RNG?
 ---@return EntityKnife
 function TSIL.EntitySpecific.SpawnKnife(knifeVariant, subType, position, velocity, spawner, seedOrRNG)
     velocity = velocity or Vector.Zero
@@ -103,12 +103,12 @@ function TSIL.EntitySpecific.SpawnKnife(knifeVariant, subType, position, velocit
 end
 
 ---Helper function to spawn a laser.
----@param laserVariant number
----@param subType number
+---@param laserVariant LaserVariant
+---@param subType integer
 ---@param position Vector
 ---@param velocity Vector?
 ---@param spawner Entity
----@param seedOrRNG number | RNG | nil
+---@param seedOrRNG integer | RNG?
 ---@return EntityLaser
 function TSIL.EntitySpecific.SpawnLaser(laserVariant, subType, position, velocity, spawner, seedOrRNG)
     velocity = velocity or Vector.Zero
@@ -123,12 +123,12 @@ function TSIL.EntitySpecific.SpawnLaser(laserVariant, subType, position, velocit
 end
 
 ---Helper function to spawn a pickup.
----@param pickupVariant number
----@param subType number
+---@param pickupVariant PickupVariant
+---@param subType integer
 ---@param position Vector
 ---@param velocity Vector?
 ---@param spawner Entity
----@param seedOrRNG number | RNG | nil
+---@param seedOrRNG integer | RNG?
 ---@return EntityPickup
 function TSIL.EntitySpecific.SpawnPickup(pickupVariant, subType, position, velocity, spawner, seedOrRNG)
     velocity = velocity or Vector.Zero
@@ -143,12 +143,12 @@ function TSIL.EntitySpecific.SpawnPickup(pickupVariant, subType, position, veloc
 end
 
 ---Helper function to spawn a projectile.
----@param projectileVariant number
----@param subType number
+---@param projectileVariant ProjectileVariant
+---@param subType integer
 ---@param position Vector
 ---@param velocity Vector?
 ---@param spawner Entity
----@param seedOrRNG number | RNG | nil
+---@param seedOrRNG integer | RNG?
 ---@return EntityProjectile
 function TSIL.EntitySpecific.SpawnProjectile(projectileVariant, subType, position, velocity, spawner, seedOrRNG)
     velocity = velocity or Vector.Zero
@@ -163,12 +163,12 @@ function TSIL.EntitySpecific.SpawnProjectile(projectileVariant, subType, positio
 end
 
 ---Helper function to spawn a slot.
----@param slotVariant number
----@param subType number
+---@param slotVariant SlotVariant
+---@param subType integer
 ---@param position Vector
 ---@param velocity Vector?
 ---@param spawner Entity
----@param seedOrRNG number | RNG | nil
+---@param seedOrRNG integer | RNG?
 ---@return Entity
 function TSIL.EntitySpecific.SpawnSlot(slotVariant, subType, position, velocity, spawner, seedOrRNG)
     velocity = velocity or Vector.Zero
@@ -177,12 +177,12 @@ function TSIL.EntitySpecific.SpawnSlot(slotVariant, subType, position, velocity,
 end
 
 ---Helper function to spawn a tear.
----@param tearVariant number
----@param subType number
+---@param tearVariant TearVariant
+---@param subType integer
 ---@param position Vector
 ---@param velocity Vector?
 ---@param spawner Entity
----@param seedOrRNG number | RNG | nil
+---@param seedOrRNG integer | RNG
 ---@return EntityTear
 function TSIL.EntitySpecific.SpawnProjectile(tearVariant, subType, position, velocity, spawner, seedOrRNG)
     velocity = velocity or Vector.Zero

@@ -7,7 +7,7 @@ local SIN_LIST = {
     [EntityType.ENTITY_ENVY] = true,
     [EntityType.ENTITY_PRIDE] = true
 }
----Helper function to check if the provided NPC is a Sin miniboss, such as Sloth or lust.
+---Helper function to check if the provided NPC is a Sin miniboss, such as Sloth or Lust.
 ---@param npc EntityNPC
 ---@return boolean
 function TSIL.Bosses.IsSin(npc)

@@ -1,9 +1,8 @@
 --- Returns a list with all grid entities in the room.
 --- IsBlackList indicates whether the given grid entities should be the only ones added or the only ones not added.
---- @param isBlackList? boolean @default: true
+--- @param isBlackList? boolean @Default: true
 --- @param ... GridEntityType
 --- @return GridEntity[]
---- @within TSIL.GridEntities
 function TSIL.GridEntities.GetGridEntities(isBlackList, ...)
 	if isBlackList == nil then
 		isBlackList = true
