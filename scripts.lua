@@ -133,5 +133,6 @@ local TSIL_SCRIPTS = {
 "Utils.Tables.ForEach",
 "Utils.Tables.IsInTable",
 "Utils.Tables.Remove",
+"Bombs.GetBombRadiusFromDamage"
 }
 return TSIL_SCRIPTS
