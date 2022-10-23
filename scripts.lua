@@ -134,6 +134,13 @@ local TSIL_SCRIPTS = {
 "Utils.Tables.ForEach",
 "Utils.Tables.IsInTable",
 "Utils.Tables.Remove",
-"Bombs.GetBombRadiusFromDamage"
+"Bombs.GetBombRadiusFromDamage",
+"Bosses.GetBosses",
+"Bosses.IsSin",
+"Bosses.SpawnBoss",
+"Entities.Spawn",
+"EntitySpecific.Spawn",
+"IsaacAPIClass.Comparisions",
+"IsaacAPIClass.GetIsaacAPIClassName",
 }
 return TSIL_SCRIPTS
