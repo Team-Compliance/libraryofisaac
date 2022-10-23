@@ -17,6 +17,7 @@ local TSIL_SCRIPTS = {
 "Enums.TNTState",
 "Enums.TrapdoorVariant",
 "Enums.Variants",
+"Enums.SubTypes",
 "Enums.VariablePersistenceMode",
 "CustomCallbacks.AddCustomCallback",
 "CustomCallbacks.AddVanillaCallback",
