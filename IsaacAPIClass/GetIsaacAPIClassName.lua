@@ -12,7 +12,7 @@
 ---@param object unknown
 ---@return string?
 function TSIL.IsaacAPIClass.GetIsaacAPIClassName(object)
-    if !type(object) == "userdata" then
+    if type(object) ~= "userdata" then
         return
     end
 
