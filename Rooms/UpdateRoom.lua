@@ -8,6 +8,6 @@ function TSIL.Rooms.UpdateRoom()
 
     room:Update()
 
-    TSIL.Entities.SetEntityPositions(entities, positions)
-    TSIL.Entities.SetEntityVelocities(entities, velocities)
+    TSIL.Entities.SetEntityPositions(positions, entities)
+    TSIL.Entities.SetEntityVelocities(velocities, entities)
 end
