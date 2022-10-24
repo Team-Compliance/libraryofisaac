@@ -78,3 +78,32 @@ function TSIL.Collectibles.GetModdedCollectibles()
 
 	return collectibles
 end
+
+
+--- Returns a list of all items that have all the given tags.
+--- 
+--- Use only inside a callback or not all modded items may be loaded.
+---@param ... ItemConfigTag
+---@return ItemConfig_Item[]
+function TSIL.Collectibles.GetCollectiblesWithTag(...)
+	local tags = {...}
+	local totalTags = 0
+	for _, tag in ipairs(tags) do
+		totalTags = totalTags | tag
+	end
+
+	local collectibles = {}
+
+	local itemConfig = Isaac.GetItemConfig()
+	local itemList = itemConfig:GetCollectibles()
+
+	--itemList.Size actually returns the last item id, not the actual size
+	for id = 1, itemList.Size - 1, 1 do
+		local item = itemConfig:GetCollectible(id)
+		if item and item:HasTags(totalTags) then
+			table.insert(collectibles, item)
+		end
+	end
+
+	return collectibles
+end
