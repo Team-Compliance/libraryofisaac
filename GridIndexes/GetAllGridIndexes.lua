@@ -3,7 +3,7 @@
 --- accounting for L and small rooms.
 --- @param onlyInRoom boolean? @ Default : true
 --- @return integer[]
-function TSIL.GridEntities.GetAllGridIndexes(onlyInRoom)
+function TSIL.GridIndexes.GetAllGridIndexes(onlyInRoom)
 	if onlyInRoom == nil then onlyInRoom = true end
 
 	local room = Game():GetRoom()
