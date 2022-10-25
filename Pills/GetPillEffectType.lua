@@ -57,7 +57,7 @@ local PILL_EFFECT_TYPES = {
 --- Due to API limitations, it'll returns `PillEffectType.MODDED` for modded pills.
 ---@param pillEffect PillEffect
 ---@return PillEffectType
-function TSIL.GetPillEffectType(pillEffect)
+function TSIL.Pills.GetPillEffectType(pillEffect)
     local pillEffectType = PILL_EFFECT_TYPES[pillEffect]
 
     if pillEffectType then

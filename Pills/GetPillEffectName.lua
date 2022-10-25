@@ -56,7 +56,7 @@ local PILL_EFFECT_NAMES = {
 --- For modded pill effects it returns the name set in the xml.
 ---@param pillEffect PillEffect
 ---@return string
-function TSIL.GetPillEffectName(pillEffect)
+function TSIL.Pills.GetPillEffectName(pillEffect)
     local pillEffectName = PILL_EFFECT_NAMES[pillEffect]
 
     if pillEffectName then
