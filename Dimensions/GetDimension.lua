@@ -1,6 +1,6 @@
 --- Helper function to get the current dimension.
 ---@return Dimension @ If something fails, `Dimension.CURRENT` will be returned
-function TSIL.Dimension.GetDimension()
+function TSIL.Dimensions.GetDimension()
     local level = Game():GetLevel()
     local roomIndex = level:GetCurrentRoomIndex()
 

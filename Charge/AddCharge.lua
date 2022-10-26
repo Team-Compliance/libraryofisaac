@@ -78,9 +78,9 @@ end
 --- - AAA Battery
 ---@param player EntityPlayer The player to grant the charges to.
 ---@param activeSlot ActiveSlot? Optional. The slot to grant the charges to. Default is `ActiveSlot.SLOT_PRIMARY`.
----@param numCharges number? Optional. The amount of charges to grant. Default is 1.
+---@param numCharges integer? Optional. The amount of charges to grant. Default is 1.
 ---@param playSoundEffect boolean? Optional. Whether to play a charge-related sound effect. Default is true.
----@return number # The amount of charges that were actually granted. For example, if the active item was only one away from a full charge, but the `numCharges` provided to the function was 2, then this function would return 1.
+---@return integer # The amount of charges that were actually granted. For example, if the active item was only one away from a full charge, but the `numCharges` provided to the function was 2, then this function would return 1.
 function TSIL.Charge.AddCharge(player, activeSlot, numCharges, playSoundEffect)
     activeSlot = activeSlot or ActiveSlot.SLOT_PRIMARY
     numCharges = numCharges or 1

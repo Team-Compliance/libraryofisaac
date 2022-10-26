@@ -1,4 +1,4 @@
---- Returns a list with all item ids currently loaded.
+--- Returns a list with all items currently loaded.
 ---
 --- Use only inside a callback or not all modded items may be loaded.
 --- @return ItemConfig_Item[]

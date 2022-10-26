@@ -14,7 +14,7 @@ function TSIL.Doors.IsDevilRoomDoor(door)
 end
 
 
---- Helper function to see if a door is the blue womb entrace door that
+--- Helper function to see if a door is the blue womb entrance door that
 --- appears after defeating Mom's Heart/It Lives.
 ---@param door GridEntityDoor
 ---@return boolean
@@ -81,7 +81,7 @@ end
 --- Helper function to see if a door leads to the secret exit to Mines.
 ---@param door GridEntityDoor
 ---@return boolean
-function TSIL.Doors.IsDoorToDownpour(door)
+function TSIL.Doors.IsDoorToMines(door)
     if not TSIL.Doors.IsSecretExitDoor(door) then
         return false
     end

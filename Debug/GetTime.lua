@@ -1,7 +1,7 @@
 ---Helper function to get the current time for benchmarking / profiling purposes.
 ---
 ---The return value will either be in seconds or milliseconds, depending on if the "--luadebug" flag
----si turned on or not.
+---is turned on or not.
 ---
 ---If the "--luadebug" flag is present, then this function will use the `socket.gettime` method,
 ---which returns the epoch timestamp in seconds (e.g. "1640320492.5779"). This is preferable over

@@ -26,17 +26,17 @@ function TSIL.Doors.GetAngelOrDevilRoomDoor()
 end
 
 
---- Helper function to get the door that leads to the blue womb entrance in the current room
+--- Helper function to get the door that leads to the blue womb entrance in the current room.
 ---@return GridEntityDoor?
 function TSIL.Doors.GetBlueWombDoor()
-    local blueWombDoors = TSIL.Doors.GetDoorsToGridIndex(GridRooms.ROOM_BLUE_WOOM_IDX)
+    local blueWombDoors = TSIL.Doors.GetDoorsToRoomIndex(GridRooms.ROOM_BLUE_WOOM_IDX)
     return blueWombDoors[1]
 end
 
 
---- Helper function to get the door that leads to a repentance secret exit in the current room
+--- Helper function to get the door that leads to a repentance secret exit in the current room.
 ---@return GridEntityDoor?
 function TSIL.Doors.GetSecretExitDoor()
-    local blueWombDoors = TSIL.Doors.GetDoorsToGridIndex(GridRooms.ROOM_SECRET_EXIT_IDX)
+    local blueWombDoors = TSIL.Doors.GetDoorsToRoomIndex(GridRooms.ROOM_SECRET_EXIT_IDX)
     return blueWombDoors[1]
 end

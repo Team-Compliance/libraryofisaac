@@ -1,4 +1,4 @@
---- Helper function to convert a given amount of angle degrees into the corresponding `Direction` enum
+--- Helper function to convert a given amount of angle degrees into the corresponding `Direction` enum.
 ---@param angleDegrees number
 ---@return Direction
 function TSIL.Direction.AngleToDirection(angleDegrees)

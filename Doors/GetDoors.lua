@@ -26,7 +26,7 @@ end
 --- a given room index.
 ---@param ... integer
 ---@return GridEntityDoor[]
-function TSIL.Doors.GetDoorsToGridIndex(...)
+function TSIL.Doors.GetDoorsToRoomIndex(...)
     local possibleRoomIndexes = {...}
     local room = Game():GetRoom()
     local doors = {}

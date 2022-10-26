@@ -8,7 +8,7 @@ function TSIL.Doors.CloseDoorFast(door)
 end
 
 
---- Helper funciton to close all doors in the current room
+--- Helper funciton to close all doors in the current room.
 ---@param playAnim boolean @ If set to false, the doors won't play the close animation.
 function TSIL.Doors.CloseAllDoors(playAnim)
     local doors = TSIL.Doors.GetDoors()

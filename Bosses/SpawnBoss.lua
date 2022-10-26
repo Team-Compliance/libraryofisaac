@@ -41,14 +41,14 @@ end
 ---By default, this will spawn Chub (and his variants) with 3 segments, Lokii with 2 copies,
 ---Gurglings/Turdlings with 2 copies, and other multi-segment bosses with 4 segments. You can
 ---customize this via the "numSegments" argument.
----@param entityType number
----@param variant number 
----@param subType number
+---@param entityType EntityType
+---@param variant integer
+---@param subType integer
 ---@param position Vector 
 ---@param velocity Vector?
 ---@param spawner Entity?
----@param seedOrRNG? number | RNG
----@param numSegments number?
+---@param seedOrRNG? integer | RNG
+---@param numSegments integer?
 ---@return EntityNPC
 function TSIL.Bosses.SpawnBoss(entityType, variant, subType, position, velocity, spawner, seedOrRNG, numSegments)
     velocity = velocity or Vector.Zero

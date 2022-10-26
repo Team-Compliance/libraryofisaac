@@ -3,6 +3,7 @@
 --- charge.
 ---@param player EntityPlayer The player to get the charges from.
 ---@param activeSlot ActiveSlot? Optional. The slot to get the charges from. Default is `ActiveSlot.SLOT_PRIMARY`
+---@return integer
 function TSIL.Charge.GetTotalCharge(player, activeSlot)
     activeSlot = activeSlot or ActiveSlot.SLOT_PRIMARY
     

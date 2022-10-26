@@ -111,7 +111,7 @@ end
 --- Helper function to get the grid coordinates for a specific room shape and door slot combination.
 ---@param roomShape RoomShape
 ---@param doorSlot DoorSlot
----@return {x:integer, y:integer}
+---@return {x:integer, y:integer}?
 function TSIL.Doors.GetRoomShapeDoorSlotCoordinates(roomShape, doorSlot)
     local coordinatesPerDoorSlot = ROOM_SHAPE_TO_DOOR_SLOT_COORDINATES[roomShape]
     return coordinatesPerDoorSlot[doorSlot]

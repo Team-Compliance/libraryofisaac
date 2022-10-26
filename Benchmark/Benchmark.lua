@@ -5,7 +5,7 @@
 --- This function uses the `Isaac.GetTime` method to record how long the function took to execute.
 --- This method only reports time in milliseconds. For this reason, if you are benchmarking smaller
 --- functions, then you should provide a very high value for the number of trials.
----@param numTrials number
+---@param numTrials integer
 ---@vararg function
 ---@return number[] # A table containing the average time in milliseconds for each function (this will be printed in the log)
 function TSIL.Benchmark.Benchmark(numTrials, ...)

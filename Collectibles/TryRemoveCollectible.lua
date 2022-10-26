@@ -2,7 +2,10 @@
 --- @param collectible EntityPickup
 --- @return boolean
 function TSIL.Collectibles.TryRemoveCollectible(collectible)
-	if collectible.Variant ~= PickupVariant.PICKUP_COLLECTIBLE or collectible.SubType == CollectibleType.COLLECTIBLE_NULL then return false end
+	if collectible.Variant ~= PickupVariant.PICKUP_COLLECTIBLE or
+	collectible.SubType == CollectibleType.COLLECTIBLE_NULL then
+		return false
+	end
 
 	local sprite = collectible:GetSprite()
 	collectible.SubType = CollectibleType.COLLECTIBLE_NULL
