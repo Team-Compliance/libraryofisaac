@@ -7,6 +7,7 @@
 ---@param velocity Vector?
 ---@param spawner Entity?
 ---@param seedOrRNG integer | RNG?
+---@return Entity
 function TSIL.Entities.Spawn(entityType, variant, subType, position, velocity, spawner, seedOrRNG)
     velocity = velocity or Vector.Zero
 

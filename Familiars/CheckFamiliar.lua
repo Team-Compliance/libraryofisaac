@@ -17,8 +17,7 @@ local familiarGenerationRNG = nil
 ---
 --- Note that this will spawn familiars with a completely random `InitSeed`. When calculating random
 --- events for this familiar, you should use a data structure that maps familiar `InitSeed` to RNG
---- objects that are initialized based on the seed from
---- `EntityPlayer.GetCollectibleRNG(collectibleType)`.
+--- objects that are initialized based on the seed from `EntityPlayer.GetCollectibleRNG(collectibleType)`.
 ---@param player EntityPlayer
 ---@param collectibleType CollectibleType
 ---@param targetCount integer

@@ -1,7 +1,7 @@
 ---Helper function to spawn an NPC.
 ---
 ---Note that if you pass a non-NPC `EntityType` to this function, it will cause a run-time error,
----since the `Entity.ToNPC` method will return undefined.
+---since the `Entity.ToNPC` method will return nil.
 ---@param entityType EntityType
 ---@param variant integer
 ---@param subType integer
@@ -27,7 +27,7 @@ end
 ---@param subType integer
 ---@param position Vector
 ---@param velocity Vector?
----@param spawner Entity
+---@param spawner Entity?
 ---@param seedOrRNG integer | RNG?
 ---@return EntityBomb
 function TSIL.EntitySpecific.SpawnBomb(bombVariant, subType, position, velocity, spawner, seedOrRNG)
@@ -184,7 +184,7 @@ end
 ---@param spawner Entity
 ---@param seedOrRNG integer | RNG
 ---@return EntityTear
-function TSIL.EntitySpecific.SpawnProjectile(tearVariant, subType, position, velocity, spawner, seedOrRNG)
+function TSIL.EntitySpecific.SpawnTear(tearVariant, subType, position, velocity, spawner, seedOrRNG)
     velocity = velocity or Vector.Zero
 
     local entity = TSIL.Entities.Spawn(EntityType.ENTITY_TEAR, tearVariant, subType, position, velocity, spawner, seedOrRNG):ToTear()

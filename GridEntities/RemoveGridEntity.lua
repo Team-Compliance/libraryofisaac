@@ -2,7 +2,7 @@
 ---
 --- If removing a Devil or Angel Statue it'll also remove the associated effect.
 --- @param gridEntityOrGridIndex GridEntity | integer
---- @param updateRoom boolean Whether or not to update the rooom after the grid entity is removed. If not, you won't be able to place another one until next frame. However doing so is expensive, so set this to false if you need to run this multiple times.
+--- @param updateRoom boolean Whether or not to update the room after the grid entity is removed. If not, you won't be able to place another one until next frame. However doing so is expensive, so set this to false if you need to run this multiple times.
 function TSIL.GridEntities.RemoveGridEntity(gridEntityOrGridIndex, updateRoom)
     local room = Game():GetRoom()
 
@@ -51,7 +51,7 @@ end
 
 --- Helper function to remove all grid entities from a given list.
 --- @param gridEntities GridEntity[]
---- @param updateRoom boolean Whether or not to update the rooom after the grid entity is removed. If not, you won't be able to place another one until next frame. However doing so is expensive, so set this to false if you need to run this multiple times.
+--- @param updateRoom boolean Whether or not to update the room after the grid entity is removed. If not, you won't be able to place another one until next frame. However doing so is expensive, so set this to false if you need to run this multiple times.
 function TSIL.GridEntities.RemoveGridEntities(gridEntities, updateRoom)
     TSIL.Utils.Tables.ForEach(gridEntities, function (_, gridEntity)
         TSIL.GridEntities.RemoveGridEntity(gridEntity, false)
