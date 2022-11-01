@@ -62,7 +62,7 @@ function TSIL.Utils.Tables.RemoveAllInPlace(originalTable, ...)
 end
 
 --- Removes the specified element(s) from the table. If the specified element(s) are not found in the
---- table, this function will do nothing
+--- table, this function will do nothing.
 --- 
 --- This function is variadic, meaning that you can specify N arguments to remove N elements.
 ---  
