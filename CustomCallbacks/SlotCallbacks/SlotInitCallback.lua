@@ -6,7 +6,7 @@ local function OnSlotUpdate(_, slot)
 	local tableUtils = TSIL.Utils.Tables
 
 	local SlotInitCallbacks = tableUtils.FindFirst(CustomCallbacksList, function (_, CustomCallback)
-		return CustomCallback.Callback == TSIL.Enums.CustomCallback.MC_POST_SLOT_INIT
+		return CustomCallback.Callback == TSIL.Enums.CustomCallback.POST_SLOT_INIT
 	end)
 
 	if not SlotInitCallbacks then return end
@@ -22,7 +22,7 @@ local function OnSlotUpdate(_, slot)
 end
 TSIL.__AddInternalCustomCallback(
 	"SLOT_INIT_CALLBACK_SLOT_UPDATE",
-	TSIL.Enums.CustomCallback.MC_POST_SLOT_UPDATE,
+	TSIL.Enums.CustomCallback.POST_SLOT_UPDATE,
 	OnSlotUpdate,
 	TSIL.Enums.CallbackPriority.MEDIUM
 )

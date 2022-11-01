@@ -4,7 +4,7 @@ local function OnFrameUpdate()
 	local tableUtils = TSIL.Utils.Tables
 
 	local SlotUpdateCallbacks = tableUtils.FindFirst(CustomCallbacksList, function (_, CustomCallback)
-		return CustomCallback.Callback == TSIL.Enums.CustomCallback.MC_POST_SLOT_UPDATE
+		return CustomCallback.Callback == TSIL.Enums.CustomCallback.POST_SLOT_UPDATE
 	end)
 
 	if not SlotUpdateCallbacks then return end

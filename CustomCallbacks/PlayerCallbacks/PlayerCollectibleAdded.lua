@@ -6,7 +6,7 @@ return function (player, collectibleId)
 	local tableUtils = TSIL.Utils.Tables
 
 	local PlayerCollectibleAddedCallbacks = tableUtils.FindFirst(CustomCallbacksList, function (_, CustomCallback)
-		return CustomCallback.Callback == TSIL.Enums.CustomCallback.MC_POST_PLAYER_COLLECTIBLE_ADDED
+		return CustomCallback.Callback == TSIL.Enums.CustomCallback.POST_PLAYER_COLLECTIBLE_ADDED
 	end)
 
 	if not PlayerCollectibleAddedCallbacks then return end

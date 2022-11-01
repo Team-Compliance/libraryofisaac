@@ -6,7 +6,7 @@ local function OnGridUpdate(_, grid)
 	local tableUtils = TSIL.Utils.Tables
 
 	local GridCollisionCallbacks = tableUtils.FindFirst(CustomCallbacksList, function (_, CustomCallback)
-		return CustomCallback.Callback == TSIL.Enums.CustomCallback.MC_POST_GRID_COLLISION
+		return CustomCallback.Callback == TSIL.Enums.CustomCallback.POST_GRID_COLLISION
 	end)
 
 	if not GridCollisionCallbacks then return end
@@ -41,7 +41,7 @@ local function OnGridUpdate(_, grid)
 end
 TSIL.__AddInternalCustomCallback(
 	"GRID_COLLISION_CALLBACK_POST_GRID_UPDATE",
-	TSIL.Enums.CustomCallback.MC_POST_GRID_ENTITY_UPDATE,
+	TSIL.Enums.CustomCallback.POST_GRID_ENTITY_UPDATE,
 	OnGridUpdate,
 	TSIL.Enums.CallbackPriority.MEDIUM
 )

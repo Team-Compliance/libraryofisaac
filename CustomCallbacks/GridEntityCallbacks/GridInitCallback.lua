@@ -5,7 +5,7 @@ local function OnNewRoom()
 	local tableUtils = TSIL.Utils.Tables
 
 	local GridInitCallbacks = tableUtils.FindFirst(CustomCallbacksList, function (_, CustomCallback)
-		return CustomCallback.Callback == TSIL.Enums.CustomCallback.MC_POST_GRID_ENTITY_INIT
+		return CustomCallback.Callback == TSIL.Enums.CustomCallback.POST_GRID_ENTITY_INIT
 	end)
 
 	GridInRoom = {}
@@ -32,7 +32,7 @@ local function OnNewRoom()
 end
 TSIL.__AddInternalVanillaCallback(
 	"GRID_INIT_CALLBACK_NEW_ROOM",
-	ModCallbacks.MC_POST_NEW_ROOM,
+	ModCallbacks.POST_NEW_ROOM,
 	OnNewRoom,
 	TSIL.Enums.CallbackPriority.MEDIUM
 )
@@ -51,7 +51,7 @@ local function OnFrameUpdate()
 	local gridEntities = TSIL.GridEntities.GetGridEntities()
 
 	local GridInitCallbacks = tableUtils.FindFirst(CustomCallbacksList, function (_, CustomCallback)
-		return CustomCallback.Callback == TSIL.Enums.CustomCallback.MC_POST_GRID_ENTITY_INIT
+		return CustomCallback.Callback == TSIL.Enums.CustomCallback.POST_GRID_ENTITY_INIT
 	end)
 
 	tableUtils.ForEach(gridEntities, function(_, gridEntity)
@@ -83,7 +83,7 @@ local function OnFrameUpdate()
 end
 TSIL.__AddInternalVanillaCallback(
 	"GRID_INIT_CALLBACK_POST_UPDATE",
-	ModCallbacks.MC_POST_UPDATE,
+	ModCallbacks.POST_UPDATE,
 	OnFrameUpdate,
 	TSIL.Enums.CallbackPriority.MEDIUM
 )

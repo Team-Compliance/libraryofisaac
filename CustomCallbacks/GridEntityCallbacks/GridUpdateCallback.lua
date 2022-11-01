@@ -4,7 +4,7 @@ local function OnFrameUpdate()
 	local tableUtils = TSIL.Utils.Tables
 
 	local GridUpdateCallbacks = tableUtils.FindFirst(CustomCallbacksList, function (_, CustomCallback)
-		return CustomCallback.Callback == TSIL.Enums.CustomCallback.MC_POST_GRID_ENTITY_UPDATE
+		return CustomCallback.Callback == TSIL.Enums.CustomCallback.POST_GRID_ENTITY_UPDATE
 	end)
 
 	if not GridUpdateCallbacks then return end

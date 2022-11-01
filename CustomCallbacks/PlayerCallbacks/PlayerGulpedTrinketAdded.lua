@@ -6,7 +6,7 @@ return function (player, trinketId)
 	local tableUtils = TSIL.Utils.Tables
 
 	local PlayerGulpedTrinketAddedCallbacks = tableUtils.FindFirst(CustomCallbacksList, function (_, CustomCallback)
-		return CustomCallback.Callback == TSIL.Enums.CustomCallback.MC_POST_PLAYER_GULPED_TRINKET_ADDED
+		return CustomCallback.Callback == TSIL.Enums.CustomCallback.POST_PLAYER_GULPED_TRINKET_ADDED
 	end)
 
 	if not PlayerGulpedTrinketAddedCallbacks then return end
