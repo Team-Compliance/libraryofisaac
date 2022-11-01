@@ -1,4 +1,4 @@
---- Returns wether a given flag has all of the other given flags.
+--- Checks whether a given flag has all of the other given flags.
 --- @param flags integer
 --- @param ... integer
 --- @return boolean

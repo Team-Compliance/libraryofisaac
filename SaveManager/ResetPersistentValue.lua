@@ -1,7 +1,6 @@
---- Resets a variable to its default value in the safe manager.
+--- Resets a variable to its default value in the save manager.
 --- @param mod table
 --- @param variableName string
---- @within TSIL.SaveManager
 function TSIL.SaveManager.ResetPersistentVariable(mod, variableName)
 	local PersistentData = TSIL.__VERSION_PERSISTENT_DATA.PersistentData
 

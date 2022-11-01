@@ -2,7 +2,6 @@
 --- @param mod table
 --- @param variableName string
 --- @return any
---- @within TSIL.SaveManager
 function TSIL.SaveManager.GetPersistentVariable(mod, variableName)
 	local PersistentData = TSIL.__VERSION_PERSISTENT_DATA.PersistentData
 

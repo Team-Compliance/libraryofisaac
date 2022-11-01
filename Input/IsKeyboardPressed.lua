@@ -10,7 +10,7 @@ local MODIFIER_KEYS = {
 }
 
 
---- Helper function to see if any keys are being pressed in the keyboard.
+--- Helper function to see if any of the given keys are being pressed in the keyboard.
 ---@param ... Keyboard
 ---@return boolean
 function TSIL.Input.IsKeyboardPressed(...)
@@ -26,7 +26,7 @@ function TSIL.Input.IsKeyboardPressed(...)
 end
 
 
---- Helper function to get if any modifier key is being pressed in the keyboard.
+--- Helper function to get the modifier key that is being pressed in the keyboard
 ---
 --- A modifier key is defined as shift, control, alt, or Windows.
 ---@return Keyboard? @ The modifier key that's being pressed, or nil if there are none.

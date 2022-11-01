@@ -1,6 +1,6 @@
 local RECOMMENDED_SHIFT_IDX = 35
 
---- Helper function to set a seed to an RNG object using blade's recommended shift index.
+--- Helper function to set a seed to an RNG object using Blade's recommended shift index.
 ---@param rng RNG
 ---@param seed integer
 function TSIL.RNG.SetSeed(rng, seed)

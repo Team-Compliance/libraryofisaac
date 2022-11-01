@@ -180,7 +180,10 @@ local function EmptyRoomGrid()
     end
 end
 
-
+---Helper function to remove all naturally spawning entities and grid entities from a room.
+---Notably, this will not remove players, tears, familiars, lasers, knives, projectiles,
+---blacklisted NPCs such as Dark Esau, charmed NPCs, friendly NPCs, persistent NPCs, most effects,
+---doors, and walls.
 function TSIL.Rooms.EmptyRoom()
     EmptyRoomEntities()
     EmptyRoomGrid()

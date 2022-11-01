@@ -3,6 +3,7 @@
 --- @param RectSize Vector
 --- @param CirclePos Vector Center of the circle
 --- @param CircleSize number
+--- @return boolean
 function TSIL.Utils.Math.IsCircleIntersectingWithRectangle(RectPos, RectSize, CirclePos, CircleSize)
 	local circleDistanceX = math.abs(CirclePos.X - RectPos.X)
 	local circleDistanceY = math.abs(CirclePos.Y - RectPos.Y)

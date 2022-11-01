@@ -101,7 +101,7 @@ function TSIL.GridEntities.SpawnGigaPoop(topLeftGridIndexOrPosition, force)
         topLeftGridIndex = room:GetClampedGridIndex(topLeftGridIndexOrPosition)
     end
 
-    local gridWidth = TSIL.Rooms.GetGridWidth()
+    local gridWidth = TSIL.Rooms.GetRoomShapeGridWidth(room:GetRoomShape())
 
     local topRightGridIndex = topLeftGridIndex + 1
     local bottomLeftGridIndex = topLeftGridIndex + gridWidth

@@ -3,7 +3,6 @@
 --- @param variableName string
 --- @param newValue any
 --- @param overrideType? boolean @default: false
---- @within TSIL.SaveManager
 function TSIL.SaveManager.SetPersistentVariable(mod, variableName, newValue, overrideType)
 	local PersistentData = TSIL.__VERSION_PERSISTENT_DATA.PersistentData
 

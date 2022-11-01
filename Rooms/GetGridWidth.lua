@@ -13,13 +13,3 @@ function TSIL.Rooms.GetRoomShapeGridWidth(shape)
 
     return gridWidth
 end
-
-
---- Helper function to get the width of the grid in the current room.
----@return integer
-function TSIL.Rooms.GetGridWidth()
-	local room = Game():GetRoom()
-	local shape = room:GetRoomShape()
-
-	return TSIL.Rooms.GetRoomShapeGridWidth(shape)
-end

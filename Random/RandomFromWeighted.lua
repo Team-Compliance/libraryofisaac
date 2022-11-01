@@ -3,17 +3,17 @@
 --- 
 --- `{chance = x, value = y}`
 --- @generic T any
---- @param rngOrSeed RNG | integer
+--- @param seedOrRNG integer | RNG
 --- @param ... {chance : integer, value : T}
 --- @return T
-function TSIL.Utils.Random.GetRandomElementFromWeightedList(rngOrSeed, ...)
+function TSIL.Utils.Random.GetRandomElementFromWeightedList(seedOrRNG, ...)
 	local rng
 
-	if type(rngOrSeed) == "number" then
+	if type(seedOrRNG) == "number" then
 		rng = RNG()
-		rng:SetSeed(rngOrSeed, 35)
+		rng:SetSeed(seedOrRNG, 35)
 	else
-		rng = rngOrSeed
+		rng = seedOrRNG
 	end
 
 	local possibles = {...}

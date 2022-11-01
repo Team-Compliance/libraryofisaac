@@ -1,4 +1,4 @@
---- Helper function to check if a given Button Action corresponds to shoting.
+--- Helper function to check if a given Button Action corresponds to shooting.
 ---@param buttonAction ButtonAction
 ---@return boolean
 function TSIL.Input.IsShootAction(buttonAction)

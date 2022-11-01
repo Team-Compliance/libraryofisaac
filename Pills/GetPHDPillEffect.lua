@@ -55,8 +55,8 @@ local FALSE_PHD_PILL_CONVERSIONS = {
 --- converted into after picking up PHD.
 ---
 --- If the pill wouldn't transform, it returns the same pill effect.
----@param pillEffect any
----@return any
+---@param pillEffect PillEffect
+---@return PillEffect
 function TSIL.Pills.GetPHDPillEffect(pillEffect)
     local PHDEffect = PHD_PILL_CONVERSIONS[pillEffect]
     if not PHDEffect then PHDEffect = pillEffect end
@@ -68,8 +68,8 @@ end
 --- converted into after picking up False PHD.
 ---
 --- If the pill wouldn't transform, it returns the same pill effect.
----@param pillEffect any
----@return any
+---@param pillEffect PillEffect
+---@return PillEffect
 function TSIL.Pills.GetFalsePHDPillEffect(pillEffect)
     local PHDEffect = FALSE_PHD_PILL_CONVERSIONS[pillEffect]
     if not PHDEffect then PHDEffect = pillEffect end

@@ -4,7 +4,7 @@
 function TSIL.GridEntities.GetSurroundingGridEntities(gridIndex)
 	local room = Game():GetRoom()
 
-	local gridWidth = TSIL.Rooms.GetGridWidth()
+	local gridWidth = TSIL.Rooms.GetRoomShapeGridWidth(room:GetRoomShape())
 
 	local gridIndex = gridIndex
 

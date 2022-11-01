@@ -25,7 +25,6 @@ TSIL.__AddInternalVanillaCallback(
 --- @param funct function
 --- @param frames integer
 --- @param ... any
---- @within TSIL.Utils.Functions
 function TSIL.Utils.Functions.RunInFrames(funct, frames, ...)
 	local args = {...}
 	table.insert(ScheduledFunctions, {funct = funct, frames = frames, params = args})

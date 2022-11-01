@@ -145,7 +145,6 @@ local TSIL_SCRIPTS = {
 "SaveManager.GetPersistentVariable",
 "SaveManager.RemovePersistentVariable",
 "SaveManager.ResetPersistentValue",
-"SaveManager.ResetPersistentVariable",
 "SaveManager.SetPersistentVariable",
 "SaveManager.VariableResetter",
 "Sprites.SpriteEquals",

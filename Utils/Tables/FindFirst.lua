@@ -5,7 +5,6 @@
 --- @param toFind T[]
 --- @param predicate fun(key: integer | string, value: T): boolean
 --- @return T?
---- @within TSIL.Utils.Tables
 function TSIL.Utils.Tables.FindFirst(toFind, predicate)
 	for index, value in pairs(toFind) do
 		if predicate(index, value) then

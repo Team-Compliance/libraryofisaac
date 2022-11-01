@@ -61,6 +61,13 @@ function TSIL.IsaacAPIClass.IsProjectile(variable)
     return TSIL.IsaacAPIClass.GetIsaacAPIClassName(variable) == "EntityProjectile"
 end
 
+---Helper function to detect if a variable is of type `RNG`
+---@param variable unknown
+---@return boolean
+function TSIL.IsaacAPIClass.IsRNG(variable)
+    return TSIL.IsaacAPIClass.GetIsaacAPIClassName(variable) == "RNG"
+end
+
 ---Helper function to detect if a variable is of type `GridEntityRock`
 ---@param variable unknown
 ---@return boolean
@@ -75,13 +82,6 @@ function TSIL.IsaacAPIClass.IsSpikes(variable)
     return TSIL.IsaacAPIClass.GetIsaacAPIClassName(variable) == "GridEntitySpikes"
 end
 
----Helper function to detect if a variable is of type `GridEntityTNT`
----@param variable unknown
----@return boolean
-function TSIL.IsaacAPIClass.IsKnife(variable)
-    return TSIL.IsaacAPIClass.GetIsaacAPIClassName(variable) == "GridEntityTNT"
-end
-
 ---Helper function to detect if a variable is of type `EntityTear`
 ---@param variable unknown
 ---@return boolean
@@ -89,9 +89,9 @@ function TSIL.IsaacAPIClass.IsTear(variable)
     return TSIL.IsaacAPIClass.GetIsaacAPIClassName(variable) == "EntityTear"
 end
 
----Helper function to detect if a variable is of type `RNG`
+---Helper function to detect if a variable is of type `GridEntityTNT`
 ---@param variable unknown
 ---@return boolean
-function TSIL.IsaacAPIClass.IsRNG(variable)
-    return TSIL.IsaacAPIClass.GetIsaacAPIClassName(variable) == "RNG"
+function TSIL.IsaacAPIClass.IsTNT(variable)
+    return TSIL.IsaacAPIClass.GetIsaacAPIClassName(variable) == "GridEntityTNT"
 end

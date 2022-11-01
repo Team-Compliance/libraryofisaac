@@ -3,7 +3,6 @@
 --- @param toFilter T[]
 --- @param predicate fun(key: integer | string, value: T): boolean
 --- @return T[]
---- @within TSIL.Utils.Tables
 function TSIL.Utils.Tables.Filter(toFilter, predicate)
 	local filtered = {}
 

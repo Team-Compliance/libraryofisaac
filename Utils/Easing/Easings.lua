@@ -1,7 +1,6 @@
 --- Check https://easings.net/#easeInSine
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInSine(x)
 	return 1 - math.cos((x * math.pi) / 2);
 end
@@ -10,7 +9,6 @@ end
 --- Check https://easings.net/#easeOutSine
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseOutSine(x)
 	return math.sin((x * math.pi) / 2);
 end
@@ -19,7 +17,6 @@ end
 --- Check https://easings.net/#easeInOutSine
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInOutSine(x)
 	return -(math.cos(math.pi * x) - 1) / 2
 end
@@ -28,7 +25,6 @@ end
 --- Check https://easings.net/#easeInQuad
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInQuad(x)
 	return x * x
 end
@@ -37,7 +33,6 @@ end
 --- Check https://easings.net/#easeOutQuad
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseOutQuad(x)
 	return 1 - (1 - x) * (1 - x)
 end
@@ -46,7 +41,6 @@ end
 --- Check https://easings.net/#easeInOutQuad
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInOutQuad(x)
 	if x < 0.5 then
 		return 2 * x * x
@@ -59,7 +53,6 @@ end
 --- Check https://easings.net/#easeInCubic
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInCubic(x)
 	return x * x * x
 end
@@ -68,7 +61,6 @@ end
 --- Check https://easings.net/#easeOutCubic
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseOutCubic(x)
 	return 1 - (1 - x) ^ 3
 end
@@ -77,7 +69,6 @@ end
 --- Check https://easings.net/#easeInOutCubic
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInOutCubic(x)
 	if x < 0.5 then
 		return 4 * x * x * x
@@ -90,7 +81,6 @@ end
 --- Check https://easings.net/#easeInQuart
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInQuart(x)
 	return x * x * x * x
 end
@@ -99,7 +89,6 @@ end
 --- Check https://easings.net/#easeOutQuart
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseOutQuart(x)
 	return 1 - (1 - x)^4
 end
@@ -108,7 +97,6 @@ end
 --- Check https://easings.net/#easeInOutQuart
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInOutQuart(x)
 	if x < 0.5 then
 		return 8 * x * x * x * x
@@ -121,7 +109,6 @@ end
 --- Check https://easings.net/#easeInQuint
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInQuint(x)
 	return x * x * x * x * x
 end
@@ -130,7 +117,6 @@ end
 --- Check https://easings.net/#easeOutQuint
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseOutQuint(x)
 	return 1 - (1 - x)^5
 end
@@ -139,7 +125,6 @@ end
 --- Check https://easings.net/#easeInOutQuint
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInOutQuint(x)
 	if x < 0.5 then
 		return 16 * x * x * x * x * x
@@ -152,7 +137,6 @@ end
 --- Check https://easings.net/#easeInExpo
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInExpo(x)
 	if x == 0 then
 		return 0
@@ -165,7 +149,6 @@ end
 --- Check https://easings.net/#easeOutExpo
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseOutExpo(x)
 	if x == 1 then
 		return 1
@@ -178,7 +161,6 @@ end
 --- Check https://easings.net/#easeInOutExpo
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInOutExpo(x)
 	if x == 0 or x == 1 then
 		return x
@@ -193,7 +175,6 @@ end
 --- Check https://easings.net/#easeInCirc
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInCirc(x)
 	return 1 - math.sqrt(1 - x^2)
 end
@@ -202,7 +183,6 @@ end
 --- Check https://easings.net/#easeOutCirc
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseOutCirc(x)
 	return math.sqrt(1 - (x - 1)^2)
 end
@@ -211,7 +191,6 @@ end
 --- Check https://easings.net/#easeInOutCirc
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInOutCirc(x)
 	if x < 0.5 then
 		return (1 - math.sqrt(1 - (2*x)^2)) / 2
@@ -224,7 +203,6 @@ end
 --- Check https://easings.net/#easeInBack
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInBack(x)
 	local c1 = 1.70158
 	local c3 = c1 + 1
@@ -236,7 +214,6 @@ end
 --- Check https://easings.net/#easeOutBack
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseOutBack(x)
 	local c1 = 1.70158
 	local c3 = c1 + 1
@@ -248,7 +225,6 @@ end
 --- Check https://easings.net/#easeInOutBack
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInOutBack(x)
 	local c1 = 1.70158
 	local c2 = c1 + 1.525
@@ -264,7 +240,6 @@ end
 --- Check https://easings.net/#easeInElastic
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInElastic(x)
 	local c4 = (2 * math.pi) / 3
 
@@ -279,7 +254,6 @@ end
 --- Check https://easings.net/#easeOutElastic
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseOutElastic(x)
 	local c4 = (2 * math.pi) / 3
 
@@ -294,7 +268,6 @@ end
 --- Check https://easings.net/#easeInOutElastic
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInOutElastic(x)
 	local c5 = (2 * math.pi) / 4.5
 
@@ -311,7 +284,6 @@ end
 --- Check https://easings.net/#easeInBounce
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInBounce(x)
 	return 1 - TSIL.Utils.Easings.EaseOutBounce(1 - x);
 end
@@ -320,7 +292,6 @@ end
 --- Check https://easings.net/#easeOutBounce
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseOutBounce(x)
 	local n1 = 7.5625
 	local d1 = 2.75
@@ -343,7 +314,6 @@ end
 --- Check https://easings.net/#easeInOutBounce
 --- @param x number
 --- @return number
---- @within TSIL.Utils.Easings
 function TSIL.Utils.Easings.EaseInOutBounce(x)
 	if x < 0.5 then
 		return (1 - TSIL.Utils.Easings.EaseOutBounce(1 - 2 * x)) / 2

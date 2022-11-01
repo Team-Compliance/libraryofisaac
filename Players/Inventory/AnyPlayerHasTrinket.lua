@@ -1,12 +1,13 @@
 --- Returns true if at least one player has the given trinket.
 --- @param trinketId TrinketType
+--- @param ignoreModifiers boolean? @Default : false
 --- @return boolean
 --- @within TSIL.Players
-function TSIL.Players.DoesAnyPlayerHasTrinket(trinketId)
+function TSIL.Players.DoesAnyPlayerHasTrinket(trinketId, ignoreModifiers)
 	local players = TSIL.Players.GetPlayers()
 
 	local numPlayersWithTrinket = TSIL.Utils.Tables.Count(players, function (_, player)
-		return player:HasTrinket(trinketId)
+		return player:HasTrinket(trinketId, ignoreModifiers)
 	end)
 
 	return numPlayersWithTrinket > 0

@@ -8,6 +8,6 @@ TSIL.Enums.VariablePersistenceMode = {
 	RESET_RUN = 4,      --The save manager will restore the default on a new run
 
 	REMOVE_ROOM = 5,    --The save manager will remove your variable on a new room
-	REMOVE_LEVEL = 6,   --The save manager will remove your varialbe on a new level
+	REMOVE_LEVEL = 6,   --The save manager will remove your variable on a new level
 	REMOVE_RUN = 7      --The save manager will remove your variable on a new run
 }

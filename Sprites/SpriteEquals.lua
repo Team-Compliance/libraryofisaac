@@ -1,4 +1,4 @@
---- Helper function to check if two texels on a sprite are equivalent to each other
+--- Helper function to check if two texels on a sprite are equivalent to each other.
 --- @param sprite1 Sprite
 --- @param sprite2 Sprite
 --- @param position Vector
@@ -20,7 +20,7 @@ end
 --- Helper function to check if two sprite layers have the same sprite sheet by using the
 --- `Sprite.GetTexel` method.
 ---
---- Since checking every sinle texel in the entire sprite is very expensive, this function
+--- Since checking every single texel in the entire sprite is very expensive, this function
 --- requires you to specify the range of texels to check.
 --- @param sprite1 Sprite
 --- @param sprite2 Sprite

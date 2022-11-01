@@ -56,7 +56,6 @@ local GridInRoomShape = {
 --- @param gridIndex integer
 --- @param roomShape RoomShape
 --- @return boolean
---- @within TSIL.Rooms
 function TSIL.Rooms.IsGridIndexInRoomShape(gridIndex, roomShape)
 	local IsInRoom = GridInRoomShape[roomShape]
 
@@ -65,10 +64,9 @@ end
 
 
 --- Helper function to check if a grid index is inside a room, including walls.
---- Acounts for room shape.
+--- Accounts for room shape.
 --- @param gridIndex integer
 --- @return boolean
---- @within TSIL.Rooms
 function TSIL.Rooms.IsGridIndexInRoom(gridIndex)
 	local room = Game():GetRoom()
 	local shape = room:GetRoomShape()

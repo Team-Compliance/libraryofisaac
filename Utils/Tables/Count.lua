@@ -5,7 +5,6 @@
 --- @param toCount T[]
 --- @param predicate fun(key: integer | string, value: T): boolean @default foo() -> true
 --- @return integer
---- @within TSIL.Utils.Tables
 function TSIL.Utils.Tables.Count(toCount, predicate)
 	if predicate == nil then
 		predicate = function() return true end

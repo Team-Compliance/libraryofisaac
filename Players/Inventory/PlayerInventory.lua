@@ -37,7 +37,7 @@ local function CheckCollectedItems(player, playerState)
 				--If the actual num is bigger than what we had, player has picked up an item
 				playerState.CollectedItems[itemId] = actualCollectibleNum
 				for _ = 1, actualCollectibleNum - pastCollectibleNum, 1 do
-					table.insert(playerState.InventoryOrdered, { Type = TSIL.Enums.InventoryType.INVENTORY_COLLECTIBLE, Id = itemId })
+					table.insert(playerState.InventoryOrdered, { Type = TSIL.Enums.InventoryType.COLLECTIBLE, Id = itemId })
 				end
 
 				PlayerCollectibleAddedCallback(player, itemId)
@@ -47,7 +47,7 @@ local function CheckCollectedItems(player, playerState)
 
 				for i = 1, #playerState.InventoryOrdered, 1 do
 					local inventoryItem = playerState.InventoryOrdered[i]
-					if inventoryItem.Type == TSIL.Enums.InventoryType.INVENTORY_COLLECTIBLE and inventoryItem.Id == itemId then
+					if inventoryItem.Type == TSIL.Enums.InventoryType.COLLECTIBLE and inventoryItem.Id == itemId then
 						for _ = 1, pastCollectibleNum - actualCollectibleNum, 1 do
 							table.remove(playerState.InventoryOrdered, i)
 						end
@@ -84,7 +84,7 @@ local function CheckGulpedTrinkets(player, playerState)
 				playerState.GulpedTrinkets[trinketId] = actualGulpedNum
 
 				for _ = 1, actualGulpedNum - pastGulpedNum, 1 do
-					table.insert(playerState.InventoryOrdered, { Type = TSIL.Enums.InventoryType.INVENTORY_TRINKET, Id = trinketId })
+					table.insert(playerState.InventoryOrdered, { Type = TSIL.Enums.InventoryType.TRINKET, Id = trinketId })
 				end
 
 				PlayerGulpedTrinketAddedCallback(player, trinketId)
@@ -94,7 +94,7 @@ local function CheckGulpedTrinkets(player, playerState)
 
 				for i = 1, #playerState.InventoryOrdered, 1 do
 					local inventoryItem = playerState.InventoryOrdered[i]
-					if inventoryItem.Type == TSIL.Enums.InventoryType.INVENTORY_TRINKET and inventoryItem.Id == trinketId then
+					if inventoryItem.Type == TSIL.Enums.InventoryType.TRINKET and inventoryItem.Id == trinketId then
 
 						for _ = 1, pastGulpedNum - actualGulpedNum, 1 do
 							table.remove(playerState.InventoryOrdered, i)
@@ -157,7 +157,6 @@ TSIL.__AddInternalVanillaCallback(
 --- @param player EntityPlayer
 --- @param inventoryTypeFilter? InventoryType
 --- @return InventoryObject[]
---- @within TSIL.Players
 function TSIL.Players.GetPlayerInventory(player, inventoryTypeFilter)
 	local playerIndex = TSIL.Players.GetPlayerIndex(player)
 

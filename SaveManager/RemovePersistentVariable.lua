@@ -1,7 +1,6 @@
 --- Removes a variable from the save manager.
 --- @param mod table
 --- @param variableName string
---- @within TSIL.SaveManager
 function TSIL.SaveManager.RemovePersistentVariable(mod, variableName)
 	local PersistentData = TSIL.__VERSION_PERSISTENT_DATA.PersistentData
 

@@ -4,7 +4,6 @@
 --- @param variableName string
 --- @param value any
 --- @param persistenceMode VariablePersistenceMode
---- @within TSIL.SaveManager
 function TSIL.SaveManager.AddPersistentVariable(mod, variableName, value, persistenceMode)
 	local PersistentData = TSIL.__VERSION_PERSISTENT_DATA.PersistentData
 

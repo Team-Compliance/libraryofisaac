@@ -1,18 +1,20 @@
 --- Returns n randomly selected elements from a table.
 --- @generic T any
---- @param rngOrSeed RNG | integer
 --- @param toChoose T[]
---- @param numberOfElements? integer @default: 1
+--- @param numberOfElements? integer @Default: 1
+--- @param seedOrRNG integer | RNG? Optional. The `Seed` or `RNG` object to use. If an `RNG` object is provided, the `RNG.Next` method will be called. Default is `TSIL.RNG.GetRandomSeed()`.
 --- @return T[]
-function TSIL.Utils.Random.GetRandomElementsFromTable(rngOrSeed, toChoose, numberOfElements)
-	local rng
-
-	if type(rngOrSeed) == "number" then
-		rng = RNG()
-		rng:SetSeed(rngOrSeed, 35)
-	else
-		rng = rngOrSeed
-	end
+function TSIL.Utils.Random.GetRandomElementsFromTable(toChoose, numberOfElements, seedOrRNG)
+	---@type RNG
+    local rng
+    
+    if TSIL.IsaacAPIClass.IsRNG(seedOrRNG) then
+        ---@cast seedOrRNG RNG
+        rng = seedOrRNG
+    else
+        ---@cast seedOrRNG number | nil
+        rng = TSIL.RNG.NewRNG(seedOrRNG)
+    end
 
 	if numberOfElements == nil then
 		numberOfElements = 1
