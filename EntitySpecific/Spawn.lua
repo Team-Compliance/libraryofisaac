@@ -127,7 +127,7 @@ end
 ---@param subType integer
 ---@param position Vector
 ---@param velocity Vector?
----@param spawner Entity
+---@param spawner Entity?
 ---@param seedOrRNG integer | RNG?
 ---@return EntityPickup
 function TSIL.EntitySpecific.SpawnPickup(pickupVariant, subType, position, velocity, spawner, seedOrRNG)
