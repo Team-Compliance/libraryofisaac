@@ -394,7 +394,7 @@ end
 ---Under the hood, this uses a custom JSON parser that was measured to be 11.8 times faster than the vanilla JSON parser.
 ---@param str any
 ---@return unknown
-function TSIL.JSON.decode(str)
+function TSIL.JSON.Decode(str)
   if type(str) ~= "string" then
     error("expected argument of type string, got " .. type(str))
   end
