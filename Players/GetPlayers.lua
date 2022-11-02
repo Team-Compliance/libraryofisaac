@@ -68,3 +68,15 @@ function TSIL.Players.GetPlayersByTrinket(trinketId)
 		return player:HasTrinket(trinketId)
 	end)
 end
+
+
+--- Returns all the players of a given type.
+---@param playerType PlayerType
+---@return EntityPlayer[]
+function TSIL.Players.GetPlayersOfType(playerType)
+	local players = TSIL.Players.GetPlayers()
+
+	return TSIL.Utils.Tables.Filter(players, function (_, player)
+		return player:GetPlayerType() == playerType
+	end)
+end
