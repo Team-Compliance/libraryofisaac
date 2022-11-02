@@ -112,7 +112,7 @@ function TSIL.PickupSpecific.SpawnKey(keySubtype, position, velocity, spawner, s
 end
 
 
----Helper function to spawn a key.
+---Helper function to spawn a pill.
 ---@param pillColor PillColor
 ---@param position Vector
 ---@param velocity Vector?
@@ -150,7 +150,7 @@ function TSIL.PickupSpecific.SpawnSack(sackSubtype, position, velocity, spawner,
 end
 
 
----Helper function to spawn a sack.
+---Helper function to spawn a trinket.
 ---@param trinketType TrinketType
 ---@param position Vector
 ---@param velocity Vector?
