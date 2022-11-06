@@ -42,7 +42,6 @@ local GridEntityXMLMap = {
 --- @param gridEntityXMLType GridEntityXMLType
 --- @param gridEntityXMLVariant integer
 --- @return {type : GridEntityType, variant : integer}
---- @within TSIL.GridEntities
 function TSIL.GridEntities.ConvertXMLGridEntityType(gridEntityXMLType, gridEntityXMLVariant)
 	local gridEntityVariantPair = GridEntityXMLMap[gridEntityXMLType]
 

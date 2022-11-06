@@ -1,3 +1,4 @@
+--##POST_GRID_COLLISION
 local CustomCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList
 
 

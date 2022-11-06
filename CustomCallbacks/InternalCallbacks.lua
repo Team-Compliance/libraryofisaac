@@ -3,7 +3,6 @@
 --- @param funct function
 --- @param priority integer | CallbackPriority
 --- @param optionalParam? integer
---- @within TSIL_INTERNAL
 function TSIL.__AddInternalVanillaCallback(id, callback, funct, priority, optionalParam)
 	local foundInternalCallback = nil
 
@@ -39,7 +38,6 @@ end
 --- @param funct function
 --- @param priority integer | CallbackPriority
 --- @param ... integer
---- @within TSIL
 function TSIL.__AddInternalCustomCallback(id, callback, funct, priority, ...)
 	local foundInternalCallback = nil
 

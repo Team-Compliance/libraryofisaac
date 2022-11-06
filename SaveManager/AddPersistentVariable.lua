@@ -1,3 +1,5 @@
+--##use SaveManager/VariableResetter.lua
+
 --- Adds a variable to the save manager.
 --- The variable name must be unique within your mod.
 --- @param mod table

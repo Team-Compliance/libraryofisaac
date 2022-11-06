@@ -1,5 +1,4 @@
 --- @enum VariablePersistenceMode
---- @within TSIL.Enums
 TSIL.Enums.VariablePersistenceMode = {
 	NONE = 1,           --The save manager won't do anything with your variable
 

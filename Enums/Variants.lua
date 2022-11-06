@@ -1,5 +1,5 @@
 ---@enum SlotVariant
---- For `EntityType.SLOT` (6).
+---- For `EntityType.SLOT` (6).
 TSIL.Enums.SlotVariant = {
 	SLOT_MACHINE = 1,
 	BLOOD_DONATION_MACHINE = 2,
@@ -23,7 +23,7 @@ TSIL.Enums.SlotVariant = {
 
 
 ---@enum LaserVariant
---- For `EntityType.ENTITY_LASER` (7).
+---- For `EntityType.ENTITY_LASER` (7).
 TSIL.Enums.LaserVariant = {
   -- Used for Brimstone. 
   THICK_RED = 1,
@@ -58,7 +58,7 @@ TSIL.Enums.LaserVariant = {
 
 
 ---@enum KnifeVariant
--- For `EntityType.ENTITY_KNIFE` (8). 
+--- For `EntityType.ENTITY_KNIFE` (8). 
 TSIL.Enums.KnifeVariant = {
     MOMS_KNIFE = 8,
     BONE_CLUB = 1,
@@ -72,7 +72,7 @@ TSIL.Enums.KnifeVariant = {
 }
 
 ---@enum GaperVariant
---- For `EntityType.ENTITY_GAPER` (10).
+---- For `EntityType.ENTITY_GAPER` (10).
 TSIL.Enums.GaperVariant = {
   FROWNING_GAPER = 0,
   GAPER = 1,
@@ -82,14 +82,14 @@ TSIL.Enums.GaperVariant = {
 
 
 ---@enum GusherVariant
--- For `EntityType.ENTITY_GUSHER` (11). 
+--- For `EntityType.ENTITY_GUSHER` (11). 
 TSIL.Enums.GusherVariant = {
   GUSHER = 0,
   PACER = 1,
 }
 
 ---@enum PooterVariant
--- For `EntityType.ENTITY_POOTER` (14). 
+--- For `EntityType.ENTITY_POOTER` (14). 
 TSIL.Enums.PooterVariant = {
   POOTER = 0,
   SUPER_POOTER = 1,
@@ -97,7 +97,7 @@ TSIL.Enums.PooterVariant = {
 }
 
 ---@enum ClottyVariant
--- For `EntityType.ENTITY_CLOTTY` (15). 
+--- For `EntityType.ENTITY_CLOTTY` (15). 
 TSIL.Enums.ClottyVariant = {
   CLOTTY = 0,
   CLOT = 1,
@@ -106,7 +106,7 @@ TSIL.Enums.ClottyVariant = {
 }
 
 ---@enum MulliganVariant
--- For `EntityType.ENTITY_MULLIGAN` (16). 
+--- For `EntityType.ENTITY_MULLIGAN` (16). 
 TSIL.Enums.MulliganVariant = {
   MULLIGAN = 0,
   MULLIGOON = 1,
@@ -114,7 +114,7 @@ TSIL.Enums.MulliganVariant = {
 }
 
 ---@enum ShopKeeperVariant
--- For `EntityType.ENTITY_SHOPKEEPER` (17). 
+--- For `EntityType.ENTITY_SHOPKEEPER` (17). 
 TSIL.Enums.ShopkeeperVariant = {
   SHOPKEEPER = 0,
   SECRET_ROOM_KEEPER = 1,
@@ -124,7 +124,7 @@ TSIL.Enums.ShopkeeperVariant = {
 }
 
 ---@enum LarryJrVariant
--- For `EntityType.ENTITY_LARRY_JR` (19). 
+--- For `EntityType.ENTITY_LARRY_JR` (19). 
 TSIL.Enums.LarryJrVariant = {
   LARRY_JR = 0,
   THE_HOLLOW = 1,
@@ -133,7 +133,7 @@ TSIL.Enums.LarryJrVariant = {
 }
 
 ---@enum HiveVariant
--- For `EntityType.ENTITY_HIVE` (22). 
+--- For `EntityType.ENTITY_HIVE` (22). 
 TSIL.Enums.HiveVariant = {
   HIVE = 0,
   DROWNED_HIVE = 1,
@@ -142,7 +142,7 @@ TSIL.Enums.HiveVariant = {
 }
 
 ---@enum ChargerVariant
--- For `EntityType.ENTITY_CHARGER` (23). 
+--- For `EntityType.ENTITY_CHARGER` (23). 
 TSIL.Enums.ChargerVariant = {
   CHARGER = 0,
   DROWNED_CHARGER = 1,
@@ -151,7 +151,7 @@ TSIL.Enums.ChargerVariant = {
 }
 
 ---@enum GlobinVariant
--- For `EntityType.ENTITY_GLOBIN` (24). 
+--- For `EntityType.ENTITY_GLOBIN` (24). 
 TSIL.Enums.GlobinVariant = {
   GLOBIN = 0,
   GAZING_GLOBIN = 1,
@@ -160,7 +160,7 @@ TSIL.Enums.GlobinVariant = {
 }
 
 ---@enum BoomFlyVariant
--- For `EntityType.ENTITY_BOOM_FLY` (25). 
+--- For `EntityType.ENTITY_BOOM_FLY` (25). 
 TSIL.Enums.BoomFlyVariant = {
   BOOM_FLY = 0,
   RED_BOOM_FLY = 1,
@@ -172,7 +172,7 @@ TSIL.Enums.BoomFlyVariant = {
 }
 
 ---@enum MawVariant
--- For `EntityType.ENTITY_MAW` (26). 
+--- For `EntityType.ENTITY_MAW` (26). 
 TSIL.Enums.MawVariant = {
   MAW = 0,
   RED_MAW = 1,
@@ -180,7 +180,7 @@ TSIL.Enums.MawVariant = {
 }
 
 ---@enum HostVariant
--- For `EntityType.ENTITY_HOST` (27). 
+--- For `EntityType.ENTITY_HOST` (27). 
 TSIL.Enums.HostVariant = {
   HOST = 0,
   RED_HOST = 1,
@@ -188,7 +188,7 @@ TSIL.Enums.HostVariant = {
 }
 
 ---@enum ChubVariant
--- For `EntityType.ENTITY_CHUB` (28). 
+--- For `EntityType.ENTITY_CHUB` (28). 
 TSIL.Enums.ChubVariant = {
   CHUB = 0,
   CHAD = 1,
@@ -196,7 +196,7 @@ TSIL.Enums.ChubVariant = {
 }
 
 ---@enum HopperVariant
--- For `EntityType.ENTITY_HOPPER` (29). 
+--- For `EntityType.ENTITY_HOPPER` (29). 
 TSIL.Enums.HopperVariant = {
   HOPPER = 0,
   TRITE = 1,
@@ -205,7 +205,7 @@ TSIL.Enums.HopperVariant = {
 }
 
 ---@enum BoilVariant
--- For `EntityType.ENTITY_BOIL` (30). 
+--- For `EntityType.ENTITY_BOIL` (30). 
 TSIL.Enums.BoilVariant = {
   BOIL = 0,
   GUT = 1,
@@ -213,18 +213,16 @@ TSIL.Enums.BoilVariant = {
 }
 
 ---@enum SpittyVariant
--- For `EntityType.ENTITY_SPITTY` (31). 
+--- For `EntityType.ENTITY_SPITTY` (31). 
 TSIL.Enums.SpittyVariant = {
   SPITTY = 0,
   TAINTED_SPITTY = 1,
 }
 
 ---@enum FireplaceVariant
---[[
-    For `EntityType.ENTITY_FIREPLACE` (33).
-    Also see the `FireplaceGridEntityVariant` enum, which is different and used for the grid entity
-    version.
-]]--
+--- For `EntityType.ENTITY_FIREPLACE` (33).
+--- Also see the `FireplaceGridEntityVariant` enum, which is different and used for the grid entity
+--- version.
 TSIL.Enums.FireplaceVariant = {
   NORMAL = 0,
   RED = 1,
@@ -238,14 +236,14 @@ TSIL.Enums.FireplaceVariant = {
 }
 
 ---@enum LeaperVariant
--- For `EntityType.ENTITY_LEAPER` (34). 
+--- For `EntityType.ENTITY_LEAPER` (34). 
 TSIL.Enums.LeaperVariant = {
   LEAPER = 0,
   STICKY_LEAPER = 1,
 }
 
 ---@enum MrMawVariant
--- For `EntityType.ENTITY_MR_MAW` (35). 
+--- For `EntityType.ENTITY_MR_MAW` (35). 
 TSIL.Enums.MrMawVariant = {
   MR_MAW = 0,
   MR_MAW_HEAD = 1,
@@ -255,7 +253,7 @@ TSIL.Enums.MrMawVariant = {
 }
 
 ---@enum BabyVariant
--- For `EntityType.ENTITY_BABY` (38). 
+--- For `EntityType.ENTITY_BABY` (38). 
 TSIL.Enums.BabyVariant = {
   BABY = 0,
   ANGELIC_BABY = 1,
@@ -264,7 +262,7 @@ TSIL.Enums.BabyVariant = {
 }
 
 ---@enum VisVariant
--- For `EntityType.ENTITY_VIS` (39). 
+--- For `EntityType.ENTITY_VIS` (39). 
 TSIL.Enums.VisVariant = {
   VIS = 0,
   DOUBLE_VIS = 1,
@@ -274,7 +272,7 @@ TSIL.Enums.VisVariant = {
 }
 
 ---@enum GutsVariant
--- For `EntityType.ENTITY_GUTS` (40). 
+--- For `EntityType.ENTITY_GUTS` (40). 
 TSIL.Enums.GutsVariant = {
   GUTS = 0,
   SCARRED_GUTS = 1,
@@ -282,7 +280,7 @@ TSIL.Enums.GutsVariant = {
 }
 
 ---@enum KnightVariant
--- For `EntityType.ENTITY_KNIGHT` (41). 
+--- For `EntityType.ENTITY_KNIGHT` (41). 
 TSIL.Enums.KnightVariant = {
   KNIGHT = 0,
   SELFLESS_KNIGHT = 1,
@@ -292,7 +290,7 @@ TSIL.Enums.KnightVariant = {
 }
 
 ---@enum GrimaceVariant
--- For `EntityType.ENTITY_GRIMACE` (42). 
+--- For `EntityType.ENTITY_GRIMACE` (42). 
 TSIL.Enums.GrimaceVariant = {
   STONE_GRIMACE = 0,
   VOMIT_GRIMACE = 1,
@@ -300,28 +298,28 @@ TSIL.Enums.GrimaceVariant = {
 }
 
 ---@enum Monstro2Variant
--- For `EntityType.ENTITY_MONSTRO_2` (43). 
+--- For `EntityType.ENTITY_MONSTRO_2` (43). 
 TSIL.Enums.Monstro2Variant = {
   MONSTRO_2 = 0,
   GISH = 1,
 }
 
 ---@enum PokyVariant
--- For `EntityType.ENTITY_POKY` (44). 
+--- For `EntityType.ENTITY_POKY` (44). 
 TSIL.Enums.PokyVariant = {
   POKY = 0,
   SLIDE = 1,
 }
 
 ---@enum MomVariant
--- For `EntityType.ENTITY_MOM` (45). 
+--- For `EntityType.ENTITY_MOM` (45). 
 TSIL.Enums.MomVariant = {
   MOM = 0,
   STOMP = 10,
 }
 
 ---@enum SlothVariant
--- For `EntityType.ENTITY_SLOTH` (46). 
+--- For `EntityType.ENTITY_SLOTH` (46). 
 TSIL.Enums.SlothVariant = {
   SLOTH = 0,
   SUPER_SLOTH = 1,
@@ -329,35 +327,35 @@ TSIL.Enums.SlothVariant = {
 }
 
 ---@enum LustVariant
--- For `EntityType.ENTITY_LUST` (47). 
+--- For `EntityType.ENTITY_LUST` (47). 
 TSIL.Enums.LustVariant = {
   LUST = 0,
   SUPER_LUST = 1,
 }
 
 ---@enum WrathVariant
--- For `EntityType.ENTITY_WRATH` (48). 
+--- For `EntityType.ENTITY_WRATH` (48). 
 TSIL.Enums.WrathVariant = {
   WRATH = 0,
   SUPER_WRATH = 1,
 }
 
 ---@enum GluttonyVariant
--- For `EntityType.ENTITY_GLUTTONY` (49). 
+--- For `EntityType.ENTITY_GLUTTONY` (49). 
 TSIL.Enums.GluttonyVariant = {
   GLUTTONY = 0,
   SUPER_GLUTTONY = 1,
 }
 
 ---@enum GreedVariant
--- For `EntityType.ENTITY_GREED` (50). 
+--- For `EntityType.ENTITY_GREED` (50). 
 TSIL.Enums.GreedVariant = {
   GREED = 0,
   SUPER_GREED = 1,
 }
 
 ---@enum EnvyVariant
--- For `EntityType.ENTITY_ENVY` (51). 
+--- For `EntityType.ENTITY_ENVY` (51). 
 TSIL.Enums.EnvyVariant = {
   ENVY = 0,
   SUPER_ENVY = 1,
@@ -370,21 +368,21 @@ TSIL.Enums.EnvyVariant = {
 }
 
 ---@enum PrideVariant
--- For `EntityType.ENTITY_PRIDE` (52). 
+--- For `EntityType.ENTITY_PRIDE` (52). 
 TSIL.Enums.PrideVariant = {
   PRIDE = 0,
   SUPER_PRIDE = 1,
 }
 
 ---@enum DopleVariant
--- For `EntityType.ENTITY_DOPLE` (53). 
+--- For `EntityType.ENTITY_DOPLE` (53). 
 TSIL.Enums.DopleVariant = {
   DOPLE = 0,
   EVIL_TWIN = 1,
 }
 
 ---@enum LeechVariant
--- For `EntityType.ENTITY_LEECH` (55). 
+--- For `EntityType.ENTITY_LEECH` (55). 
 TSIL.Enums.LeechVariant = {
   LEECH = 0,
   KAMIKAZE_LEECH = 1,
@@ -392,7 +390,7 @@ TSIL.Enums.LeechVariant = {
 }
 
 ---@enum MembrainVariant
--- For `EntityType.ENTITY_MEMBRAIN` (57). 
+--- For `EntityType.ENTITY_MEMBRAIN` (57). 
 TSIL.Enums.MemBrainVariant = {
   MEMBRAIN = 0,
   MAMA_GUTS = 1,
@@ -400,14 +398,14 @@ TSIL.Enums.MemBrainVariant = {
 }
 
 ---@enum ParaBiteVariant
--- For `EntityType.ENTITY_PARA_BITE` (58). 
+--- For `EntityType.ENTITY_PARA_BITE` (58). 
 TSIL.Enums.ParaBiteVariant = {
   PARA_BITE = 0,
   SCARRED_PARA_BITE = 1,
 }
 
 ---@enum EyeVariant
--- For `EntityType.ENTITY_EYE` (60). 
+--- For `EntityType.ENTITY_EYE` (60). 
 TSIL.Enums.EyeVariant = {
   EYE = 0,
   BLOODSHOT_EYE = 1,
@@ -415,7 +413,7 @@ TSIL.Enums.EyeVariant = {
 }
 
 ---@enum SuckerVariant
--- For `EntityType.ENTITY_SUCKER` (61). 
+--- For `EntityType.ENTITY_SUCKER` (61). 
 TSIL.Enums.SuckerVariant = {
   SUCKER = 0,
   SPIT = 1,
@@ -428,7 +426,7 @@ TSIL.Enums.SuckerVariant = {
 }
 
 ---@enum PinVariant
--- For `EntityType.ENTITY_PIN` (62). 
+--- For `EntityType.ENTITY_PIN` (62). 
 TSIL.Enums.PinVariant = {
   PIN = 0,
   SCOLEX = 1,
@@ -437,7 +435,7 @@ TSIL.Enums.PinVariant = {
 }
 
 ---@enum WarVariant
--- For `EntityType.ENTITY_WAR` (65). 
+--- For `EntityType.ENTITY_WAR` (65). 
 TSIL.Enums.WarVariant = {
   WAR = 0,
   CONQUEST = 1,
@@ -445,7 +443,7 @@ TSIL.Enums.WarVariant = {
 }
 
 ---@enum DeathVariant
--- For `EntityType.ENTITY_DEATH` (66). 
+--- For `EntityType.ENTITY_DEATH` (66). 
 TSIL.Enums.DeathVariant = {
   DEATH = 0,
   DEATH_SCYTHE = 10,
@@ -454,14 +452,14 @@ TSIL.Enums.DeathVariant = {
 }
 
 ---@enum DukeVariant
--- For `EntityType.ENTITY_DUKE` (67). 
+--- For `EntityType.ENTITY_DUKE` (67). 
 TSIL.Enums.DukeVariant = {
   DUKE_OF_FLIES = 0,
   THE_HUSK = 1,
 }
 
 ---@enum PeepVariant
--- For `EntityType.ENTITY_PEEP` (68). 
+--- For `EntityType.ENTITY_PEEP` (68). 
 TSIL.Enums.PeepVariant = {
   PEEP = 0,
   BLOAT = 1,
@@ -470,26 +468,24 @@ TSIL.Enums.PeepVariant = {
 }
 
 ---@enum LokiVariant
--- For `EntityType.ENTITY_LOKI` (69). 
+--- For `EntityType.ENTITY_LOKI` (69). 
 TSIL.Enums.LokiVariant = {
   LOKI = 0,
   LOKII = 1,
 }
 
 ---@enum FistulaVariant
---[[
-    For:
-        - `EntityType.ENTITY_FISTULA_BIG` (71)
-        - `EntityType.ENTITY_FISTULA_MEDIUM` (72)
-        - `EntityType.ENTITY_FISTULA_SMALL` (73)
-]]--
+--- For:
+---     - `EntityType.ENTITY_FISTULA_BIG` (71)
+---     - `EntityType.ENTITY_FISTULA_MEDIUM` (72)
+---     - `EntityType.ENTITY_FISTULA_SMALL` (73)
 TSIL.Enums.FistulaVariant = {
   FISTULA = 0,
   TERATOMA = 1,
 }
 
 ---@enum MomsHeartVariant
--- For `EntityType.ENTITY_MOMS_HEART` (78). 
+--- For `EntityType.ENTITY_MOMS_HEART` (78). 
 TSIL.Enums.MomsHeartVariant = {
   MOMS_HEART = 0,
   IT_LIVES = 1,
@@ -497,7 +493,7 @@ TSIL.Enums.MomsHeartVariant = {
 }
 
 ---@enum GeminiVariant
--- For `EntityType.ENTITY_GEMINI` (79). 
+--- For `EntityType.ENTITY_GEMINI` (79). 
 TSIL.Enums.GeminiVariant = {
   GEMINI = 0,
   STEVEN = 1,
@@ -509,28 +505,28 @@ TSIL.Enums.GeminiVariant = {
 }
 
 ---@enum FallenVariant
--- For `EntityType.ENTITY_FALLEN` (81). 
+--- For `EntityType.ENTITY_FALLEN` (81). 
 TSIL.Enums.FallenVariant = {
   FALLEN = 0,
   KRAMPUS = 1,
 }
 
 ---@enum SatanVariant
--- For `EntityType.ENTITY_SATAN` (84). 
+--- For `EntityType.ENTITY_SATAN` (84). 
 TSIL.Enums.SatanVariant = {
   SATAN = 0,
   STOMP = 10,
 }
 
 ---@enum GurgleVariant
--- For `EntityType.ENTITY_GURGLE` (87). 
+--- For `EntityType.ENTITY_GURGLE` (87). 
 TSIL.Enums.GurgleVariant = {
   GURGLE = 0,
   CRACKLE = 1,
 }
 
 ---@enum WalkingBoilVariant
--- For `EntityType.ENTITY_WALKING_BOIL` (88). 
+--- For `EntityType.ENTITY_WALKING_BOIL` (88). 
 TSIL.Enums.WalkingBoilVariant = {
   WALKING_BOIL = 0,
   WALKING_GUT = 1,
@@ -538,35 +534,35 @@ TSIL.Enums.WalkingBoilVariant = {
 }
 
 ---@enum HeartVariant
--- For `EntityType.ENTITY_HEART` (92). 
+--- For `EntityType.ENTITY_HEART` (92). 
 TSIL.Enums.HeartVariant = {
   HEART = 0,
   HALF_HEART = 1,
 }
 
 ---@enum MaskVariant
--- For `EntityType.ENTITY_MASK` (93). 
+--- For `EntityType.ENTITY_MASK` (93). 
 TSIL.Enums.MaskVariant = {
   MASK = 0,
   MASK_2 = 1,
 }
 
 ---@enum WidowVariant
--- For `EntityType.ENTITY_WIDOW` (100). 
+--- For `EntityType.ENTITY_WIDOW` (100). 
 TSIL.Enums.WidowVariant = {
   WIDOW = 0,
   THE_WRETCHED = 1,
 }
 
 ---@enum DaddyLongLegsVariant
--- For `EntityType.ENTITY_DADDY_LONG_LEGS` (101). 
+--- For `EntityType.ENTITY_DADDY_LONG_LEGS` (101). 
 TSIL.Enums.DaddyLongLegsVariant = {
   DADDY_LONG_LEGS = 0,
   TRIACHNID = 1,
 }
 
 ---@enum IsaacVariant
--- For `EntityType.ENTITY_ISAAC` (102). 
+--- For `EntityType.ENTITY_ISAAC` (102). 
 TSIL.Enums.IsaacVariant = {
   ISAAC = 0,
   BLUE_BABY = 1,
@@ -574,7 +570,7 @@ TSIL.Enums.IsaacVariant = {
 }
 
 ---@enum ConstantStoneShooterVariant
--- For `EntityType.ENTITY_CONSTANT_STONE_SHOOTER` (202). 
+--- For `EntityType.ENTITY_CONSTANT_STONE_SHOOTER` (202). 
 TSIL.Enums.ConstantStoneShooterVariant = {
   CONSTANT_STONE_SHOOTER = 0,
   CROSS_STONE_SHOOTER = 10,
@@ -582,21 +578,21 @@ TSIL.Enums.ConstantStoneShooterVariant = {
 }
 
 ---@enum BabyLongLegsVariant
--- For `EntityType.ENTITY_BABY_LONG_LEGS` (206). 
+--- For `EntityType.ENTITY_BABY_LONG_LEGS` (206). 
 TSIL.Enums.BabyLongLegsVariant = {
   BABY_LONG_LEGS = 0,
   SMALL_BABY_LONG_LEGS = 1,
 }
 
 ---@enum CrazyLongLegsVariant
--- For `EntityType.ENTITY_CRAZY_LONG_LEGS` (207). 
+--- For `EntityType.ENTITY_CRAZY_LONG_LEGS` (207). 
 TSIL.Enums.CrazyLongLegsVariant = {
   CRAZY_LONG_LEGS = 0,
   SMALL_CRAZY_LONG_LEGS = 1,
 }
 
 ---@enum FattyVariant
--- For `EntityType.ENTITY_FATTY` (208). 
+--- For `EntityType.ENTITY_FATTY` (208). 
 TSIL.Enums.FattyVariant = {
   FATTY = 0,
   PALE_FATTY = 1,
@@ -604,7 +600,7 @@ TSIL.Enums.FattyVariant = {
 }
 
 ---@enum DeathsHeadVariant
--- For `EntityType.ENTITY_DEATHS_HEAD` (212). 
+--- For `EntityType.ENTITY_DEATHS_HEAD` (212). 
 TSIL.Enums.DeathsHeadVariant = {
   DEATHS_HEAD = 0,
   DANK_DEATHS_HEAD = 1,
@@ -614,7 +610,7 @@ TSIL.Enums.DeathsHeadVariant = {
 }
 
 ---@enum SwingerVariant
--- For `EntityType.ENTITY_SWINGER` (216). 
+--- For `EntityType.ENTITY_SWINGER` (216). 
 TSIL.Enums.SwingerVariant = {
   SWINGER = 0,
   SWINGER_HEAD = 1,
@@ -622,7 +618,7 @@ TSIL.Enums.SwingerVariant = {
 }
 
 ---@enum DipVariant
--- For `EntityType.ENTITY_DIP` (217). 
+--- For `EntityType.ENTITY_DIP` (217). 
 TSIL.Enums.DipVariant = {
   DIP = 0,
   CORN = 1,
@@ -631,14 +627,14 @@ TSIL.Enums.DipVariant = {
 }
 
 ---@enum SquirtVariant
--- For `EntityType.ENTITY_SQUIRT` (220). 
+--- For `EntityType.ENTITY_SQUIRT` (220). 
 TSIL.Enums.SquirtVariant = {
   SQUIRT = 0,
   DANK_SQUIRT = 1,
 }
 
 ---@enum SkinnyVariant
--- For `EntityType.ENTITY_SKINNY` (226). 
+--- For `EntityType.ENTITY_SKINNY` (226). 
 TSIL.Enums.SkinnyVariant = {
   SKINNY = 0,
   ROTTY = 1,
@@ -646,35 +642,35 @@ TSIL.Enums.SkinnyVariant = {
 }
 
 ---@enum BonyVariant
--- For `EntityType.ENTITY_BONY` (227). 
+--- For `EntityType.ENTITY_BONY` (227). 
 TSIL.Enums.BonyVariant = {
   BONY = 0,
   HOLY_BONY = 1,
 }
 
 ---@enum HomunculusVariant
--- For `EntityType.ENTITY_HOMUNCULUS` (228). 
+--- For `EntityType.ENTITY_HOMUNCULUS` (228). 
 TSIL.Enums.HomunculusVariant = {
   HOMUNCULUS = 0,
   HOMUNCULUS_CORD = 10,
 }
 
 ---@enum TumorVariant
--- For `EntityType.ENTITY_TUMOR` (229). 
+--- For `EntityType.ENTITY_TUMOR` (229). 
 TSIL.Enums.TumorVariant = {
   TUMOR = 0,
   PLANETOID = 1,
 }
 
 ---@enum NerveEndingVariant
--- For `EntityType.ENTITY_NERVE_ENDING` (231). 
+--- For `EntityType.ENTITY_NERVE_ENDING` (231). 
 TSIL.Enums.NerveEndingVariant = {
   NERVE_ENDING = 0,
   NERVE_ENDING_2 = 1,
 }
 
 ---@enum GurglingVariant
--- For `EntityType.ENTITY_GURGLING` (237). 
+--- For `EntityType.ENTITY_GURGLING` (237). 
 TSIL.Enums.GurglingVariant = {
   GURGLING = 0,
   GURGLING_BOSS = 1,
@@ -682,7 +678,7 @@ TSIL.Enums.GurglingVariant = {
 }
 
 ---@enum GrubVariant
--- For `EntityType.ENTITY_GRUB` (239). 
+--- For `EntityType.ENTITY_GRUB` (239). 
 TSIL.Enums.GrubVariant = {
   GRUB = 0,
   CORPSE_EATER = 1,
@@ -690,7 +686,7 @@ TSIL.Enums.GrubVariant = {
 }
 
 ---@enum WallCreepVariant
--- For `EntityType.ENTITY_WALL_CREEP` (240). 
+--- For `EntityType.ENTITY_WALL_CREEP` (240). 
 TSIL.Enums.WallCreepVariant = {
   WALL_CREEP = 0,
   SOY_CREEP = 1,
@@ -699,14 +695,14 @@ TSIL.Enums.WallCreepVariant = {
 }
 
 ---@enum RageCreepVariant
--- For `EntityType.ENTITY_RAGE_CREEP` (241). 
+--- For `EntityType.ENTITY_RAGE_CREEP` (241). 
 TSIL.Enums.RageCreepVariant = {
   RAGE_CREEP = 0,
   SPLIT_RAGE_CREEP = 1,
 }
 
 ---@enum RoundWormVariant
--- For `EntityType.ENTITY_ROUND_WORM` (244). 
+--- For `EntityType.ENTITY_ROUND_WORM` (244). 
 TSIL.Enums.RoundWormVariant = {
   ROUND_WORM = 0,
   TUBE_WORM = 1,
@@ -715,7 +711,7 @@ TSIL.Enums.RoundWormVariant = {
 }
 
 ---@enum PoopEntityVariant
--- For `EntityType.ENTITY_POOP` (245). 
+--- For `EntityType.ENTITY_POOP` (245). 
 TSIL.Enums.PoopEntityVariant = {
   NORMAL = 0,
   GOLDEN = 1,
@@ -728,42 +724,42 @@ TSIL.Enums.PoopEntityVariant = {
 }
 
 ---@enum RaglingVariant
--- For `EntityType.ENTITY_RAGLING` (246). 
+--- For `EntityType.ENTITY_RAGLING` (246). 
 TSIL.Enums.RaglingVariant = {
   RAGLING = 0,
   RAG_MANS_RAGLING = 1,
 }
 
 ---@enum BegottenVariant
--- For `EntityType.ENTITY_BEGOTTEN` (251). 
+--- For `EntityType.ENTITY_BEGOTTEN` (251). 
 TSIL.Enums.BegottenVariant = {
   BEGOTTEN = 0,
   BEGOTTEN_CHAIN = 10,
 }
 
 ---@enum ConjoinedFattyVariant
--- For `EntityType.ENTITY_CONJOINED_FATTY` (257). 
+--- For `EntityType.ENTITY_CONJOINED_FATTY` (257). 
 TSIL.Enums.ConjoinedFattyVariant = {
   CONJOINED_FATTY = 0,
   BLUE_CONJOINED_FATTY = 1,
 }
 
 ---@enum HauntVariant
--- For `EntityType.ENTITY_THE_HAUNT` (260). 
+--- For `EntityType.ENTITY_THE_HAUNT` (260). 
 TSIL.Enums.HauntVariant = {
   HAUNT = 0,
   LIL_HAUNT = 10,
 }
 
 ---@enum DingleVariant
--- For `EntityType.ENTITY_DINGLE` (261). 
+--- For `EntityType.ENTITY_DINGLE` (261). 
 TSIL.Enums.DingleVariant = {
   DINGLE = 0,
   DANGLE = 1,
 }
 
 ---@enum MamaGurdyVariant
--- For `EntityType.ENTITY_MAMA_GURDY` (266). 
+--- For `EntityType.ENTITY_MAMA_GURDY` (266). 
 TSIL.Enums.MamaGurdyVariant = {
   MAMA_GURDY = 0,
   LEFT_HAND = 1,
@@ -771,28 +767,28 @@ TSIL.Enums.MamaGurdyVariant = {
 }
 
 ---@enum PolycephalusVariant
--- For `EntityType.ENTITY_POLYCEPHALUS` (269). 
+--- For `EntityType.ENTITY_POLYCEPHALUS` (269). 
 TSIL.Enums.PolycephalusVariant = {
   POLYCEPHALUS = 0,
   THE_PILE = 1,
 }
 
 ---@enum AngelVariant
--- For `EntityType.ENTITY_URIEL` (271) and `EntityType.ENTITY_GABRIEL` (272). 
+--- For `EntityType.ENTITY_URIEL` (271) and `EntityType.ENTITY_GABRIEL` (272). 
 TSIL.Enums.AngelVariant = {
   NORMAL = 0,
   FALLEN = 1,
 }
 
 ---@enum LambVariant
--- For `EntityType.ENTITY_THE_LAMB` (273). 
+--- For `EntityType.ENTITY_THE_LAMB` (273). 
 TSIL.Enums.LambVariant = {
   LAMB = 0,
   BODY = 10,
 }
 
 ---@enum MegaSatanVariant
--- For `EntityType.ENTITY_MEGA_SATAN` (274) and `EntityType.ENTITY_MEGA_SATAN_2` (275). 
+--- For `EntityType.ENTITY_MEGA_SATAN` (274) and `EntityType.ENTITY_MEGA_SATAN_2` (275). 
 TSIL.Enums.MegaSatanVariant = {
   MEGA_SATAN = 0,
   MEGA_SATAN_RIGHT_HAND = 1,
@@ -800,7 +796,7 @@ TSIL.Enums.MegaSatanVariant = {
 }
 
 ---@enum PitfallVariant
--- For `EntityType.ENTITY_PITFALL` (291). 
+--- For `EntityType.ENTITY_PITFALL` (291). 
 TSIL.Enums.PitfallVariant = {
   PITFALL = 0,
   SUCTION_PITFALL = 1,
@@ -808,14 +804,14 @@ TSIL.Enums.PitfallVariant = {
 }
 
 ---@enum MoveableTNTVariant
--- For `EntityType.ENTITY_MOVABLE_TNT` (292). 
+--- For `EntityType.ENTITY_MOVABLE_TNT` (292). 
 TSIL.Enums.MoveableTNTVariant = {
   MOVEABLE_TNT = 0,
   MINE_CRAFTER = 1,
 }
 
 ---@enum UltraCoinVariant
--- For `EntityType.ENTITY_ULTRA_COIN` (293). 
+--- For `EntityType.ENTITY_ULTRA_COIN` (293). 
 TSIL.Enums.UltraCoinVariant = {
   SPINNER = 0,
   KEY = 1,
@@ -824,56 +820,56 @@ TSIL.Enums.UltraCoinVariant = {
 }
 
 ---@enum StoneyVariant
--- For `EntityType.ENTITY_STONEY` (302). 
+--- For `EntityType.ENTITY_STONEY` (302). 
 TSIL.Enums.StoneyVariant = {
   STONEY = 0,
   CROSS_STONEY = 10,
 }
 
 ---@enum PortalVariant
--- For `EntityType.ENTITY_PORTAL` (306). 
+--- For `EntityType.ENTITY_PORTAL` (306). 
 TSIL.Enums.PortalVariant = {
   PORTAL = 0,
   LIL_PORTAL = 1,
 }
 
 ---@enum LeperVariant
--- For `EntityType.ENTITY_LEPER` (310). 
+--- For `EntityType.ENTITY_LEPER` (310). 
 TSIL.Enums.LeperVariant = {
   LEPER = 0,
   LEPER_FLESH = 1,
 }
 
 ---@enum MrMineVariant
--- For `EntityType.ENTITY_MR_MINE` (311). 
+--- For `EntityType.ENTITY_MR_MINE` (311). 
 TSIL.Enums.MrMineVariant = {
   MR_MINE = 0,
   MR_MINE_NECK = 10,
 }
 
 ---@enum LittleHornVariant
--- For `EntityType.ENTITY_LITTLE_HORN` (404). 
+--- For `EntityType.ENTITY_LITTLE_HORN` (404). 
 TSIL.Enums.LittleHornVariant = {
   LITTLE_HORN = 0,
   DARK_BALL = 1,
 }
 
 ---@enum RagManVariant
--- For `EntityType.ENTITY_RAG_MAN` (405). 
+--- For `EntityType.ENTITY_RAG_MAN` (405). 
 TSIL.Enums.RagManVariant = {
   RAG_MAN = 0,
   RAG_MAN_HEAD = 1,
 }
 
 ---@enum UltraGreedVariant
--- For `EntityType.ENTITY_ULTRA_GREED` (406). 
+--- For `EntityType.ENTITY_ULTRA_GREED` (406). 
 TSIL.Enums.UltraGreedVariant = {
   ULTRA_GREED = 0,
   ULTRA_GREEDIER = 1,
 }
 
 ---@enum RagMegaVariant
--- For `EntityType.ENTITY_RAG_MEGA` (409). 
+--- For `EntityType.ENTITY_RAG_MEGA` (409). 
 TSIL.Enums.RagMegaVariant = {
   RAG_MEGA = 0,
   PURPLE_BALL = 1,
@@ -881,7 +877,7 @@ TSIL.Enums.RagMegaVariant = {
 }
 
 ---@enum BigHornVariant
--- For `EntityType.ENTITY_BIG_HORN` (411). 
+--- For `EntityType.ENTITY_BIG_HORN` (411). 
 TSIL.Enums.BigHornVariant = {
   BIG_HORN = 0,
   SMALL_HOLE = 1,
@@ -889,35 +885,35 @@ TSIL.Enums.BigHornVariant = {
 }
 
 ---@enum BloodPuppyVariant
--- For `EntityType.ENTITY_BLOOD_PUPPY` (802). 
+--- For `EntityType.ENTITY_BLOOD_PUPPY` (802). 
 TSIL.Enums.BloodPuppyVariant = {
   SMALL = 0,
   LARGE = 1,
 }
 
 ---@enum SubHorfVariant
--- For `EntityType.ENTITY_SUB_HORF` (812). 
+--- For `EntityType.ENTITY_SUB_HORF` (812). 
 TSIL.Enums.SubHorfVariant = {
   SUB_HORF = 0,
   TAINTED_SUB_HORF = 1,
 }
 
 ---@enum PoltyVariant
--- For `EntityType.ENTITY_POLTY` (816). 
+--- For `EntityType.ENTITY_POLTY` (816). 
 TSIL.Enums.PoltyVariant = {
   POLTY = 0,
   KINETI = 1,
 }
 
 ---@enum PreyVariant
--- For `EntityType.ENTITY_PREY` (817). 
+--- For `EntityType.ENTITY_PREY` (817). 
 TSIL.Enums.PreyVariant = {
   PREY = 0,
   MULLIGHOUL = 1,
 }
 
 ---@enum RockSpiderVariant
--- For `EntityType.ENTITY_ROCK_SPIDER` (818). 
+--- For `EntityType.ENTITY_ROCK_SPIDER` (818). 
 TSIL.Enums.RockSpiderVariant = {
   ROCK_SPIDER = 0,
   TINTED_ROCK_SPIDER = 1,
@@ -925,49 +921,49 @@ TSIL.Enums.RockSpiderVariant = {
 }
 
 ---@enum FlyBombVariant
--- For `EntityType.ENTITY_FLY_BOMB` (819). 
+--- For `EntityType.ENTITY_FLY_BOMB` (819). 
 TSIL.Enums.FlyBombVariant = {
   FLY_BOMB = 0,
   ETERNAL_FLY_BOMB = 1,
 }
 
 ---@enum DannyVariant
--- For `EntityType.ENTITY_DANNY` (820). 
+--- For `EntityType.ENTITY_DANNY` (820). 
 TSIL.Enums.DannyVariant = {
   DANNY = 0,
   COAL_BOY = 1,
 }
 
 ---@enum GyroVariant
--- For `EntityType.ENTITY_GYRO` (824). 
+--- For `EntityType.ENTITY_GYRO` (824). 
 TSIL.Enums.GyroVariant = {
   GYRO = 0,
   GRILLED_GYRO = 1,
 }
 
 ---@enum FacelessVariant
--- For `EntityType.ENTITY_FACELESS` (827). 
+--- For `EntityType.ENTITY_FACELESS` (827). 
 TSIL.Enums.FacelessVariant = {
   FACELESS = 0,
   TAINTED_FACELESS = 1,
 }
 
 ---@enum MoleVariant
--- For `EntityType.ENTITY_MOLE` (829). 
+--- For `EntityType.ENTITY_MOLE` (829). 
 TSIL.Enums.MoleVariant = {
   MOLE = 0,
   TAINTED_MOLE = 1,
 }
 
 ---@enum BigBonyVariant
--- For `EntityType.ENTITY_BIG_BONY` (830). 
+--- For `EntityType.ENTITY_BIG_BONY` (830). 
 TSIL.Enums.BigBonyVariant = {
   BIG_BONY = 0,
   BIG_BONE = 10,
 }
 
 ---@enum GuttedFattyVariant
--- For `EntityType.ENTITY_GUTTED_FATTY` (831). 
+--- For `EntityType.ENTITY_GUTTED_FATTY` (831). 
 TSIL.Enums.GuttedFattyVariant = {
   GUTTED_FATTY = 0,
   GUTTY_FATTY_EYE = 10,
@@ -975,14 +971,14 @@ TSIL.Enums.GuttedFattyVariant = {
 }
 
 ---@enum ExorcistVariant
--- For `EntityType.ENTITY_EXORCIST` (832). 
+--- For `EntityType.ENTITY_EXORCIST` (832). 
 TSIL.Enums.ExorcistVariant = {
   EXORCIST = 0,
   FANATIC = 1,
 }
 
 ---@enum WhipperVariant
--- For `EntityType.ENTITY_WHIPPER` (834). 
+--- For `EntityType.ENTITY_WHIPPER` (834). 
 TSIL.Enums.WhipperVariant = {
   WHIPPER = 0,
   SNAPPER = 1,
@@ -990,28 +986,28 @@ TSIL.Enums.WhipperVariant = {
 }
 
 ---@enum PeeperFattyVariant
--- For `EntityType.ENTITY_PEEPER_FATTY` (835). 
+--- For `EntityType.ENTITY_PEEPER_FATTY` (835). 
 TSIL.Enums.PeeperFattyVariant = {
   PEEPING_FATTY = 0,
   PEEPING_FATTY_EYE = 10,
 }
 
 ---@enum RevenantVariant
--- For `EntityType.ENTITY_REVENANT` (841). 
+--- For `EntityType.ENTITY_REVENANT` (841). 
 TSIL.Enums.RevenantVariant = {
   REVENANT = 0,
   QUAD_REVENANT = 1,
 }
 
 ---@enum CanaryVariant
--- For `EntityType.ENTITY_CANARY` (843). 
+--- For `EntityType.ENTITY_CANARY` (843). 
 TSIL.Enums.CanaryVariant = {
   CANARY = 0,
   FOREIGNER = 1,
 }
 
 ---@enum Gaper2Variant
--- For `EntityType.ENTITY_GAPER_L2` (850). 
+--- For `EntityType.ENTITY_GAPER_L2` (850). 
 TSIL.Enums.Gaper2Variant = {
   GAPER = 0,
   HORF = 1,
@@ -1019,42 +1015,42 @@ TSIL.Enums.Gaper2Variant = {
 }
 
 ---@enum Charger2Variant
--- For `EntityType.ENTITY_CHARGER_L2` (855). 
+--- For `EntityType.ENTITY_CHARGER_L2` (855). 
 TSIL.Enums.Charger2Variant = {
   CHARGER = 0,
   ELLEECH = 1,
 }
 
 ---@enum EvisVariant
--- For `EntityType.ENTITY_EVIS` (865). 
+--- For `EntityType.ENTITY_EVIS` (865). 
 TSIL.Enums.EvisVariant = {
   EVIS = 0,
   EVIS_GUTS = 10,
 }
 
 ---@enum DarkEsauVariant
--- For `EntityType.ENTITY_DARK_ESAU` (866). 
+--- For `EntityType.ENTITY_DARK_ESAU` (866). 
 TSIL.Enums.DarkEsauVariant = {
   DARK_ESAU = 0,
   PIT = 1,
 }
 
 ---@enum DumpVariant
--- For `EntityType.ENTITY_DUMP` (876). 
+--- For `EntityType.ENTITY_DUMP` (876). 
 TSIL.Enums.DumpVariant = {
   DUMP = 0,
   DUMP_HEAD = 1,
 }
 
 ---@enum NeedleVariant
--- For `EntityType.ENTITY_NEEDLE` (881). 
+--- For `EntityType.ENTITY_NEEDLE` (881). 
 TSIL.Enums.NeedleVariant = {
   NEEDLE = 0,
   PASTY = 1,
 }
 
 ---@enum CultistVariant
--- For `EntityType.ENTITY_CULTIST` (885). 
+--- For `EntityType.ENTITY_CULTIST` (885). 
 TSIL.Enums.CultistVariant = {
   CULTIST = 0,
   BLOOD_CULTIST = 1,
@@ -1062,21 +1058,21 @@ TSIL.Enums.CultistVariant = {
 }
 
 ---@enum VisFattyVariant
--- For `EntityType.ENTITY_VIS_FATTY` (886). 
+--- For `EntityType.ENTITY_VIS_FATTY` (886). 
 TSIL.Enums.VisFattyVariant = {
   VIS_FATTY = 0,
   FETAL_DEMON = 1,
 }
 
 ---@enum GoatVariant
--- For `EntityType.ENTITY_GOAT` (891). 
+--- For `EntityType.ENTITY_GOAT` (891). 
 TSIL.Enums.GoatVariant = {
   GOAT = 0,
   BLACK_GOAT = 1,
 }
 
 ---@enum VisageVariant
--- For `EntityType.ENTITY_VISAGE` (903). 
+--- For `EntityType.ENTITY_VISAGE` (903). 
 TSIL.Enums.VisageVariant = {
   VISAGE = 0,
   VISAGE_MASK = 1,
@@ -1085,7 +1081,7 @@ TSIL.Enums.VisageVariant = {
 }
 
 ---@enum SirenVariant
--- For `EntityType.ENTITY_SIREN` (904). 
+--- For `EntityType.ENTITY_SIREN` (904). 
 TSIL.Enums.SirenVariant = {
   SIREN = 0,
   SIREN_SKULL = 1,
@@ -1093,14 +1089,14 @@ TSIL.Enums.SirenVariant = {
 }
 
 ---@enum ScourgeVariant
--- For `EntityType.ENTITY_SCOURGE` (909). 
+--- For `EntityType.ENTITY_SCOURGE` (909). 
 TSIL.Enums.ScourgeVariant = {
   SCOURGE = 0,
   SCOURGE_CHAIN = 10,
 }
 
 ---@enum ChimeraVariant
--- For `EntityType.ENTITY_CHIMERA` (910). 
+--- For `EntityType.ENTITY_CHIMERA` (910). 
 TSIL.Enums.ChimeraVariant = {
   CHIMERA = 0,
   CHIMERA_BODY = 1,
@@ -1108,7 +1104,7 @@ TSIL.Enums.ChimeraVariant = {
 }
 
 ---@enum RotgutVariant
--- For `EntityType.ENTITY_ROTGUT` (911). 
+--- For `EntityType.ENTITY_ROTGUT` (911). 
 TSIL.Enums.RotgutVariant = {
   PHASE_1_HEAD = 0,
   PHASE_2_MAGGOT = 1,
@@ -1116,7 +1112,7 @@ TSIL.Enums.RotgutVariant = {
 }
 
 ---@enum MotherVariant
--- For `EntityType.ENTITY_MOTHER` (912). 
+--- For `EntityType.ENTITY_MOTHER` (912). 
 TSIL.Enums.MotherVariant = {
   --[[
     The body that is attached to the top of the screen in phase 1. During phase 2, it remains alive
@@ -1131,28 +1127,28 @@ TSIL.Enums.MotherVariant = {
 }
 
 ---@enum SingeVariant
--- For `EntityType.ENTITY_SINGE` (915). 
+--- For `EntityType.ENTITY_SINGE` (915). 
 TSIL.Enums.SingeVariant = {
   SINGE = 0,
   SINGE_BALL = 1,
 }
 
 ---@enum RaglichVariant
--- For `EntityType.ENTITY_RAGLICH` (919). 
+--- For `EntityType.ENTITY_RAGLICH` (919). 
 TSIL.Enums.RaglichVariant = {
   RAGLICH = 0,
   RAGLICH_ARM = 1,
 }
 
 ---@enum ClutchVariant
--- For `EntityType.ENTITY_CLUTCH` (921). 
+--- For `EntityType.ENTITY_CLUTCH` (921). 
 TSIL.Enums.ClutchVariant = {
   CLUTCH = 0,
   CLUTCH_ORBITAL = 1,
 }
 
 ---@enum DogmaVariant
--- For `EntityType.ENTITY_DOGMA` (950). 
+--- For `EntityType.ENTITY_DOGMA` (950). 
 TSIL.Enums.DogmaVariant = {
   DOGMA_PHASE_1 = 0,
   TV = 1,
@@ -1161,7 +1157,7 @@ TSIL.Enums.DogmaVariant = {
 }
 
 ---@enum BeastVariant
--- For `EntityType.ENTITY_BEAST` (951). 
+--- For `EntityType.ENTITY_BEAST` (951). 
 TSIL.Enums.BeastVariant = {
   BEAST = 0,
   STALACTITE = 1,
@@ -1186,7 +1182,7 @@ TSIL.Enums.BeastVariant = {
 }
 
 ---@enum GenericPropVariant
--- For `EntityType.ENTITY_GENERIC_PROP` (960). 
+--- For `EntityType.ENTITY_GENERIC_PROP` (960). 
 TSIL.Enums.GenericPropVariant = {
   GENERIC_PROP = 0,
   MOMS_DRESSER = 1,

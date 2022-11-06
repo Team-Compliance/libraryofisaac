@@ -15,7 +15,6 @@ local VanillaCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.VanillaCallbacksList
 --- @param funct function
 --- @param priority CallbackPriority | integer
 --- @param optionalParam? integer
---- @within TSIL
 function TSIL.AddVanillaCallback(mod, callback, funct, priority, optionalParam)
 	if not VanillaCallbacksList then
 		TSIL.__VERSION_PERSISTENT_DATA.VanillaCallbacksList = {}

@@ -12,7 +12,6 @@ function TSIL.Benchmark.Benchmark(numTrials, ...)
     local functions = {...}
 
     TSIL.Log.Log("Benchmarking " .. #functions .. " function(s) with " .. numTrials .. " trials.")
-    
 
     ---@type number[]
     local averages = {}

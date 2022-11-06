@@ -15,7 +15,6 @@ local CustomCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList
 --- @param funct function
 --- @param priority integer | CallbackPriority
 --- @param ... integer
---- @within TSIL
 function TSIL.AddCustomCallback(mod, callback, funct, priority, ...)
 	if not CustomCallbacksList then
 		TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList = {}

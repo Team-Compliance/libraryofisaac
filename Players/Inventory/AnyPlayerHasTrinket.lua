@@ -2,7 +2,6 @@
 --- @param trinketId TrinketType
 --- @param ignoreModifiers boolean? @Default : false
 --- @return boolean
---- @within TSIL.Players
 function TSIL.Players.DoesAnyPlayerHasTrinket(trinketId, ignoreModifiers)
 	local players = TSIL.Players.GetPlayers()
 

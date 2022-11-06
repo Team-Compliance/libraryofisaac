@@ -1,3 +1,5 @@
+--##POST_GRID_ENTITY_INIT
+
 local CustomCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList
 local GridInRoom = {}
 

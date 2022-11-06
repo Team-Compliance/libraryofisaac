@@ -1,3 +1,6 @@
+--##use Players/Inventory/PlayerInventory.lua
+--##POST_PLAYER_COLLECTIBLE_ADDED
+
 local CustomCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList
 
 --- @param player EntityPlayer

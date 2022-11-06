@@ -3,7 +3,6 @@ local CustomCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList
 --- @param mod table
 --- @param callback CustomCallback
 --- @param funct function
---- @within TSIL
 function TSIL.RemoveCustomCallback(mod, callback, funct)
 	if not CustomCallbacksList then return end
 

@@ -1,3 +1,5 @@
+--##use SaveManager/VariableResetter.lua
+
 --- Removes a variable from the save manager.
 --- @param mod table
 --- @param variableName string

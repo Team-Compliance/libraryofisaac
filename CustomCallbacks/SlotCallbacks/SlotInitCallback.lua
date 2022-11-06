@@ -1,3 +1,5 @@
+--##POST_SLOT_INIT
+
 local CustomCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList
 
 local function OnSlotUpdate(_, slot)

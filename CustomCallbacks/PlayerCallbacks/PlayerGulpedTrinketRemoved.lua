@@ -1,3 +1,6 @@
+--##use Players/Inventory/PlayerInventory.lua
+--##POST_PLAYER_GULPED_TRINKET_REMOVED
+
 local CustomCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList
 
 --- @param player EntityPlayer

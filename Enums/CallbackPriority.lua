@@ -1,5 +1,4 @@
 --- @enum CallbackPriority
---- @within TSIL.Enums
 TSIL.Enums.CallbackPriority = {
 	LOW = 10,
 	MEDIUM = 50,

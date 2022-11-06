@@ -1,5 +1,4 @@
 --- @enum CustomCallback
---- @within TSIL.Enums
 TSIL.Enums.CustomCallback = {
 	POST_SLOT_INIT = "POST_SLOT_INIT",
 	POST_SLOT_UPDATE = "POST_SLOT_UPDATE",
