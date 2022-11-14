@@ -20,7 +20,7 @@ function TSIL.Utils.Random.GetRandomElementsFromTable(toChoose, numberOfElements
 		numberOfElements = 1
 	end
 
-	local tableSize = TSIL.Utils.Tables.Count(toChoose, function ()
+	local tableSize = TSIL.Utils.Tables.Count(toChoose, function (_, _)
 		return true
 	end)
 

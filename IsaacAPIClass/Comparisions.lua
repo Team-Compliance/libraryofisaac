@@ -1,3 +1,27 @@
+---Helper function to check if something is an instantiated `BitSet128` object.
+---@param variable unknown
+---@return boolean
+function TSIL.IsaacAPIClass.IsBitSet128(variable)
+    return TSIL.IsaacAPIClass.GetIsaacAPIClassName(variable) == "BitSet128"
+end
+
+
+---Helper function to check if something is an instantiated `Color` object.
+---@param variable unknown
+---@return boolean
+function TSIL.IsaacAPIClass.IsColor(variable)
+    return TSIL.IsaacAPIClass.GetIsaacAPIClassName(variable) == "Color"
+end
+
+
+---Helper function to detect if a variable is of type `KColor`
+---@param variable unknown
+---@return boolean
+function TSIL.IsaacAPIClass.IsKColor(variable)
+    return TSIL.IsaacAPIClass.GetIsaacAPIClassName(variable) == "KColor"
+end
+
+
 ---Helper function to detect if a variable is of type `EntityKnife`
 ---@param variable unknown
 ---@return boolean
@@ -94,4 +118,12 @@ end
 ---@return boolean
 function TSIL.IsaacAPIClass.IsTNT(variable)
     return TSIL.IsaacAPIClass.GetIsaacAPIClassName(variable) == "GridEntityTNT"
+end
+
+
+---Helper function to detect if a variable is of type `Vector`
+---@param variable unknown
+---@return boolean
+function TSIL.IsaacAPIClass.IsVector(variable)
+    return TSIL.IsaacAPIClass.GetIsaacAPIClassName(variable) == "Vector"
 end

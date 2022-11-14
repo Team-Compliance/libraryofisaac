@@ -107,8 +107,23 @@ function LOCAL_TSIL.Init(FolderName)
 		--- @type {Callback : CustomCallback, Functions : TSILCustomCallback[]}[]
 		TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList = {}
 
+		--- @class PersistentVariable
+		--- @field name string
+		--- @field value any
+		--- @field default any
+		--- @field persistenceMode VariablePersistenceMode
+		--- @field ignoreGlowingHourglass boolean
+		--- @field conditionalSave? fun(): boolean
+
+		--- @class ModPersistentData
+		--- @field mod string
+		--- @field variables PersistentVariable[]
+
 		--- @type ModPersistentData[]
 		TSIL.__VERSION_PERSISTENT_DATA.PersistentData = {}
+
+		--- @type table<string, table<string, any>>
+		TSIL.__VERSION_PERSISTENT_DATA.GlowingHourglassPersistentDataBackup = {}
 	end
 
 	--LOAD SCRIPTS

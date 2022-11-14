@@ -6,7 +6,13 @@
 --- @param variableName string
 --- @param value any
 --- @param persistenceMode VariablePersistenceMode
-function TSIL.SaveManager.AddPersistentVariable(mod, variableName, value, persistenceMode)
+--- @param ignoreGlowingHourglass? boolean @Default: false
+--- @param conditionalSave? fun(): boolean
+function TSIL.SaveManager.AddPersistentVariable(mod, variableName, value, persistenceMode, ignoreGlowingHourglass, conditionalSave)
+	if ignoreGlowingHourglass == nil then
+		ignoreGlowingHourglass = false
+	end
+
 	local PersistentData = TSIL.__VERSION_PERSISTENT_DATA.PersistentData
 
 	local tables = TSIL.Utils.Tables
@@ -36,9 +42,11 @@ function TSIL.SaveManager.AddPersistentVariable(mod, variableName, value, persis
 
 	local newVariable = {
 		name = variableName,
-		default = value,
+		default = TSIL.Utils.DeepCopy.DeepCopy(value, TSIL.Enums.SerializationType.NONE),
 		value = value,
-		persistenceMode = persistenceMode
+		persistenceMode = persistenceMode,
+		ignoreGlowingHourglass = ignoreGlowingHourglass,
+		conditionalSave = conditionalSave
 	}
 	table.insert(modVariables, newVariable)
 end
