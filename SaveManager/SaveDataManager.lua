@@ -9,7 +9,7 @@ TSIL.__AddInternalVanillaCallback(
     "SAVE_MANAGER_USE_GLOWING_HOURGLASS",
     ModCallbacks.MC_USE_ITEM,
     OnGlowingHourglassUse,
-    TSIL.Enums.CallbackPriority.MEDIUM,
+    TSIL.Enums.CallbackPriority.VERY_HIGH,
     CollectibleType.COLLECTIBLE_GLOWING_HOUR_GLASS
 )
 
@@ -35,7 +35,7 @@ TSIL.__AddInternalVanillaCallback(
     "SAVE_MANAGER_PLAYER_INIT",
     ModCallbacks.MC_POST_PLAYER_INIT,
     OnPlayerInit,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    TSIL.Enums.CallbackPriority.VERY_HIGH
 )
 
 
@@ -48,7 +48,7 @@ TSIL.__AddInternalVanillaCallback(
     "SAVE_MANAGER_GAME_EXIT",
     ModCallbacks.MC_PRE_GAME_EXIT,
     OnGameExit,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    TSIL.Enums.CallbackPriority.VERY_HIGH
 )
 
 
@@ -63,7 +63,7 @@ TSIL.__AddInternalVanillaCallback(
     "SAVE_MANAGER_NEW_LEVEL",
     ModCallbacks.MC_POST_NEW_LEVEL,
     OnNewLevel,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    TSIL.Enums.CallbackPriority.VERY_HIGH
 )
 
 -- TODO: Add a "POST_NEW_ROOM_EARLY" callback
@@ -81,5 +81,5 @@ TSIL.__AddInternalVanillaCallback(
     "SAVE_MANAGER_NEW_ROOM",
     ModCallbacks.MC_POST_NEW_ROOM,
     OnNewRoom,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    TSIL.Enums.CallbackPriority.VERY_HIGH
 )

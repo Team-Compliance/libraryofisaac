@@ -35,7 +35,7 @@ function TSIL.SaveManager.MakeGlowingHourGlassBackup()
                 end
             end
 
-            if GLOWING_HOUR_GLASS_BACKUP_KEYS[variable.persistenceMode] then
+            if not GLOWING_HOUR_GLASS_BACKUP_KEYS[variable.persistenceMode] then
                 return
             end
 
@@ -72,7 +72,7 @@ function TSIL.SaveManager.RestoreGlowingHourGlassBackup()
                 end
             end
 
-            if GLOWING_HOUR_GLASS_BACKUP_KEYS[variable.persistenceMode] then
+            if not GLOWING_HOUR_GLASS_BACKUP_KEYS[variable.persistenceMode] then
                 return
             end
 
