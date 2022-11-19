@@ -8,6 +8,7 @@ function LOCAL_TSIL.Init(FolderName)
 		--If TSIL hasnt been initialized yet, initialize it
 		TSIL = {}
 		TSIL.__PROXY = {}
+		TSIL.__FUNCTION_VERSIONS = {}
 	else
 		--There's another version of TSIL version, overwrite it
 		for _, InternalVanillaCallback in pairs(TSIL.__INTERNAL_VANILLA_CALLBACKS) do
@@ -32,7 +33,6 @@ function LOCAL_TSIL.Init(FolderName)
 	end
 
 	--METATABLE
-	local OldTSILVersion = TSIL.__VERSION or -1
 	local TSIL_META = {}
 
 	function TSIL_META.__index(module, key)
@@ -41,6 +41,7 @@ function LOCAL_TSIL.Init(FolderName)
 		if proxy[key] == nil then
 			local newModule = {}
 			newModule.__PROXY = {}
+			newModule.__FUNCTION_VERSIONS = {}
 			setmetatable(newModule, TSIL_META)
 			proxy[key] = newModule
 		end
@@ -50,12 +51,14 @@ function LOCAL_TSIL.Init(FolderName)
 
 	function TSIL_META.__newindex(module, key, value)
 		local proxy = rawget(module, "__PROXY")
+		local functionVersions = rawget(module, "__FUNCTION_VERSIONS")
 
-		if proxy[key] and LOCAL_TSIL_VERSION <= OldTSILVersion then
+		if functionVersions[key] and LOCAL_TSIL_VERSION <= functionVersions[key] then
 			--Trying to update from same/older version
 			return
 		end
 
+		functionVersions[key] = LOCAL_TSIL_VERSION
 		proxy[key] = value
 	end
 
