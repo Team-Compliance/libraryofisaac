@@ -13,7 +13,7 @@ function TSIL.__AddInternalVanillaCallback(id, callback, funct, priority, option
 	end
 
 	if foundInternalCallback then
-		if TSIL.__LOCAL_VERSION < TSIL.__VERSION then return end
+		if TSIL.__LOCAL_VERSION < foundInternalCallback.Version then return end
 
 		foundInternalCallback.Callback = callback
 		foundInternalCallback.Funct = funct
@@ -23,6 +23,7 @@ function TSIL.__AddInternalVanillaCallback(id, callback, funct, priority, option
 	else
 		foundInternalCallback = {
 			Id = id,
+			Version = TSIL.__LOCAL_VERSION,
 			Callback = callback,
 			Funct = funct,
 			Priority = priority,
@@ -48,7 +49,7 @@ function TSIL.__AddInternalCustomCallback(id, callback, funct, priority, ...)
 	end
 
 	if foundInternalCallback then
-		if TSIL.__LOCAL_VERSION < TSIL.__VERSION then return end
+		if TSIL.__LOCAL_VERSION < foundInternalCallback.Version then return end
 
 		foundInternalCallback.Callback = callback
 		foundInternalCallback.Funct = funct
@@ -57,6 +58,7 @@ function TSIL.__AddInternalCustomCallback(id, callback, funct, priority, ...)
 	else
 		foundInternalCallback = {
 			Id = id,
+			Version = TSIL.__LOCAL_VERSION,
 			Callback = callback,
 			Funct = funct,
 			Priority = priority,

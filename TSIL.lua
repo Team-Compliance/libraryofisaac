@@ -81,6 +81,7 @@ function LOCAL_TSIL.Init(FolderName)
 
 	--- @class InternalTSILVanillaCallback
 	--- @field Id string
+	--- @field Version number
 	--- @field Callback ModCallbacks
 	--- @field Funct function
 	--- @field Priority integer | CallbackPriority
@@ -92,6 +93,7 @@ function LOCAL_TSIL.Init(FolderName)
 
 	--- @class InternalTSILCustomCallback
 	--- @field Id string
+	--- @field Version number
 	--- @field Callback CustomCallback
 	--- @field Funct function
 	--- @field Priority integer | CallbackPriority
