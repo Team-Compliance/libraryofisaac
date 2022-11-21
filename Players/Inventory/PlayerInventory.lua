@@ -5,8 +5,8 @@
 --- @class PlayerInventory
 --- @field PlayerIndex integer
 --- @field InventoryOrdered InventoryObject[]
---- @field GulpedTrinkets integer[]
---- @field CollectedItems integer[]
+--- @field GulpedTrinkets {[string]: integer}
+--- @field CollectedItems {[string]: integer}
 
 --TODO: Make it so these callbacks aren't actually required (so the user can choose not to pick them)
 --TODO: This won't work if an old mod loads this and a newer mod only replaces the custom callbacks
@@ -28,14 +28,15 @@ local function CheckCollectedItems(player, playerState)
 		--Only check for non active items
 		if item and item.Type ~= ItemType.ITEM_ACTIVE then
 			local itemId = item.ID
+			local itemIdStr = tostring(itemId)
 
-			local pastCollectibleNum = playerState.CollectedItems[itemId] or 0
+			local pastCollectibleNum = playerState.CollectedItems[itemIdStr] or 0
 			--- @diagnostic disable-next-line: param-type-mismatch
 			local actualCollectibleNum = player:GetCollectibleNum(itemId, true)
 
 			if actualCollectibleNum > pastCollectibleNum then
 				--If the actual num is bigger than what we had, player has picked up an item
-				playerState.CollectedItems[itemId] = actualCollectibleNum
+				playerState.CollectedItems[itemIdStr] = actualCollectibleNum
 				for _ = 1, actualCollectibleNum - pastCollectibleNum, 1 do
 					table.insert(playerState.InventoryOrdered, { Type = TSIL.Enums.InventoryType.COLLECTIBLE, Id = itemId })
 				end
@@ -43,7 +44,7 @@ local function CheckCollectedItems(player, playerState)
 				PlayerCollectibleAddedCallback(player, itemId)
 			elseif actualCollectibleNum < pastCollectibleNum then
 				--If the actual num is smaller than what we had, player has lost an item
-				playerState.CollectedItems[itemId] = actualCollectibleNum
+				playerState.CollectedItems[itemIdStr] = actualCollectibleNum
 
 				for i = 1, #playerState.InventoryOrdered, 1 do
 					local inventoryItem = playerState.InventoryOrdered[i]
@@ -74,14 +75,15 @@ local function CheckGulpedTrinkets(player, playerState)
 		--Only check for non active items
 		if trinket then
 			local trinketId = trinket.ID
+			local trinketIdStr = tostring(trinketId)
 
-			local pastGulpedNum = playerState.GulpedTrinkets[trinketId] or 0
+			local pastGulpedNum = playerState.GulpedTrinkets[trinketIdStr] or 0
 			--- @cast trinketId TrinketType
 			local actualGulpedNum = TSIL.Players.GetSmeltedTrinketMultiplier(player, trinketId)
 
 			if actualGulpedNum > pastGulpedNum then
 				--If the actual num is bigger than what we had, player has gulped a trinket
-				playerState.GulpedTrinkets[trinketId] = actualGulpedNum
+				playerState.GulpedTrinkets[trinketIdStr] = actualGulpedNum
 
 				for _ = 1, actualGulpedNum - pastGulpedNum, 1 do
 					table.insert(playerState.InventoryOrdered, { Type = TSIL.Enums.InventoryType.TRINKET, Id = trinketId })
@@ -90,7 +92,7 @@ local function CheckGulpedTrinkets(player, playerState)
 				PlayerGulpedTrinketAddedCallback(player, trinketId)
 			elseif actualGulpedNum < pastGulpedNum then
 				--If the actual num is smaller than what we had, player has lost an item
-				playerState.GulpedTrinkets[trinketId] = actualGulpedNum
+				playerState.GulpedTrinkets[trinketIdStr] = actualGulpedNum
 
 				for i = 1, #playerState.InventoryOrdered, 1 do
 					local inventoryItem = playerState.InventoryOrdered[i]
@@ -111,16 +113,8 @@ local function CheckGulpedTrinkets(player, playerState)
 end
 
 
---TODO: Find better way to do this (Maybe TSIL loaded callback?)
-local HasAddedPersistentInventory = false
-
 --- @param player EntityPlayer
 local function OnPeffectUpdate(_, player)
-	if not HasAddedPersistentInventory then
-		HasAddedPersistentInventory = true
-		TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "PLAYER_INVENTORIES", {}, TSIL.Enums.VariablePersistenceMode.RESET_RUN)
-	end
-
 	--- @type PlayerInventory[]
 	local playerInventories = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "PLAYER_INVENTORIES")
 	local playerIndex = TSIL.Players.GetPlayerIndex(player)
@@ -150,6 +144,17 @@ TSIL.__AddInternalVanillaCallback(
 	ModCallbacks.MC_POST_PEFFECT_UPDATE,
 	OnPeffectUpdate,
 	TSIL.Enums.CallbackPriority.LOW
+)
+
+
+local function OnTSILLoaded()
+	TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "PLAYER_INVENTORIES", {}, TSIL.Enums.VariablePersistenceMode.RESET_RUN)
+end
+TSIL.__AddInternalCustomCallback(
+	"PLAYER_INVENTORY_TSIL_LOADED",
+	TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
+	OnTSILLoaded,
+	TSIL.Enums.CallbackPriority.MEDIUM
 )
 
 --- Returns a list of all the items/gulped trinkets (things that appear on the extra HUD) ordered by the time they were collected.

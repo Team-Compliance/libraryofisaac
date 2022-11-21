@@ -40,6 +40,7 @@ end
 
 
 function TSIL.SaveManager.SaveToDisk()
+    TSIL.Log.Log("Saving to disk")
     local allSaveData = getAllSaveDataToWriteToDisk()
     local jsonString = TSIL.JSON.Encode(allSaveData)
     TSIL.__MOD:SaveData(jsonString)

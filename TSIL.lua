@@ -171,6 +171,15 @@ function LOCAL_TSIL.Init(FolderName)
 		TSIL.__MOD:AddCallback(vanillaCallback.Callback, vanillaCallback.Funct)
 	end
 
+	--TSIL LOAD CALLBACK
+	for _, CustomCallback in ipairs(TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList) do
+		if CustomCallback.Callback == TSIL.Enums.CustomCallback.POST_TSIL_LOAD then
+			for _, funct in ipairs(CustomCallback.Functions) do
+				funct.Funct(funct.Mod)
+			end
+		end
+	end
+
 	print("TSIL (" .. TSIL.__LOCAL_VERSION .. ") has been properly initialized.")
 end
 

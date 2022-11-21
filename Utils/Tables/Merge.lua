@@ -3,6 +3,7 @@
 local function mergeSerializedArray(oldArray, newArray)
     -- Assume that we should blow away all array values with whatever is present in the incoming array.
     oldArray = {}
+
     TSIL.Utils.Tables.IterateTableInOrder(newArray, function(key, value)
         local deserializedValue = TSIL.Utils.DeepCopy.DeepCopy(value, TSIL.Enums.SerializationType.DESERIALIZE)
         oldArray[key] = deserializedValue

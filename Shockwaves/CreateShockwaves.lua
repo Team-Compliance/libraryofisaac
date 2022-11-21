@@ -45,7 +45,7 @@ function TSIL.ShockWaves.CreateShockwave(source, position, customShockwaveParams
     local customShockwaves = saveManager.GetPersistentVariable(TSIL.__MOD, "TSIL_CUSTOM_SHOCKWAVES")
 
     if not customShockwaves then
-        saveManager.AddPersistentVariable(TSIL.__MOD, "TSIL_CUSTOM_SHOCKWAVES", {}, TSIL.Enums.VariablePersistenceMode.RESET_ROOM)
+        saveManager.AddPersistentVariable(TSIL.__MOD, "TSIL_CUSTOM_SHOCKWAVES", {}, TSIL.Enums.VariablePersistenceMode.REMOVE_ROOM)
         customShockwaves = saveManager.GetPersistentVariable(TSIL.__MOD, "TSIL_CUSTOM_SHOCKWAVES")
     end
 
@@ -107,6 +107,7 @@ function TSIL.ShockWaves.CreateShockwaveRing(source, center, radius, customShock
             mode = 3
         end
 
+        ---@diagnostic disable-next-line: param-type-mismatch
         if room:CheckLine(center, center + spawningOffset, mode, 1000, false, customShockwaveParams.DestroyGrid) then
             local shockwave = TSIL.ShockWaves.CreateShockwave(source, center + spawningOffset, customShockwaveParams)
 

@@ -147,6 +147,8 @@ RegisterVanillaCallback(ModCallbacks.MC_POST_GAME_STARTED)
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_GAME_END)
 
+RegisterVanillaCallback(ModCallbacks.MC_PRE_GAME_EXIT)
+
 RegisterVanillaCallback(ModCallbacks.MC_POST_NEW_LEVEL)
 
 RegisterVanillaCallback(ModCallbacks.MC_POST_NEW_ROOM)

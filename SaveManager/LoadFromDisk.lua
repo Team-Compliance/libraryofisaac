@@ -63,9 +63,10 @@ function TSIL.SaveManager.LoadFromDisk()
         if oldSaveDataForSubscriber == nil then
             return
         end
-        
+
         -- We do not want to blow away the child tables of the existing map, because save data could
         --contain out-of-date fields. Instead, merge it one field at a time in a recursive way
-        TSIL.Utils.Tables.Merge(oldSaveDataForSubscriber, newModData)
+        --TSIL.Utils.Tables.Merge(oldSaveDataForSubscriber.variables, newModData)
+        oldSaveDataForSubscriber.variables = TSIL.Utils.DeepCopy.DeepCopy(newModData, TSIL.Enums.SerializationType.NONE)
     end)
 end
