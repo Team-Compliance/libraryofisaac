@@ -142,6 +142,7 @@
   * [RoundWormVariant](custom-enums/roundwormvariant.md)
   * [SatanVariant](custom-enums/satanvariant.md)
   * [ScourgeVariant](custom-enums/scourgevariant.md)
+  * [ShockwaveSoundMode](custom-enums/shockwavesoundmode.md)
   * [ShoopKeeperVariant](custom-enums/shoopkeepervariant.md)
   * [SingeVariant](custom-enums/singevariant.md)
   * [SirenVariant](custom-enums/sirenvariant.md)
@@ -207,6 +208,7 @@
 * [RNG](modules/rng.md)
 * [Room](modules/room.md)
 * [SaveManager](modules/savemanager.md)
+* [Shockwaves](modules/shockwaves.md)
 * [Sprites](modules/sprites.md)
 * [Utils](modules/utils/README.md)
   * [Easings](modules/utils/easings.md)
@@ -217,4 +219,5 @@
 
 ## Classes
 
+* [CustomShockwaveParams](classes/customshockwaveparams.md)
 * [InventoryObject](classes/inventoryobject.md)
