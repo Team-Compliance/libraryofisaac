@@ -61,7 +61,7 @@ end
 
 ---Creates a shockwave ring with the given properties.
 ---
----Returns the spawned shockwaves. If multiple shockwaves are set to spawn, returns only
+---Returns the spawned shockwaves. If multiple rings are set to spawn, returns only
 ---the shockwaves spawned in the first ring.
 ---@param source Entity
 ---@param center Vector
@@ -71,7 +71,7 @@ end
 ---@param angleWidth number? @Default : 360
 ---@param spacing number? @Default : 35 * customShockwaveParams.Size
 ---@param numRings integer? @Default : 1
----@param ringSpacing integer? @Default : 35 * customShockwaveParams.Size
+---@param ringSpacing number? @Default : 35 * customShockwaveParams.Size
 ---@param ringDelay integer? @Default : 5
 ---@return Entity[]
 function TSIL.ShockWaves.CreateShockwaveRing(source, center, radius, customShockwaveParams, direction, angleWidth, spacing, numRings, ringSpacing, ringDelay)

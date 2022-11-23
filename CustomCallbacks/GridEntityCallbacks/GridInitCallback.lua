@@ -85,7 +85,7 @@ local function OnFrameUpdate()
 end
 TSIL.__AddInternalVanillaCallback(
 	"GRID_INIT_CALLBACK_POST_UPDATE",
-	ModCallbacks.POST_UPDATE,
+	ModCallbacks.MC_POST_UPDATE,
 	OnFrameUpdate,
 	TSIL.Enums.CallbackPriority.MEDIUM
 )

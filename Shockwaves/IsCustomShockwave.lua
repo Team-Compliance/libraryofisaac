@@ -18,7 +18,7 @@ end
 ---Helper function to get a custom shockwave's data.
 ---@param entity Entity
 ---@return table?
-function TSIL.ShockWaves.IsCustomShockwave(entity)
+function TSIL.ShockWaves.GetCustomShockwaveData(entity)
     if entity.Type ~= EntityType.ENTITY_EFFECT and
     entity.Variant ~= EffectVariant.ROCK_EXPLOSION then return end
 

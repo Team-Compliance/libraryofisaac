@@ -2,8 +2,9 @@ local LOCAL_TSIL = {}
 local LOCAL_TSIL_VERSION = 0.1
 
 --- Initializes the TSIL library
+--- @param UserMod table
 --- @param FolderName string
-function LOCAL_TSIL.Init(FolderName)
+function LOCAL_TSIL.Init(UserMod, FolderName)
 	if not TSIL then
 		--If TSIL hasnt been initialized yet, initialize it
 		TSIL = {}
@@ -29,6 +30,31 @@ function LOCAL_TSIL.Init(FolderName)
 
 		for _, vanillaCallback in ipairs(TSIL.__REGISTERED_VANILLA_CALLBACKS) do
 			TSIL.__MOD:RemoveCallback(vanillaCallback.Callback, vanillaCallback.Funct)
+		end
+
+		--Remove all callbacks that the given mod has
+		for _, vanillaCallback in ipairs(TSIL.__VERSION_PERSISTENT_DATA.VanillaCallbacksList) do
+			local filteredFunctions = {}
+
+			for _, callbackFunct in ipairs(vanillaCallback.Functions) do
+				if callbackFunct.Mod.Name ~= UserMod.Name then
+					filteredFunctions[#filteredFunctions+1] = callbackFunct
+				end
+			end
+
+			vanillaCallback.Functions = filteredFunctions
+		end
+
+		for _, customCallback in ipairs(TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList) do
+			local filteredFunctions = {}
+
+			for _, callbackFunct in ipairs(customCallback.Functions) do
+				if callbackFunct.Mod.Name ~= UserMod.Name then
+					filteredFunctions[#filteredFunctions+1] = callbackFunct
+				end
+			end
+
+			customCallback.Functions = filteredFunctions
 		end
 	end
 
@@ -65,7 +91,7 @@ function LOCAL_TSIL.Init(FolderName)
 	setmetatable(TSIL, TSIL_META)
 
 	--VARIABLES INITIALIZATION
-	TSIL.__MOD = RegisterMod("TSILMOD_" .. FolderName, 1)
+	rawget(TSIL, "__PROXY").__MOD = RegisterMod("TSILMOD_" .. FolderName, 1)
 	--Is always the highest version loaded
 	TSIL.__VERSION = LOCAL_TSIL_VERSION
 	--Is the last version loaded
@@ -144,6 +170,9 @@ function LOCAL_TSIL.Init(FolderName)
 			print("Error loading script (" .. TSIL.__LOCAL_FOLDER .. "." .. script .. ") : " .. error)
 		end
 	end
+
+	--REGISTER VANILLA CALLBACKS
+	TSIL.__RegisterVanillaCallbacks()
 
 	--ADD INTERNAL CALLBACKS
 	for _, InternalVanillaCallback in ipairs(TSIL.__INTERNAL_VANILLA_CALLBACKS) do
