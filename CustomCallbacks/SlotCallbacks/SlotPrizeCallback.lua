@@ -1,28 +1,23 @@
 --##POST_SLOT_PRIZE
 
-local CustomCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList
+TSIL.__RegisterCustomCallback(
+	TSIL.Enums.CustomCallback.POST_SLOT_PRIZE,
+	function (functionParams, optionalParams)
+		---@type Entity
+		local slot = functionParams[1]
+		---@type integer|nil
+		local targetVariant = optionalParams[1]
+
+		return TSIL.__IsDefaultParam(targetVariant) or slot.Variant == targetVariant
+	end
+)
 
 function OnSlotUpdate(_, slot)
 	local slotSpr = slot:GetSprite()
 
 	if not slotSpr:IsEventTriggered("Prize") and not slotSpr:IsEventTriggered("Disappear") then return end
 
-	local tableUtils = TSIL.Utils.Tables
-
-	local SlotPrizeCallbacks = tableUtils.FindFirst(CustomCallbacksList, function (_, CustomCallback)
-		return CustomCallback.Callback == TSIL.Enums.CustomCallback.POST_SLOT_PRIZE
-	end)
-
-	if not SlotPrizeCallbacks then return end
-
-	local filteredCallbacks = tableUtils.Filter(SlotPrizeCallbacks.Functions, function(_, customCallback)
-		local slotVariant = customCallback.OptionalParam[1]
-		return not slotVariant or slot.Variant == slotVariant
-	end)
-
-	tableUtils.ForEach(filteredCallbacks, function(_, customCallback)
-		customCallback.Funct(customCallback.Mod, slot, slotSpr:IsEventTriggered("Disappear"))
-	end)
+	TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_SLOT_PRIZE, slot, slotSpr:IsEventTriggered("Disappear"))
 end
 TSIL.__AddInternalCustomCallback(
 	"SLOT_PRIZE_CALLBACK_SLOT_UPDATE",

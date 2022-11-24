@@ -1,30 +1,26 @@
 --##POST_GRID_ENTITY_UPDATE
 
-local CustomCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList
+TSIL.__RegisterCustomCallback(
+	TSIL.Enums.CustomCallback.POST_GRID_ENTITY_UPDATE,
+	function (functionParams, optionalParams)
+		---@type GridEntity
+		local gridEntity = functionParams[1]
+
+		local targetType = optionalParams[1]
+		local targetVariant = optionalParams[1]
+
+		return (TSIL.__IsDefaultParam(targetType) or gridEntity:GetType() == targetType) and
+		(TSIL.__IsDefaultParam(targetVariant) or gridEntity:GetVariant() == targetVariant)
+	end
+)
+
 
 local function OnFrameUpdate()
-	local tableUtils = TSIL.Utils.Tables
-
-	local GridUpdateCallbacks = tableUtils.FindFirst(CustomCallbacksList, function (_, CustomCallback)
-		return CustomCallback.Callback == TSIL.Enums.CustomCallback.POST_GRID_ENTITY_UPDATE
-	end)
-
-	if not GridUpdateCallbacks then return end
-
 	local gridEntities = TSIL.GridEntities.GetGridEntities()
 
-	tableUtils.ForEach(gridEntities, function(_, gridEntity)
-		local filteredCallbacks = tableUtils.Filter(GridUpdateCallbacks.Functions, function(_, customCallback)
-			local targetGridEntityType = customCallback.OptionalParam[1]
-			local targetGridEntityVariant = customCallback.OptionalParam[2]
-			return (targetGridEntityType == nil or targetGridEntityType == gridEntity:GetType()) and
-			(targetGridEntityVariant == nil or targetGridEntityVariant == gridEntity:GetVariant())
-		end)
-
-		tableUtils.ForEach(filteredCallbacks, function(_, customCallback)
-			customCallback.Funct(customCallback.Mod, gridEntity)
-		end)
-	end)
+	for _, gridEntity in ipairs(gridEntities) do
+		TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_GRID_ENTITY_UPDATE, gridEntity)
+	end
 end
 TSIL.__AddInternalVanillaCallback(
 	"GRID_UPDATE_CALLBACK_POST_UPDATE",

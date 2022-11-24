@@ -138,6 +138,13 @@ function LOCAL_TSIL.Init(UserMod, FolderName)
 		--- @type {Callback : CustomCallback, Functions : TSILCustomCallback[]}[]
 		TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList = {}
 
+		---@class RegisteredCustomCallback
+		---@field Version number
+		---@field Trigger function
+
+		---@type table<CustomCallback, RegisteredCustomCallback>
+		TSIL.__VERSION_PERSISTENT_DATA.RegisteredCustomCallbacks = {}
+
 		--- @class PersistentVariable
 		--- @field name string
 		--- @field value any

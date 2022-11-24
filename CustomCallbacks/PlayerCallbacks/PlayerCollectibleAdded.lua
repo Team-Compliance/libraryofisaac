@@ -1,25 +1,17 @@
 --##use Players/Inventory/PlayerInventory.lua
 --##POST_PLAYER_COLLECTIBLE_ADDED
 
-local CustomCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList
+TSIL.__RegisterCustomCallback(
+	TSIL.Enums.CustomCallback.POST_PLAYER_COLLECTIBLE_ADDED,
+	function (functionParams, optionalParams)
+		---@type EntityPlayer
+		local player = functionParams[1]
+		local collectibleType = functionParams[2]
 
---- @param player EntityPlayer
---- @param collectibleId CollectibleType
-return function (player, collectibleId)
-	local tableUtils = TSIL.Utils.Tables
+		local targetPlayerType = optionalParams[1]
+		local targetCollectibleType = optionalParams[2]
 
-	local PlayerCollectibleAddedCallbacks = tableUtils.FindFirst(CustomCallbacksList, function (_, CustomCallback)
-		return CustomCallback.Callback == TSIL.Enums.CustomCallback.POST_PLAYER_COLLECTIBLE_ADDED
-	end)
-
-	if not PlayerCollectibleAddedCallbacks then return end
-
-	local filteredCallbacks = tableUtils.Filter(PlayerCollectibleAddedCallbacks.Functions, function(_, customCallback)
-		local callbackCollectible = customCallback.OptionalParam[1]
-		return callbackCollectible == nil or callbackCollectible == collectibleId
-	end)
-
-	tableUtils.ForEach(filteredCallbacks, function(_, customCallback)
-		customCallback.Funct(customCallback.Mod, player, collectibleId)
-	end)
-end
+		return (TSIL.__IsDefaultParam(targetPlayerType) or player:GetPlayerType() == targetPlayerType) and
+		(TSIL.__IsDefaultParam(targetCollectibleType) or collectibleType == targetCollectibleType)
+	end
+)

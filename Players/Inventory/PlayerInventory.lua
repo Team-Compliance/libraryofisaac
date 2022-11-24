@@ -8,13 +8,6 @@
 --- @field GulpedTrinkets {[string]: integer}
 --- @field CollectedItems {[string]: integer}
 
---TODO: Make it so these callbacks aren't actually required (so the user can choose not to pick them)
---TODO: This won't work if an old mod loads this and a newer mod only replaces the custom callbacks
-local PlayerCollectibleAddedCallback = require(TSIL.__LOCAL_FOLDER .. ".CustomCallbacks.PlayerCallbacks.PlayerCollectibleAdded")
-local PlayerCollectibleRemovedCallback = require(TSIL.__LOCAL_FOLDER .. ".CustomCallbacks.PlayerCallbacks.PlayerCollectibleRemoved")
-local PlayerGulpedTrinketAddedCallback = require(TSIL.__LOCAL_FOLDER .. ".CustomCallbacks.PlayerCallbacks.PlayerGulpedTrinketAdded")
-local PlayerGulpedTrinketRemovedCallback = require(TSIL.__LOCAL_FOLDER .. ".CustomCallbacks.PlayerCallbacks.PlayerGulpedTrinketRemoved")
-
 
 --- @param player EntityPlayer
 --- @param playerState PlayerInventory
@@ -41,7 +34,7 @@ local function CheckCollectedItems(player, playerState)
 					table.insert(playerState.InventoryOrdered, { Type = TSIL.Enums.InventoryType.COLLECTIBLE, Id = itemId })
 				end
 
-				PlayerCollectibleAddedCallback(player, itemId)
+				TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_PLAYER_COLLECTIBLE_ADDED, player, itemId)
 			elseif actualCollectibleNum < pastCollectibleNum then
 				--If the actual num is smaller than what we had, player has lost an item
 				playerState.CollectedItems[itemIdStr] = actualCollectibleNum
@@ -56,7 +49,7 @@ local function CheckCollectedItems(player, playerState)
 					end
 				end
 
-				PlayerCollectibleRemovedCallback(player, itemId)
+				TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_PLAYER_COLLECTIBLE_REMOVED, player, itemId)
 			end
 		end
 	end
@@ -89,7 +82,7 @@ local function CheckGulpedTrinkets(player, playerState)
 					table.insert(playerState.InventoryOrdered, { Type = TSIL.Enums.InventoryType.TRINKET, Id = trinketId })
 				end
 
-				PlayerGulpedTrinketAddedCallback(player, trinketId)
+				TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_PLAYER_GULPED_TRINKET_ADDED, player, trinketId)
 			elseif actualGulpedNum < pastGulpedNum then
 				--If the actual num is smaller than what we had, player has lost an item
 				playerState.GulpedTrinkets[trinketIdStr] = actualGulpedNum
@@ -106,7 +99,7 @@ local function CheckGulpedTrinkets(player, playerState)
 					end
 				end
 
-				PlayerGulpedTrinketRemovedCallback(player, trinketId)
+				TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_PLAYER_GULPED_TRINKET_REMOVED, player, trinketId)
 			end
 		end
 	end

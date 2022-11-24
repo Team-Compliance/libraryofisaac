@@ -1,25 +1,17 @@
 --##use Players/Inventory/PlayerInventory.lua
 --##POST_PLAYER_GULPED_TRINKET_REMOVED
 
-local CustomCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList
+TSIL.__RegisterCustomCallback(
+	TSIL.Enums.CustomCallback.POST_PLAYER_GULPED_TRINKET_REMOVED,
+	function (functionParams, optionalParams)
+		---@type EntityPlayer
+		local player = functionParams[1]
+		local trinketType = functionParams[2]
 
---- @param player EntityPlayer
---- @param trinketId TrinketType
-return function (player, trinketId)
-	local tableUtils = TSIL.Utils.Tables
+		local targetPlayerType = optionalParams[1]
+		local targetTrinketType = optionalParams[2]
 
-	local PlayerGulpedTrinketRemovedCallbacks = tableUtils.FindFirst(CustomCallbacksList, function (_, CustomCallback)
-		return CustomCallback.Callback == TSIL.Enums.CustomCallback.POST_PLAYER_GULPED_TRINKET_REMOVED
-	end)
-
-	if not PlayerGulpedTrinketRemovedCallbacks then return end
-
-	local filteredCallbacks = tableUtils.Filter(PlayerGulpedTrinketRemovedCallbacks.Functions, function(_, customCallback)
-		local callbackTrinket = customCallback.OptionalParam[1]
-		return callbackTrinket == nil or callbackTrinket == trinketId
-	end)
-
-	tableUtils.ForEach(filteredCallbacks, function(_, customCallback)
-		customCallback.Funct(customCallback.Mod, player, trinketId)
-	end)
-end
+		return (TSIL.__IsDefaultParam(targetPlayerType) or player:GetPlayerType() == targetPlayerType) and
+		(TSIL.__IsDefaultParam(targetTrinketType) or trinketType == targetTrinketType)
+	end
+)
