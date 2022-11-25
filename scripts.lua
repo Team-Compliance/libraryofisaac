@@ -137,6 +137,7 @@ local TSIL_SCRIPTS = {
 "Log.Log",
 "Pickups.GetCoinValue",
 "Pickups.IsChest",
+"Pickups.PickupIndex",
 "Pickups.RedHearts",
 "PickupSpecific.GetPickup",
 "PickupSpecific.SpawnPickup",
@@ -224,5 +225,6 @@ local TSIL_SCRIPTS = {
 "Utils.Tables.Remove",
 "Utils.Tables.TableHasKeys",
 "Vector.CopyVector",
+"Vector.Equals",
 }
 return TSIL_SCRIPTS

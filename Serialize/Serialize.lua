@@ -124,11 +124,11 @@ end
 ---@param object unknown
 ---@return boolean
 function TSIL.Serialize.IsCopyableIsaacAPIClass(object)
-    return TSIL.Serialize.IsBitSet128(object) or
-    TSIL.Serialize.IsColor(object) or
-    TSIL.Serialize.IsKColor(object) or
-    TSIL.Serialize.IsRNG(object) or
-    TSIL.Serialize.IsVector(object)
+    return TSIL.IsaacAPIClass.IsBitSet128(object) or
+    TSIL.IsaacAPIClass.IsColor(object) or
+    TSIL.IsaacAPIClass.IsKColor(object) or
+    TSIL.IsaacAPIClass.IsRNG(object) or
+    TSIL.IsaacAPIClass.IsVector(object)
 end
 
 ---Helper function to generically copy an Isaac API class without knowing what specific type of
@@ -153,19 +153,19 @@ function TSIL.Serialize.CopyIsaacAPIClass(class)
 
     if copyableIsaacAPIClassType == TSIL.Enums.CopyableIsaacAPIClassType.VECTOR then
         ---@diagnostic disable-next-line: param-type-mismatch\
-        return TSIL.Serialize.CopyVector(class)
+        return TSIL.Vector.CopyVector(class)
     elseif copyableIsaacAPIClassType == TSIL.Enums.CopyableIsaacAPIClassType.BIT_SET_128 then
         ---@diagnostic disable-next-line: param-type-mismatch\
-        return TSIL.Serialize.CopyBitSet128(class)
+        return TSIL.BitSet128.CopyBitSet128(class)
     elseif copyableIsaacAPIClassType == TSIL.Enums.CopyableIsaacAPIClassType.COLOR then
         ---@diagnostic disable-next-line: param-type-mismatch\
-        return TSIL.Serialize.CopyColor(class)
+        return TSIL.Color.CopyColor(class)
     elseif copyableIsaacAPIClassType == TSIL.Enums.CopyableIsaacAPIClassType.K_COLOR then
         ---@diagnostic disable-next-line: param-type-mismatch\
-        return TSIL.Serialize.CopyKColor(class)
+        return TSIL.Color.CopyKColor(class)
     elseif copyableIsaacAPIClassType == TSIL.Enums.CopyableIsaacAPIClassType.RNG then
         ---@diagnostic disable-next-line: param-type-mismatch\
-        return TSIL.Serialize.CopyRNG(class)
+        return TSIL.RNG.CopyRNG(class)
     end
 
     error("Failed to copy an Isaac API class since the associated functions were not found for Isaac API class type: " .. copyableIsaacAPIClassType)
