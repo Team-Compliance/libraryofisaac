@@ -5,10 +5,12 @@ TSIL.__RegisterCustomCallback(
 	function (functionParams, optionalParams)
 		---@type Entity
 		local slot = functionParams[1]
-		---@type integer|nil
-		local targetVariant = optionalParams[1]
 
-		return TSIL.__IsDefaultParam(targetVariant) or slot.Variant == targetVariant
+		local targetVariant = optionalParams[1]
+		local targetSubType = optionalParams[2]
+
+		return (TSIL.__IsDefaultParam(targetVariant) or slot.Variant == targetVariant) and
+		(TSIL.__IsDefaultParam(targetSubType) or slot.SubType == targetSubType)
 	end
 )
 

@@ -1,5 +1,20 @@
 local DEFAULT_MOD_DATA = "{}"
 
+---@param oldSaveData PersistentVariable[]
+---@param newSaveData PersistentVariable[]
+local function mergeSaveData(oldSaveData, newSaveData)
+    TSIL.Utils.Tables.IterateTableInOrder(newSaveData, function (_, persistentVariable)
+        for i, oldPersistentVariable in ipairs(oldSaveData) do
+            if oldPersistentVariable.name == persistentVariable.name then
+                oldSaveData[i] = TSIL.Utils.DeepCopy.DeepCopy(persistentVariable, TSIL.Enums.SerializationType.NONE)
+                return
+            end
+        end
+
+        oldSaveData[#oldSaveData+1] = TSIL.Utils.DeepCopy.DeepCopy(persistentVariable, TSIL.Enums.SerializationType.NONE)
+    end)
+end
+
 local function readSaveDatFile()
     local ok, jsonStringOrErrMsg = pcall(function()
         return TSIL.__MOD:LoadData()
@@ -67,6 +82,7 @@ function TSIL.SaveManager.LoadFromDisk()
         -- We do not want to blow away the child tables of the existing map, because save data could
         --contain out-of-date fields. Instead, merge it one field at a time in a recursive way
         --TSIL.Utils.Tables.Merge(oldSaveDataForSubscriber.variables, newModData)
-        oldSaveDataForSubscriber.variables = TSIL.Utils.DeepCopy.DeepCopy(newModData, TSIL.Enums.SerializationType.NONE)
+        --oldSaveDataForSubscriber.variables = TSIL.Utils.DeepCopy.DeepCopy(newModData, TSIL.Enums.SerializationType.NONE)
+        mergeSaveData(oldSaveDataForSubscriber.variables, newSaveData)
     end)
 end

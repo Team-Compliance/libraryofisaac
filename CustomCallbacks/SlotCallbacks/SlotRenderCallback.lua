@@ -1,7 +1,7 @@
---##POST_SLOT_UPDATE
+--##POST_SLOT_RENDER
 
 TSIL.__RegisterCustomCallback(
-	TSIL.Enums.CustomCallback.POST_SLOT_UPDATE,
+	TSIL.Enums.CustomCallback.POST_SLOT_RENDER,
 	function (functionParams, optionalParams)
 		---@type Entity
 		local slot = functionParams[1]
@@ -14,17 +14,17 @@ TSIL.__RegisterCustomCallback(
 	end
 )
 
-local function OnFrameUpdate()
+local function OnRender()
 	local slots = Isaac.FindByType(EntityType.ENTITY_SLOT)
 
 	for _, slot in ipairs(slots) do
-		TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_SLOT_UPDATE, slot)
+		TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_SLOT_RENDER, slot)
 	end
 end
 
 TSIL.__AddInternalVanillaCallback(
-	"SLOT_UPDATE_CALLBACK_POST_UPDATE",
-	ModCallbacks.MC_POST_UPDATE,
-	OnFrameUpdate,
+	"SLOT_RENDER_CALLBACK_POST_RENDER",
+	ModCallbacks.MC_POST_RENDER,
+	OnRender,
 	TSIL.Enums.CallbackPriority.MEDIUM
 )
