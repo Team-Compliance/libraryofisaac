@@ -1,6 +1,12 @@
 ---@param callback CustomCallback
----@param canExecute fun(functionParams: table, optionalParams: table) : boolean
+---@param canExecute? fun(functionParams: table, optionalParams: table) : boolean
 function TSIL.__RegisterCustomCallback(callback, canExecute)
+    if canExecute == nil then
+        canExecute = function ()
+            return true
+        end
+    end
+
     local registeredCustomCallbacks = TSIL.__VERSION_PERSISTENT_DATA.RegisteredCustomCallbacks
 
     local foundRegistered = registeredCustomCallbacks[callback]

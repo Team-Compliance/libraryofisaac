@@ -66,8 +66,8 @@ TSIL.__AddInternalVanillaCallback(
     TSIL.Enums.CallbackPriority.VERY_HIGH
 )
 
--- TODO: Add a "POST_NEW_ROOM_EARLY" callback
-local function OnNewRoom()
+
+local function OnNewRoomEarly()
     TSIL.SaveManager.RestoreDefaultsForAllFeaturesKey("room")
 
     if restoreGlowingHourGlassDataOnNextRoom then
@@ -77,9 +77,9 @@ local function OnNewRoom()
         TSIL.SaveManager.MakeGlowingHourGlassBackup()
     end
 end
-TSIL.__AddInternalVanillaCallback(
-    "SAVE_MANAGER_NEW_ROOM",
-    ModCallbacks.MC_POST_NEW_ROOM,
-    OnNewRoom,
+TSIL.__AddInternalCustomCallback(
+    "SAVE_MANAGER_NEW_ROOM_EARLY",
+    TSIL.Enums.CustomCallback.POST_NEW_ROOM_EARLY,
+    OnNewRoomEarly,
     TSIL.Enums.CallbackPriority.VERY_HIGH
 )

@@ -2,5 +2,5 @@
 ---@param dimension Dimension
 ---@return boolean
 function TSIL.Dimensions.InDimension(dimension)
-    return TSIL.Dimension.GetDimension() == dimension
+    return TSIL.Dimensions.GetDimension() == dimension
 end
