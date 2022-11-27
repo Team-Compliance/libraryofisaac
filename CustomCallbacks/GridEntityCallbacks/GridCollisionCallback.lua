@@ -1,5 +1,4 @@
 --##POST_GRID_COLLISION
-local CustomCallbacksList = TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList
 
 TSIL.__RegisterCustomCallback(
 	TSIL.Enums.CustomCallback.POST_GRID_COLLISION,
