@@ -1,5 +1,6 @@
+--##POST_NPC_RENDER_FILTER
 TSIL.__RegisterCustomCallback(
-    TSIL.Enums.CustomCallback.POST_NPC_INIT_FILTER,
+    TSIL.Enums.CustomCallback.POST_NPC_RENDER_FILTER,
     TSIL.Enums.CallbackReturnMode.NONE,
     function (functionParams, optionalParams)
         ---@type Entity
@@ -16,12 +17,12 @@ TSIL.__RegisterCustomCallback(
 )
 
 
-local function OnNPCInit(_, entity)
-    TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_NPC_INIT_FILTER, entity)
+local function OnNPCRender(_, entity)
+    TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_NPC_RENDER_FILTER, entity)
 end
 TSIL.__AddInternalVanillaCallback(
-    "NPC_INIT_FILTER_CALLBACK_NPC_INIT",
-    ModCallbacks.MC_POST_NPC_INIT,
-    OnNPCInit,
+    "NPC_RENDER_FILTER_CALLBACK_NPC_RENDER",
+    ModCallbacks.MC_POST_NPC_RENDER,
+    OnNPCRender,
     TSIL.Enums.CallbackPriority.MEDIUM
 )

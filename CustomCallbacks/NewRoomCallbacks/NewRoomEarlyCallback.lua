@@ -1,3 +1,4 @@
+--##POST_NEW_ROOM_EARLY
 TSIL.__RegisterCustomCallback(TSIL.Enums.CustomCallback.POST_NEW_ROOM_EARLY)
 
 local currentRoomTopLeftWallPtrHash = nil

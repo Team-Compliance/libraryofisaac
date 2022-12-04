@@ -1,3 +1,4 @@
+--##POST_BOMB_EXPLODED
 TSIL.__RegisterCustomCallback(
     TSIL.Enums.CustomCallback.POST_BOMB_EXPLODED,
     TSIL.Enums.CallbackReturnMode.NONE,

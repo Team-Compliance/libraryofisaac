@@ -1,3 +1,4 @@
+--##POST_NPC_DEATH_FILTER
 TSIL.__RegisterCustomCallback(
     TSIL.Enums.CustomCallback.POST_NPC_DEATH_FILTER,
     TSIL.Enums.CallbackReturnMode.NONE,

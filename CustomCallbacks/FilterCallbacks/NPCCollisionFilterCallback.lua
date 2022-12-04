@@ -1,6 +1,7 @@
+--##PRE_NPC_COLLISION_FILTER
 TSIL.__RegisterCustomCallback(
-    TSIL.Enums.CustomCallback.POST_NPC_UPDATE_FILTER,
-    TSIL.Enums.CallbackReturnMode.NONE,
+    TSIL.Enums.CustomCallback.PRE_NPC_COLLISION_FILTER,
+    TSIL.Enums.CallbackReturnMode.SKIP_NEXT,
     function (functionParams, optionalParams)
         ---@type Entity
         local entity = functionParams[1]
@@ -16,12 +17,12 @@ TSIL.__RegisterCustomCallback(
 )
 
 
-local function OnNPCUpdate(_, entity)
-    TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_NPC_UPDATE_FILTER, entity)
+local function OnNPCCollision(_, entity, collider, isLow)
+    return TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.PRE_NPC_COLLISION_FILTER, entity, collider, isLow)
 end
 TSIL.__AddInternalVanillaCallback(
-    "NPC_UPDATE_FILTER_CALLBACK_NPC_UPDATE",
-    ModCallbacks.MC_NPC_UPDATE,
-    OnNPCUpdate,
+    "NPC_COLLISION_FILTER_CALLBACK_NPC_COLLISION",
+    ModCallbacks.MC_PRE_NPC_COLLISION,
+    OnNPCCollision,
     TSIL.Enums.CallbackPriority.MEDIUM
 )

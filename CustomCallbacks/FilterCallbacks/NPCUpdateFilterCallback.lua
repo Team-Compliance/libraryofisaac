@@ -1,6 +1,7 @@
+--##POST_NPC_UPDATE_FILTER
 TSIL.__RegisterCustomCallback(
-    TSIL.Enums.CustomCallback.PRE_NPC_UPDATE_FILTER,
-    TSIL.Enums.CallbackReturnMode.SKIP_NEXT,
+    TSIL.Enums.CustomCallback.POST_NPC_UPDATE_FILTER,
+    TSIL.Enums.CallbackReturnMode.NONE,
     function (functionParams, optionalParams)
         ---@type Entity
         local entity = functionParams[1]
@@ -16,13 +17,12 @@ TSIL.__RegisterCustomCallback(
 )
 
 
-local function PreNPCUpdate(_, entity)
-    local returned = TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.PRE_NPC_UPDATE_FILTER, entity)
-    return returned
+local function OnNPCUpdate(_, entity)
+    TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_NPC_UPDATE_FILTER, entity)
 end
 TSIL.__AddInternalVanillaCallback(
-    "PRE_NPC_UPDATE_FILTER_CALLBACK_PRE_NPC_UPDATE",
-    ModCallbacks.MC_PRE_NPC_UPDATE,
-    PreNPCUpdate,
+    "NPC_UPDATE_FILTER_CALLBACK_NPC_UPDATE",
+    ModCallbacks.MC_NPC_UPDATE,
+    OnNPCUpdate,
     TSIL.Enums.CallbackPriority.MEDIUM
 )

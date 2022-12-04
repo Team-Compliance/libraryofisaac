@@ -1,3 +1,4 @@
+--##POST_BOMB_INIT_LATE
 TSIL.__RegisterCustomCallback(
     TSIL.Enums.CustomCallback.POST_BOMB_INIT_LATE,
     TSIL.Enums.CallbackReturnMode.NONE,

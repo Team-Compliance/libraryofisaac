@@ -1,3 +1,4 @@
+--##POST_COLLECTIBLE_EMPTY
 TSIL.__RegisterCustomCallback(
     TSIL.Enums.CustomCallback.POST_COLLECTIBLE_EMPTY,
     TSIL.Enums.CallbackReturnMode.NONE,

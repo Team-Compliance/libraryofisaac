@@ -1,3 +1,4 @@
+--##ENTITY_TAKE_DMG_FILTER
 TSIL.__RegisterCustomCallback(
     TSIL.Enums.CustomCallback.ENTITY_TAKE_DMG_FILTER,
     TSIL.Enums.CallbackReturnMode.SKIP_NEXT,

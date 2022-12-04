@@ -1,3 +1,4 @@
+--##POST_COLLECTIBLE_INIT_FIRST
 TSIL.__RegisterCustomCallback(
     TSIL.Enums.CustomCallback.POST_COLLECTIBLE_INIT_FIRST,
     TSIL.Enums.CallbackReturnMode.NONE,

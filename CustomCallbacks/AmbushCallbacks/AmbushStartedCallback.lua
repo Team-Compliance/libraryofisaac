@@ -1,3 +1,4 @@
+--##POST_AMBUSH_STARTED
 TSIL.__RegisterCustomCallback(
     TSIL.Enums.CustomCallback.POST_AMBUSH_STARTED,
     TSIL.Enums.CallbackReturnMode.NONE,
