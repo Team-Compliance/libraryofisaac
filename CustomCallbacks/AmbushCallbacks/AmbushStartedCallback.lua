@@ -24,15 +24,15 @@ local function OnUpdate()
 
     if wasAmbushActive then return end
 
-    local room = Game():GetRoom();
-    local ambushActive = room:IsAmbushActive();
+    local room = Game():GetRoom()
+    local ambushActive = room:IsAmbushActive()
     if not ambushActive then
         return
     end
 
     TSIL.SaveManager.SetPersistentVariable(TSIL.__MOD, "ambushActive_AMBUSH_STARTED_CALLBACK", true)
 
-    local ambushType = TSIL.Ambush.GetAmbushType();
+    local ambushType = TSIL.Ambush.GetAmbushType()
     if ambushType ~= nil then
         TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_AMBUSH_STARTED, ambushType)
     end

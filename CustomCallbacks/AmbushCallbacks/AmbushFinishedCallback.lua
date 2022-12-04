@@ -24,8 +24,8 @@ local function OnUpdate()
 
     if wasAmbushDone then return end
 
-    local room = Game():GetRoom();
-    local ambushDone = room:IsAmbushDone();
+    local room = Game():GetRoom()
+    local ambushDone = room:IsAmbushDone()
     if not ambushDone then
         return
     end

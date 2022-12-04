@@ -2,6 +2,7 @@
 
 TSIL.__RegisterCustomCallback(
 	TSIL.Enums.CustomCallback.POST_SLOT_UPDATE,
+	TSIL.Enums.CallbackReturnMode.NONE,
 	function (functionParams, optionalParams)
 		---@type Entity
 		local slot = functionParams[1]

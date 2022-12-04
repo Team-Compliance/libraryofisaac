@@ -3,6 +3,7 @@
 
 TSIL.__RegisterCustomCallback(
 	TSIL.Enums.CustomCallback.POST_PLAYER_COLLECTIBLE_REMOVED,
+	TSIL.Enums.CallbackReturnMode.NONE,
 	function (functionParams, optionalParams)
 		---@type EntityPlayer
 		local player = functionParams[1]

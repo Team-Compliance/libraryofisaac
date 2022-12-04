@@ -1,5 +1,6 @@
 TSIL.__RegisterCustomCallback(
 	TSIL.Enums.CustomCallback.POST_SLOT_ANIMATION_CHANGED,
+    TSIL.Enums.CallbackReturnMode.NONE,
 	function (functionParams, optionalParams)
 		---@type Entity
 		local slot = functionParams[1]
