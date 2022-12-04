@@ -21,4 +21,4 @@ Since checking every single texel in the entire sprite is very expensive, this f
 
 `boolean TexelEquals(`[`Sprite` ](https://wofsauge.github.io/IsaacDocs/rep/Sprite.html)`sprite1,` [`Sprite` ](https://wofsauge.github.io/IsaacDocs/rep/Sprite.html)`sprite2, Vector position, integer layer)`
 
-Helper function to check if two texels on a sprite are equivalent to each other`.`
+Helper function to check if two texels on a sprite are equivalent to each other.

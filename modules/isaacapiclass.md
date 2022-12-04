@@ -5,6 +5,9 @@
 | Return Value | Function                                                                        |
 | ------------ | ------------------------------------------------------------------------------- |
 | string?      | [GetIsaacAPIClassName](isaacapiclass.md#getisaacapiclassname)(`unknown` object) |
+| boolean      | [IsBitSet128](isaacapiclass.md#isbitset128)(`unknown` variable)                 |
+| boolean      | [IsColor](isaacapiclass.md#iscolor)(`unknown` variable)                         |
+| boolean      | [IsKColor](isaacapiclass.md#iskcolor)(`unknown` variable)                       |
 | boolean      | [IsKnife](isaacapiclass.md#isknife)(`unknown` variable)                         |
 | boolean      | [IsLaser](isaacapiclass.md#islaser)(`unknown` variable)                         |
 | boolean      | [IsNPC](isaacapiclass.md#isnpc)(`unknown` variable)                             |
@@ -19,6 +22,7 @@
 | boolean      | [IsSpikes](isaacapiclass.md#isspikes)(`unknown` variable)                       |
 | boolean      | [IsTear](isaacapiclass.md#istear)(`unknown` variable)                           |
 | boolean      | [IsTNT](isaacapiclass.md#istnt)(`unknown` variable)                             |
+| boolean      | [IsVector](isaacapiclass.md#isvector)(`unknown` variable)                       |
 
 ## Functions
 
@@ -33,6 +37,24 @@ For example, a `Vector` class is has a name of "Vector".
 Returns nil if the object is not of type `userdata` or if the "\_\_type" metatable key does not exist.
 
 In some cases, Isaac classes can be a read-only. If this is the case, the "\_\_type" field will be prepended with "const ". This function will always strip this prefix, if it exists. For example, the class name returned for "const Vector" will be "Vector".
+
+### IsBitSet128()
+
+`boolean IsBitSet128(unknown variable)`
+
+Helper function to detect if a variable is of type `BitSet128`.
+
+### IsColor()
+
+`boolean IsColor(unknown variable)`
+
+Helper function to detect if a variable is of type `Color`.
+
+### IsKColor()
+
+`boolean IsKColor(unknown variable)`
+
+Helper function to detect if a variable is of type `KColor`.
 
 ### IsKnife()
 
@@ -117,3 +139,9 @@ Helper function to detect if a variable is of type `EntityTear`.
 `boolean IsTNT(unknown variable)`
 
 Helper function to detect if a variable is of type `GridEntityTNT`.
+
+### IsVector()
+
+`boolean IsVector(unknown variable)`
+
+Helper function to detect if a variable is of type `Vector`.

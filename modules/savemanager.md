@@ -2,21 +2,23 @@
 
 ## Overview
 
-| Return Value | Function                                                                                                                                                                                             |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| void         | [AddPersistentVariable](savemanager.md#addpersistentvariable)(`table` mod, `string` variableName, `any` value, [VariablePersistenceMode](../custom-enums/variablepersistentmode.md) persistenceMode) |
-| any          | [GetPersistentVariable](savemanager.md#getpersistentvariable)(`table` mod, `string` variableName)                                                                                                    |
-| void         | [RemovePersistentVariable](savemanager.md#removepersistentvariable)(`table` mod, `string` variableName)                                                                                              |
-| void         | [ResetPersistentVariable](savemanager.md#resetpersistentvariable)(`table` mod, `string` variableName)                                                                                                |
-| void         | [SetPersistentVariable](savemanager.md#setpersistentvariable)(`table` mod, `string` variableName, `any` newValue, `boolean` overrideType = false)                                                    |
+| Return Value | Function                                                                                                                                                                                                                                                                                       |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| void         | [AddPersistentVariable](savemanager.md#addpersistentvariable)(`table` mod, `string` variableName, `any` value, [VariablePersistenceMode](../custom-enums/variablepersistentmode.md) persistenceMode, `boolean` ignoreGlowingHourglass = false, `fun(): boolean` conditionalSave = fun(): true) |
+| any          | [GetPersistentVariable](savemanager.md#getpersistentvariable)(`table` mod, `string` variableName)                                                                                                                                                                                              |
+| void         | [RemovePersistentVariable](savemanager.md#removepersistentvariable)(`table` mod, `string` variableName)                                                                                                                                                                                        |
+| void         | [ResetPersistentVariable](savemanager.md#resetpersistentvariable)(`table` mod, `string` variableName)                                                                                                                                                                                          |
+| void         | [SetPersistentVariable](savemanager.md#setpersistentvariable)(`table` mod, `string` variableName, `any` newValue, `boolean` overrideType = false)                                                                                                                                              |
 
 ## Functions
 
 ### AddPersistentVariable()
 
-`void AddPersistentVariable(table mod, string variableName, any value,` [`VariablePersistenceMode`](../custom-enums/variablepersistentmode.md) `persistenceMode)`
+`void AddPersistentVariable(table mod, string variableName, any value,` [`VariablePersistenceMode`](../custom-enums/variablepersistentmode.md) `persistenceMode, boolean ignoreGlowingHourglass = false, fun(): boolean conditionalSave = fun(): true)`
 
 Adds a variable to the save manager.
+
+Use conditionalSave if you don't want your variable to always save to disk. Return true to save it and false to not save it.
 
 {% hint style="warning" %}
 The variable name must be unique within your mod.

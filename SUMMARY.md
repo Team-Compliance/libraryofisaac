@@ -4,6 +4,7 @@
 * [Get Started](get-started.md)
 * [F.A.Q.](f.a.q..md)
 * [Custom Enums](custom-enums/README.md)
+  * [AmbushType](custom-enums/ambushtype.md)
   * [AngelVariant](custom-enums/angelvariant.md)
   * [BabyLongLegs](custom-enums/babylonglegs.md)
   * [BeastVariant](custom-enums/beastvariant.md)
@@ -28,6 +29,7 @@
   * [ConjoinedFatty](custom-enums/conjoinedfatty.md)
   * [ConstantStoneShooterSubType](custom-enums/constantstoneshootersubtype.md)
   * [ConstantStoneShooterVariant](custom-enums/constantstoneshootervariant.md)
+  * [CopyableIsaacAPIClassType](custom-enums/copyableisaacapiclasstype.md)
   * [CrawlSpaceVariant](custom-enums/crawlspacevariant.md)
   * [CrazyLongLegs](custom-enums/crazylonglegs.md)
   * [CultistVariant](custom-enums/cultistvariant.md)
@@ -142,6 +144,8 @@
   * [RoundWormVariant](custom-enums/roundwormvariant.md)
   * [SatanVariant](custom-enums/satanvariant.md)
   * [ScourgeVariant](custom-enums/scourgevariant.md)
+  * [SerializationBrand](custom-enums/serializationbrand.md)
+  * [SerializationType](custom-enums/serializationtype.md)
   * [ShockwaveSoundMode](custom-enums/shockwavesoundmode.md)
   * [ShoopKeeperVariant](custom-enums/shoopkeepervariant.md)
   * [SingeVariant](custom-enums/singevariant.md)
@@ -179,7 +183,9 @@
 
 ## Modules
 
+* [Ambush](modules/ambush.md)
 * [Benchmark](modules/benchmark.md)
+* [BitSet128](modules/bitset128.md)
 * [Bombs](modules/bombs.md)
 * [Bosses](modules/bosses.md)
 * [Charge](modules/charge.md)
@@ -208,13 +214,18 @@
 * [RNG](modules/rng.md)
 * [Room](modules/room.md)
 * [SaveManager](modules/savemanager.md)
+* [Serialize](modules/serialize.md)
 * [Shockwaves](modules/shockwaves.md)
 * [Sprites](modules/sprites.md)
+* [Stage](modules/stage.md)
+* [Vector](modules/vector.md)
 * [Utils](modules/utils/README.md)
+  * [DeepCopy](modules/utils/deepcopy.md)
   * [Easings](modules/utils/easings.md)
   * [Flags](modules/utils/flags.md)
   * [Functions](modules/utils/functions.md)
   * [Math](modules/utils/math.md)
+  * [String](modules/utils/string.md)
   * [Tables](modules/utils/tables.md)
 
 ## Classes
