@@ -2,6 +2,7 @@
 
 TSIL.__RegisterCustomCallback(
 	TSIL.Enums.CustomCallback.POST_GRID_ENTITY_INIT,
+	TSIL.Enums.CallbackReturnMode.NONE,
 	function (functionParams, optionalParams)
 		---@type GridEntity
 		local gridEntity = functionParams[1]

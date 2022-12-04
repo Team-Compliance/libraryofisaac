@@ -1,5 +1,6 @@
 TSIL.__RegisterCustomCallback(
     TSIL.Enums.CustomCallback.POST_AMBUSH_STARTED,
+    TSIL.Enums.CallbackReturnMode.NONE,
     function (functionParams, optionalParams)
         local ambushType = functionParams[1]
         local targetAmbushType = optionalParams[1]

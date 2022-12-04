@@ -1,7 +1,7 @@
---##POST_GRID_ENTITY_UPDATE
+--##POST_GRID_ENTITY_RENDER
 
 TSIL.__RegisterCustomCallback(
-	TSIL.Enums.CustomCallback.POST_GRID_ENTITY_UPDATE,
+	TSIL.Enums.CustomCallback.POST_GRID_ENTITY_RENDER,
 	TSIL.Enums.CallbackReturnMode.NONE,
 	function (functionParams, optionalParams)
 		---@type GridEntity
@@ -16,16 +16,16 @@ TSIL.__RegisterCustomCallback(
 )
 
 
-local function OnFrameUpdate()
+local function OnRender()
 	local gridEntities = TSIL.GridEntities.GetGridEntities()
 
 	for _, gridEntity in ipairs(gridEntities) do
-		TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_GRID_ENTITY_UPDATE, gridEntity)
+		TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_GRID_ENTITY_RENDER, gridEntity)
 	end
 end
 TSIL.__AddInternalVanillaCallback(
-	"GRID_UPDATE_CALLBACK_POST_UPDATE",
-	ModCallbacks.MC_POST_UPDATE,
-	OnFrameUpdate,
+	"GRID_RENDER_CALLBACK_POST_RENDER",
+	ModCallbacks.MC_POST_RENDER,
+	OnRender,
 	TSIL.Enums.CallbackPriority.MEDIUM
 )
