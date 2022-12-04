@@ -3,7 +3,6 @@ TSIL.Enums.SerializationBrand = {
     BIT_SET_128 = "__BIT_SET_128",
     COLOR = "__COLOR",
     K_COLOR = "__K_COLOR",
-    OBJECT_WITH_NUMBER_KEYS = "__OBJECT_WITH_NUMBER_KEYS",
     RNG = "__RNG",
     VECTOR = "__VECTOR"
 }

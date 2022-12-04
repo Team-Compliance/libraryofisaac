@@ -29,7 +29,7 @@ function TSIL.Serialize.IsSerializedVector(object)
     return TSIL.Utils.Tables.TableHasKeys(object, table.unpack(KEYS)) and object[TSIL.Enums.SerializationBrand.VECTOR] ~= nil
 end
 
-------Helper function to convert a `Vector` object to a serialized version.
+---Helper function to convert a `Vector` object to a serialized version.
 ---@param vector Vector
 ---@return unknown
 function TSIL.Serialize.SerializeVector(vector)

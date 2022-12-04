@@ -1,5 +1,6 @@
 --- Returns if the provided table is an array. This is a workaround as Lua has no formal way to differentiate between a normal array and a map.
 ---@param object unknown
+---@return boolean
 function TSIL.Utils.Tables.IsArray(object)
     if type(object) ~= "table" then
         return false

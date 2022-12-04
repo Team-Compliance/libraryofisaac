@@ -6,44 +6,6 @@ local ISAAC_API_CLASS_TYPE_TO_BRAND = {
     [TSIL.Enums.CopyableIsaacAPIClassType.VECTOR] = TSIL.Enums.SerializationBrand.VECTOR,
 }
 
-local ISAAC_API_CLASS_TYPE_TO_FUNCTIONS = {
-    [TSIL.Enums.CopyableIsaacAPIClassType.BIT_SET_128] = {
-        is = TSIL.IsaacAPIClass.IsBitSet128,
-        isSerialized = TSIL.Serialize.IsSerializedBitSet128,
-        copy = TSIL.BitSet128.CopyBitSet128,
-        serialize = TSIL.Serialize.SerializeBitSet128,
-        deserialize = TSIL.Serialize.DeserializeBitSet128,
-    },
-    [TSIL.Enums.CopyableIsaacAPIClassType.COLOR] = {
-        is = TSIL.IsaacAPIClass.IsColor,
-        isSerialized = TSIL.Serialize.IsSerializedColor,
-        copy = TSIL.Color.CopyColor,
-        serialize = TSIL.Serialize.SerializeColor,
-        deserialize = TSIL.Serialize.DeserializeColor,
-    },
-    [TSIL.Enums.CopyableIsaacAPIClassType.K_COLOR] = {
-        is = TSIL.IsaacAPIClass.IsKColor,
-        isSerialized = TSIL.Serialize.IsSerializedKColor,
-        copy = TSIL.Color.CopyKColor,
-        serialize = TSIL.Serialize.SerializeKColor,
-        deserialize = TSIL.Serialize.DeserializeKColor,
-    },
-    [TSIL.Enums.CopyableIsaacAPIClassType.RNG] = {
-        is = TSIL.IsaacAPIClass.IsRNG,
-        isSerialized = TSIL.Serialize.IsSerializedRNG,
-        copy = TSIL.RNG.CopyRNG,
-        serialize = TSIL.Serialize.SerializeRNG,
-        deserialize = TSIL.Serialize.DeserializeRNG,
-    },
-    [TSIL.Enums.CopyableIsaacAPIClassType.VECTOR] = {
-        is = TSIL.IsaacAPIClass.IsVector,
-        isSerialized = TSIL.Serialize.IsSerializedVector,
-        copy = TSIL.Vector.CopyVector,
-        serialize = TSIL.Serialize.SerializeVector,
-        deserialize = TSIL.Serialize.DeserializeVector,
-    },
-}
-
 ---@param serializedIsaacAPIClass unknown
 local function getSerializedTableType(serializedIsaacAPIClass)
     for i, v in pairs(ISAAC_API_CLASS_TYPE_TO_BRAND) do
@@ -175,9 +137,8 @@ end
 ---class it is. (This is used by the save data manager when writing data to the "save#.dat" file.)
 ---
 ---For the list of supported classes, see the `CopyableIsaacAPIClassType` enum.
----@generic T
----@param class T
----@return T
+---@param class unknown
+---@return unknown
 function TSIL.Serialize.SerializeIsaacAPIClass(class)
     if type(class) ~= "userdata" then
         error("Failed to serialize an Isaac API class since the provided object was of type: " .. type(class))
