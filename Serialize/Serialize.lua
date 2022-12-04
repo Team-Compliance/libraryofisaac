@@ -183,7 +183,7 @@ function TSIL.Serialize.SerializeIsaacAPIClass(class)
         error("Failed to serialize an Isaac API class since the provided object was of type: " .. type(class))
     end
 
-    local isaacAPIClassType = TSIL.Serialize.GetIsaacAPIClassName(class)
+    local isaacAPIClassType = TSIL.IsaacAPIClass.GetIsaacAPIClassName(class)
 
     if isaacAPIClassType == nil then
         error("Failed to serialize an Isaac API class since it does not have a class type.")

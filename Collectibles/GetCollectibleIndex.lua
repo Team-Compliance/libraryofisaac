@@ -80,30 +80,29 @@ function TSIL.Collectibles.GetCollectibleIndex(collectible)
         }
     end
 
-    local proxy = {}
+    -- local proxy = {}
 
-    local mt = {
-        __type = "CollectibleIndex",
-        __index = collectibleIndex,
-        __newindex = function()
-            error("Attempt to update a read-only table", 2)
-        end,
-        __eq = function(t1, t2)
-            local ci1 = getmetatable(t1).__proxy
-            local ci2 = getmetatable(t2).__proxy
+    -- local mt = {
+    --     __index = collectibleIndex,
+    --     __newindex = function()
+    --         error("Attempt to update a read-only table", 2)
+    --     end,
+    --     __eq = function(t1, t2)
+    --         local ci1 = getmetatable(t1).__proxy
+    --         local ci2 = getmetatable(t2).__proxy
 
-            for key, value in pairs(ci1) do
-                if value ~= ci2[key] then
-                    return false
-                end
-            end
+    --         for key, value in pairs(ci1) do
+    --             if value ~= ci2[key] then
+    --                 return false
+    --             end
+    --         end
 
-            return true
-        end,
-        __proxy = collectibleIndex
-    }
+    --         return true
+    --     end,
+    --     __proxy = collectibleIndex
+    -- }
 
-    setmetatable(proxy, mt)
+    -- setmetatable(proxy, mt)
 
-    return proxy
+    return collectibleIndex
 end

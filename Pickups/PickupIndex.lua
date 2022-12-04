@@ -70,18 +70,18 @@ local function TrackDespawningPickupMetadata(entity, pickupIndex)
 
     local previousRoomListIndex = previousRoomDescription.RoomListIndex
     local pickupData = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "pickupData_PICKUP_INDEX")
-    local pickupDescriptions = pickupData[previousRoomListIndex]
+    local pickupDescriptions = pickupData[tostring(previousRoomListIndex)]
 
     if pickupDescriptions == nil then
         pickupDescriptions = {}
-        pickupData[previousRoomListIndex] = pickupDescriptions
+        pickupData[tostring(previousRoomListIndex)] = pickupDescriptions
     end
 
     local pickupDescription = {
         Position = entity.Position,
         InitSeed = entity.InitSeed,
     }
-    pickupDescriptions[pickupIndex] = pickupDescription
+    pickupDescriptions[tostring(pickupIndex)] = pickupDescription
 
     -- If the despawning pickup was in a Treasure Room or Boss Room, then it is possible that the
     -- pickup could re-appear during The Ascent. If this is the case, we store the metadata on a
@@ -95,10 +95,10 @@ local function TrackDespawningPickupMetadata(entity, pickupIndex)
 
     if roomType == RoomType.ROOM_TREASURE then
         local treasurePickups = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "pickupDataTreasureRooms_PICKUP_INDEX")
-        treasurePickups[pickupIndex] = pickupDescription
+        treasurePickups[tostring(pickupIndex)] = pickupDescription
     elseif roomType == RoomType.BOSS then
         local bossPickups = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "pickupDataBossRooms_PICKUP_INDEX")
-        bossPickups[pickupIndex] = pickupDescription
+        bossPickups[tostring(pickupIndex)] = pickupDescription
     end
 end
 
@@ -106,7 +106,7 @@ end
 local function CheckDespawningFromPlayerLeavingRoom(entity)
     local ptrHash = GetPtrHash(entity);
     local pickupIndexes = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "pickupIndexes_PICKUP_INDEX")
-    local pickupIndex = pickupIndexes[ptrHash]
+    local pickupIndex = pickupIndexes[tostring(ptrHash)]
 
     if pickupIndex == nil then
         return
@@ -125,11 +125,11 @@ local function GetPickupIndexFromPreviousData(pickup)
     local roomListIndex = roomDescriptor.ListIndex
 
     local pickupData = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "pickupData_PICKUP_INDEX")
-    local pickupDescriptions = pickupData[roomListIndex]
+    local pickupDescriptions = pickupData[tostring(roomListIndex)]
 
     if pickupDescriptions == nil then
         pickupDescriptions = {}
-        pickupData[roomListIndex] = pickupDescriptions
+        pickupData[tostring(roomListIndex)] = pickupDescriptions
     end
 
     local pickupIndex = GetStoredPickupIndex(pickup, pickupDescriptions)
@@ -149,7 +149,7 @@ local function SetPickupIndex(pickup)
     -- pointer hash.
     local pickupIndexes = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "pickupIndexes_PICKUP_INDEX")
 
-    if pickupIndexes[ptrHash] ~= nil then
+    if pickupIndexes[tostring(ptrHash)] ~= nil then
         return
     end
 
@@ -162,7 +162,7 @@ local function SetPickupIndex(pickup)
     if pickupIndexFromLevelData ~= nil and
     not isFirstVisit and
     roomFrameCount <= 0 then
-        pickupIndexes[ptrHash] = pickupIndexFromLevelData
+        pickupIndexes[tostring(ptrHash)] = pickupIndexFromLevelData
         return
     end
 
@@ -170,7 +170,7 @@ local function SetPickupIndex(pickup)
     local pickupCounter = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "pickupCounter_PICKUP_INDEX")
     pickupCounter = pickupCounter + 1
     TSIL.SaveManager.SetPersistentVariable(TSIL.__MOD, "pickupCounter_PICKUP_INDEX", pickupCounter)
-    pickupIndexes[ptrHash] = pickupCounter
+    pickupIndexes[tostring(ptrHash)] = pickupCounter
 end
 
 
@@ -214,13 +214,13 @@ function TSIL.Pickups.GetPickupIndex(pickup)
     local ptrHash = GetPtrHash(pickup)
     local pickupIndexes = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "pickupIndexes_PICKUP_INDEX")
 
-    local pickupIndexInitial = pickupIndexes[ptrHash]
+    local pickupIndexInitial = pickupIndexes[tostring(ptrHash)]
     if pickupIndexInitial ~= nil then
         return pickupIndexInitial
     end
 
     SetPickupIndex(pickup)
-    local pickupIndex = pickupIndexes[ptrHash]
+    local pickupIndex = pickupIndexes[tostring(ptrHash)]
     if pickupIndex ~= nil then
         return pickupIndex
     end

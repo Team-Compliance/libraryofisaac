@@ -24,7 +24,7 @@ local function PostSlotRemoved(_, slot)
     local slotPtr = GetPtrHash(slot)
     local frameCount = Game():GetFrameCount()
 
-    local prizeFrame = SlotPrizeAnimationFrameCount[slotPtr]
+    local prizeFrame = SlotPrizeAnimationFrameCount[tostring(slotPtr)]
     if prizeFrame == nil then
         return
     end
@@ -60,9 +60,9 @@ local function OnSlotAnimationChange(_, slot)
     local sprite = slot:GetSprite();
     local animation = sprite:GetAnimation();
     if animation == "Prize" then
-        SlotPrizeAnimationFrameCount[slotPtr] = frameCount
+        SlotPrizeAnimationFrameCount[tostring(slotPtr)] = frameCount
     else
-        SlotPrizeAnimationFrameCount[slotPtr] = nil
+        SlotPrizeAnimationFrameCount[tostring(slotPtr)] = nil
     end
 end
 TSIL.__AddInternalCustomCallback(

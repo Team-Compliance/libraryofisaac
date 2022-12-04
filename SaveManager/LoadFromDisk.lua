@@ -83,6 +83,6 @@ function TSIL.SaveManager.LoadFromDisk()
         --contain out-of-date fields. Instead, merge it one field at a time in a recursive way
         --TSIL.Utils.Tables.Merge(oldSaveDataForSubscriber.variables, newModData)
         --oldSaveDataForSubscriber.variables = TSIL.Utils.DeepCopy.DeepCopy(newModData, TSIL.Enums.SerializationType.NONE)
-        mergeSaveData(oldSaveDataForSubscriber.variables, newSaveData)
+        mergeSaveData(oldSaveDataForSubscriber.variables, persistentVariables)
     end)
 end
