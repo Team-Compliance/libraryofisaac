@@ -20,27 +20,27 @@
 | [PRE\_NPC\_UPDATE\_FILTER](customcallback.md#pre\_npc\_update\_filter)                             | [EntityNPC](https://wofsauge.github.io/IsaacDocs/rep/EntityNPC.html)                                                                                                                                                                                                                               | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/EntityType.html">EntityType</a>,</p><p>integer,</p><p>integer</p>                                                                                              |
 | [POST\_SLOT\_INIT](customcallback.md#post\_slot\_init)                                             | [Entity](https://wofsauge.github.io/IsaacDocs/rep/Entity.html)                                                                                                                                                                                                                                     | <p><a href="../custom-enums/slotvariant.md">SlotVariant</a>,</p><p>integer</p>                                                                                                                                            |
 | [POST\_SLOT\_UPDATE](customcallback.md#post\_slot\_update)                                         | [Entity](https://wofsauge.github.io/IsaacDocs/rep/Entity.html)                                                                                                                                                                                                                                     | <p><a href="../custom-enums/slotvariant.md">SlotVariant</a>,</p><p>integer</p>                                                                                                                                            |
-| POST\_SLOT\_RENDER                                                                                 | [Entity](https://wofsauge.github.io/IsaacDocs/rep/Entity.html)                                                                                                                                                                                                                                     | <p><a href="../custom-enums/slotvariant.md">SlotVariant</a>,</p><p>integer</p>                                                                                                                                            |
+| [POST\_SLOT\_RENDER](customcallback.md#post\_slot\_render)                                         | [Entity](https://wofsauge.github.io/IsaacDocs/rep/Entity.html)                                                                                                                                                                                                                                     | <p><a href="../custom-enums/slotvariant.md">SlotVariant</a>,</p><p>integer</p>                                                                                                                                            |
 | [POST\_SLOT\_PRIZE](customcallback.md#post\_slot\_prize)                                           | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/Entity.html">Entity</a>,<br>boolean</p>                                                                                                                                                                                                       | <p><a href="../custom-enums/slotvariant.md">SlotVariant</a>,</p><p>integer</p>                                                                                                                                            |
-| POST\_SLOT\_ANIMATION\_CHANGED                                                                     | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/Entity.html">Entity</a>,</p><p>string,</p><p>string</p>                                                                                                                                                                                       | <p><a href="../custom-enums/slotvariant.md">SlotVariant</a>,</p><p>integer</p>                                                                                                                                            |
-| POST\_SLOT\_DESTROYED                                                                              | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/Entity.html">Entity</a>,<br>boolean</p>                                                                                                                                                                                                       | <p><a href="../custom-enums/slotvariant.md">SlotVariant</a>,</p><p>integer</p>                                                                                                                                            |
+| [POST\_SLOT\_ANIMATION\_CHANGED](customcallback.md#post\_slot\_animation\_changed)                 | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/Entity.html">Entity</a>,</p><p>string,</p><p>string</p>                                                                                                                                                                                       | <p><a href="../custom-enums/slotvariant.md">SlotVariant</a>,</p><p>integer</p>                                                                                                                                            |
+| [POST\_SLOT\_DESTROYED](customcallback.md#post\_slot\_destroyed)                                   | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/Entity.html">Entity</a>,<br>boolean</p>                                                                                                                                                                                                       | <p><a href="../custom-enums/slotvariant.md">SlotVariant</a>,</p><p>integer</p>                                                                                                                                            |
 | [PRE\_SLOT\_COLLISION](customcallback.md#pre\_slot\_collision)                                     | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/Entity.html">Entity</a>,</p><p><a href="https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html">EntityPlayer</a></p>                                                                                                                      | <p><a href="../custom-enums/slotvariant.md">SlotVariant</a>,</p><p>integer</p>                                                                                                                                            |
-| [POST\_PLAYER\_COLLECTIBLE\_ADDED](customcallback.md#post\_player\_collectible\_added)             | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html">EntityPlayer</a>,<br><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html">CollectibleType</a></p>                                                                                                 | [CollectibleType](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html)                                                                                                                                    |
-| [POST\_PLAYER\_COLLECTIBLE\_REMOVED](customcallback.md#post\_player\_collectible\_added-1)         | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html">EntityPlayer</a>,<br><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html">CollectibleType</a></p>                                                                                                 | [CollectibleType](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html)                                                                                                                                    |
-| [POST\_PLAYER\_GULPED\_TRINKET\_ADDED](customcallback.md#post\_player\_gulped\_trinet\_added)      | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html">EntityPlayer</a>,<br><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html">TrinketType</a></p>                                                                                                         | [TrinketType](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html)                                                                                                                                            |
-| [POST\_PLAYER\_GULPED\_TRINKET\_REMOVED](customcallback.md#post\_player\_gulped\_trinket\_removed) | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html">EntityPlayer</a>,<br><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html">TrinketType</a></p>                                                                                                         | [TrinketType](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html)                                                                                                                                            |
+| [POST\_PLAYER\_COLLECTIBLE\_ADDED](customcallback.md#post\_player\_collectible\_added)             | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html">EntityPlayer</a>,<br><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html">CollectibleType</a></p>                                                                                                 | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html">PlayerType</a>,<br><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html">CollectibleType</a></p>                      |
+| [POST\_PLAYER\_COLLECTIBLE\_REMOVED](customcallback.md#post\_player\_collectible\_added-1)         | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html">EntityPlayer</a>,<br><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html">CollectibleType</a></p>                                                                                                 | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html">PlayerType</a>,<br><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html">CollectibleType</a></p>                      |
+| [POST\_PLAYER\_GULPED\_TRINKET\_ADDED](customcallback.md#post\_player\_gulped\_trinet\_added)      | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html">EntityPlayer</a>,<br><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html">TrinketType</a></p>                                                                                                         | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html">PlayerType</a>,<br><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html">TrinketType</a></p>                              |
+| [POST\_PLAYER\_GULPED\_TRINKET\_REMOVED](customcallback.md#post\_player\_gulped\_trinket\_removed) | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html">EntityPlayer</a>,<br><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html">TrinketType</a></p>                                                                                                         | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html">PlayerType</a>,<br><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html">TrinketType</a></p>                              |
 | [POST\_GRID\_ENTITY\_INIT](customcallback.md#post\_grid\_entity\_init)                             | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html">GridEntity</a>,</p><p>boolean</p>                                                                                                                                                                                            | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/GridEntityType.html">GridEntityType</a>,<br>integer</p>                                                                                                        |
 | [POST\_GRID\_ENTITY\_UPDATE](customcallback.md#post\_grid\_entity\_update)                         | [GridEntity](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html)                                                                                                                                                                                                                             | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/GridEntityType.html">GridEntityType</a>,<br>integer</p>                                                                                                        |
-| POST\_GRID\_ENTITY\_RENDER                                                                         | [GridEntity](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html)                                                                                                                                                                                                                             | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/GridEntityType.html">GridEntityType</a>,<br>integer</p>                                                                                                        |
-| POST\_GRID\_COLLISION                                                                              | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html">GridEntity</a>,<br><a href="https://wofsauge.github.io/IsaacDocs/rep/Entity.html">Entity</a></p>                                                                                                                             | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/GridEntityType.html">GridEntityType</a>,<br>integer<br><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/EntityType.html">EntityType</a>,<br>integer</p> |
-| POST\_GAME\_STARTED\_REORDERED                                                                     | boolean                                                                                                                                                                                                                                                                                            | -                                                                                                                                                                                                                         |
-| POST\_GAME\_STARTED\_REORDERED\_LAST                                                               | boolean                                                                                                                                                                                                                                                                                            | -                                                                                                                                                                                                                         |
-| POST\_NEW\_LEVEL\_REORDERED                                                                        | -                                                                                                                                                                                                                                                                                                  | -                                                                                                                                                                                                                         |
-| POST\_NEW\_ROOM\_REORDERED                                                                         | -                                                                                                                                                                                                                                                                                                  | -                                                                                                                                                                                                                         |
-| POST\_PEFFECT\_UPDATE\_REORDERED                                                                   | [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)                                                                                                                                                                                                                         | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html">PlayerType</a>,<br>integer</p>                                                                                                                |
-| POST\_PLAYER\_RENDER\_REORDERED                                                                    | [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)                                                                                                                                                                                                                         | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html">PlayerType</a>,<br>integer</p>                                                                                                                |
-| POST\_PLAYER\_UPDATE\_REORDERED                                                                    | [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)                                                                                                                                                                                                                         | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html">PlayerType</a>,<br>integer</p>                                                                                                                |
-| POST\_NEW\_ROOM\_EARLY                                                                             | -                                                                                                                                                                                                                                                                                                  | -                                                                                                                                                                                                                         |
+| [POST\_GRID\_ENTITY\_RENDER](customcallback.md#post\_grid\_entity\_render)                         | [GridEntity](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html)                                                                                                                                                                                                                             | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/GridEntityType.html">GridEntityType</a>,<br>integer</p>                                                                                                        |
+| [POST\_GRID\_COLLISION](customcallback.md#post\_grid\_collission)                                  | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html">GridEntity</a>,<br><a href="https://wofsauge.github.io/IsaacDocs/rep/Entity.html">Entity</a></p>                                                                                                                             | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/GridEntityType.html">GridEntityType</a>,<br>integer<br><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/EntityType.html">EntityType</a>,<br>integer</p> |
+| [POST\_GAME\_STARTED\_REORDERED](customcallback.md#post\_game\_started\_reordered)                 | boolean                                                                                                                                                                                                                                                                                            | -                                                                                                                                                                                                                         |
+| [POST\_GAME\_STARTED\_REORDERED\_LAST](customcallback.md#post\_game\_started\_reordered\_last)     | boolean                                                                                                                                                                                                                                                                                            | -                                                                                                                                                                                                                         |
+| [POST\_NEW\_LEVEL\_REORDERED](customcallback.md#post\_new\_level\_reordered)                       | -                                                                                                                                                                                                                                                                                                  | -                                                                                                                                                                                                                         |
+| [POST\_NEW\_ROOM\_REORDERED](../modules/room.md)                                                   | -                                                                                                                                                                                                                                                                                                  | -                                                                                                                                                                                                                         |
+| [POST\_PEFFECT\_UPDATE\_REORDERED](customcallback.md#post\_peffect\_update\_reordered)             | [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)                                                                                                                                                                                                                         | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html">PlayerType</a>,<br>integer</p>                                                                                                                |
+| [POST\_PLAYER\_RENDER\_REORDERED](customcallback.md#post\_player\_render\_reordered)               | [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)                                                                                                                                                                                                                         | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html">PlayerType</a>,<br>integer</p>                                                                                                                |
+| [POST\_PLAYER\_UPDATE\_REORDERED](customcallback.md#post\_player\_update\_reordered)               | [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)                                                                                                                                                                                                                         | <p><a href="https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html">PlayerType</a>,<br>integer</p>                                                                                                                |
+| [POST\_NEW\_ROOM\_EARLY](customcallback.md#post\_new\_room\_early)                                 | -                                                                                                                                                                                                                                                                                                  | -                                                                                                                                                                                                                         |
 
 ## Callbacks
 
@@ -186,6 +186,7 @@ Called on the the first frame the slot is available.
 | Function Args                                                         | Optional Args                                               |
 | --------------------------------------------------------------------- | ----------------------------------------------------------- |
 | slot [`Entity`](https://wofsauge.github.io/IsaacDocs/rep/Entity.html) | slotVariant [`SlotVariant`](../custom-enums/slotvariant.md) |
+|                                                                       | subType `integer`                                           |
 
 ### POST\_SLOT\_UPDATE
 
@@ -194,6 +195,16 @@ Called every frame for each slot. (30 fps)
 | Function Args                                                         | Optional Args                                               |
 | --------------------------------------------------------------------- | ----------------------------------------------------------- |
 | slot [`Entity`](https://wofsauge.github.io/IsaacDocs/rep/Entity.html) | slotVariant [`SlotVariant`](../custom-enums/slotvariant.md) |
+|                                                                       | subType `integer`                                           |
+
+### POST\_SLOT\_RENDER
+
+Called once from `POST_RENDER` for each slot.
+
+| Function Args                                                         | Optional Args                                               |
+| --------------------------------------------------------------------- | ----------------------------------------------------------- |
+| slot [`Entity`](https://wofsauge.github.io/IsaacDocs/rep/Entity.html) | slotVariant [`SlotVariant`](../custom-enums/slotvariant.md) |
+|                                                                       | subType `integer`                                           |
 
 ### POST\_SLOT\_PRIZE
 
@@ -202,15 +213,35 @@ Called when the `Prize` or the `Disappear` event is triggered on a slot sprite. 
 | Function Args                                                         | Optional Args                                               |
 | --------------------------------------------------------------------- | ----------------------------------------------------------- |
 | slot [`Entity`](https://wofsauge.github.io/IsaacDocs/rep/Entity.html) | slotVariant [`SlotVariant`](../custom-enums/slotvariant.md) |
-| isDisappear `boolean`                                                 |                                                             |
+| isDisappear `boolean`                                                 | subType `integer`                                           |
+
+### POST\_SLOT\_ANIMATION\_CHANGED
+
+Called from the `POST_RENDER` callback when a slot's animation changes.
+
+| Function Args                                                         | Optional Args                                               |
+| --------------------------------------------------------------------- | ----------------------------------------------------------- |
+| slot [`Entity`](https://wofsauge.github.io/IsaacDocs/rep/Entity.html) | slotVariant [`SlotVariant`](../custom-enums/slotvariant.md) |
+| previousAnimation `string`                                            | subType `integer`                                           |
+| currentAnimation `string`                                             |                                                             |
+
+### POST\_SLOT\_DESTROYED
+
+Called when a slot plays the animation that indicates it's destroyed
+
+| Function Args                                                         | Optional Args                                               |
+| --------------------------------------------------------------------- | ----------------------------------------------------------- |
+| slot [`Entity`](https://wofsauge.github.io/IsaacDocs/rep/Entity.html) | slotVariant [`SlotVariant`](../custom-enums/slotvariant.md) |
+| isGivingPrize `boolean`                                               | subType `integer`                                           |
 
 ### PRE\_SLOT\_COLLISION
 
-WIP
+Called from the `PRE_PLAYER_COLLISION` callback when a player collides with a slot.
 
-| Function Args | Optional Args |
-| ------------- | ------------- |
-|               |               |
+| Function Args                                                                         | Optional Args                                               |
+| ------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| slot [`Entity`](https://wofsauge.github.io/IsaacDocs/rep/Entity.html)                 | slotVariant [`SlotVariant`](../custom-enums/slotvariant.md) |
+| collider [`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) | subType `integer`                                           |
 
 ### POST\_PLAYER\_COLLECTIBLE\_ADDED
 
@@ -218,8 +249,8 @@ Called after a collectible gets added to a player's inventory.
 
 | Function Args                                                                                            | Optional Args                                                                                            |
 | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| player [`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)                      | collectibleType [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) |
-| collectibleType [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) |                                                                                                          |
+| player [`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)                      | playerType [`PlayerType`](https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html)                |
+| collectibleType [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) | collectibleType [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) |
 
 ### POST\_PLAYER\_COLLECTIBLE\_REMOVED
 
@@ -227,8 +258,8 @@ Called after a collectible gets removed from a player's inventory.
 
 | Function Args                                                                                            | Optional Args                                                                                            |
 | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| player [`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)                      | collectibleType [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) |
-| collectibleType [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) |                                                                                                          |
+| player [`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)                      | playerType [`PlayerType`](https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html)                |
+| collectibleType [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) | collectibleType [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) |
 
 ### POST\_PLAYER\_GULPED\_TRINKET\_ADDED
 
@@ -236,8 +267,8 @@ Called after a gulped trinket gets added to a player's inventory.
 
 | Function Args                                                                                | Optional Args                                                                                |
 | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| player [`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)          | trinketType [`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) |
-| trinketType [`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) |                                                                                              |
+| player [`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)          | playerType [`PlayerType`](https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html)    |
+| trinketType [`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) | trinketType [`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) |
 
 ### POST\_PLAYER\_GULPED\_TRINKET\_REMOVED
 
@@ -245,8 +276,8 @@ Called after a gulped trinket gets removed from a player's inventory.
 
 | Function Args                                                                                | Optional Args                                                                                |
 | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| player [`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)          | trinketType [`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) |
-| trinketType [`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) |                                                                                              |
+| player [`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)          | playerType [`PlayerType`](https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html)    |
+| trinketType [`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) | trinketType [`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) |
 
 ### POST\_GRID\_ENTITY\_INIT
 
@@ -266,6 +297,15 @@ Called every frame for each grid entity. (30 fps)
 | gridEntity [`GridEntity`](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html) | gridEntityType [`GridEntityType`](https://wofsauge.github.io/IsaacDocs/rep/enums/GridEntityType.html) |
 |                                                                                     | gridEntityVariant `integer`                                                                           |
 
+### POST\_GRID\_ENTITY\_RENDER
+
+Called once for each Grid Entity from the `POST_RENDER` callback
+
+| Function Args                                                                       | Optional Args                                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| gridEntity [`GridEntity`](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html) | gridEntityType [`GridEntityType`](https://wofsauge.github.io/IsaacDocs/rep/enums/GridEntityType.html) |
+|                                                                                     | gridEntityVariant `integer`                                                                           |
+
 ### POST\_GRID\_COLLISSION
 
 Called every frame, for every entity that is colliding with a grid entity.
@@ -276,3 +316,88 @@ Called every frame, for every entity that is colliding with a grid entity.
 | entity [`Entity`](https://wofsauge.github.io/IsaacDocs/rep/Entity.html)             | gridEntityVariant `integer`                                                                           |
 |                                                                                     | entityType [`EntityType`](https://wofsauge.github.io/IsaacDocs/rep/enums/EntityType.html)             |
 |                                                                                     | entityVariant `integer`                                                                               |
+
+### POST\_GAME\_STARTED\_REORDERED
+
+Similar to the `POST_GAME_STARTED` callback but fires in order with the `POST_NEW_LEVEL` and the `POST_NEW_ROOM` callbacks.
+
+{% hint style="info" %}
+POST\_GAME\_STARTED\_REORDERED -> POST\_NEW\_LEVEL\_REORDERED -> POST\_NEW\_ROOM\_REORDERED -> POST\_GAME\_STARTED\_REORDERED\_LAST
+{% endhint %}
+
+| Function Args         | Optional Args |
+| --------------------- | ------------- |
+| isContinued `boolean` |               |
+
+### POST\_GAME\_STARTED\_REORDERED\_LAST
+
+Similar to `POST_GAME_STARTED_REORDERED` but fires after the other callbacks have finished.
+
+Useful to perform things after a run has started, but ensuring that all the run-initialization code has been executed.
+
+{% hint style="info" %}
+POST\_GAME\_STARTED\_REORDERED -> POST\_NEW\_LEVEL\_REORDERED -> POST\_NEW\_ROOM\_REORDERED -> POST\_GAME\_STARTED\_REORDERED\_LAST
+{% endhint %}
+
+| Function Args         | Optional Args |
+| --------------------- | ------------- |
+| isContinued `boolean` |               |
+
+### POST\_NEW\_LEVEL\_REORDERED&#x20;
+
+Similar to the `POST_NEW_LEVEL` callback but fires in order with the `POST_GAME_STARTED` and the `POST_NEW_ROOM` callbacks.
+
+{% hint style="info" %}
+POST\_GAME\_STARTED\_REORDERED -> POST\_NEW\_LEVEL\_REORDERED -> POST\_NEW\_ROOM\_REORDERED -> POST\_GAME\_STARTED\_REORDERED\_LAST
+{% endhint %}
+
+| Function Args | Optional Args |
+| ------------- | ------------- |
+|               |               |
+
+### POST\_NEW\_ROOM\_REORDERED&#x20;
+
+Similar to the `POST_NEW_ROOM` callback but fires in order with the `POST_NEW_LEVEL` and the `POST_GAME_STARTED` callbacks.
+
+{% hint style="info" %}
+POST\_GAME\_STARTED\_REORDERED -> POST\_NEW\_LEVEL\_REORDERED -> POST\_NEW\_ROOM\_REORDERED -> POST\_GAME\_STARTED\_REORDERED\_LAST
+{% endhint %}
+
+| Function Args | Optional Args |
+| ------------- | ------------- |
+|               |               |
+
+### POST\_PEFFECT\_UPDATE\_REORDERED
+
+Similar to the `POST_PEFFECT_UPDATE` callback but only fires after the `POST_GAME_STARTED` callback has been executed, to ensure all run-initialization code has been executed.
+
+| Function Args                                                                       | Optional Args                                                                             |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| player [`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) | playerType [`PlayerType`](https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html) |
+|                                                                                     | playerVariant `integer`                                                                   |
+
+### POST\_PLAYER\_RENDER\_REORDERED
+
+Similar to the `POST_PLAYER_RENDER` callback but only fires after the `POST_GAME_STARTED` callback has been executed, to ensure all run-initialization code has been executed.
+
+| Function Args                                                                       | Optional Args                                                                             |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| player [`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) | playerType [`PlayerType`](https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html) |
+|                                                                                     | playerVariant `integer`                                                                   |
+
+### POST\_PLAYER\_UPDATE\_REORDERED
+
+Similar to the `POST_PLAYER_UPDATE` callback but only fires after the `POST_GAME_STARTED` callback has been executed, to ensure all run-initialization code has been executed.
+
+| Function Args                                                                       | Optional Args                                                                             |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| player [`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) | playerType [`PlayerType`](https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html) |
+|                                                                                     | playerVariant `integer`                                                                   |
+
+### POST\_NEW\_ROOM\_EARLY
+
+Fires on the first `POST_NEW_ROOM` or `PRE_ENTITY_SPAWN` callback where being in a new room is detected. This is useful because the vanilla `POST_NEW_ROOM` callback fires only after entities in the room have been initialized and updated once, which means that it is possible for entity-related code to run before room-related-initialization has been performed.
+
+| Function Args | Optional Args |
+| ------------- | ------------- |
+|               |               |
