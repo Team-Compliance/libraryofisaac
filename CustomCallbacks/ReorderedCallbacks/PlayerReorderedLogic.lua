@@ -14,7 +14,7 @@ TSIL.__AddInternalCustomCallback(
 
 
 ---@param player EntityPlayer
-local function PostPEffectUpdate(player)
+local function PostPEffectUpdate(_, player)
     local gameStartedFired = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "gameStartedFired_PLAYER_REORDERED_LOGIC")
 
     if gameStartedFired then
@@ -36,7 +36,7 @@ TSIL.__AddInternalVanillaCallback(
 
 
 ---@param player EntityPlayer
-local function PostPlayerUpdate(player)
+local function PostPlayerUpdate(_, player)
     local gameStartedFired = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "gameStartedFired_PLAYER_REORDERED_LOGIC")
 
     if gameStartedFired then
@@ -58,7 +58,7 @@ TSIL.__AddInternalVanillaCallback(
 
 
 ---@param player EntityPlayer
-local function PostPlayerRender(player)
+local function PostPlayerRender(_, player)
     local gameStartedFired = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "gameStartedFired_PLAYER_REORDERED_LOGIC")
 
     if gameStartedFired then
