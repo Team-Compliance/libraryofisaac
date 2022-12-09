@@ -5,11 +5,10 @@ local function OnTSILLoad()
     TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "postPlayerUpdateQueue_PLAYER_REORDERED_LOGIC", {}, TSIL.Enums.VariablePersistenceMode.RESET_RUN)
     TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "postPlayerRenderQueue_PLAYER_REORDERED_LOGIC", {}, TSIL.Enums.VariablePersistenceMode.RESET_RUN)
 end
-TSIL.__AddInternalCustomCallback(
+TSIL.__AddInternalCallback(
     "PLAYER_REORDERED_LOGIC_TSIL_LOAD",
     TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
-    OnTSILLoad,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    OnTSILLoad
 )
 
 
@@ -27,11 +26,10 @@ local function PostPEffectUpdate(_, player)
         postPEffectUpdateQueue[#postPEffectUpdateQueue+1] = playerIndex
     end
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "PLAYER_REORDERED_POST_PEFFECT_UPDATE",
     ModCallbacks.MC_POST_PEFFECT_UPDATE,
-    PostPEffectUpdate,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    PostPEffectUpdate
 )
 
 
@@ -49,11 +47,10 @@ local function PostPlayerUpdate(_, player)
         postPlayerUpdateQueue[#postPlayerUpdateQueue+1] = playerIndex
     end
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "PLAYER_REORDERED_POST_PLAYER_UPDATE",
     ModCallbacks.MC_POST_PLAYER_UPDATE,
-    PostPlayerUpdate,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    PostPlayerUpdate
 )
 
 
@@ -71,11 +68,10 @@ local function PostPlayerRender(_, player)
         postPlayerRenderQueue[#postPlayerRenderQueue+1] = playerIndex
     end
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "PLAYER_REORDERED_POST_PLAYER_RENDER",
     ModCallbacks.MC_POST_PLAYER_RENDER,
-    PostPlayerRender,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    PostPlayerRender
 )
 
 
@@ -102,9 +98,8 @@ local function PostGameStartedReorderedLast()
     local postPlayerRenderQueue = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "postPlayerRenderQueue_PLAYER_REORDERED_LOGIC")
     Dequeue(postPlayerRenderQueue, TSIL.Enums.CustomCallback.POST_PLAYER_RENDER_REORDERED)
 end
-TSIL.__AddInternalCustomCallback(
+TSIL.__AddInternalCallback(
     "PLAYER_REORDERED_LOGIC_GAME_STARTED_REORDERED_LAST",
     TSIL.Enums.CustomCallback.POST_GAME_STARTED_REORDERED_LAST,
-    PostGameStartedReorderedLast,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    PostGameStartedReorderedLast
 )

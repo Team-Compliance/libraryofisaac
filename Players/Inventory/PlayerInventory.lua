@@ -132,22 +132,20 @@ local function OnPeffectUpdate(_, player)
 
 	CheckGulpedTrinkets(player, playerInventory)
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
 	"PLAYER_INVENTORY_PEFFECT_UPDATE",
 	ModCallbacks.MC_POST_PEFFECT_UPDATE,
-	OnPeffectUpdate,
-	TSIL.Enums.CallbackPriority.LOW
+	OnPeffectUpdate
 )
 
 
 local function OnTSILLoaded()
 	TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "PLAYER_INVENTORIES", {}, TSIL.Enums.VariablePersistenceMode.RESET_RUN)
 end
-TSIL.__AddInternalCustomCallback(
+TSIL.__AddInternalCallback(
 	"PLAYER_INVENTORY_TSIL_LOADED",
 	TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
-	OnTSILLoaded,
-	TSIL.Enums.CallbackPriority.MEDIUM
+	OnTSILLoaded
 )
 
 --- Returns a list of all the items/gulped trinkets (things that appear on the extra HUD) ordered by the time they were collected.

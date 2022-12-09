@@ -2,25 +2,18 @@
 TSIL.__RegisterCustomCallback(
     TSIL.Enums.CustomCallback.POST_COLLECTIBLE_EMPTY,
     TSIL.Enums.CallbackReturnMode.NONE,
-    function (functionParams, optionalParams)
-        ---@type CollectibleType
-        local oldCollectibleType = functionParams[2]
-
-        local targetCollectibleType = optionalParams[1]
-
-        return TSIL.__IsDefaultParam(targetCollectibleType) or oldCollectibleType == targetCollectibleType
-    end
+    TSIL.Enums.CallbackOptionalArgType.NONE,
+    TSIL.Enums.CallbackOptionalArgType.GENERIC
 )
 
 
 local function OnTSILLoad()
     TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "collectibleTypeMap_COLLETIBLE_EMPTY_CALLBACK", {}, TSIL.Enums.VariablePersistenceMode.RESET_ROOM)
 end
-TSIL.__AddInternalCustomCallback(
+TSIL.__AddInternalCallback(
     "COLLECTIBLE_EMPTY_CALLBACK_TSIL_LOADED",
     TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
-    OnTSILLoad,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    OnTSILLoad
 )
 
 
@@ -42,10 +35,10 @@ local function OnCollectibleUpdate(_, collectible)
         TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_COLLECTIBLE_EMPTY, collectible, oldCollectibleType)
     end
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "COLLECTIBLE_EMPTY_CALLBACK_PICKUP_COLLECTIBLE_UPDATE",
     ModCallbacks.MC_POST_PICKUP_UPDATE,
     OnCollectibleUpdate,
-    TSIL.Enums.CallbackPriority.MEDIUM,
+    CallbackPriority.DEFAULT,
     PickupVariant.PICKUP_COLLECTIBLE
 )

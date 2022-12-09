@@ -1,12 +1,16 @@
 --- @param id string
---- @param callback ModCallbacks
+--- @param callback ModCallbacks | CustomCallback
 --- @param funct function
---- @param priority integer | CallbackPriority
+--- @param priority integer | CallbackPriority?
 --- @param optionalParam? integer
-function TSIL.__AddInternalVanillaCallback(id, callback, funct, priority, optionalParam)
+function TSIL.__AddInternalCallback(id, callback, funct, priority, optionalParam)
+	if priority == nil then
+		priority = CallbackPriority.DEFAULT
+	end
+
 	local foundInternalCallback = nil
 
-	for _, internalVanillaCallback in ipairs(TSIL.__INTERNAL_VANILLA_CALLBACKS) do
+	for _, internalVanillaCallback in ipairs(TSIL.__INTERNAL_CALLBACKS) do
 		if internalVanillaCallback.Id == id then
 			foundInternalCallback = internalVanillaCallback
 		end
@@ -28,41 +32,6 @@ function TSIL.__AddInternalVanillaCallback(id, callback, funct, priority, option
 			Priority = priority,
 			OptionalParam = optionalParam
 		}
-		table.insert(TSIL.__INTERNAL_VANILLA_CALLBACKS, foundInternalCallback)
-	end
-end
-
-
---- @param id string
---- @param callback CustomCallback
---- @param funct function
---- @param priority integer | CallbackPriority
---- @param ... integer
-function TSIL.__AddInternalCustomCallback(id, callback, funct, priority, ...)
-	local foundInternalCallback = nil
-
-	for _, internalCustomCallback in ipairs(TSIL.__INTERNAL_CUSTOM_CALLBACKS) do
-		if internalCustomCallback.Id == id then
-			foundInternalCallback = internalCustomCallback
-		end
-	end
-
-	if foundInternalCallback then
-		if TSIL.__LOCAL_VERSION < foundInternalCallback.Version then return end
-
-		foundInternalCallback.Callback = callback
-		foundInternalCallback.Funct = funct
-		foundInternalCallback.Priority = priority
-		foundInternalCallback.OptionalParam = {...}
-	else
-		foundInternalCallback = {
-			Id = id,
-			Version = TSIL.__LOCAL_VERSION,
-			Callback = callback,
-			Funct = funct,
-			Priority = priority,
-			OptionalParam = {...}
-		}
-		table.insert(TSIL.__INTERNAL_CUSTOM_CALLBACKS, foundInternalCallback)
+		table.insert(TSIL.__INTERNAL_CALLBACKS, foundInternalCallback)
 	end
 end

@@ -12,49 +12,11 @@ function LOCAL_TSIL.Init(UserMod, FolderName)
 		TSIL.__FUNCTION_VERSIONS = {}
 	else
 		--There's another version of TSIL version, overwrite it
-		for _, InternalVanillaCallback in pairs(TSIL.__INTERNAL_VANILLA_CALLBACKS) do
-			TSIL.RemoveVanillaCallback(
-				TSIL.__MOD,
-				InternalVanillaCallback.Callback,
-				InternalVanillaCallback.Funct
+		for _, InternalCallback in pairs(TSIL.__INTERNAL_CALLBACKS) do
+			TSIL.__MOD:RemoveCallback(
+				InternalCallback.Callback,
+				InternalCallback.Funct
 			)
-		end
-
-		for _, InternalCustomCallback in pairs(TSIL.__INTERNAL_CUSTOM_CALLBACKS) do
-			TSIL.RemoveCustomCallback(
-				TSIL.__MOD,
-				InternalCustomCallback.Callback,
-				InternalCustomCallback.Funct
-			)
-		end
-
-		for _, vanillaCallback in ipairs(TSIL.__REGISTERED_VANILLA_CALLBACKS) do
-			TSIL.__MOD:RemoveCallback(vanillaCallback.Callback, vanillaCallback.Funct)
-		end
-
-		--Remove all callbacks that the given mod has
-		for _, vanillaCallback in ipairs(TSIL.__VERSION_PERSISTENT_DATA.VanillaCallbacksList) do
-			local filteredFunctions = {}
-
-			for _, callbackFunct in ipairs(vanillaCallback.Functions) do
-				if callbackFunct.Mod.Name ~= UserMod.Name then
-					filteredFunctions[#filteredFunctions+1] = callbackFunct
-				end
-			end
-
-			vanillaCallback.Functions = filteredFunctions
-		end
-
-		for _, customCallback in ipairs(TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList) do
-			local filteredFunctions = {}
-
-			for _, callbackFunct in ipairs(customCallback.Functions) do
-				if callbackFunct.Mod.Name ~= UserMod.Name then
-					filteredFunctions[#filteredFunctions+1] = callbackFunct
-				end
-			end
-
-			customCallback.Functions = filteredFunctions
 		end
 	end
 
@@ -101,42 +63,20 @@ function LOCAL_TSIL.Init(UserMod, FolderName)
 	TSIL.__LOCAL_FOLDER = FolderName
 	rawget(TSIL, "__PROXY").__LOCAL_FOLDER = FolderName
 
-	--- @type RegisteredVanillaCallback[]
-	TSIL.__REGISTERED_VANILLA_CALLBACKS = {}
-	rawget(TSIL, "__PROXY").__REGISTERED_VANILLA_CALLBACKS = {} --Always needs to be reset
-
-	--- @class InternalTSILVanillaCallback
+	--- @class InternalTSILCallback
 	--- @field Id string
 	--- @field Version number
-	--- @field Callback ModCallbacks
+	--- @field Callback ModCallbacks | CustomCallback
 	--- @field Funct function
 	--- @field Priority integer | CallbackPriority
-	--- @field OptionalParam integer?
-	if not rawget(TSIL, "__PROXY").__INTERNAL_VANILLA_CALLBACKS then
-		--- @type InternalTSILVanillaCallback[]
-		TSIL.__INTERNAL_VANILLA_CALLBACKS = {}
-	end
-
-	--- @class InternalTSILCustomCallback
-	--- @field Id string
-	--- @field Version number
-	--- @field Callback CustomCallback
-	--- @field Funct function
-	--- @field Priority integer | CallbackPriority
-	--- @field OptionalParam integer[]
-	if not rawget(TSIL, "__PROXY").__INTERNAL_CUSTOM_CALLBACKS then
-		--- @type InternalTSILCustomCallback[]
-		TSIL.__INTERNAL_CUSTOM_CALLBACKS = {}
+	--- @field OptionalParam integer | integer[]?
+	if not rawget(TSIL, "__PROXY").__INTERNAL_CALLBACKS then
+		--- @type InternalTSILCallback[]
+		TSIL.__INTERNAL_CALLBACKS = {}
 	end
 
 	if not rawget(TSIL, "__PROXY").__VERSION_PERSISTENT_DATA then
 		TSIL.__VERSION_PERSISTENT_DATA = {}
-
-		--- @type {Callback : ModCallbacks, Functions : TSILVanillaCallback[]}[]
-		TSIL.__VERSION_PERSISTENT_DATA.VanillaCallbacksList = {}
-
-		--- @type {Callback : CustomCallback, Functions : TSILCustomCallback[]}[]
-		TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList = {}
 
 		---@class RegisteredCustomCallback
 		---@field Version number
@@ -178,43 +118,19 @@ function LOCAL_TSIL.Init(UserMod, FolderName)
 		end
 	end
 
-	--REGISTER VANILLA CALLBACKS
-	TSIL.__RegisterVanillaCallbacks()
-
-	--ADD INTERNAL CALLBACKS
-	for _, InternalVanillaCallback in ipairs(TSIL.__INTERNAL_VANILLA_CALLBACKS) do
-		TSIL.AddVanillaCallback(
-			TSIL.__MOD,
-			InternalVanillaCallback.Callback,
-			InternalVanillaCallback.Funct,
-			InternalVanillaCallback.Priority + 1000000,
-			InternalVanillaCallback.OptionalParam
+	--INTERNAL CALLBACKS
+	for _, internalCallback in pairs(TSIL.__INTERNAL_CALLBACKS) do
+		TSIL.__MOD:AddPriorityCallback(
+			internalCallback.Callback,
+			internalCallback.Priority - 10000,
+			internalCallback.Funct,
+			internalCallback.OptionalParam
 		)
-	end
-
-	for _, InternalCustomCallback in ipairs(TSIL.__INTERNAL_CUSTOM_CALLBACKS) do
-		TSIL.AddCustomCallback(
-			TSIL.__MOD,
-			InternalCustomCallback.Callback,
-			InternalCustomCallback.Funct,
-			InternalCustomCallback.Priority + 1000000,
-			table.unpack(InternalCustomCallback.OptionalParam)
-		)
-	end
-
-	--Add all vanilla callbacks in one, so as to avoid conflicts (PRE_PLAYER_COLLISION)
-	for _, vanillaCallback in ipairs(TSIL.__REGISTERED_VANILLA_CALLBACKS) do
-		TSIL.__MOD:AddCallback(vanillaCallback.Callback, vanillaCallback.Funct)
 	end
 
 	--TSIL LOAD CALLBACK
-	for _, CustomCallback in ipairs(TSIL.__VERSION_PERSISTENT_DATA.CustomCallbacksList) do
-		if CustomCallback.Callback == TSIL.Enums.CustomCallback.POST_TSIL_LOAD then
-			for _, funct in ipairs(CustomCallback.Functions) do
-				funct.Funct(funct.Mod)
-			end
-		end
-	end
+	TSIL.__RegisterCustomCallback(TSIL.Enums.CustomCallback.POST_TSIL_LOAD)
+	TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_TSIL_LOAD)
 
 	print("TSIL (" .. TSIL.__LOCAL_VERSION .. ") has been properly initialized.")
 end

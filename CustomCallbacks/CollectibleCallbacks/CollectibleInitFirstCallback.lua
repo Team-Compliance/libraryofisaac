@@ -2,25 +2,17 @@
 TSIL.__RegisterCustomCallback(
     TSIL.Enums.CustomCallback.POST_COLLECTIBLE_INIT_FIRST,
     TSIL.Enums.CallbackReturnMode.NONE,
-    function (functionParams, optionalParams)
-        ---@type EntityPickup
-        local collectible = functionParams[1]
-
-        local targetCollectibleType = optionalParams[1]
-
-        return TSIL.__IsDefaultParam(targetCollectibleType) or collectible.SubType == targetCollectibleType
-    end
+    TSIL.Enums.CallbackOptionalArgType.ENTITY_SUBTYPE
 )
 
 
 local function OnTSILLoad()
     TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "seenCollectibles_COLLETIBLE_INIT_FIRST_CALLBACK", {}, TSIL.Enums.VariablePersistenceMode.RESET_RUN)
 end
-TSIL.__AddInternalCustomCallback(
+TSIL.__AddInternalCallback(
     "COLLECTIBLE_INIT_FIRST_CALLBACK_TSIL_LOADED",
     TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
-    OnTSILLoad,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    OnTSILLoad
 )
 
 
@@ -34,10 +26,10 @@ local function OnCollectibleInit(_, collectible)
         TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_COLLECTIBLE_INIT_FIRST, collectible)
     end
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "COLLECTIBLE_INIT_FIRST_CALLBACK_PICKUP_COLLECTIBLE_INIT",
     ModCallbacks.MC_POST_PICKUP_INIT,
     OnCollectibleInit,
-    TSIL.Enums.CallbackPriority.MEDIUM,
+    CallbackPriority.DEFAULT,
     PickupVariant.PICKUP_COLLECTIBLE
 )

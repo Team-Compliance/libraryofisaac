@@ -50,3 +50,8 @@ TSIL.Enums.CustomCallback = {
 
 	POST_NEW_ROOM_EARLY = "POST_NEW_ROOM_EARLY"
 }
+
+--To make sure our callbacks are named uniquely
+for key, value in pairs(TSIL.Enums.CustomCallback) do
+	TSIL.Enums.CustomCallback[key] = "TSIL_CUSTOM_CB_" .. value
+end

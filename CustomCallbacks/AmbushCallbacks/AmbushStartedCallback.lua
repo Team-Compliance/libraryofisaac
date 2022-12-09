@@ -2,22 +2,16 @@
 TSIL.__RegisterCustomCallback(
     TSIL.Enums.CustomCallback.POST_AMBUSH_STARTED,
     TSIL.Enums.CallbackReturnMode.NONE,
-    function (functionParams, optionalParams)
-        local ambushType = functionParams[1]
-        local targetAmbushType = optionalParams[1]
-
-        return TSIL.__IsDefaultParam(targetAmbushType) or ambushType == targetAmbushType
-    end
+    TSIL.Enums.CallbackOptionalArgType.GENERIC
 )
 
 local function OnTSILLoad()
     TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "ambushActive_AMBUSH_STARTED_CALLBACK", false, TSIL.Enums.VariablePersistenceMode.RESET_ROOM)
 end
-TSIL.__AddInternalCustomCallback(
+TSIL.__AddInternalCallback(
     "AMBUSH_STARTED_CALLBACK_ON_TSIL_LOAD",
     TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
-    OnTSILLoad,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    OnTSILLoad
 )
 
 
@@ -39,9 +33,8 @@ local function OnUpdate()
         TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_AMBUSH_STARTED, ambushType)
     end
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "AMBUSH_STARTED_CALLBACK_ON_UPDATE",
     ModCallbacks.MC_POST_UPDATE,
-    OnUpdate,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    OnUpdate
 )

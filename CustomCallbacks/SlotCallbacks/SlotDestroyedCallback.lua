@@ -1,18 +1,8 @@
 --##POST_SLOT_DESTROYED
-
 TSIL.__RegisterCustomCallback(
 	TSIL.Enums.CustomCallback.POST_SLOT_DESTROYED,
     TSIL.Enums.CallbackReturnMode.NONE,
-	function (functionParams, optionalParams)
-		---@type Entity
-		local slot = functionParams[1]
-
-		local targetVariant = optionalParams[1]
-		local targetSubType = optionalParams[2]
-
-		return (TSIL.__IsDefaultParam(targetVariant) or slot.Variant == targetVariant) and
-		(TSIL.__IsDefaultParam(targetSubType) or slot.SubType == targetSubType)
-	end
+	TSIL.Enums.CallbackOptionalArgType.ENTITY_VARIANT_SUBTYPE
 )
 
 local PRIZE_GAME_FRAME_DELAY_UNTIL_REMOVAL = 3
@@ -33,11 +23,11 @@ local function PostSlotRemoved(_, slot)
         TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_SLOT_DESTROYED, slot, true)
     end
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "SLOT_DESTROYED_CALLBACK_POST_ENTITY_REMOVE",
     ModCallbacks.MC_POST_ENTITY_REMOVE,
     PostSlotRemoved,
-    TSIL.Enums.CallbackPriority.MEDIUM,
+    CallbackPriority.DEFAULT,
     EntityType.ENTITY_SLOT
 )
 
@@ -65,11 +55,10 @@ local function OnSlotAnimationChange(_, slot)
         SlotPrizeAnimationFrameCount[tostring(slotPtr)] = nil
     end
 end
-TSIL.__AddInternalCustomCallback(
+TSIL.__AddInternalCallback(
     "SLOT_DESTROYED_CALLBACK_POST_SLOT_ANIMATION_CHANGE",
     TSIL.Enums.CustomCallback.POST_SLOT_ANIMATION_CHANGED,
-    OnSlotAnimationChange,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    OnSlotAnimationChange
 )
 
 
@@ -77,9 +66,8 @@ local function OnTSILLoad()
     TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "BrokenSlots_DESTROYED_SLOT_CALLBACK", {}, TSIL.Enums.VariablePersistenceMode.RESET_ROOM)
     TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "SlotPrizeAnimationFrameCount_DESTROYED_SLOT_CALLBACK", {}, TSIL.Enums.VariablePersistenceMode.RESET_ROOM)
 end
-TSIL.__AddInternalCustomCallback(
+TSIL.__AddInternalCallback(
     "SLOT_DESTROYED_CALLBACK_TSIL_LOAD",
     TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
-    OnTSILLoad,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    OnTSILLoad
 )

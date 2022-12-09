@@ -56,20 +56,18 @@ end
 local function OnNewRoom()
     CheckRoomChanged()
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "POST_NEW_ROOM_EARLY_CALLBACK_ON_NEW_ROOM",
     ModCallbacks.MC_POST_NEW_ROOM,
-    OnNewRoom,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    OnNewRoom
 )
 
 
 local function PreEntitySpawn()
     CheckRoomChanged()
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "POST_NEW_ROOM_EARLY_CALLBACK_PRE_ENTITY_SPAWN",
     ModCallbacks.MC_PRE_ENTITY_SPAWN,
-    PreEntitySpawn,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    PreEntitySpawn
 )

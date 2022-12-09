@@ -14,11 +14,10 @@
 local function OnTSILLoaded()
     TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "roomHistory_ROOM_HISTORY", {}, TSIL.Enums.VariablePersistenceMode.RESET_RUN)
 end
-TSIL.__AddInternalCustomCallback(
+TSIL.__AddInternalCallback(
     "ROOM_HISTORY_ON_TSIL_LOADED",
     TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
-    OnTSILLoaded,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    OnTSILLoaded
 )
 
 
@@ -56,11 +55,10 @@ local function OnNewRoomEarly()
     local roomHistory = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "roomHistory_ROOM_HISTORY")
     roomHistory[#roomHistory+1] = roomHistoryData
 end
-TSIL.__AddInternalCustomCallback(
+TSIL.__AddInternalCallback(
     "ROOM_HISTORY_POST_NEW_ROOM_EARLY",
     TSIL.Enums.CustomCallback.POST_NEW_ROOM_EARLY,
-    OnNewRoomEarly,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    OnNewRoomEarly
 )
 
 

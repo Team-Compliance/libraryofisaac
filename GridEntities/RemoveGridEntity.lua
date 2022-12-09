@@ -38,7 +38,7 @@ function TSIL.GridEntities.RemoveGridEntity(gridEntityOrGridIndex, updateRoom)
             effectVariant = EffectVariant.ANGEL
         end
 
-        local effects = TSIL.Entities.GetEffects(effectVariant)
+        local effects = TSIL.EntitySpecific.GetEffects(effectVariant)
 
         table.sort(effects, function (a, b)
             return a.Position:DistanceSquared(gridEntityPosition) <= b.Position:DistanceSquared(gridEntityPosition)

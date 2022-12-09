@@ -7,11 +7,10 @@ local function OnNewLevel()
 
 	FunctionsToRun = {}
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
 	"RUN_NEXT_LEVEL_POST_NEW_LEVEL",
 	ModCallbacks.MC_POST_NEW_LEVEL,
-	OnNewLevel,
-	TSIL.Enums.CallbackPriority.MEDIUM
+	OnNewLevel
 )
 
 --- Runs a given function on the next `POST_NEW_LEVEL` callback.

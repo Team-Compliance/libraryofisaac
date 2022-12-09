@@ -7,11 +7,10 @@ local function OnNewRoom()
 
 	FunctionsToRun = {}
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
 	"RUN_NEXT_ROOM_POST_NEW_ROOM",
 	ModCallbacks.MC_POST_NEW_ROOM,
-	OnNewRoom,
-	TSIL.Enums.CallbackPriority.MEDIUM
+	OnNewRoom
 )
 
 

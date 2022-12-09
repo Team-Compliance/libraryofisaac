@@ -17,11 +17,10 @@ local function OnTSILLoad()
     AddVariable(TSIL.__MOD, "pickupIndexes_PICKUP_INDEX", {}, TSIL.Enums.VariablePersistenceMode.RESET_ROOM)
 end
 
-TSIL.__AddInternalCustomCallback(
+TSIL.__AddInternalCallback(
     "PICKUP_INDEX_ON_TSIL_LOAD",
     TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
-    OnTSILLoad,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    OnTSILLoad
 )
 
 
@@ -177,23 +176,21 @@ end
 local function PostPickupInit(_, pickup)
     SetPickupIndex(pickup)
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "PICKUP_INDEX_POST_PICKUP_INDEX",
     ModCallbacks.MC_POST_PICKUP_INIT,
-    PostPickupInit,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    PostPickupInit
 )
 
 
 local function PostPickupRemove(_, pickup)
     CheckDespawningFromPlayerLeavingRoom(pickup)
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "PICKUP_INDEX_POST_ENTITY_REMOVED",
     ModCallbacks.MC_POST_ENTITY_REMOVE,
     PostPickupRemove,
-    TSIL.Enums.CallbackPriority.MEDIUM,
-    EntityType.ENTITY_PICKUP
+    CallbackPriority.DEFAULT
 )
 
 

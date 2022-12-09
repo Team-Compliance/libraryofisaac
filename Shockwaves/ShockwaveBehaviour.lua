@@ -118,10 +118,10 @@ local function OnShockwaveUpdate(_, shockwave)
         customShockwaves[GetPtrHash(shockwave)] = nil
     end
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "CUSTOM_SHOCKWAVES_POST_EFFECT_UPDATE",
     ModCallbacks.MC_POST_EFFECT_UPDATE,
     OnShockwaveUpdate,
-    TSIL.Enums.CallbackPriority.MEDIUM,
+    CallbackPriority.DEFAULT,
     EffectVariant.ROCK_EXPLOSION
 )

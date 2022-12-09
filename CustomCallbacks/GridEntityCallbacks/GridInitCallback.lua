@@ -3,16 +3,7 @@
 TSIL.__RegisterCustomCallback(
 	TSIL.Enums.CustomCallback.POST_GRID_ENTITY_INIT,
 	TSIL.Enums.CallbackReturnMode.NONE,
-	function (functionParams, optionalParams)
-		---@type GridEntity
-		local gridEntity = functionParams[1]
-
-		local targetType = optionalParams[1]
-		local targetVariant = optionalParams[2]
-
-		return (TSIL.__IsDefaultParam(targetType) or gridEntity:GetType() == targetType) and
-		(TSIL.__IsDefaultParam(targetVariant) or gridEntity:GetVariant() == targetVariant)
-	end
+	TSIL.Enums.CallbackOptionalArgType.GRID_TYPE_VARIANT
 )
 
 ---@type table<integer, integer>
@@ -29,11 +20,10 @@ local function OnNewRoom()
 		TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_GRID_ENTITY_INIT, gridEntity, false)
 	end
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
 	"GRID_INIT_CALLBACK_NEW_ROOM",
 	ModCallbacks.MC_POST_NEW_ROOM,
-	OnNewRoom,
-	TSIL.Enums.CallbackPriority.MEDIUM
+	OnNewRoom
 )
 
 
@@ -45,11 +35,10 @@ local function OnFrameUpdate()
 		end
 	end
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
 	"GRID_INIT_CALLBACK_POST_UPDATE",
 	ModCallbacks.MC_POST_UPDATE,
-	OnFrameUpdate,
-	TSIL.Enums.CallbackPriority.MEDIUM
+	OnFrameUpdate
 )
 
 
@@ -65,9 +54,8 @@ local function OnGridEntityUpdate(_, gridEntity)
 
 	GridInRoom[gridIndex] = gridEntityHash
 end
-TSIL.__AddInternalCustomCallback(
+TSIL.__AddInternalCallback(
 	"GRID_INIT_CALLBACK_GRID_ENTITY_UPDATE",
 	TSIL.Enums.CustomCallback.POST_GRID_ENTITY_UPDATE,
-	OnGridEntityUpdate,
-	TSIL.Enums.CallbackPriority.MEDIUM
+	OnGridEntityUpdate
 )

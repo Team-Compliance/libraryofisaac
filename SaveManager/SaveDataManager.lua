@@ -5,11 +5,11 @@ local loadedDataOnThisRun = false
 local function OnGlowingHourglassUse()
     restoreGlowingHourGlassDataOnNextRoom = true
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "SAVE_MANAGER_USE_GLOWING_HOURGLASS",
     ModCallbacks.MC_USE_ITEM,
     OnGlowingHourglassUse,
-    TSIL.Enums.CallbackPriority.VERY_HIGH,
+    CallbackPriority.IMPORTANT,
     CollectibleType.COLLECTIBLE_GLOWING_HOUR_GLASS
 )
 
@@ -31,11 +31,11 @@ local function OnPlayerInit()
         TSIL.SaveManager.RestoreDefaultsForAllFeaturesAndKeys()
     end
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "SAVE_MANAGER_PLAYER_INIT",
     ModCallbacks.MC_POST_PLAYER_INIT,
     OnPlayerInit,
-    TSIL.Enums.CallbackPriority.VERY_HIGH
+    CallbackPriority.IMPORTANT
 )
 
 
@@ -44,11 +44,11 @@ local function OnGameExit()
     TSIL.SaveManager.RestoreDefaultsForAllFeaturesAndKeys()
     loadedDataOnThisRun = false
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "SAVE_MANAGER_GAME_EXIT",
     ModCallbacks.MC_PRE_GAME_EXIT,
     OnGameExit,
-    TSIL.Enums.CallbackPriority.VERY_HIGH
+    CallbackPriority.IMPORTANT
 )
 
 
@@ -59,11 +59,11 @@ local function OnNewLevel()
         TSIL.SaveManager.SaveToDisk()
     end
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "SAVE_MANAGER_NEW_LEVEL",
     ModCallbacks.MC_POST_NEW_LEVEL,
     OnNewLevel,
-    TSIL.Enums.CallbackPriority.VERY_HIGH
+    CallbackPriority.IMPORTANT
 )
 
 
@@ -77,9 +77,9 @@ local function OnNewRoomEarly()
         TSIL.SaveManager.MakeGlowingHourGlassBackup()
     end
 end
-TSIL.__AddInternalCustomCallback(
+TSIL.__AddInternalCallback(
     "SAVE_MANAGER_NEW_ROOM_EARLY",
     TSIL.Enums.CustomCallback.POST_NEW_ROOM_EARLY,
     OnNewRoomEarly,
-    TSIL.Enums.CallbackPriority.VERY_HIGH
+    CallbackPriority.IMPORTANT
 )

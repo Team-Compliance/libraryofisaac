@@ -22,11 +22,11 @@ local function OnGlowingHourGlassUse()
     -- previous floor without triggering the `POST_NEW_LEVEL` callback. Manually check for this.
     usedGlowingHourGlass = true
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "GAME_REORDERED_LOGIC_GLOWING_HOURGLASS_USE",
     ModCallbacks.MC_USE_ITEM,
     OnGlowingHourGlassUse,
-    TSIL.Enums.CallbackPriority.MEDIUM,
+    CallbackPriority.DEFAULT,
     CollectibleType.COLLECTIBLE_GLOWING_HOUR_GLASS
 )
 
@@ -39,11 +39,10 @@ local function PostGameStarted(isContinued)
     TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_NEW_ROOM_REORDERED)
     TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_GAME_STARTED_REORDERED_LAST, isContinued)
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "GAME_REORDERED_LOGIC_POST_GAME_STARTED",
     ModCallbacks.MC_POST_GAME_STARTED,
-    PostGameStarted,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    PostGameStarted
 )
 
 
@@ -61,11 +60,10 @@ local function PostNewLevel()
     TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_NEW_LEVEL_REORDERED)
     TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_NEW_ROOM_REORDERED)
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "GAME_REORDERED_LOGIC_POST_NEW_LEVEL",
     ModCallbacks.MC_POST_NEW_LEVEL,
-    PostNewLevel,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    PostNewLevel
 )
 
 
@@ -97,11 +95,10 @@ local function PostNewRoom()
 
     TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_NEW_ROOM_REORDERED)
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "GAME_REORDERED_LOGIC_POST_NEW_ROOM",
     ModCallbacks.MC_POST_NEW_ROOM,
-    PostNewRoom,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    PostNewRoom
 )
 
 --TODO: Add the functions to allow people to force the executing or these callbacks

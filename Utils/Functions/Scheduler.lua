@@ -13,11 +13,10 @@ local function OnFrameUpdate()
 		return scheduledFunction.frames > 0
 	end)
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
 	"SCHEDULER_POST_UPDATE",
 	ModCallbacks.MC_POST_UPDATE,
-	OnFrameUpdate,
-	TSIL.Enums.CallbackPriority.MEDIUM
+	OnFrameUpdate
 )
 
 

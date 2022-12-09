@@ -3,22 +3,8 @@
 TSIL.__RegisterCustomCallback(
 	TSIL.Enums.CustomCallback.POST_GRID_COLLISION,
 	TSIL.Enums.CallbackReturnMode.NONE,
-	function (functionParams, optionalParams)
-		---@type GridEntity
-		local gridEntity = functionParams[1]
-		---@type Entity
-		local entity = functionParams[2]
-
-		local targetGridType = optionalParams[1]
-		local targetGridVariant = optionalParams[2]
-		local targetEntityType = optionalParams[3]
-		local targetEntityVariant = optionalParams[4]
-
-		return (TSIL.__IsDefaultParam(targetGridType) or gridEntity:GetType() == targetGridType) and
-		(TSIL.__IsDefaultParam(targetGridVariant) or gridEntity:GetVariant() == targetGridVariant) and
-		(TSIL.__IsDefaultParam(targetEntityType) or entity.Type == targetEntityType) and
-		(TSIL.__IsDefaultParam(targetEntityVariant) or entity.Variant == targetEntityVariant)
-	end
+	TSIL.Enums.CallbackOptionalArgType.GRID_TYPE_VARIANT,
+	TSIL.Enums.CallbackOptionalArgType.ENTITY_TYPE_VARIANT_SUBTYPE
 )
 
 
@@ -34,9 +20,8 @@ local function OnGridUpdate(_, grid)
 		TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_GRID_COLLISION, grid, entity)
 	end
 end
-TSIL.__AddInternalCustomCallback(
+TSIL.__AddInternalCallback(
 	"GRID_COLLISION_CALLBACK_POST_GRID_UPDATE",
 	TSIL.Enums.CustomCallback.POST_GRID_ENTITY_UPDATE,
-	OnGridUpdate,
-	TSIL.Enums.CallbackPriority.MEDIUM
+	OnGridUpdate
 )

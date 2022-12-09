@@ -22,41 +22,6 @@ TSIL.Enums.SlotVariant = {
 }
 
 
----@enum LaserVariant
----- For `EntityType.ENTITY_LASER` (7).
-TSIL.Enums.LaserVariant = {
-  -- Used for Brimstone. 
-  THICK_RED = 1,
-
-  --- Used for Technology. 
-  THIN_RED = 2,
-
-  SHOOP_DA_WHOOP = 3,
-
-  --- Looks like a squiggly line. 
-  PRIDE = 4,
-
-  --- Used for Angel lasers. 
-  LIGHT_BEAM = 5,
-
-  --- Used for Mega Blast. 
-  GIANT_RED = 6,
-
-  TRACTOR_BEAM = 7,
-
-  --- Used for Circle of Protection; looks like a thinner Angel laser. 
-  LIGHT_RING = 8,
-
-  BRIMSTONE_TECHNOLOGY = 9,
-  ELECTRIC = 10,
-  THICKER_RED = 11,
-  THICK_BROWN = 12,
-  BEAST = 13,
-  THICKER_BRIMSTONE_TECHNOLOGY = 14,
-  GIANT_BRIMSTONE_TECHNOLOGY = 15,
-}
-
-
 ---@enum KnifeVariant
 --- For `EntityType.ENTITY_KNIFE` (8). 
 TSIL.Enums.KnifeVariant = {

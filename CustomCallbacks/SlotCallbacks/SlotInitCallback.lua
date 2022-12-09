@@ -3,16 +3,7 @@
 TSIL.__RegisterCustomCallback(
 	TSIL.Enums.CustomCallback.POST_SLOT_INIT,
 	TSIL.Enums.CallbackReturnMode.NONE,
-	function (functionParams, optionalParams)
-		---@type Entity
-		local slot = functionParams[1]
-
-		local targetVariant = optionalParams[1]
-		local targetSubType = optionalParams[2]
-
-		return (TSIL.__IsDefaultParam(targetVariant) or slot.Variant == targetVariant) and
-		(TSIL.__IsDefaultParam(targetSubType) or slot.SubType == targetSubType)
-	end
+	TSIL.Enums.CallbackOptionalArgType.ENTITY_VARIANT_SUBTYPE
 )
 
 local function OnSlotUpdate(_, slot)
@@ -20,9 +11,8 @@ local function OnSlotUpdate(_, slot)
 
 	TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_SLOT_INIT, slot)
 end
-TSIL.__AddInternalCustomCallback(
+TSIL.__AddInternalCallback(
 	"SLOT_INIT_CALLBACK_SLOT_UPDATE",
 	TSIL.Enums.CustomCallback.POST_SLOT_UPDATE,
-	OnSlotUpdate,
-	TSIL.Enums.CallbackPriority.MEDIUM
+	OnSlotUpdate
 )

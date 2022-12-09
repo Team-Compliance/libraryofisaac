@@ -13,7 +13,7 @@ function TSIL.Bosses.GetBosses(entityType, variant, subType, ignoreFriendly)
         ignoreFriendly = false
     end
 
-    local npcs = TSIL.Entities.GetNPCs(entityType, variant, subType, ignoreFriendly)
+    local npcs = TSIL.EntitySpecific.GetNPCs(entityType, variant, subType, ignoreFriendly)
     local aliveNPCs = {}
 
     for _, v in pairs(npcs) do

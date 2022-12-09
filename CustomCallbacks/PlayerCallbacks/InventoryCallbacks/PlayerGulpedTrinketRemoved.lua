@@ -4,15 +4,6 @@
 TSIL.__RegisterCustomCallback(
 	TSIL.Enums.CustomCallback.POST_PLAYER_GULPED_TRINKET_REMOVED,
 	TSIL.Enums.CallbackReturnMode.NONE,
-	function (functionParams, optionalParams)
-		---@type EntityPlayer
-		local player = functionParams[1]
-		local trinketType = functionParams[2]
-
-		local targetPlayerType = optionalParams[1]
-		local targetTrinketType = optionalParams[2]
-
-		return (TSIL.__IsDefaultParam(targetPlayerType) or player:GetPlayerType() == targetPlayerType) and
-		(TSIL.__IsDefaultParam(targetTrinketType) or trinketType == targetTrinketType)
-	end
+	TSIL.Enums.CallbackOptionalArgType.PLAYER_TYPE,
+	TSIL.Enums.CallbackOptionalArgType.GENERIC
 )

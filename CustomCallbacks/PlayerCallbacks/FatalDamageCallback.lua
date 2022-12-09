@@ -2,27 +2,17 @@
 TSIL.__RegisterCustomCallback(
     TSIL.Enums.CustomCallback.POST_PLAYER_FATAL_DAMAGE,
     TSIL.Enums.CallbackReturnMode.SKIP_NEXT,
-    function (functionParams, optionalParams)
-        ---@type EntityPlayer
-        local player = functionParams[1]
-
-        local targetPlayerType = optionalParams[1]
-        local targetPlayerVariant = optionalParams[2]
-
-        return (TSIL.__IsDefaultParam(targetPlayerType) or player:GetPlayerType() == targetPlayerType) and
-        (TSIL.__IsDefaultParam(targetPlayerVariant) or player.Variant == targetPlayerVariant)
-    end
+    TSIL.Enums.CallbackOptionalArgType.PLAYER_TYPE_VARIANT
 )
 
 
 local function OnTSILLoad()
     TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "playersLastDamageGameFrame_PLAYER_FATAL_DAMAGE_CALLBACK", {}, TSIL.Enums.VariablePersistenceMode.RESET_RUN)
 end
-TSIL.__AddInternalCustomCallback(
+TSIL.__AddInternalCallback(
     "PLAYER_FATAL_DAMAGE_CALLBACK_TSIL_LOAD",
     TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
-    OnTSILLoad,
-    TSIL.Enums.CallbackPriority.MEDIUM
+    OnTSILLoad
 )
 
 
@@ -67,11 +57,11 @@ local function OnPlayerDamage(_, entity, amount, damageFlags, source, countdownF
 
     return shouldSustainDeath
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "PLAYER_FATAL_DAMAGE_CALLBACK_ON_PLAYER_DAMAGE",
     ModCallbacks.MC_ENTITY_TAKE_DMG,
     OnPlayerDamage,
-    TSIL.Enums.CallbackPriority.MEDIUM,
+    CallbackPriority.DEFAULT,
     EntityType.ENTITY_PLAYER
 )
 
@@ -95,10 +85,10 @@ local function PreBibleUse(_, _, _, player)
         return not shouldSustainDeath
     end
 end
-TSIL.__AddInternalVanillaCallback(
+TSIL.__AddInternalCallback(
     "PLAYER_FATAL_DAMAGE_CALLBACK_PRE_BIBLE_USE",
     ModCallbacks.MC_PRE_USE_ITEM,
     PreBibleUse,
-    TSIL.Enums.CallbackPriority.MEDIUM,
+    CallbackPriority.DEFAULT,
     CollectibleType.COLLECTIBLE_BIBLE
 )
