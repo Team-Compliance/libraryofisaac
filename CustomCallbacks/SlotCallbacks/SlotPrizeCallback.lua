@@ -1,12 +1,11 @@
 --##POST_SLOT_PRIZE
-
 TSIL.__RegisterCustomCallback(
 	TSIL.Enums.CustomCallback.POST_SLOT_PRIZE,
 	TSIL.Enums.CallbackReturnMode.NONE,
 	TSIL.Enums.CallbackOptionalArgType.ENTITY_VARIANT_SUBTYPE
 )
 
-function OnSlotUpdate(_, slot)
+local function OnSlotUpdate(_, slot)
 	local slotSpr = slot:GetSprite()
 
 	if not slotSpr:IsEventTriggered("Prize") and not slotSpr:IsEventTriggered("Disappear") then return end

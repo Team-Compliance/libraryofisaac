@@ -5,7 +5,7 @@
 ---@return GridEntityDoor?
 function TSIL.GridSpecific.SpawnDoor(doorVariant, indexOrPosition, force)
     local gridEntity = TSIL.GridEntities.SpawnGridEntity(
-        GridEntityType.DOOR,
+        GridEntityType.GRID_DOOR,
         doorVariant,
         indexOrPosition,
         force
