@@ -298,6 +298,7 @@ local TSIL_SCRIPTS = {
 "Stage.OnAscent",
 "Stage.OnFirstFloor",
 "Stage.OnRepentanceStage",
+"Trinkets.GoldenTrinket",
 "Utils.DeepCopy.DeepCopy",
 "Utils.Easing.Easings",
 "Utils.Flags.AddFlags",
