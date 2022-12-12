@@ -6,7 +6,7 @@ You can download Library of Isaac in several ways, so you can choose whichever o
 
 ### 1. Use the VSCode extension
 
-Go to Visual Studio Code, search for `Library of Isaac` and download the extension. This extension will detect the modules your code uses and automatically handle adding just the necessary files.
+Go to Visual Studio Code, search for `Library of Isaac` and download the extension [(Link here)](https://marketplace.visualstudio.com/items?itemName=ThiccoCatto.library-of-isaac-extension). This extension will detect the modules your code uses and automatically handle adding just the necessary files.
 
 The extension adds 2 new commands to VSCode.
 

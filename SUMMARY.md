@@ -17,7 +17,8 @@
   * [BlueFlySubType](custom-enums/blueflysubtype.md)
   * [BonyVariant](custom-enums/bonyvariant.md)
   * [BoomFlyVariant](custom-enums/boomflyvariant.md)
-  * [CallbackPriority](custom-enums/callbackpriority.md)
+  * [CallbackOptionalArgType](custom-enums/callbackoptionalargtype.md)
+  * [CallbackReturnMode](custom-enums/callbackreturnmode.md)
   * [CanaryVariant](custom-enums/canaryvariant.md)
   * [Charger2Variant](custom-enums/charger2variant.md)
   * [ChargerSubType](custom-enums/chargersubtype.md)
@@ -86,7 +87,6 @@
   * [KnightVariant](custom-enums/knightvariant.md)
   * [LambVariant](custom-enums/lambvariant.md)
   * [LarryJrVariant](custom-enums/larryjrvariant.md)
-  * [LaserVariant](custom-enums/laservariant.md)
   * [LeaperVariant](custom-enums/leapervariant.md)
   * [LeechVariant](custom-enums/leechvariant.md)
   * [LeperVariant](custom-enums/lepervariant.md)
@@ -177,9 +177,7 @@
   * [WhipperVariant](custom-enums/whippervariant.md)
   * [WidowVariant](custom-enums/widowvariant.md)
   * [WrathVariant](custom-enums/wrathvariant.md)
-* [Custom Callbacks](custom-callbacks/README.md)
-  * [Functions](custom-callbacks/functions.md)
-  * [CustomCallback](custom-callbacks/customcallback.md)
+* [CustomCallback](customcallback.md)
 
 ## Modules
 
