@@ -245,6 +245,7 @@ local TSIL_SCRIPTS = {
 "Pills.HorsePill",
 "Players.GetDeathAnimationName",
 "Players.GetNumHitsRemaining",
+"Players.GetPlayerFromEntity",
 "Players.GetPlayers",
 "Players.HealthContainers",
 "Players.Inventory.AnyPlayerHasItem",
