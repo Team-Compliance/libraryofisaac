@@ -1,4 +1,4 @@
---##use SaveManager/VariableResetter.lua
+--##use SaveManager/SaveDataManager.lua
 
 --- Gets a variable from the save manager.
 --- @param mod table

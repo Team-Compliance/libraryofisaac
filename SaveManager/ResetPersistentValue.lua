@@ -1,4 +1,4 @@
---##use SaveManager/VariableResetter.lua
+--##use SaveManager/SaveDataManager.lua
 
 --- Resets a variable to its default value in the save manager.
 --- @param mod table

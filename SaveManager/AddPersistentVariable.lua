@@ -1,4 +1,4 @@
---##use SaveManager/VariableResetter.lua
+--##use SaveManager/SaveDataManager.lua
 
 --- Adds a variable to the save manager.
 --- The variable name must be unique within your mod.

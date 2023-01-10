@@ -3,19 +3,19 @@
 ---@param animation string?
 ---@return integer
 function TSIL.Sprites.GetLastFrameOfAnimation(sprite, animation)
-    if animation == nil then
-        animation = sprite:GetAnimation()
+    local currentAnimation = sprite:GetAnimation()
+    local currentFrame = sprite:GetFrame()
+
+    if animation ~= nil and animation ~= currentAnimation then
+        sprite:SetAnimation(animation)
     end
-
-    local prevAnimation = sprite:GetAnimation()
-    local prevFrames = sprite:GetFrame()
-
-    sprite:Play(animation, true)
     sprite:SetLastFrame()
+    local finalFrame = sprite:GetFrame()
 
-    local lastFrame = sprite:GetFrame()
+    if animation ~= nil and animation ~= currentAnimation then
+        sprite:Play(currentAnimation, true)
+    end
+    sprite:SetFrame(currentFrame)
 
-    sprite:SetFrame(prevAnimation, prevFrames)
-
-    return lastFrame
+    return finalFrame;
 end
