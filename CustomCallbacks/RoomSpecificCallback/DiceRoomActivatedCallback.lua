@@ -1,3 +1,5 @@
+--##POST_DICE_ROOM_ACTIVATED
+
 TSIL.__RegisterCustomCallback(
     TSIL.Enums.CustomCallback.POST_DICE_ROOM_ACTIVATED,
     TSIL.Enums.CallbackReturnMode.NONE,
