@@ -80,3 +80,15 @@ function TSIL.Players.GetPlayersOfType(playerType)
 		return player:GetPlayerType() == playerType
 	end)
 end
+
+
+--- Returns all the players corresponding to a controller index.
+---@param controllerIndex integer
+---@return EntityPlayer[]
+function TSIL.Players.GetPlayersWithControllerIndex(controllerIndex)
+	local players = TSIL.Players.GetPlayers()
+
+	return TSIL.Utils.Tables.Filter(players, function (_, player)
+		return player.ControllerIndex == controllerIndex
+	end)
+end
