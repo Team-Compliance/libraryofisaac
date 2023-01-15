@@ -1,6 +1,6 @@
---##POST_EFFECT_STATE_CHANGE
+--##POST_EFFECT_STATE_CHANGED
 TSIL.__RegisterCustomCallback(
-    TSIL.Enums.CustomCallback.POST_EFFECT_STATE_CHANGE,
+    TSIL.Enums.CustomCallback.POST_EFFECT_STATE_CHANGED,
     TSIL.Enums.CallbackReturnMode.NONE,
     TSIL.Enums.CallbackOptionalArgType.ENTITY_VARIANT_SUBTYPE
 )
@@ -28,7 +28,7 @@ local function OnEffectUpdate(_, effect)
 
     if effectStateLastFrame ~= nil and
     effectStateLastFrame ~= effectStateCurrentFrame then
-        TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_EFFECT_STATE_CHANGE, effect, effectStateLastFrame, effectStateCurrentFrame)
+        TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_EFFECT_STATE_CHANGED, effect, effectStateLastFrame, effectStateCurrentFrame)
     end
 
     effectStatesLastFrame[effectPtrStr] = effectStateCurrentFrame
