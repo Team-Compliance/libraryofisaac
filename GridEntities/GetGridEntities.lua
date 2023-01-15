@@ -1,16 +1,10 @@
 --- Returns a list with all grid entities in the room.
---- IsBlackList indicates whether the given grid entities should be the only ones added or the only ones not added.
---- @param isBlackList? boolean @Default: true
 --- @param ... GridEntityType
 --- @return GridEntity[]
-function TSIL.GridEntities.GetGridEntities(isBlackList, ...)
-	if isBlackList == nil then
-		isBlackList = true
-	end
+function TSIL.GridEntities.GetGridEntities(...)
+	local gridEntityTypes = {...}
 
-	local IsInTable = TSIL.Utils.Tables.IsIn
-	local blackList = {...}
-
+	---@type GridEntity[]
 	local gridEntities = {}
 
 	local room = Game():GetRoom()
@@ -18,13 +12,30 @@ function TSIL.GridEntities.GetGridEntities(isBlackList, ...)
 	for i = 0, room:GetGridSize() - 1, 1 do
 		local gridEntity = room:GetGridEntity(i)
 
-		if gridEntity then
-			if (isBlackList and not IsInTable(blackList, gridEntity:GetType())) or
-			(not isBlackList and IsInTable(blackList, gridEntity:GetType())) then
-				table.insert(gridEntities, gridEntity)
-			end
-		end
+		gridEntities[#gridEntities+1] = gridEntity
 	end
 
-	return gridEntities
+	if #gridEntityTypes > 0 then
+		return TSIL.Utils.Tables.Filter(gridEntities, function (_, gridEntity)
+			return TSIL.Utils.Tables.IsIn(gridEntityTypes, gridEntity:GetType())
+		end)
+	else
+		return gridEntities
+	end
+end
+
+
+--- Returns a map with all grid entities in the room indexed by their grid index.
+--- @param ... GridEntityType
+--- @return table<integer, GridEntity>
+function TSIL.GridEntities.GetGridEntitiesMap(...)
+	local gridEntities = TSIL.GridEntities.GetGridEntities(...)
+	---@type table<integer, GridEntity>
+	local gridEntitiesMap = {}
+
+	TSIL.Utils.Tables.ForEach(gridEntities, function (_, gridEntity)
+		gridEntitiesMap[gridEntity:GetGridIndex()] = gridEntity
+	end)
+
+	return gridEntitiesMap
 end

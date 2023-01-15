@@ -7,7 +7,7 @@ function TSIL.GridSpecific.GetCrawlSpaces(crawlSpaceVariant)
         crawlSpaceVariant = -1
     end
 
-    local crawlSpaces = TSIL.GridEntities.GetGridEntities(false, GridEntityType.GRID_STAIRS)
+    local crawlSpaces = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_STAIRS)
 
     if crawlSpaceVariant == -1 then
         return crawlSpaces
@@ -28,7 +28,7 @@ function TSIL.GridSpecific.GetPits(pitVariant)
         pitVariant = -1
     end
 
-    local pits = TSIL.GridEntities.GetGridEntities(false, GridEntityType.GRID_PIT)
+    local pits = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_PIT)
 
     if pitVariant == -1 then
         return pits
@@ -53,7 +53,7 @@ function TSIL.GridSpecific.GetPoops(poopVariant)
         poopVariant = -1
     end
 
-    local poops = TSIL.GridEntities.GetGridEntities(false, GridEntityType.GRID_POOP)
+    local poops = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_POOP)
 
     if poopVariant == -1 then
         return poops
@@ -78,7 +78,7 @@ function TSIL.GridSpecific.GetPressurePlates(pressurePlateVariant)
         pressurePlateVariant = -1
     end
 
-    local pressurePlates = TSIL.GridEntities.GetGridEntities(false, GridEntityType.GRID_PRESSURE_PLATE)
+    local pressurePlates = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_PRESSURE_PLATE)
 
     if pressurePlateVariant == -1 then
         return pressurePlates
@@ -103,7 +103,7 @@ function TSIL.GridSpecific.GetRocks(rockVariant)
         rockVariant = -1
     end
 
-    local rocks = TSIL.GridEntities.GetGridEntities(false, GridEntityType.GRID_ROCK)
+    local rocks = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_ROCK)
 
     if rockVariant == -1 then
         return rocks
@@ -127,7 +127,7 @@ function TSIL.GridSpecific.GetSpikes(spikesVariant)
         spikesVariant = -1
     end
 
-    local spikes = TSIL.GridEntities.GetGridEntities(false, GridEntityType.GRID_SPIKES)
+    local spikes = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_SPIKES)
 
     if spikesVariant == -1 then
         return spikes
@@ -151,7 +151,7 @@ function TSIL.GridSpecific.GetTNTs(TNTVariant)
         TNTVariant = -1
     end
 
-    local TNTs = TSIL.GridEntities.GetGridEntities(false, GridEntityType.GRID_TNT)
+    local TNTs = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_TNT)
 
     if TNTVariant == -1 then
         return TNTs
@@ -175,7 +175,7 @@ function TSIL.GridSpecific.GetTeleporters(teleporterVariant)
         teleporterVariant = -1
     end
 
-    local teleporters = TSIL.GridEntities.GetGridEntities(false, GridEntityType.GRID_TELEPORTER)
+    local teleporters = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_TELEPORTER)
 
     if teleporterVariant == -1 then
         return teleporters
@@ -196,7 +196,7 @@ function TSIL.GridSpecific.GetTrapdoors(trapdoorVariant)
         trapdoorVariant = -1
     end
 
-    local trapdoors = TSIL.GridEntities.GetGridEntities(false, GridEntityType.GRID_TRAPDOOR)
+    local trapdoors = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_TRAPDOOR)
 
     if trapdoorVariant == -1 then
         return trapdoors
