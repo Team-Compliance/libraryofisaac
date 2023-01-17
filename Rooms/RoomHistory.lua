@@ -21,7 +21,8 @@ TSIL.__AddInternalCallback(
 )
 
 
-local function OnNewRoomEarly()
+---@param isFromNewRoomCallback boolean
+local function OnNewRoomEarly(_, isFromNewRoomCallback)
     local level = Game():GetLevel();
     local stage = level:GetStage();
     local stageType = level:GetStageType();
@@ -37,6 +38,10 @@ local function OnNewRoomEarly()
     local roomGridIndex = roomDescriptor.SafeGridIndex
     local roomListIndex = roomDescriptor.ListIndex
     local roomVisitedCount = roomDescriptor.VisitedCount
+
+    if not isFromNewRoomCallback then
+        roomVisitedCount = roomVisitedCount + 1
+    end
 
     local roomHistoryData = {
         Stage = stage,

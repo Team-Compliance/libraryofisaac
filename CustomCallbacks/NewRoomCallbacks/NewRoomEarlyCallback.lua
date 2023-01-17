@@ -46,15 +46,16 @@ local function IsNewRoom()
 end
 
 
-local function CheckRoomChanged()
+---@param isFromNewRoomCallback boolean
+local function CheckRoomChanged(isFromNewRoomCallback)
     if IsNewRoom() then
-        TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_NEW_ROOM_EARLY)
+        TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_NEW_ROOM_EARLY, isFromNewRoomCallback)
     end
 end
 
 
 local function OnNewRoom()
-    CheckRoomChanged()
+    CheckRoomChanged(true)
 end
 TSIL.__AddInternalCallback(
     "POST_NEW_ROOM_EARLY_CALLBACK_ON_NEW_ROOM",
@@ -64,7 +65,7 @@ TSIL.__AddInternalCallback(
 
 
 local function PreEntitySpawn()
-    CheckRoomChanged()
+    CheckRoomChanged(false)
 end
 TSIL.__AddInternalCallback(
     "POST_NEW_ROOM_EARLY_CALLBACK_PRE_ENTITY_SPAWN",
