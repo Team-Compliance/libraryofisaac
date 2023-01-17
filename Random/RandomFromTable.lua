@@ -4,7 +4,7 @@
 --- @param numberOfElements? integer @Default: 1
 --- @param seedOrRNG integer | RNG? Optional. The `Seed` or `RNG` object to use. If an `RNG` object is provided, the `RNG.Next` method will be called. Default is `TSIL.RNG.GetRandomSeed()`.
 --- @return T[]
-function TSIL.Utils.Random.GetRandomElementsFromTable(toChoose, numberOfElements, seedOrRNG)
+function TSIL.Random.GetRandomElementsFromTable(toChoose, numberOfElements, seedOrRNG)
 	---@type RNG
     local rng
     
