@@ -39,7 +39,7 @@ local function OnNPCUpdate(_, npc)
     npcStatesLastFrame[npcPtrStr] = npcStateCurrentFrame
 end
 TSIL.__AddInternalCallback(
-    "NPC_STATE_CHANGED_CALLBACK_ON_EFFECT_UPDATE",
+    "NPC_STATE_CHANGED_CALLBACK_ON_NPC_UPDATE",
     ModCallbacks.MC_NPC_UPDATE,
     OnNPCUpdate
 )
