@@ -19,7 +19,6 @@ function TSIL.Players.GetPlayers(ignoreCoopBabies)
 	return players
 end
 
-
 --- Returns the n closest players to a certain point.
 --- The players are ordered by their distance.
 --- @param center Vector
@@ -45,18 +44,16 @@ function TSIL.Players.GetClosestPlayers(center, numberOfPlayers)
 	return closestPlayers
 end
 
-
 --- Returns a list of all players that have a certain item
 --- @param collectibleId CollectibleType
 --- @return EntityPlayer[]
 function TSIL.Players.GetPlayersByCollectible(collectibleId)
 	local players = TSIL.Players.GetPlayers()
 
-	return TSIL.Utils.Tables.Filter(players, function (_, player)
+	return TSIL.Utils.Tables.Filter(players, function(_, player)
 		return player:HasCollectible(collectibleId)
 	end)
 end
-
 
 --- Returns all the players that have a certain trinket
 --- @param trinketId TrinketType
@@ -64,11 +61,10 @@ end
 function TSIL.Players.GetPlayersByTrinket(trinketId)
 	local players = TSIL.Players.GetPlayers()
 
-	return TSIL.Utils.Tables.Filter(players, function (_, player)
+	return TSIL.Utils.Tables.Filter(players, function(_, player)
 		return player:HasTrinket(trinketId)
 	end)
 end
-
 
 --- Returns all the players of a given type.
 ---@param playerType PlayerType
@@ -76,11 +72,10 @@ end
 function TSIL.Players.GetPlayersOfType(playerType)
 	local players = TSIL.Players.GetPlayers()
 
-	return TSIL.Utils.Tables.Filter(players, function (_, player)
+	return TSIL.Utils.Tables.Filter(players, function(_, player)
 		return player:GetPlayerType() == playerType
 	end)
 end
-
 
 --- Returns all the players corresponding to a controller index.
 ---@param controllerIndex integer
@@ -88,7 +83,25 @@ end
 function TSIL.Players.GetPlayersWithControllerIndex(controllerIndex)
 	local players = TSIL.Players.GetPlayers()
 
-	return TSIL.Utils.Tables.Filter(players, function (_, player)
+	return TSIL.Utils.Tables.Filter(players, function(_, player)
 		return player.ControllerIndex == controllerIndex
+	end)
+end
+
+---Helper function to get the parent of a given sub player.
+---@param subPlayer EntityPlayer
+---@return EntityPlayer?
+function TSIL.Players.GetSubPlayerParent(subPlayer)
+	local subPlayerPtrHash = GetPtrHash(subPlayer);
+	local players = TSIL.Players.GetPlayers();
+
+	return TSIL.Utils.Tables.FindFirst(players, function(_, player)
+		local thisPlayerSubPlayer = player:GetSubPlayer()
+		if thisPlayerSubPlayer == nil then
+			return false
+		end
+
+		local thisPlayerSubPlayerPtrHash = GetPtrHash(thisPlayerSubPlayer);
+		return thisPlayerSubPlayerPtrHash == subPlayerPtrHash;
 	end)
 end
