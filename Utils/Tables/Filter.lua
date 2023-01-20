@@ -4,11 +4,11 @@
 --- @param predicate fun(key: integer | string, value: T): boolean
 --- @return T[]
 function TSIL.Utils.Tables.Filter(toFilter, predicate)
-	local filtered = {}
+	local filtered = {}	
 
 	for index, value in pairs(toFilter) do
 		if predicate(index, value) then
-			filtered[index] = value
+			filtered[#filtered+1] = value
 		end
 	end
 
