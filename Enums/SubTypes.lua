@@ -117,6 +117,15 @@ TSIL.Enums.HeavenLightDoorSubType = {
   MOONLIGHT = 1,
 }
 
+---@enum GibSubType
+--- For `EntityType.EFFECT` (1000), `EffectVariant.BLOOD_PARTICLE` (5).
+TSIL.Enums.GibSubType = {
+  BLOOD = 0,
+  BONE = 1,
+  GUT = 2,
+  EYE = 3,
+}
+
 ---@enum DiceFloorSubType
 --- For `EntityType.EFFECT` (1000), `EffectVariant.DICE_FLOOR` (76). 
 TSIL.Enums.DiceFloorSubType = {
