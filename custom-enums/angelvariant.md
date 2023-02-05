@@ -1,10 +1,8 @@
 # AngelVariant
 
-d
+For `EntityType.ENTITY_URIEL` (271) and `EntityType.ENTITY_GABRIEL` (272). 
 
 | Enumerator | Value | Description |
-| ---------- | ----- | ----------- |
-| NORMAL     | 0     |             |
-| FALLEN     | 1     |             |
-
-d
+| - | - | - |
+| NORMAL | 0 |  |
+| FALLEN | 1 |  |

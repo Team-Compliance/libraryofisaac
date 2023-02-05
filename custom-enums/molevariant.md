@@ -1,6 +1,8 @@
 # MoleVariant
 
-| Enumerator    | Value | Description |
-| ------------- | ----- | ----------- |
-| MOLE          | 0     |             |
-| TAINTED\_MOLE | 1     |             |
+For `EntityType.ENTITY_MOLE` (829). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| MOLE | 0 |  |
+| TAINTED_MOLE | 1 |  |

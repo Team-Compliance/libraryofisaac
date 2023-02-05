@@ -1,6 +1,8 @@
 # RagManVariant
 
-| Enumerator     | Value | Description |
-| -------------- | ----- | ----------- |
-| RAG\_MAN       | 0     |             |
-| RAG\_MAN\_HEAD | 1     |             |
+For `EntityType.ENTITY_RAG_MAN` (405). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| RAG_MAN | 0 |  |
+| RAG_MAN_HEAD | 1 |  |

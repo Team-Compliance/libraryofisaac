@@ -1,6 +1,8 @@
 # NerveEndingVariant
 
-| Enumerator       | Value | Description |
-| ---------------- | ----- | ----------- |
-| NERVE\_ENDING    | 0     |             |
-| NERVE\_ENDING\_2 | 1     |             |
+For `EntityType.ENTITY_NERVE_ENDING` (231). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| NERVE_ENDING | 0 |  |
+| NERVE_ENDING_2 | 1 |  |

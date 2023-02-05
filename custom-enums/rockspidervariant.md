@@ -1,7 +1,9 @@
 # RockSpiderVariant
 
-| Enumerator           | Value | Description |
-| -------------------- | ----- | ----------- |
-| ROCK\_SPIDER         | 0     |             |
-| TINTED\_ROCK\_SPIDER | 1     |             |
-| COAL\_SPIDER         | 2     |             |
+For `EntityType.ENTITY_ROCK_SPIDER` (818). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| ROCK_SPIDER | 0 |  |
+| TINTED_ROCK_SPIDER | 1 |  |
+| COAL_SPIDER | 2 |  |

@@ -1,6 +1,8 @@
 # DaddyLongLegsVariant
 
-| Enumerator        | Value | Description |
-| ----------------- | ----- | ----------- |
-| DADDY\_LONG\_LEGS | 0     |             |
-| TRIACHNID         | 1     |             |
+For `EntityType.ENTITY_DADDY_LONG_LEGS` (101). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| DADDY_LONG_LEGS | 0 |  |
+| TRIACHNID | 1 |  |

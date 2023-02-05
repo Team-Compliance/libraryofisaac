@@ -1,6 +1,8 @@
 # MotherSubType
 
+For `EntityType.MOTHER` (912), `MotherVariant.MOTHER_1` (0). 
+
 | Enumerator | Value | Description |
-| ---------- | ----- | ----------- |
-| PHASE\_1   | 0     |             |
-| PHASE\_2   | 1     |             |
+| - | - | - |
+| PHASE_1 | 0 |  |
+| PHASE_2 | 1 |  |

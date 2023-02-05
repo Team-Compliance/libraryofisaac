@@ -1,6 +1,8 @@
 # LustVariant
 
-| Enumerator  | Value | Description |
-| ----------- | ----- | ----------- |
-| LUST        | 0     |             |
-| SUPER\_LUST | 1     |             |
+For `EntityType.ENTITY_LUST` (47). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| LUST | 0 |  |
+| SUPER_LUST | 1 |  |

@@ -1,6 +1,6 @@
 # RockVariant
 
 | Enumerator | Value | Description |
-| ---------- | ----- | ----------- |
-| NORMAL     | 0     |             |
-| EVENT      | 1     |             |
+| - | - | - |
+| NORMAL | 0 |  |
+| EVENT | 1 |  |

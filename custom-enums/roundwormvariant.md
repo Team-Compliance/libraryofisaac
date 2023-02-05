@@ -1,8 +1,10 @@
 # RoundWormVariant
 
-| Enumerator           | Value | Description |
-| -------------------- | ----- | ----------- |
-| ROUND\_WORM          | 0     |             |
-| TUBE\_WORM           | 1     |             |
-| TAINTED\_ROUND\_WORM | 2     |             |
-| TAINTED\_TUBE\_WORM  | 3     |             |
+For `EntityType.ENTITY_ROUND_WORM` (244). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| ROUND_WORM | 0 |  |
+| TUBE_WORM | 1 |  |
+| TAINTED_ROUND_WORM | 2 |  |
+| TAINTED_TUBE_WORM | 3 |  |

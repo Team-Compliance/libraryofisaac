@@ -4,13 +4,20 @@
 
 You can download Library of Isaac in several ways, so you can choose whichever one you prefer and fits your needs better.
 
-### 1. Use the VsCode extension
+### 1. Use the VSCode extension
 
-Go to Visual Studio Code, search for `Library of Isaac` and download the extension. This extension will detect the modules your code uses and automatically handle adding just the necessary files.
+Go to Visual Studio Code, search for `Library of Isaac` and download the extension [(Link here)](https://marketplace.visualstudio.com/items?itemName=ThiccoCatto.library-of-isaac-extension). This extension will detect the modules your code uses and automatically handle adding just the necessary files.
+
+The extension adds 2 new commands to VSCode.
+
+* `Init Isaac Project`: Adds the emmy lua annotations, allowing you to use autocomplete (For the autocomplete to work properly you need to install the [Lua extension](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) and the [Binding of Isaac Lua API extension](https://marketplace.visualstudio.com/items?itemName=Filloax.isaac-lua-api-vscode))
+* `Build Isaac Project`: Creates all the necessary library files to your project. The first time you use it, it will create a default folder for the library, which you should rename to something unique.
 
 ### 2. Manually download the library
 
-Go to the github repo [here ](https://github.com/Team-Compliance/libraryofisaac)and download the latest version. Note that if you're gonna take this approach you will have to manually remove the unnecessary files if you want to minimize the size of your mod.
+Go to the GitHub repo [here ](https://github.com/Team-Compliance/libraryofisaac)and download the latest version. Note that if you're gonna take this approach you will have to manually remove the unnecessary files if you want to minimize the size of your mod.
+
+When putting the library in your mod, you should rename the folder it is in to something unique, to avoid mod compatibility issues.
 
 ### 3. Require the Library of Isaac mod in the workshop
 
@@ -30,9 +37,13 @@ LOCAL_TSIL.Init(myFolder)
 This needs to be done before you use any of the features in the library.
 {% endhint %}
 
+{% hint style="warning" %}
+This step is not necessary is you require the user to download the Library Of Isaac mod.
+{% endhint %}
+
 After that, you'll be able to access a global variable `TSIL` which has all of the library's features.
 
-The whole library is separated into modules, and to use functions you use dots (`.`) instead of colons (`:`).&#x20;
+The whole library is separated into modules, and to use functions you use dots (`.`) instead of colons (`:`).
 
 In this example we count the number of rotten gapers that are currently in the room:
 

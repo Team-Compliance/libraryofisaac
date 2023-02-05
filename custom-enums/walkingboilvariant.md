@@ -1,7 +1,9 @@
 # WalkingBoilVariant
 
-| Enumerator    | Value | Description |
-| ------------- | ----- | ----------- |
-| WALKING\_BOIL | 0     |             |
-| WALKING\_GUT  | 1     |             |
-| WALKING\_SACK | 2     |             |
+For `EntityType.ENTITY_WALKING_BOIL` (88). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| WALKING_BOIL | 0 |  |
+| WALKING_GUT | 1 |  |
+| WALKING_SACK | 2 |  |

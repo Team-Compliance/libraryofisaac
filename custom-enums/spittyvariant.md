@@ -1,6 +1,8 @@
 # SpittyVariant
 
-| Enumerator      | Value | Description |
-| --------------- | ----- | ----------- |
-| SPITTY          | 0     |             |
-| TAINTED\_SPITTY | 1     |             |
+For `EntityType.ENTITY_SPITTY` (31). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| SPITTY | 0 |  |
+| TAINTED_SPITTY | 1 |  |

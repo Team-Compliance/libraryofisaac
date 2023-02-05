@@ -1,7 +1,9 @@
-# MemBrainVariant
+# MembrainVariant
+
+For `EntityType.ENTITY_MEMBRAIN` (57). 
 
 | Enumerator | Value | Description |
-| ---------- | ----- | ----------- |
-| MEMBRAIN   | 0     |             |
-| MAMA\_GUTS | 1     |             |
-| DEAD\_MEAT | 2     |             |
+| - | - | - |
+| MEMBRAIN | 0 |  |
+| MAMA_GUTS | 1 |  |
+| DEAD_MEAT | 2 |  |

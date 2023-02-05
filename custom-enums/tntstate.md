@@ -1,10 +1,9 @@
 # TNTState
 
-| Enumerator               | Value | Description |
-| ------------------------ | ----- | ----------- |
-| UNDAMAGED                | 0     |             |
-| ONE\_QUARTER\_DAMAGED    | 1     |             |
-| TWO\_QUARTERS\_DAMAGED   | 2     |             |
-| THREE\_QUARTERS\_DAMAGED | 3     |             |
-| EXPLODED                 | 4     |             |
-
+| Enumerator | Value | Description |
+| - | - | - |
+| UNDAMAGED | 0 |  |
+| ONE_QUARTER_DAMAGED | 1 |  |
+| TWO_QUARTERS_DAMAGED | 2 |  |
+| THREE_QUARTERS_DAMAGED | 3 |  |
+| EXPLODED | 4 |  |

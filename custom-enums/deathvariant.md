@@ -1,8 +1,10 @@
 # DeathVariant
 
-| Enumerator            | Value | Description |
-| --------------------- | ----- | ----------- |
-| DEATH                 | 0     |             |
-| DEATH\_SCYTHE         | 10    |             |
-| DEATH\_HORSE          | 20    |             |
-| DEATH\_WITHOUT\_HORSE | 30    |             |
+For `EntityType.ENTITY_DEATH` (66). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| DEATH | 0 |  |
+| DEATH_SCYTHE | 10 |  |
+| DEATH_HORSE | 20 |  |
+| DEATH_WITHOUT_HORSE | 30 |  |
