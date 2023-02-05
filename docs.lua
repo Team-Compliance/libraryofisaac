@@ -1294,7 +1294,7 @@ TSIL.Enums.CustomCallback = {
 	--
 	-- * entity - EntityNPC
 	-- * collider - Entity
-	-- * isLow
+	-- * isLow - boolean
 	--
 	--Optional args:
 	--

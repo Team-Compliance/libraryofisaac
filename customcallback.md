@@ -11,13 +11,18 @@ Return true or nil to sustain the damage. Return false to ignore it.
 
 | Name | Type |
 | - | - |
-| tookDamage | Entity * amount |
+| tookDamage | Entity |
+| amount | number |
+| source | EntityRef |
+| countdown | integer |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| entityType | EntityType * entityVariant |
+| entityType | EntityType |
+| entityVariant | integer |
+| entitySubType | integer |
 
 
 ### POST_AMBUSH_FINISHED
@@ -68,7 +73,8 @@ Called when a bomb explodes. More specifically, this is called whenever a bomb p
 
 | Name | Type |
 | - | - |
-| bombVariant | BombVariant * bombSubType |
+| bombVariant | BombVariant |
+| bombSubType | integer |
 
 
 ### POST_BOMB_INIT_LATE
@@ -85,7 +91,8 @@ Called the first frame a bomb is available. This is useful since the `POST_BOMB_
 
 | Name | Type |
 | - | - |
-| bombVariant | BombVariant * bombSubType |
+| bombVariant | BombVariant |
+| bombSubType | integer |
 
 
 ### POST_BONE_SWING
@@ -107,7 +114,8 @@ Called the first frame a pedestal is empty.
 
 | Name | Type |
 | - | - |
-| pedestal | EntityPickup * oldCollectibleType |
+| pedestal | EntityPickup |
+| oldCollectibleType | CollectibleType |
 
 #### Optional arguments
 
@@ -142,7 +150,8 @@ Called when a player enters the radius of activation of a dice floor.
 
 | Name | Type |
 | - | - |
-| player | EntityPlayer * diceFloorType |
+| player | EntityPlayer |
+| diceFloorType | DiceFloorSubType |
 
 #### Optional arguments
 
@@ -199,7 +208,8 @@ Called the first frame an effect entity is available. This is useful since the `
 
 | Name | Type |
 | - | - |
-| effectVariant | EffectVariant * effectSubType |
+| effectVariant | EffectVariant |
+| effectSubType | integer |
 
 
 ### POST_EFFECT_STATE_CHANGED
@@ -210,13 +220,16 @@ Called everytime an effect entity's state changes.
 
 | Name | Type |
 | - | - |
-| effect | EntityEffect * oldState |
+| effect | EntityEffect |
+| oldState | integer |
+| newState | integer |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| effectVariant | EffectVariant * effectSubType |
+| effectVariant | EffectVariant |
+| effectSubType | integer |
 
 
 ### POST_ESAU_JR
@@ -245,7 +258,8 @@ Called the first frame a familiar is available. This is useful since the `POST_F
 
 | Name | Type |
 | - | - |
-| familiarVariant | FamiliarVariant * familiarSubType |
+| familiarVariant | FamiliarVariant |
+| familiarSubType | integer |
 
 
 ### POST_FAMILIAR_STATE_CHANGED
@@ -256,13 +270,16 @@ Called everytime a familiar's state changes.
 
 | Name | Type |
 | - | - |
-| familiar | EntityFamiliar * oldState |
+| familiar | EntityFamiliar |
+| oldState | integer |
+| newState | integer |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| familiarVariant | FamiliarVariant * familiarSubType |
+| familiarVariant | FamiliarVariant |
+| familiarSubType | integer |
 
 
 ### POST_FIRST_ESAU_JR
@@ -332,7 +349,8 @@ Called whenever the greed wave counter increases.
 
 | Name | Type |
 | - | - |
-| oldWave | integer * newWave |
+| oldWave | integer |
+| newWave | integer |
 
 
 ### POST_GRID_COLLISION
@@ -343,13 +361,18 @@ Called whenever an entity collides with a Grid Entity.
 
 | Name | Type |
 | - | - |
-| gridEntity | GridEntity * collider |
+| gridEntity | GridEntity |
+| collider | Entity |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| gridEntityType | GridEntityType * gridEntityVariant |
+| gridEntityType | GridEntityType |
+| gridEntityVariant | integer |
+| colliderType | EntityType |
+| colliderVariant | integer |
+| colliderSubType | integer |
 
 
 ### POST_GRID_ENTITY_BROKEN
@@ -366,7 +389,8 @@ Called when a Grid Entity changes into an state that represents it's broken.
 
 | Name | Type |
 | - | - |
-| gridEntityType | GridEntityType * gridEntityVariant |
+| gridEntityType | GridEntityType |
+| gridEntityVariant | integer |
 
 
 ### POST_GRID_ENTITY_INIT
@@ -377,13 +401,15 @@ Called when a new Grid Entity is created, either from the `NEW_ROOM_REORDERED` c
 
 | Name | Type |
 | - | - |
-| gridEntity | GridEntity * createdMidWay |
+| gridEntity | GridEntity |
+| createdMidWay | boolean |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| gridEntityType | GridEntityType * gridEntityVariant |
+| gridEntityType | GridEntityType |
+| gridEntityVariant | integer |
 
 
 ### POST_GRID_ENTITY_REMOVED
@@ -394,13 +420,16 @@ Called when a Grid Entity is removed.
 
 | Name | Type |
 | - | - |
-| gridEntityType | GridEntityType * gridEntityVariant |
+| gridEntityType | GridEntityType |
+| gridEntityVariant | integer |
+| gridIndex | integer |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| gridEntityType | GridEntityType * gridEntityVariant |
+| gridEntityType | GridEntityType |
+| gridEntityVariant | integer |
 
 
 ### POST_GRID_ENTITY_RENDER
@@ -417,7 +446,8 @@ Called from the `POST_RENDER` callback for each Grid Entity in the room.
 
 | Name | Type |
 | - | - |
-| gridEntityType | GridEntityType * gridEntityVariant |
+| gridEntityType | GridEntityType |
+| gridEntityVariant | integer |
 
 
 ### POST_GRID_ENTITY_STATE_CHANGED
@@ -428,13 +458,16 @@ Called whenever a Grid Entity's state changes.
 
 | Name | Type |
 | - | - |
-| gridEntity | GridEntity * oldState |
+| gridEntity | GridEntity |
+| oldState | integer |
+| newState | integer |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| gridEntityType | GridEntityType * gridEntityVariant |
+| gridEntityType | GridEntityType |
+| gridEntityVariant | integer |
 
 
 ### POST_GRID_ENTITY_UPDATE
@@ -451,7 +484,8 @@ Called from the `POST_UPDATE` callback for each Grid Entity in the room.
 
 | Name | Type |
 | - | - |
-| gridEntityType | GridEntityType * gridEntityVariant |
+| gridEntityType | GridEntityType |
+| gridEntityVariant | integer |
 
 
 ### POST_HOLY_MANTLE_REMOVED
@@ -462,13 +496,16 @@ Called whenever a player's holy mantle effect count decreases.
 
 | Name | Type |
 | - | - |
-| player | EntityPlayer * oldHolyMantleNum |
+| player | EntityPlayer |
+| oldHolyMantleNum | integer |
+| newHolyMantleNum | integer |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
 
 
 ### POST_ITEM_DISCHARGE
@@ -480,13 +517,17 @@ This is useful because throwable items don't actually discharge until they are t
 
 | Name | Type |
 | - | - |
-| player | EntityPlayer * collectibleType |
+| player | EntityPlayer |
+| collectibleType | CollectibleType |
+| activeSlot | ActiveSlot |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
+| collectibleType | CollectibleType |
 
 
 ### POST_ITEM_PICKUP
@@ -497,13 +538,18 @@ Called whenever an item exits a player's item queue. i.e. when it enters the pla
 
 | Name | Type |
 | - | - |
-| player | EntityPlayer * itemID |
+| player | EntityPlayer |
+| itemID | CollectibleType | TriketType |
+| itemType | InventoryType |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
+| itemID | CollectibleType | TriketType |
+| itemType | InventoryType |
 
 
 ### POST_KNIFE_INIT_LATE
@@ -520,7 +566,8 @@ Called the first frame a knife is available. This is useful since the `POST_KNIF
 
 | Name | Type |
 | - | - |
-| knifeVariant | KnifeVariant * knifeSubType |
+| knifeVariant | KnifeVariant |
+| knifeSubType | integer |
 
 
 ### POST_LASER_INIT_LATE
@@ -537,7 +584,8 @@ Called the first frame a laser is available. This is useful since the `POST_LASE
 
 | Name | Type |
 | - | - |
-| laserVariant | LaserVariant * laserSubType |
+| laserVariant | LaserVariant |
+| laserSubType | integer |
 
 
 ### POST_NEW_LEVEL_REORDERED
@@ -545,18 +593,15 @@ Called the first frame a laser is available. This is useful since the `POST_LASE
 Similar to the vanilla `POST_NEW_LEVEL` callback, but fires in the expected order in relation to the new game/room callbacks. 
 GAME_STARTED_REORDERED -> NEW_LEVEL_REORDERED -> NEW_ROOM_REORDERED 
 
-
 ### POST_NEW_ROOM_EARLY
 
 Called from the `POST_NEW_ROOM` or `PRE_ENTITY_SPAWN` callback where being in a new room is detected. 
 This is useful because the `POST_NEW_ROOM` callback only gets called after all the entities have been updated once. 
 
-
 ### POST_NEW_ROOM_REORDERED
 
 Similar to the vanilla `POST_NEW_ROOM` callback, but fires in the expected order in relation to the new game/level callbacks. 
 GAME_STARTED_REORDERED -> NEW_LEVEL_REORDERED -> NEW_ROOM_REORDERED 
-
 
 ### POST_NPC_DEATH_FILTER
 
@@ -572,7 +617,9 @@ Works exactly the same as the regular `POST_NPC_DEATH` callback but let's you sp
 
 | Name | Type |
 | - | - |
-| entityType | EntityType * entityVariant |
+| entityType | EntityType |
+| entityVariant | integer |
+| entitySubType | integer |
 
 
 ### POST_NPC_INIT_FILTER
@@ -589,7 +636,9 @@ Works exactly the same as the regular `POST_NPC_INIT` callback but let's you spe
 
 | Name | Type |
 | - | - |
-| entityType | EntityType * entityVariant |
+| entityType | EntityType |
+| entityVariant | integer |
+| entitySubType | integer |
 
 
 ### POST_NPC_INIT_LATE
@@ -606,7 +655,9 @@ Called the first frame an npc is available. This is useful since the `POST_NPC_I
 
 | Name | Type |
 | - | - |
-| npcType | EntityType * npcVariant |
+| npcType | EntityType |
+| npcVariant | integer |
+| npcSubType | integer |
 
 
 ### POST_NPC_RENDER_FILTER
@@ -623,7 +674,9 @@ Works exactly the same as the regular `POST_NPC_RENDER` callback but let's you s
 
 | Name | Type |
 | - | - |
-| entityType | EntityType * entityVariant |
+| entityType | EntityType |
+| entityVariant | integer |
+| entitySubType | integer |
 
 
 ### POST_NPC_STATE_CHANGED
@@ -634,13 +687,17 @@ Called whenever an npc's state changes.
 
 | Name | Type |
 | - | - |
-| npc | EntityNPC * oldState |
+| npc | EntityNPC |
+| oldState | integer |
+| newState | integer |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| npcType | EntityType * npcVariant |
+| npcType | EntityType |
+| npcVariant | integer |
+| npcSubType | integer |
 
 
 ### POST_NPC_UPDATE_FILTER
@@ -657,7 +714,9 @@ Works exactly the same as the regular `POST_NPC_UPDATE` callback but let's you s
 
 | Name | Type |
 | - | - |
-| entityType | EntityType * entityVariant |
+| entityType | EntityType |
+| entityVariant | integer |
+| entitySubType | integer |
 
 
 ### POST_PEFFECT_UPDATE_REORDERED
@@ -685,7 +744,8 @@ Called the first frame a pickup starts playing it's `Collect` animation.
 
 | Name | Type |
 | - | - |
-| pickupVariant | PickupVariant * pickupSubType |
+| pickupVariant | PickupVariant |
+| pickupSubType | integer |
 
 
 ### POST_PICKUP_INIT_FIRST
@@ -698,6 +758,13 @@ This is useful since pickups respawn every time a room is reentered and trigger 
 | Name | Type |
 | - | - |
 | pickup | EntityPickup |
+
+#### Optional arguments
+
+| Name | Type |
+| - | - |
+| pickupVariant | PickupVariant |
+| pickupSubType | integer |
 
 
 ### POST_PICKUP_INIT_LATE
@@ -714,7 +781,8 @@ Called the first frame a familiar is available. This is useful since the `POST_F
 
 | Name | Type |
 | - | - |
-| pickupVariant | PickupVariant * pickupSubType |
+| pickupVariant | PickupVariant |
+| pickupSubType | integer |
 
 
 ### POST_PICKUP_STATE_CHANGED
@@ -725,13 +793,16 @@ Called everytime an entity pickup's state changes.
 
 | Name | Type |
 | - | - |
-| pickup | EntityPickup * oldState |
+| pickup | EntityPickup |
+| oldState | integer |
+| newState | integer |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| pickupVariant | PickupVariant * pickupSubType |
+| pickupVariant | PickupVariant |
+| pickupSubType | integer |
 
 
 ### POST_PIT_RENDER
@@ -776,13 +847,16 @@ Called whenever an item is added to a player's inventory.
 
 | Name | Type |
 | - | - |
-| player | EntityPlayer * collectibleType |
+| player | EntityPlayer |
+| collectibleType | CollectibleType |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
+| collectibleType | CollectibleType |
 
 
 ### POST_PLAYER_COLLECTIBLE_REMOVED
@@ -793,13 +867,16 @@ Called whenever an item is removed from a player's inventory.
 
 | Name | Type |
 | - | - |
-| player | EntityPlayer * collectibleType |
+| player | EntityPlayer |
+| collectibleType | CollectibleType |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
+| collectibleType | CollectibleType |
 
 
 ### POST_PLAYER_FATAL_DAMAGE
@@ -812,13 +889,18 @@ Return false to avoid the fatal damage.
 
 | Name | Type |
 | - | - |
-| player | EntityPlayer * amount |
+| player | EntityPlayer |
+| amount | number |
+| damageFlags | DamageFlag |
+| source | EntityRef |
+| countdown | integer |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
 
 
 ### POST_PLAYER_GULPED_TRINKET_ADDED
@@ -829,13 +911,16 @@ Called whenever a trinket is gulped to a player's inventory.
 
 | Name | Type |
 | - | - |
-| player | EntityPlayer * trinketType |
+| player | EntityPlayer |
+| trinketType | TrinketType |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
+| trinketType | TrinketType |
 
 
 ### POST_PLAYER_GULPED_TRINKET_REMOVED
@@ -846,13 +931,16 @@ Called whenever a gulped trinket is removed from a player's inventory.
 
 | Name | Type |
 | - | - |
-| player | EntityPlayer * trinketType |
+| player | EntityPlayer |
+| trinketType | TrinketType |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
+| trinketType | TrinketType |
 
 
 ### POST_PLAYER_HEALTH_CHANGED
@@ -863,13 +951,18 @@ Called whenever the player's health changes.
 
 | Name | Type |
 | - | - |
-| player | EntityPlayer * healthType |
+| player | EntityPlayer |
+| healthType | HealthType |
+| oldAmount | integer |
+| newAmount | integer |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
+| healthType | HealthType |
 
 
 ### POST_PLAYER_INIT_FIRST
@@ -886,7 +979,8 @@ Called from the `POST_PLAYER_INIT` callback, the first time it's called for each
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
 
 
 ### POST_PLAYER_INIT_LATE
@@ -903,7 +997,8 @@ Called the first frame a player is available. This is useful since the `POST_PLA
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
 
 
 ### POST_PLAYER_RENDER_REORDERED
@@ -925,13 +1020,17 @@ Called whenever the player's type changes, via the Clicker item for example.
 
 | Name | Type |
 | - | - |
-| player | EntityPlayer * oldPlayerType |
+| player | EntityPlayer |
+| oldPlayerType | PlayerType |
+| newPlayerType | PlayerType |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
+| oldPlayerType | PlayerType |
 
 
 ### POST_PLAYER_UPDATE_REORDERED
@@ -1027,7 +1126,8 @@ Called the first frame a projectile is available. This is useful since the `POST
 
 | Name | Type |
 | - | - |
-| projectileVariant | ProjectileVariant * projectileSubType |
+| projectileVariant | ProjectileVariant |
+| projectileSubType | integer |
 
 
 ### POST_PURCHASE
@@ -1039,13 +1139,17 @@ Internally this detects whenever a player starts holding an item and searches fo
 
 | Name | Type |
 | - | - |
-| player | EntityPlayer * purchasedPickup |
+| player | EntityPlayer |
+| purchasedPickup | EntityPickup |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
+| pickupVariant | PickupVariant |
+| pickupSubType | integer |
 
 
 ### POST_ROCK_RENDER
@@ -1062,7 +1166,8 @@ Called from the `GRID_ENTITY_RENDER` callback for each rock.
 
 | Name | Type |
 | - | - |
-| rockType | GridEntityType * rockVariant |
+| rockType | GridEntityType |
+| rockVariant | integer |
 
 
 ### POST_ROCK_UPDATE
@@ -1079,7 +1184,8 @@ Called from the `GRID_ENTITY_UPDATE` callback for each rock.
 
 | Name | Type |
 | - | - |
-| rockType | GridEntityType * rockVariant |
+| rockType | GridEntityType |
+| rockVariant | integer |
 
 
 ### POST_ROOM_CLEAR_CHANGED
@@ -1108,26 +1214,29 @@ Return false to avoid the damage.
 
 | Name | Type |
 | - | - |
-| player | EntityPlayer * numSacrifices |
+| player | EntityPlayer |
+| numSacrifices | integer |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
 
 
 ### POST_SLOT_ANIMATION_CHANGED
 
 Called whenever an slot's animation changes. 
 Params 
-* slot - Entity * oldAnimation - string * newAnimation - string 
+ * slot - Entity  * oldAnimation - string  * newAnimation - string 
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| slotVariant | SlotVariant * slotSubType |
+| slotVariant | SlotVariant |
+| slotSubType | integer |
 
 
 ### POST_SLOT_DESTROYED
@@ -1135,26 +1244,28 @@ Params
 Called whenever an slot is destroyed. 
 This can happen when a slot is destroyed by an explosion or when a slot pays out with an item. 
 Params 
-* slot - Entity * isPayingOut - boolean 
+ * slot - Entity  * isPayingOut - boolean 
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| slotVariant | SlotVariant * slotSubType |
+| slotVariant | SlotVariant |
+| slotSubType | integer |
 
 
 ### POST_SLOT_INIT
 
 Called the first frame a slot is available. 
 Params 
-* slot - Entity 
+ * slot - Entity 
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| slotVariant | SlotVariant * slotSubType |
+| slotVariant | SlotVariant |
+| slotSubType | integer |
 
 
 ### POST_SLOT_PRIZE
@@ -1162,39 +1273,42 @@ Params
 Called whenever an slot's sprite triggers its `Prize` or `Disappear` events. 
 `Prize` is triggered by slot machines and beggars and `Disappear` is only triggered by beggars when they pay out their item. 
 Params 
-* slot - Entity * isDisappear - boolean 
+ * slot - Entity  * isDisappear - boolean 
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| slotVariant | SlotVariant * slotSubType |
+| slotVariant | SlotVariant |
+| slotSubType | integer |
 
 
 ### POST_SLOT_RENDER
 
 Called from the `POST_RENDER` callback for every slot in the room. 
 Params 
-* slot - Entity 
+ * slot - Entity 
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| slotVariant | SlotVariant * slotSubType |
+| slotVariant | SlotVariant |
+| slotSubType | integer |
 
 
 ### POST_SLOT_UPDATE
 
 Called from the `POST_UPDATE` callback for every slot in the room. 
 Params 
-* slot - Entity 
+ * slot - Entity 
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| slotVariant | SlotVariant * slotSubType |
+| slotVariant | SlotVariant |
+| slotSubType | integer |
 
 
 ### POST_SPIKES_RENDER
@@ -1245,7 +1359,8 @@ Called the first frame a tear is available. This is useful since the `POST_TEAR_
 
 | Name | Type |
 | - | - |
-| tearVariant | TearVariant * tearSubType |
+| tearVariant | TearVariant |
+| tearSubType | integer |
 
 
 ### POST_TEAR_INIT_VERY_LATE
@@ -1262,7 +1377,8 @@ Called the second frame a tear is available. This is useful since incubus tears 
 
 | Name | Type |
 | - | - |
-| tearVariant | TearVariant * tearSubType |
+| tearVariant | TearVariant |
+| tearSubType | integer |
 
 
 ### POST_TNT_RENDER
@@ -1307,13 +1423,16 @@ Called whenever a player gains a transformation.
 
 | Name | Type |
 | - | - |
-| player | EntityPlayer * transformation |
+| player | EntityPlayer |
+| transformation | PlayerForm |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
+| transformation | PlayerForm |
 
 
 ### POST_TRANSFORMATION_LOST
@@ -1324,20 +1443,22 @@ Called whenever a player loses a transformation.
 
 | Name | Type |
 | - | - |
-| player | EntityPlayer * transformation |
+| player | EntityPlayer |
+| transformation | PlayerForm |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
+| transformation | PlayerForm |
 
 
 ### POST_TSIL_LOAD
 
 Called whenever an instance of the library is finished loading. 
 Used internally to make sure all of the library features are loaded 
-
 
 ### PRE_BERSERK_DEATH
 
@@ -1353,7 +1474,8 @@ Called when a player is about to exit the berserk state and will die when it end
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
 
 
 ### PRE_GET_PEDESTAL
@@ -1365,13 +1487,16 @@ Return true to ignore collision, false to collide but not execute internal code 
 
 | Name | Type |
 | - | - |
-| player | EntityPlayer * collectible |
+| player | EntityPlayer |
+| collectible | EntityPickup |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
+| collectibleType | CollectibleType |
 
 
 ### PRE_ITEM_PICKUP
@@ -1382,13 +1507,18 @@ Called whenever an item enters a player's item queue. i.e. when they begin holdi
 
 | Name | Type |
 | - | - |
-| player | EntityPlayer * itemID |
+| player | EntityPlayer |
+| itemID | CollectibleType | TriketType |
+| itemType | InventoryType |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| playerType | PlayerType * playerVariant |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
+| itemID | CollectibleType | TriketType |
+| itemType | InventoryType |
 
 
 ### PRE_NEW_LEVEL
@@ -1412,13 +1542,17 @@ Return true to ignore collision, false to collide but not execute internal code 
 
 | Name | Type |
 | - | - |
-| entity | EntityNPC * collider |
+| entity | EntityNPC |
+| collider | Entity |
+| isLow | boolean |
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| entityType | EntityType * entityVariant |
+| entityType | EntityType |
+| entityVariant | integer |
+| entitySubType | integer |
 
 
 ### PRE_NPC_UPDATE_FILTER
@@ -1436,19 +1570,24 @@ Return true to ignore internal AI. Return nil or false otherwise
 
 | Name | Type |
 | - | - |
-| entityType | EntityType * entityVariant |
+| entityType | EntityType |
+| entityVariant | integer |
+| entitySubType | integer |
 
 
 ### PRE_SLOT_COLLISION
 
 Called from the `PRE_PLAYER_COLLISION` callback whenever the player collides with a slot. 
 Params 
-* slot - Entity * player - EntityPlayer 
+ * slot - Entity  * player - EntityPlayer 
 
 #### Optional arguments
 
 | Name | Type |
 | - | - |
-| slotVariant | SlotVariant * slotSubType |
+| slotVariant | SlotVariant |
+| slotSubType | integer |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
 
 
