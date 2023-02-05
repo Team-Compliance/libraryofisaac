@@ -1,9 +1,11 @@
 # MrMawVariant
 
-| Enumerator         | Value | Description |
-| ------------------ | ----- | ----------- |
-| MR\_MAW            | 0     |             |
-| MR\_MAW\_HEAD      | 1     |             |
-| MR\_RED\_MAW       | 2     |             |
-| MR\_RED\_MAW\_HEAD | 3     |             |
-| MR\_MAW\_NECK      | 10    |             |
+For `EntityType.ENTITY_MR_MAW` (35). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| MR_MAW | 0 |  |
+| MR_MAW_HEAD | 1 |  |
+| MR_RED_MAW | 2 |  |
+| MR_RED_MAW_HEAD | 3 |  |
+| MR_MAW_NECK | 10 |  |

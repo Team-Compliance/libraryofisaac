@@ -1,7 +1,9 @@
 # CultistVariant
 
-| Enumerator     | Value | Description |
-| -------------- | ----- | ----------- |
-| CULTIST        | 0     |             |
-| BLOOD\_CULTIST | 1     |             |
-| BONE\_TRAP     | 10    |             |
+For `EntityType.ENTITY_CULTIST` (885). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| CULTIST | 0 |  |
+| BLOOD_CULTIST | 1 |  |
+| BONE_TRAP | 10 |  |

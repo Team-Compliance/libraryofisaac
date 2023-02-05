@@ -1,7 +1,9 @@
 # BigHornVariant
 
-| Enumerator  | Value | Description |
-| ----------- | ----- | ----------- |
-| BIG\_HORN   | 0     |             |
-| SMALL\_HOLE | 1     |             |
-| BIG\_HOLE   | 2     |             |
+For `EntityType.ENTITY_BIG_HORN` (411). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| BIG_HORN | 0 |  |
+| SMALL_HOLE | 1 |  |
+| BIG_HOLE | 2 |  |

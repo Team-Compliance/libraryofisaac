@@ -1,8 +1,10 @@
 # GaperVariant
 
-| Enumerator      | Value | Description |
-| --------------- | ----- | ----------- |
-| FROWNING\_GAPER | 0     |             |
-| GAPER           | 1     |             |
-| FLAMING\_GAPER  | 2     |             |
-| ROTTEN\_GAPER   | 3     |             |
+- For `EntityType.ENTITY_GAPER` (10). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| FROWNING_GAPER | 0 |  |
+| GAPER | 1 |  |
+| FLAMING_GAPER | 2 |  |
+| ROTTEN_GAPER | 3 |  |

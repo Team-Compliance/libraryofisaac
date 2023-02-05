@@ -1,6 +1,8 @@
 # DopleVariant
 
+For `EntityType.ENTITY_DOPLE` (53). 
+
 | Enumerator | Value | Description |
-| ---------- | ----- | ----------- |
-| DOPLE      | 0     |             |
-| EVIL\_TWIN | 1     |             |
+| - | - | - |
+| DOPLE | 0 |  |
+| EVIL_TWIN | 1 |  |

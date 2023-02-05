@@ -1,6 +1,6 @@
 # SpiderWebState
 
 | Enumerator | Value | Description |
-| ---------- | ----- | ----------- |
-| UNBROKEN   | 0     |             |
-| BROKEN     | 1     |             |
+| - | - | - |
+| UNBROKEN | 0 |  |
+| BROKEN | 1 |  |

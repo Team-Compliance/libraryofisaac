@@ -1,6 +1,8 @@
 # HauntVariant
 
+For `EntityType.ENTITY_THE_HAUNT` (260). 
+
 | Enumerator | Value | Description |
-| ---------- | ----- | ----------- |
-| HAUNT      | 0     |             |
-| LIL\_HAUNT | 10    |             |
+| - | - | - |
+| HAUNT | 0 |  |
+| LIL_HAUNT | 10 |  |

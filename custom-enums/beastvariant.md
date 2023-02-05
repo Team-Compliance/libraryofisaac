@@ -1,24 +1,26 @@
 # BeastVariant
 
-| Enumerator                   | Value | Description |
-| ---------------------------- | ----- | ----------- |
-| BEAST                        | 0     |             |
-| STALACTITE                   | 1     |             |
-| ROCK\_PROJECTILE             | 2     |             |
-| SOUL                         | 3     |             |
-| ULTRA\_FAMINE                | 10    |             |
-| ULTRA\_FAMINE\_FLY           | 11    |             |
-| ULTRA\_PESTILENCE            | 20    |             |
-| ULTRA\_PESTILENCE\_FLY       | 21    |             |
-| ULTRA\_PESTILENCE\_MAGGOT    | 22    |             |
-| ULTRA\_PESTILENCE\_FLY\_BALL | 23    |             |
-| ULTRA\_WAR                   | 30    |             |
-| ULTRA\_WAR\_BOMB             | 31    |             |
-| ULTRA\_DEATH                 | 40    |             |
-| ULTRA\_DEATH\_SCYTHE         | 41    |             |
-| ULTRA\_DEATH\_HEAD           | 42    |             |
-| BACKGROUND\_BEAST            | 100   |             |
-| BACKGROUND\_FAMINE           | 101   |             |
-| BACKGROUND\_PESTILENCE       | 102   |             |
-| BACKGROUND\_WAR              | 103   |             |
-| BACKGROUND\_DEATH            | 104   |             |
+For `EntityType.ENTITY_BEAST` (951). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| BEAST | 0 |  |
+| STALACTITE | 1 |  |
+| ROCK_PROJECTILE | 2 |  |
+| SOUL | 3 |  |
+| ULTRA_FAMINE | 10 |  |
+| ULTRA_FAMINE_FLY | 11 |  |
+| ULTRA_PESTILENCE | 20 |  |
+| ULTRA_PESTILENCE_FLY | 21 |  |
+| ULTRA_PESTILENCE_MAGGOT | 22 |  |
+| ULTRA_PESTILENCE_FLY_BALL | 23 |  |
+| ULTRA_WAR | 30 |  |
+| ULTRA_WAR_BOMB | 31 |  |
+| ULTRA_DEATH | 40 |  |
+| ULTRA_DEATH_SCYTHE | 41 |  |
+| ULTRA_DEATH_HEAD | 42 |  |
+| BACKGROUND_BEAST | 100 |  |
+| BACKGROUND_FAMINE | 101 |  |
+| BACKGROUND_PESTILENCE | 102 |  |
+| BACKGROUND_WAR | 103 |  |
+| BACKGROUND_DEATH | 104 |  |

@@ -1,6 +1,8 @@
 # RevenantVariant
 
-| Enumerator     | Value | Description |
-| -------------- | ----- | ----------- |
-| REVENANT       | 0     |             |
-| QUAD\_REVENANT | 1     |             |
+For `EntityType.ENTITY_REVENANT` (841). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| REVENANT | 0 |  |
+| QUAD_REVENANT | 1 |  |

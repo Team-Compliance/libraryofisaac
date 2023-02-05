@@ -1,7 +1,9 @@
 # SlothVariant
 
-| Enumerator   | Value | Description |
-| ------------ | ----- | ----------- |
-| SLOT         | 0     |             |
-| SUPER\_SLOTH | 1     |             |
-| ULTRA\_PRIDE | 2     |             |
+For `EntityType.ENTITY_SLOTH` (46). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| SLOTH | 0 |  |
+| SUPER_SLOTH | 1 |  |
+| ULTRA_PRIDE | 2 |  |

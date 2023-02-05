@@ -1,6 +1,8 @@
 # WidowVariant
 
-| Enumerator    | Value | Description |
-| ------------- | ----- | ----------- |
-| WIDOW         | 0     |             |
-| THE\_WRETCHED | 1     |             |
+For `EntityType.ENTITY_WIDOW` (100). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| WIDOW | 0 |  |
+| THE_WRETCHED | 1 |  |

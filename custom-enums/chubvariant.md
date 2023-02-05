@@ -1,7 +1,9 @@
 # ChubVariant
 
-| Enumerator     | Value | Description |
-| -------------- | ----- | ----------- |
-| CHUB           | 0     |             |
-| CHAD           | 1     |             |
-| CARRION\_QUEEN | 2     |             |
+For `EntityType.ENTITY_CHUB` (28). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| CHUB | 0 |  |
+| CHAD | 1 |  |
+| CARRION_QUEEN | 2 |  |

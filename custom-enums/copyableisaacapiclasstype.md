@@ -1,9 +1,9 @@
 # CopyableIsaacAPIClassType
 
-| Enumerator    | Value     | Description |
-| ------------- | --------- | ----------- |
-| BIT\_SET\_128 | BitSet128 |             |
-| COLOR         | Color     |             |
-| K\_COLOR      | KColor    |             |
-| RNG           | RNG       |             |
-| VECTOR        | Vector    |             |
+| Enumerator | Value | Description |
+| - | - | - |
+| BIT_SET_128 | "BitSet128" |  |
+| COLOR | "Color" |  |
+| K_COLOR | "KColor" |  |
+| RNG | "RNG" |  |
+| VECTOR | "Vector" |  |

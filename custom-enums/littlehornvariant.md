@@ -1,6 +1,8 @@
 # LittleHornVariant
 
-| Enumerator   | Value | Description |
-| ------------ | ----- | ----------- |
-| LITTLE\_HORN | 0     |             |
-| DARK\_BALL   | 1     |             |
+For `EntityType.ENTITY_LITTLE_HORN` (404). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| LITTLE_HORN | 0 |  |
+| DARK_BALL | 1 |  |

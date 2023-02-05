@@ -1,9 +1,11 @@
 # VisVariant
 
-| Enumerator           | Value | Description |
-| -------------------- | ----- | ----------- |
-| VIS                  | 0     |             |
-| DOUBLE\_VIS          | 1     |             |
-| CHUBBER              | 2     |             |
-| SCARRED\_DOUBLE\_VIS | 3     |             |
-| CHUBBER\_PROJECTILE  | 22    |             |
+For `EntityType.ENTITY_VIS` (39). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| VIS | 0 |  |
+| DOUBLE_VIS | 1 |  |
+| CHUBBER | 2 |  |
+| SCARRED_DOUBLE_VIS | 3 |  |
+| CHUBBER_PROJECTILE | 22 |  |

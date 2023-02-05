@@ -1,6 +1,8 @@
 # WrathVariant
 
-| Enumerator   | Value | Description |
-| ------------ | ----- | ----------- |
-| WRATH        | 0     |             |
-| SUPER\_WRATH | 1     |             |
+For `EntityType.ENTITY_WRATH` (48). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| WRATH | 0 |  |
+| SUPER_WRATH | 1 |  |

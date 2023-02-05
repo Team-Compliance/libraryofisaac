@@ -1,7 +1,9 @@
 # ChimeraVariant
 
-| Enumerator    | Value | Description |
-| ------------- | ----- | ----------- |
-| CHIMERA       | 0     |             |
-| CHIMERA\_BODY | 1     |             |
-| CHIMERA\_HEAD | 2     |             |
+For `EntityType.ENTITY_CHIMERA` (910). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| CHIMERA | 0 |  |
+| CHIMERA_BODY | 1 |  |
+| CHIMERA_HEAD | 2 |  |

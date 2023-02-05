@@ -1,7 +1,9 @@
 # PitfallVariant
 
-| Enumerator        | Value | Description |
-| ----------------- | ----- | ----------- |
-| PITFALL           | 0     |             |
-| SUCTION\_PITFALL  | 1     |             |
-| TELEPORT\_PITFALL | 2     |             |
+For `EntityType.ENTITY_PITFALL` (291). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| PITFALL | 0 |  |
+| SUCTION_PITFALL | 1 |  |
+| TELEPORT_PITFALL | 2 |  |

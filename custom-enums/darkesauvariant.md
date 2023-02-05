@@ -1,6 +1,8 @@
 # DarkEsauVariant
 
+For `EntityType.ENTITY_DARK_ESAU` (866). 
+
 | Enumerator | Value | Description |
-| ---------- | ----- | ----------- |
-| DARK\_ESAU | 0     |             |
-| PIT        | 1     |             |
+| - | - | - |
+| DARK_ESAU | 0 |  |
+| PIT | 1 |  |

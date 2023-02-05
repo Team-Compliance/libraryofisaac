@@ -1,15 +1,16 @@
 # CallbackOptionalArgType
 
-| GENERIC                        | 0  | Description |
-| ------------------------------ | -- | ----------- |
-| NONE                           | 1  | ​           |
-| ENTITY\_TYPE                   | 2  | ​           |
-| ENTITY\_TYPE\_VARIANT          | 3  |             |
-| ENTITY\_TYPE\_VARIANT\_SUBTYPE | 4  |             |
-| ENTITY\_VARIANT\_SUBTYPE       | 5  |             |
-| ENTITY\_SUBTYPE                | 6  |             |
-| GRID\_TYPE                     | 7  |             |
-| GRID\_TYPE\_VARIANT            | 8  |             |
-| GRID\_VARIANT                  | 9  |             |
-| PLAYER\_TYPE\_VARIANT          | 10 |             |
-| PLAYER\_TYPE                   | 11 |             |
+| Enumerator | Value | Description |
+| - | - | - |
+| GENERIC | 0 |  |
+| NONE | 1 |  |
+| ENTITY_TYPE | 2 |  |
+| ENTITY_TYPE_VARIANT | 3 |  |
+| ENTITY_TYPE_VARIANT_SUBTYPE | 4 |  |
+| ENTITY_VARIANT_SUBTYPE | 5 |  |
+| ENTITY_SUBTYPE | 6 |  |
+| GRID_TYPE | 7 |  |
+| GRID_TYPE_VARIANT | 8 |  |
+| GRID_VARIANT | 9 |  |
+| PLAYER_TYPE_VARIANT | 10 |  |
+| PLAYER_TYPE | 11 |  |

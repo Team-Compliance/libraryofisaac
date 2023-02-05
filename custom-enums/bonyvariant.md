@@ -1,6 +1,8 @@
 # BonyVariant
 
+For `EntityType.ENTITY_BONY` (227). 
+
 | Enumerator | Value | Description |
-| ---------- | ----- | ----------- |
-| BONY       | 0     |             |
-| HOLY\_BONY | 1     |             |
+| - | - | - |
+| BONY | 0 |  |
+| HOLY_BONY | 1 |  |

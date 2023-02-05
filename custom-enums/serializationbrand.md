@@ -1,9 +1,9 @@
 # SerializationBrand
 
-| Enumerator    | Value             | Description |
-| ------------- | ----------------- | ----------- |
-| BIT\_SET\_128 | \_\_BIT\_SET\_128 |             |
-| COLOR         | \_\_COLOR         |             |
-| K\_COLOR      | \_\_K\_COLOR      |             |
-| RNG           | \_\_RNG           |             |
-| VECTOR        | \_\_VECTOR        |             |
+| Enumerator | Value | Description |
+| - | - | - |
+| BIT_SET_128 | "__BIT_SET_128" |  |
+| COLOR | "__COLOR" |  |
+| K_COLOR | "__K_COLOR" |  |
+| RNG | "__RNG" |  |
+| VECTOR | "__VECTOR" |  |

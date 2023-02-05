@@ -1,6 +1,6 @@
 # StatueVariant
 
 | Enumerator | Value | Description |
-| ---------- | ----- | ----------- |
-| DEVIL      | 0     |             |
-| ANGEL      | 1     |             |
+| - | - | - |
+| DEVIL | 0 |  |
+| ANGEL | 1 |  |

@@ -1,6 +1,8 @@
 # DukeVariant
 
-| Enumerator      | Value | Description |
-| --------------- | ----- | ----------- |
-| DUKE\_OF\_FLIES | 0     |             |
-| THE\_HUSK       | 1     |             |
+For `EntityType.ENTITY_DUKE` (67). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| DUKE_OF_FLIES | 0 |  |
+| THE_HUSK | 1 |  |

@@ -1,8 +1,10 @@
 # LarryJrVariant
 
-| Enumerator  | Value | Description |
-| ----------- | ----- | ----------- |
-| LARRY\_JR   | 0     |             |
-| THE\_HOLLOW | 1     |             |
-| TUFF\_TWIN  | 2     |             |
-| THE\_SHELL  | 3     |             |
+For `EntityType.ENTITY_LARRY_JR` (19). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| LARRY_JR | 0 |  |
+| THE_HOLLOW | 1 |  |
+| TUFF_TWIN | 2 |  |
+| THE_SHELL | 3 |  |

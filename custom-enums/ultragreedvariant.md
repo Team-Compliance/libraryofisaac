@@ -1,6 +1,8 @@
 # UltraGreedVariant
 
-| Enumerator      | Value | Description |
-| --------------- | ----- | ----------- |
-| ULTRA\_GREED    | 0     |             |
-| ULTRA\_GREEDIER | 1     |             |
+For `EntityType.ENTITY_ULTRA_GREED` (406). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| ULTRA_GREED | 0 |  |
+| ULTRA_GREEDIER | 1 |  |

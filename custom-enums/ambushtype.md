@@ -1,6 +1,6 @@
 # AmbushType
 
-| Enumerator      | Value | Description                      |
-| --------------- | ----- | -------------------------------- |
-| CHALLENGE\_ROOM | 0     | Normal and boss challenge rooms. |
-| BOSS\_RUSH      | 1     |                                  |
+| Enumerator | Value | Description |
+| - | - | - |
+| CHALLENGE_ROOM | 0 |  |
+| BOSS_RUSH | 1 |  |

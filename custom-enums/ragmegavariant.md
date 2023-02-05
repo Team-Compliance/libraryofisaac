@@ -1,7 +1,9 @@
 # RagMegaVariant
 
-| Enumerator      | Value | Description |
-| --------------- | ----- | ----------- |
-| RAG\_MEGA       | 0     |             |
-| PURPLE\_BALL    | 1     |             |
-| REBIRTH\_PILLAR | 2     |             |
+For `EntityType.ENTITY_RAG_MEGA` (409). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| RAG_MEGA | 0 |  |
+| PURPLE_BALL | 1 |  |
+| REBIRTH_PILLAR | 2 |  |

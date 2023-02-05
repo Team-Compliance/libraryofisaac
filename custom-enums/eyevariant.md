@@ -1,7 +1,9 @@
 # EyeVariant
 
-| Enumerator     | Value | Description |
-| -------------- | ----- | ----------- |
-| EYE            | 0     |             |
-| BLOODSHOT\_EYE | 1     |             |
-| HOLY\_EYE      | 2     |             |
+For `EntityType.ENTITY_EYE` (60). 
+
+| Enumerator | Value | Description |
+| - | - | - |
+| EYE | 0 |  |
+| BLOODSHOT_EYE | 1 |  |
+| HOLY_EYE | 2 |  |
