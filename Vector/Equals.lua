@@ -1,4 +1,4 @@
----Helper function to check if two vectors are equal.
+---Helper function to check if two vectors are exactly equal.
 ---@param v1 Vector
 ---@param v2 Vector
 ---@return boolean
