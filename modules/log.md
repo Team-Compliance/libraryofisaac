@@ -4,8 +4,8 @@
 
 | Return Value | Function |
 | - | - |
-| string? | [GetParentFunctionDescription](log.md#getparentfunctiondescription)()`number?` levels =  3 ) |
-| void | [Log](log.md#log)()`string` message) |
+| string? | [GetParentFunctionDescription](log.md#getparentfunctiondescription)(`number?` levels =  3 ) |
+| void | [Log](log.md#log)(`string` message) |
 
 ## Functions
 

@@ -4,10 +4,10 @@
 
 | Return Value | Function |
 | - | - |
-| [RNG](https://wofsauge.github.io/IsaacDocs/rep/RNG.html) | [CopyRNG](rng.md#copyrng)()[`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html) rng) |
-| integer | [GetRandomSeed](rng.md#getrandomseed)()) |
-| [RNG](https://wofsauge.github.io/IsaacDocs/rep/RNG.html) | [NewRNG](rng.md#newrng)()`integer The seed to initialize it with. Default is `TSIL.RNG.GetRandomSeed seed) |
-| void | [SetSeed](rng.md#setseed)()[`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html) rng, `integer` seed) |
+| [RNG](https://wofsauge.github.io/IsaacDocs/rep/RNG.html) | [CopyRNG](rng.md#copyrng)([`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html) rng) |
+| integer | [GetRandomSeed](rng.md#getrandomseed)() |
+| [RNG](https://wofsauge.github.io/IsaacDocs/rep/RNG.html) | [NewRNG](rng.md#newrng)(`integer The seed to initialize it with. Default is `TSIL.RNG.GetRandomSeed seed) |
+| void | [SetSeed](rng.md#setseed)([`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html) rng, `integer` seed) |
 
 ## Functions
 

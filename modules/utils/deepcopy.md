@@ -4,7 +4,7 @@
 
 | Return Value | Function |
 | - | - |
-| T | [DeepCopy](deepcopy.md#deepcopy)()`T` value, [`SerializationType`](../custom-enums/serializationtype.md) serializationType) |
+| T | [DeepCopy](deepcopy.md#deepcopy)(`T` value, [`SerializationType`](../custom-enums/serializationtype.md) serializationType) |
 
 ## Functions
 

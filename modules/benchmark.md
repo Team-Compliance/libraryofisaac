@@ -4,7 +4,7 @@
 
 | Return Value | Function |
 | - | - |
-| number\[] | [Benchmark](benchmark.md#benchmark)()`integer` numTrials, `function` ...) |
+| number\[] | [Benchmark](benchmark.md#benchmark)(`integer` numTrials, `function` ...) |
 
 ## Functions
 

@@ -4,12 +4,12 @@
 
 | Return Value | Function |
 | - | - |
-| number | [Clamp](math.md#clamp)()`number` a, `number` min, `number` max) |
-| boolean | [IsCircleIntersectingWithRectangle](math.md#iscircleintersectingwithrectangle)()[`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) RectPos, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) RectSize, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) CirclePos, `number` CircleSize) |
-| boolean | [IsInRectangle](math.md#isinrectangle)()[`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) pos, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) topLeft, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) topRight, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) bottomRight) |
-| number | [Lerp](math.md#lerp)()`number` a, `number` b, `number` t) |
-| number | [Round](math.md#round)()`number` n, `integer?` decimalPlaces =  0) |
-| number | [ScalarProduct](math.md#scalarproduct)()[`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) v1, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) v2) |
+| number | [Clamp](math.md#clamp)(`number` a, `number` min, `number` max) |
+| boolean | [IsCircleIntersectingWithRectangle](math.md#iscircleintersectingwithrectangle)([`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) RectPos, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) RectSize, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) CirclePos, `number` CircleSize) |
+| boolean | [IsInRectangle](math.md#isinrectangle)([`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) pos, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) topLeft, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) topRight, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) bottomRight) |
+| number | [Lerp](math.md#lerp)(`number` a, `number` b, `number` t) |
+| number | [Round](math.md#round)(`number` n, `integer?` decimalPlaces =  0) |
+| number | [ScalarProduct](math.md#scalarproduct)([`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) v1, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) v2) |
 
 ## Functions
 

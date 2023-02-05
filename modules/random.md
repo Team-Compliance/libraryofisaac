@@ -4,11 +4,11 @@
 
 | Return Value | Function |
 | - | - |
-| number | [GetRandom](random.md#getrandom)()`integer | `[`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html)`?` seedOrRNG =  `tsil.rng.getrandomseed()` ) |
-| T | [GetRandomElementFromWeightedList](random.md#getrandomelementfromweightedlist)()`integer | `[`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html) seedOrRNG, `{chance : integer, value : T}` ...) |
-| T\[] | [GetRandomElementsFromTable](random.md#getrandomelementsfromtable)()`T[]` toChoose, `integer?` numberOfElements? =  1, `integer | `[`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html)`?` seedOrRNG =  `tsil.rng.getrandomseed()` ) |
-| number | [GetRandomFloat](random.md#getrandomfloat)()`number The lower bound for the random number (inclusive).` min, `number The upper bound for the random number (exclusive)` max, `integer | `[`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html)`?` seedOrRNG =  `tsil.rng.getrandomseed()` ) |
-| integer | [GetRandomInt](random.md#getrandomint)()`integer The lower bound for the random number (inclusive).` min, `integer The upper bound for the random number (inclusive)` max, `number | `[`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html)`?` seedOrRNG =  `tsil.rng.getrandomseed()` , `integer Optional. An array of elements that will be skipped over when getting the random integer. For example, a min of 1, a max of 4, and an exceptions array of `[2]` woudl cause the function to return either 1, 3, or 4. Default is an empty array.` exceptions) |
+| number | [GetRandom](random.md#getrandom)(`integer | `[`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html)`?` seedOrRNG =  `tsil.rng.getrandomseed()` ) |
+| T | [GetRandomElementFromWeightedList](random.md#getrandomelementfromweightedlist)(`integer | `[`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html) seedOrRNG, `{chance : integer, value : T}` ...) |
+| T\[] | [GetRandomElementsFromTable](random.md#getrandomelementsfromtable)(`T[]` toChoose, `integer?` numberOfElements? =  1, `integer | `[`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html)`?` seedOrRNG =  `tsil.rng.getrandomseed()` ) |
+| number | [GetRandomFloat](random.md#getrandomfloat)(`number The lower bound for the random number (inclusive).` min, `number The upper bound for the random number (exclusive)` max, `integer | `[`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html)`?` seedOrRNG =  `tsil.rng.getrandomseed()` ) |
+| integer | [GetRandomInt](random.md#getrandomint)(`integer The lower bound for the random number (inclusive).` min, `integer The upper bound for the random number (inclusive)` max, `number | `[`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html)`?` seedOrRNG =  `tsil.rng.getrandomseed()` , `integer Optional. An array of elements that will be skipped over when getting the random integer. For example, a min of 1, a max of 4, and an exceptions array of `[2]` woudl cause the function to return either 1, 3, or 4. Default is an empty array.` exceptions) |
 
 ## Functions
 

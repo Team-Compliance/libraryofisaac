@@ -4,7 +4,7 @@
 
 | Return Value | Function |
 | - | - |
-| [AmbushType](../custom-enums/ambushtype.md)? | [GetAmbushType](ambush.md#getambushtype)()) |
+| [AmbushType](../custom-enums/ambushtype.md)? | [GetAmbushType](ambush.md#getambushtype)() |
 
 ## Functions
 

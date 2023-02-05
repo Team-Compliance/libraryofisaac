@@ -4,45 +4,45 @@
 
 | Return Value | Function |
 | - | - |
-| void | [CloseAllDoors](doors.md#closealldoors)()`boolean` playAnim) |
-| void | [CloseDoorFast](doors.md#closedoorfast)()[`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
-| integer | [DoorSlotsToDoorSlotBitMask](doors.md#doorslotstodoorslotbitmask)()[`DoorSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html) ...) |
-| [Direction](https://wofsauge.github.io/IsaacDocs/rep/enums/Direction.html) | [DoorSlotToDirection](doors.md#doorslottodirection)()[`DoorSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html) doorSlot) |
-| integer | [DoorSlotToDoorSlotFlag](doors.md#doorslottodoorslotflag)()[`DoorSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html) doorSlot) |
-| [GridEntityDoor](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html)? | [GetAngelOrDevilRoomDoor](doors.md#getangelordevilroomdoor)()) |
-| [GridEntityDoor](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html)? | [GetAngelRoomDoor](doors.md#getangelroomdoor)()) |
-| [GridEntityDoor](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html)? | [GetBlueWombDoor](doors.md#getbluewombdoor)()) |
-| [GridEntityDoor](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html)? | [GetDevilRoomDoor](doors.md#getdevilroomdoor)()) |
-| [Vector](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) | [GetDoorEnterPosition](doors.md#getdoorenterposition)()[`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
-| [GridEntityDoor](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html)\[] | [GetDoors](doors.md#getdoors)()[`RoomType`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomType.html) ...) |
-| [Vector](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) | [GetDoorSlotEnterPosition](doors.md#getdoorslotenterposition)()[`DoorSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html) doorSlot) |
-| [Vector](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) | [GetDoorSlotEnterPositionOffset](doors.md#getdoorslotenterpositionoffset)()`any` doorSlot) |
-| [DoorSlot](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html)\[] | [GetDoorSlotsForRoomShape](doors.md#getdoorslotsforroomshape)()[`RoomShape`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomShape.html) roomShape) |
-| [DoorSlot](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html)\[] | [GetDoorSlotsFromDoorSlotBitMask](doors.md#getdoorslotsfromdoorslotbitmask)()`integer` doorSlotBitMask) |
-| [GridEntityDoor](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html)\[] | [GetDoorsToRoomIndex](doors.md#getdoorstoroomindex)()`integer` ...) |
-| [DoorSlot](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html)? | [GetRoomShapeDoorSlot](doors.md#getroomshapedoorslot)()[`RoomShape`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomShape.html) roomShape, `integer` x, `integer` y) |
-| {x:integer, y:integer}? | [GetRoomShapeDoorSlotCoordinates](doors.md#getroomshapedoorslotcoordinates)()[`RoomShape`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomShape.html) roomShape, [`DoorSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html) doorSlot) |
-| [GridEntityDoor](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html)? | [GetSecretExitDoor](doors.md#getsecretexitdoor)()) |
-| [DoorSlot](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html)\[] | [GetUnusedDoorSlots](doors.md#getunuseddoorslots)()) |
-| boolean | [HasUnusedDoorSlot](doors.md#hasunuseddoorslot)()) |
-| boolean | [IsAngelRoomDoor](doors.md#isangelroomdoor)()[`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
-| boolean | [IsBlueWombDoor](doors.md#isbluewombdoor)()[`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
-| boolean | [IsDevilRoomDoor](doors.md#isdevilroomdoor)()[`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
-| boolean | [IsDoorSlotInRoomShape](doors.md#isdoorslotinroomshape)()[`DoorSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html) doorSlot, [`RoomShape`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomShape.html) roomShape) |
-| boolean | [IsDoorToDownpour](doors.md#isdoortodownpour)()[`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
-| boolean | [IsDoorToMausoleum](doors.md#isdoortomausoleum)()[`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
-| boolean | [IsDoorToMausoleumAscent](doors.md#isdoortomausoleumascent)()[`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
-| boolean | [IsDoorToMines](doors.md#isdoortomines)()[`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
-| boolean | [IsDoorToMomsHeart](doors.md#isdoortomomsheart)()[`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
-| boolean | [IsHiddenSecretDoor](doors.md#ishiddensecretdoor)()[`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
-| boolean | [IsSecretExitDoor](doors.md#issecretexitdoor)()[`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
-| boolean | [IsSecretRoomDoor](doors.md#issecretroomdoor)()[`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
-| void | [LockDoor](doors.md#lockdoor)()[`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
-| void | [OpenAllDoors](doors.md#openalldoors)()`boolean` playAnim) |
-| void | [OpenDoorFast](doors.md#opendoorfast)()[`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
-| void | [RemoveAllDoorsOfType](doors.md#removealldoorsoftype)()[`RoomType`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomType.html) ...) |
-| void | [RemoveDoor](doors.md#removedoor)()[`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
-| void | [RemoveDoors](doors.md#removedoors)()[`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html)`[]` doors) |
+| void | [CloseAllDoors](doors.md#closealldoors)(`boolean` playAnim) |
+| void | [CloseDoorFast](doors.md#closedoorfast)([`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
+| integer | [DoorSlotsToDoorSlotBitMask](doors.md#doorslotstodoorslotbitmask)([`DoorSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html) ...) |
+| [Direction](https://wofsauge.github.io/IsaacDocs/rep/enums/Direction.html) | [DoorSlotToDirection](doors.md#doorslottodirection)([`DoorSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html) doorSlot) |
+| integer | [DoorSlotToDoorSlotFlag](doors.md#doorslottodoorslotflag)([`DoorSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html) doorSlot) |
+| [GridEntityDoor](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html)? | [GetAngelOrDevilRoomDoor](doors.md#getangelordevilroomdoor)() |
+| [GridEntityDoor](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html)? | [GetAngelRoomDoor](doors.md#getangelroomdoor)() |
+| [GridEntityDoor](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html)? | [GetBlueWombDoor](doors.md#getbluewombdoor)() |
+| [GridEntityDoor](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html)? | [GetDevilRoomDoor](doors.md#getdevilroomdoor)() |
+| [Vector](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) | [GetDoorEnterPosition](doors.md#getdoorenterposition)([`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
+| [GridEntityDoor](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html)\[] | [GetDoors](doors.md#getdoors)([`RoomType`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomType.html) ...) |
+| [Vector](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) | [GetDoorSlotEnterPosition](doors.md#getdoorslotenterposition)([`DoorSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html) doorSlot) |
+| [Vector](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) | [GetDoorSlotEnterPositionOffset](doors.md#getdoorslotenterpositionoffset)(`any` doorSlot) |
+| [DoorSlot](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html)\[] | [GetDoorSlotsForRoomShape](doors.md#getdoorslotsforroomshape)([`RoomShape`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomShape.html) roomShape) |
+| [DoorSlot](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html)\[] | [GetDoorSlotsFromDoorSlotBitMask](doors.md#getdoorslotsfromdoorslotbitmask)(`integer` doorSlotBitMask) |
+| [GridEntityDoor](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html)\[] | [GetDoorsToRoomIndex](doors.md#getdoorstoroomindex)(`integer` ...) |
+| [DoorSlot](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html)? | [GetRoomShapeDoorSlot](doors.md#getroomshapedoorslot)([`RoomShape`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomShape.html) roomShape, `integer` x, `integer` y) |
+| {x:integer, y:integer}? | [GetRoomShapeDoorSlotCoordinates](doors.md#getroomshapedoorslotcoordinates)([`RoomShape`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomShape.html) roomShape, [`DoorSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html) doorSlot) |
+| [GridEntityDoor](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html)? | [GetSecretExitDoor](doors.md#getsecretexitdoor)() |
+| [DoorSlot](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html)\[] | [GetUnusedDoorSlots](doors.md#getunuseddoorslots)() |
+| boolean | [HasUnusedDoorSlot](doors.md#hasunuseddoorslot)() |
+| boolean | [IsAngelRoomDoor](doors.md#isangelroomdoor)([`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
+| boolean | [IsBlueWombDoor](doors.md#isbluewombdoor)([`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
+| boolean | [IsDevilRoomDoor](doors.md#isdevilroomdoor)([`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
+| boolean | [IsDoorSlotInRoomShape](doors.md#isdoorslotinroomshape)([`DoorSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/DoorSlot.html) doorSlot, [`RoomShape`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomShape.html) roomShape) |
+| boolean | [IsDoorToDownpour](doors.md#isdoortodownpour)([`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
+| boolean | [IsDoorToMausoleum](doors.md#isdoortomausoleum)([`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
+| boolean | [IsDoorToMausoleumAscent](doors.md#isdoortomausoleumascent)([`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
+| boolean | [IsDoorToMines](doors.md#isdoortomines)([`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
+| boolean | [IsDoorToMomsHeart](doors.md#isdoortomomsheart)([`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
+| boolean | [IsHiddenSecretDoor](doors.md#ishiddensecretdoor)([`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
+| boolean | [IsSecretExitDoor](doors.md#issecretexitdoor)([`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
+| boolean | [IsSecretRoomDoor](doors.md#issecretroomdoor)([`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
+| void | [LockDoor](doors.md#lockdoor)([`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
+| void | [OpenAllDoors](doors.md#openalldoors)(`boolean` playAnim) |
+| void | [OpenDoorFast](doors.md#opendoorfast)([`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
+| void | [RemoveAllDoorsOfType](doors.md#removealldoorsoftype)([`RoomType`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomType.html) ...) |
+| void | [RemoveDoor](doors.md#removedoor)([`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html) door) |
+| void | [RemoveDoors](doors.md#removedoors)([`GridEntityDoor`](https://wofsauge.github.io/IsaacDocs/rep/GridEntityDoor.html)`[]` doors) |
 
 ## Functions
 

@@ -4,7 +4,7 @@
 
 | Return Value | Function |
 | - | - |
-| boolean | [IsCollectibleInItemPool](itempool.md#iscollectibleinitempool)()[`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType, [`ItemPoolType`](https://wofsauge.github.io/IsaacDocs/rep/enums/ItemPoolType.html) itemPoolType) |
+| boolean | [IsCollectibleInItemPool](itempool.md#iscollectibleinitempool)([`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType, [`ItemPoolType`](https://wofsauge.github.io/IsaacDocs/rep/enums/ItemPoolType.html) itemPoolType) |
 
 ## Functions
 

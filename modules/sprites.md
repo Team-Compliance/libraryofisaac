@@ -4,9 +4,9 @@
 
 | Return Value | Function |
 | - | - |
-| integer | [GetLastFrameOfAnimation](sprites.md#getlastframeofanimation)()[`Sprite`](https://wofsauge.github.io/IsaacDocs/rep/Sprite.html) sprite, `string?` animation) |
-| boolean | [SpriteEquals](sprites.md#spriteequals)()[`Sprite`](https://wofsauge.github.io/IsaacDocs/rep/Sprite.html) sprite1, [`Sprite`](https://wofsauge.github.io/IsaacDocs/rep/Sprite.html) sprite2, `integer` layer, `integer` xStart, `integer` xFinish, `integer` xIncrement, `integer` yStart, `integer` yFinish, `integer` yIncrement) |
-| boolean | [TexelEquals](sprites.md#texelequals)()[`Sprite`](https://wofsauge.github.io/IsaacDocs/rep/Sprite.html) sprite1, [`Sprite`](https://wofsauge.github.io/IsaacDocs/rep/Sprite.html) sprite2, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) position, `integer` layer) |
+| integer | [GetLastFrameOfAnimation](sprites.md#getlastframeofanimation)([`Sprite`](https://wofsauge.github.io/IsaacDocs/rep/Sprite.html) sprite, `string?` animation) |
+| boolean | [SpriteEquals](sprites.md#spriteequals)([`Sprite`](https://wofsauge.github.io/IsaacDocs/rep/Sprite.html) sprite1, [`Sprite`](https://wofsauge.github.io/IsaacDocs/rep/Sprite.html) sprite2, `integer` layer, `integer` xStart, `integer` xFinish, `integer` xIncrement, `integer` yStart, `integer` yFinish, `integer` yIncrement) |
+| boolean | [TexelEquals](sprites.md#texelequals)([`Sprite`](https://wofsauge.github.io/IsaacDocs/rep/Sprite.html) sprite1, [`Sprite`](https://wofsauge.github.io/IsaacDocs/rep/Sprite.html) sprite2, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) position, `integer` layer) |
 
 ## Functions
 

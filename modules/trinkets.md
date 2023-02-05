@@ -4,9 +4,9 @@
 
 | Return Value | Function |
 | - | - |
-| integer | [GetGoldenTrinketType](trinkets.md#getgoldentrinkettype)()[`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) trinketType) |
-| integer | [GetNormalTrinketTypeFromGoldenTrinketType](trinkets.md#getnormaltrinkettypefromgoldentrinkettype)()`any` trinketType) |
-| boolean | [IsGoldenTrinket](trinkets.md#isgoldentrinket)()[`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) trinketType) |
+| integer | [GetGoldenTrinketType](trinkets.md#getgoldentrinkettype)([`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) trinketType) |
+| integer | [GetNormalTrinketTypeFromGoldenTrinketType](trinkets.md#getnormaltrinkettypefromgoldentrinkettype)(`any` trinketType) |
+| boolean | [IsGoldenTrinket](trinkets.md#isgoldentrinket)([`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) trinketType) |
 
 ## Functions
 

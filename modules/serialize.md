@@ -4,27 +4,27 @@
 
 | Return Value | Function |
 | - | - |
-| T | [CopyIsaacAPIClass](serialize.md#copyisaacapiclass)()`T` class) |
-| [BitSet128](https://wofsauge.github.io/IsaacDocs/rep/BitSet128.html) | [DeserializeBitSet128](serialize.md#deserializebitset128)()`table<unknown, unknown>` bitSet128) |
-| [Color](https://wofsauge.github.io/IsaacDocs/rep/Color.html) | [DeserializeColor](serialize.md#deserializecolor)()`table<unknown, unknown>` color) |
-| unknown | [DeserializeIsaacAPIClass](serialize.md#deserializeisaacapiclass)()`unknown` serializedIsaacAPIClass) |
-| [KColor](https://wofsauge.github.io/IsaacDocs/rep/KColor.html) | [DeserializeKColor](serialize.md#deserializekcolor)()`table<unknown, unknown>` kColor) |
-| [RNG](https://wofsauge.github.io/IsaacDocs/rep/RNG.html) | [DeserializeRNG](serialize.md#deserializerng)()`table<unknown, unknown>` rng) |
-| [Vector](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) | [DeserializeVector](serialize.md#deserializevector)()`table<unknown, unknown>` vector) |
-| boolean | [IsCopyableIsaacAPIClass](serialize.md#iscopyableisaacapiclass)()`unknown` object) |
-| boolean | [IsSerializationBrand](serialize.md#isserializationbrand)()`unknown` key) |
-| boolean | [IsSerializedBitSet128](serialize.md#isserializedbitset128)()`unknown` object) |
-| boolean | [IsSerializedColor](serialize.md#isserializedcolor)()`unknown` object) |
-| boolean | [IsSerializedIsaacAPIClass](serialize.md#isserializedisaacapiclass)()`unknown` object) |
-| boolean | [IsSerializedKColor](serialize.md#isserializedkcolor)()`unknown` object) |
-| boolean | [IsSerializedRNG](serialize.md#isserializedrng)()`unknown` object) |
-| boolean | [IsSerializedVector](serialize.md#isserializedvector)()`unknown` object) |
-| unknown | [SerializeBitSet128](serialize.md#serializebitset128)()[`BitSet128`](https://wofsauge.github.io/IsaacDocs/rep/BitSet128.html) bitSet128) |
-| unknown | [SerializeColor](serialize.md#serializecolor)()[`Color`](https://wofsauge.github.io/IsaacDocs/rep/Color.html) color) |
-| unknown | [SerializeIsaacAPIClass](serialize.md#serializeisaacapiclass)()`unknown` class) |
-| unknown | [SerializeKColor](serialize.md#serializekcolor)()[`KColor`](https://wofsauge.github.io/IsaacDocs/rep/KColor.html) kColor) |
-| unknown | [SerializeRNG](serialize.md#serializerng)()[`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html) rng) |
-| unknown | [SerializeVector](serialize.md#serializevector)()[`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) vector) |
+| T | [CopyIsaacAPIClass](serialize.md#copyisaacapiclass)(`T` class) |
+| [BitSet128](https://wofsauge.github.io/IsaacDocs/rep/BitSet128.html) | [DeserializeBitSet128](serialize.md#deserializebitset128)(`table<unknown, unknown>` bitSet128) |
+| [Color](https://wofsauge.github.io/IsaacDocs/rep/Color.html) | [DeserializeColor](serialize.md#deserializecolor)(`table<unknown, unknown>` color) |
+| unknown | [DeserializeIsaacAPIClass](serialize.md#deserializeisaacapiclass)(`unknown` serializedIsaacAPIClass) |
+| [KColor](https://wofsauge.github.io/IsaacDocs/rep/KColor.html) | [DeserializeKColor](serialize.md#deserializekcolor)(`table<unknown, unknown>` kColor) |
+| [RNG](https://wofsauge.github.io/IsaacDocs/rep/RNG.html) | [DeserializeRNG](serialize.md#deserializerng)(`table<unknown, unknown>` rng) |
+| [Vector](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) | [DeserializeVector](serialize.md#deserializevector)(`table<unknown, unknown>` vector) |
+| boolean | [IsCopyableIsaacAPIClass](serialize.md#iscopyableisaacapiclass)(`unknown` object) |
+| boolean | [IsSerializationBrand](serialize.md#isserializationbrand)(`unknown` key) |
+| boolean | [IsSerializedBitSet128](serialize.md#isserializedbitset128)(`unknown` object) |
+| boolean | [IsSerializedColor](serialize.md#isserializedcolor)(`unknown` object) |
+| boolean | [IsSerializedIsaacAPIClass](serialize.md#isserializedisaacapiclass)(`unknown` object) |
+| boolean | [IsSerializedKColor](serialize.md#isserializedkcolor)(`unknown` object) |
+| boolean | [IsSerializedRNG](serialize.md#isserializedrng)(`unknown` object) |
+| boolean | [IsSerializedVector](serialize.md#isserializedvector)(`unknown` object) |
+| unknown | [SerializeBitSet128](serialize.md#serializebitset128)([`BitSet128`](https://wofsauge.github.io/IsaacDocs/rep/BitSet128.html) bitSet128) |
+| unknown | [SerializeColor](serialize.md#serializecolor)([`Color`](https://wofsauge.github.io/IsaacDocs/rep/Color.html) color) |
+| unknown | [SerializeIsaacAPIClass](serialize.md#serializeisaacapiclass)(`unknown` class) |
+| unknown | [SerializeKColor](serialize.md#serializekcolor)([`KColor`](https://wofsauge.github.io/IsaacDocs/rep/KColor.html) kColor) |
+| unknown | [SerializeRNG](serialize.md#serializerng)([`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html) rng) |
+| unknown | [SerializeVector](serialize.md#serializevector)([`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) vector) |
 
 ## Functions
 

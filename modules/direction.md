@@ -4,9 +4,9 @@
 
 | Return Value | Function |
 | - | - |
-| [Direction](https://wofsauge.github.io/IsaacDocs/rep/enums/Direction.html) | [AngleToDirection](direction.md#angletodirection)()`number` angleDegrees) |
-| integer | [DirectionToDegrees](direction.md#directiontodegrees)()[`Direction`](https://wofsauge.github.io/IsaacDocs/rep/enums/Direction.html) direction) |
-| [Vector](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) | [DirectionToVector](direction.md#directiontovector)()[`Direction`](https://wofsauge.github.io/IsaacDocs/rep/enums/Direction.html) direction) |
+| [Direction](https://wofsauge.github.io/IsaacDocs/rep/enums/Direction.html) | [AngleToDirection](direction.md#angletodirection)(`number` angleDegrees) |
+| integer | [DirectionToDegrees](direction.md#directiontodegrees)([`Direction`](https://wofsauge.github.io/IsaacDocs/rep/enums/Direction.html) direction) |
+| [Vector](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) | [DirectionToVector](direction.md#directiontovector)([`Direction`](https://wofsauge.github.io/IsaacDocs/rep/enums/Direction.html) direction) |
 
 ## Functions
 

@@ -4,11 +4,11 @@
 
 | Return Value | Function |
 | - | - |
-| void | [CheckFamiliar](familiars.md#checkfamiliar)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType, `integer` targetCount, [`FamiliarVariant`](https://wofsauge.github.io/IsaacDocs/rep/enums/FamiliarVariant.html) familiarVariant, `integer?` familiarSubtype) |
-| void | [CheckFamiliarFromCollectibles](familiars.md#checkfamiliarfromcollectibles)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType, [`FamiliarVariant`](https://wofsauge.github.io/IsaacDocs/rep/enums/FamiliarVariant.html) familiarVariant, `integer?` familiarSubtype) |
-| [EntityFamiliar](https://wofsauge.github.io/IsaacDocs/rep/EntityFamiliar.html)\[] | [GetPlayerFamiliars](familiars.md#getplayerfamiliars)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
-| [Entity](https://wofsauge.github.io/IsaacDocs/rep/Entity.html)? | [GetSirenHelper](familiars.md#getsirenhelper)()[`EntityFamiliar`](https://wofsauge.github.io/IsaacDocs/rep/EntityFamiliar.html) familiar) |
-| boolean | [IsFamiliarStolenBySiren](familiars.md#isfamiliarstolenbysiren)()[`EntityFamiliar`](https://wofsauge.github.io/IsaacDocs/rep/EntityFamiliar.html) familiar) |
+| void | [CheckFamiliar](familiars.md#checkfamiliar)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType, `integer` targetCount, [`FamiliarVariant`](https://wofsauge.github.io/IsaacDocs/rep/enums/FamiliarVariant.html) familiarVariant, `integer?` familiarSubtype) |
+| void | [CheckFamiliarFromCollectibles](familiars.md#checkfamiliarfromcollectibles)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType, [`FamiliarVariant`](https://wofsauge.github.io/IsaacDocs/rep/enums/FamiliarVariant.html) familiarVariant, `integer?` familiarSubtype) |
+| [EntityFamiliar](https://wofsauge.github.io/IsaacDocs/rep/EntityFamiliar.html)\[] | [GetPlayerFamiliars](familiars.md#getplayerfamiliars)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| [Entity](https://wofsauge.github.io/IsaacDocs/rep/Entity.html)? | [GetSirenHelper](familiars.md#getsirenhelper)([`EntityFamiliar`](https://wofsauge.github.io/IsaacDocs/rep/EntityFamiliar.html) familiar) |
+| boolean | [IsFamiliarStolenBySiren](familiars.md#isfamiliarstolenbysiren)([`EntityFamiliar`](https://wofsauge.github.io/IsaacDocs/rep/EntityFamiliar.html) familiar) |
 
 ## Functions
 

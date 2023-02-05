@@ -4,10 +4,10 @@
 
 | Return Value | Function |
 | - | - |
-| number | [GetTime](debug.md#gettime)()) |
-| string | [GetTraceback](debug.md#gettraceback)()) |
-| boolean | [IsLuaDebugEnabled](debug.md#isluadebugenabled)()) |
-| void | [Traceback](debug.md#traceback)()) |
+| number | [GetTime](debug.md#gettime)() |
+| string | [GetTraceback](debug.md#gettraceback)() |
+| boolean | [IsLuaDebugEnabled](debug.md#isluadebugenabled)() |
+| void | [Traceback](debug.md#traceback)() |
 
 ## Functions
 

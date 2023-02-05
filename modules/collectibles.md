@@ -4,26 +4,26 @@
 
 | Return Value | Function |
 | - | - |
-| boolean | [CollectibleHasFlag](collectibles.md#collectiblehasflag)()[`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType, [`ItemConfigTag`](../custom-enums/itemconfigtag.md) flag) |
-| boolean | [CollectibleSpriteEquals](collectibles.md#collectiblespriteequals)()[`Sprite`](https://wofsauge.github.io/IsaacDocs/rep/Sprite.html) sprite1, [`Sprite`](https://wofsauge.github.io/IsaacDocs/rep/Sprite.html) sprite2) |
-| integer | [GetCollectibleDevilCoinPrice](collectibles.md#getcollectibledevilcoinprice)()[`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType) |
-| [PickupPrice](https://wofsauge.github.io/IsaacDocs/rep/enums/PickupPrice.html) | [GetCollectibleDevilHeartPrice](collectibles.md#getcollectibledevilheartprice)()[`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType, [`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
-| CollectibleIndex | [GetCollectibleIndex](collectibles.md#getcollectibleindex)()[`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) collectible) |
-| number | [GetCollectibleMaxCharges](collectibles.md#getcollectiblemaxcharges)()[`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType) |
-| ItemConfig_Item\[] | [GetCollectibles](collectibles.md#getcollectibles)()) |
-| ItemConfig_Item\[] | [GetCollectiblesByQuality](collectibles.md#getcollectiblesbyquality)()`integer` quality) |
-| ItemConfig_Item\[] | [GetCollectiblesWithTag](collectibles.md#getcollectibleswithtag)()[`ItemConfigTag`](../custom-enums/itemconfigtag.md) ...) |
-| ItemConfig_Item\[] | [GetModdedCollectibles](collectibles.md#getmoddedcollectibles)()) |
-| ItemConfig_Item\[] | [GetVanillaCollectibles](collectibles.md#getvanillacollectibles)()) |
-| boolean | [IsBlindCollectible](collectibles.md#isblindcollectible)()[`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) collectible) |
-| boolean | [IsGlitchedCollectible](collectibles.md#isglitchedcollectible)()[`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) collectible) |
-| boolean | [IsModdedColllectible](collectibles.md#ismoddedcolllectible)()[`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType) |
-| boolean | [IsPassiveCollectible](collectibles.md#ispassivecollectible)()[`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType) |
-| void | [SetCollectibleBlind](collectibles.md#setcollectibleblind)()[`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) collectible) |
-| void | [SetCollectibleGlitched](collectibles.md#setcollectibleglitched)()[`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) collectible) |
-| void | [SetCollectibleSprite](collectibles.md#setcollectiblesprite)()[`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) collectible, `string?` spriteSheet) |
-| void | [SetCollectibleSubType](collectibles.md#setcollectiblesubtype)()[`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) collectible, [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) newSubType) |
-| boolean | [TryRemoveCollectible](collectibles.md#tryremovecollectible)()[`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) collectible) |
+| boolean | [CollectibleHasFlag](collectibles.md#collectiblehasflag)([`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType, [`ItemConfigTag`](../custom-enums/itemconfigtag.md) flag) |
+| boolean | [CollectibleSpriteEquals](collectibles.md#collectiblespriteequals)([`Sprite`](https://wofsauge.github.io/IsaacDocs/rep/Sprite.html) sprite1, [`Sprite`](https://wofsauge.github.io/IsaacDocs/rep/Sprite.html) sprite2) |
+| integer | [GetCollectibleDevilCoinPrice](collectibles.md#getcollectibledevilcoinprice)([`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType) |
+| [PickupPrice](https://wofsauge.github.io/IsaacDocs/rep/enums/PickupPrice.html) | [GetCollectibleDevilHeartPrice](collectibles.md#getcollectibledevilheartprice)([`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType, [`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| CollectibleIndex | [GetCollectibleIndex](collectibles.md#getcollectibleindex)([`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) collectible) |
+| number | [GetCollectibleMaxCharges](collectibles.md#getcollectiblemaxcharges)([`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType) |
+| ItemConfig_Item\[] | [GetCollectibles](collectibles.md#getcollectibles)() |
+| ItemConfig_Item\[] | [GetCollectiblesByQuality](collectibles.md#getcollectiblesbyquality)(`integer` quality) |
+| ItemConfig_Item\[] | [GetCollectiblesWithTag](collectibles.md#getcollectibleswithtag)([`ItemConfigTag`](../custom-enums/itemconfigtag.md) ...) |
+| ItemConfig_Item\[] | [GetModdedCollectibles](collectibles.md#getmoddedcollectibles)() |
+| ItemConfig_Item\[] | [GetVanillaCollectibles](collectibles.md#getvanillacollectibles)() |
+| boolean | [IsBlindCollectible](collectibles.md#isblindcollectible)([`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) collectible) |
+| boolean | [IsGlitchedCollectible](collectibles.md#isglitchedcollectible)([`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) collectible) |
+| boolean | [IsModdedColllectible](collectibles.md#ismoddedcolllectible)([`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType) |
+| boolean | [IsPassiveCollectible](collectibles.md#ispassivecollectible)([`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleType) |
+| void | [SetCollectibleBlind](collectibles.md#setcollectibleblind)([`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) collectible) |
+| void | [SetCollectibleGlitched](collectibles.md#setcollectibleglitched)([`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) collectible) |
+| void | [SetCollectibleSprite](collectibles.md#setcollectiblesprite)([`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) collectible, `string?` spriteSheet) |
+| void | [SetCollectibleSubType](collectibles.md#setcollectiblesubtype)([`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) collectible, [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) newSubType) |
+| boolean | [TryRemoveCollectible](collectibles.md#tryremovecollectible)([`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) collectible) |
 
 ## Functions
 

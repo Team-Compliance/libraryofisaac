@@ -4,11 +4,11 @@
 
 | Return Value | Function |
 | - | - |
-| integer | [GetCoinValue](pickups.md#getcoinvalue)()[`CoinSubType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CoinSubType.html) coinSubType) |
-| PickupIndex | [GetPickupIndex](pickups.md#getpickupindex)()[`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) pickup) |
-| [EntityPickup](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html)\[] | [GetRedHearts](pickups.md#getredhearts)()) |
-| boolean | [IsChest](pickups.md#ischest)()[`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) pickup) |
-| boolean | [IsRedHeart](pickups.md#isredheart)()[`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) pickup) |
+| integer | [GetCoinValue](pickups.md#getcoinvalue)([`CoinSubType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CoinSubType.html) coinSubType) |
+| PickupIndex | [GetPickupIndex](pickups.md#getpickupindex)([`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) pickup) |
+| [EntityPickup](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html)\[] | [GetRedHearts](pickups.md#getredhearts)() |
+| boolean | [IsChest](pickups.md#ischest)([`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) pickup) |
+| boolean | [IsRedHeart](pickups.md#isredheart)([`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html) pickup) |
 
 ## Functions
 

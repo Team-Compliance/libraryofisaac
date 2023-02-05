@@ -4,8 +4,8 @@
 
 | Return Value | Function |
 | - | - |
-| [Dimension](../custom-enums/dimension.md) | [GetDimension](dimensions.md#getdimension)()) |
-| boolean | [InDimension](dimensions.md#indimension)()[`Dimension`](../custom-enums/dimension.md) dimension) |
+| [Dimension](../custom-enums/dimension.md) | [GetDimension](dimensions.md#getdimension)() |
+| boolean | [InDimension](dimensions.md#indimension)([`Dimension`](../custom-enums/dimension.md) dimension) |
 
 ## Functions
 

@@ -4,13 +4,13 @@
 
 | Return Value | Function |
 | - | - |
-| [PillEffect](https://wofsauge.github.io/IsaacDocs/rep/enums/PillEffect.html) | [GetFalsePHDPillEffect](pills.md#getfalsephdpilleffect)()[`PillEffect`](https://wofsauge.github.io/IsaacDocs/rep/enums/PillEffect.html) pillEffect) |
-| [PillColor](https://wofsauge.github.io/IsaacDocs/rep/enums/PillColor.html) | [GetHorsePillCollor](pills.md#gethorsepillcollor)()[`PillColor`](https://wofsauge.github.io/IsaacDocs/rep/enums/PillColor.html) pillColor) |
-| [PillColor](https://wofsauge.github.io/IsaacDocs/rep/enums/PillColor.html) | [GetNormalPillColorFromHorsePill](pills.md#getnormalpillcolorfromhorsepill)()[`PillColor`](https://wofsauge.github.io/IsaacDocs/rep/enums/PillColor.html) pillColor) |
-| [PillEffect](https://wofsauge.github.io/IsaacDocs/rep/enums/PillEffect.html) | [GetPHDPillEffect](pills.md#getphdpilleffect)()[`PillEffect`](https://wofsauge.github.io/IsaacDocs/rep/enums/PillEffect.html) pillEffect) |
-| string | [GetPillEffectName](pills.md#getpilleffectname)()[`PillEffect`](https://wofsauge.github.io/IsaacDocs/rep/enums/PillEffect.html) pillEffect) |
-| [PillEffectType](../custom-enums/pilleffecttype.md) | [GetPillEffectType](pills.md#getpilleffecttype)()[`PillEffect`](https://wofsauge.github.io/IsaacDocs/rep/enums/PillEffect.html) pillEffect) |
-| boolean | [IsHorsePill](pills.md#ishorsepill)()[`PillColor`](https://wofsauge.github.io/IsaacDocs/rep/enums/PillColor.html) pillColor) |
+| [PillEffect](https://wofsauge.github.io/IsaacDocs/rep/enums/PillEffect.html) | [GetFalsePHDPillEffect](pills.md#getfalsephdpilleffect)([`PillEffect`](https://wofsauge.github.io/IsaacDocs/rep/enums/PillEffect.html) pillEffect) |
+| [PillColor](https://wofsauge.github.io/IsaacDocs/rep/enums/PillColor.html) | [GetHorsePillCollor](pills.md#gethorsepillcollor)([`PillColor`](https://wofsauge.github.io/IsaacDocs/rep/enums/PillColor.html) pillColor) |
+| [PillColor](https://wofsauge.github.io/IsaacDocs/rep/enums/PillColor.html) | [GetNormalPillColorFromHorsePill](pills.md#getnormalpillcolorfromhorsepill)([`PillColor`](https://wofsauge.github.io/IsaacDocs/rep/enums/PillColor.html) pillColor) |
+| [PillEffect](https://wofsauge.github.io/IsaacDocs/rep/enums/PillEffect.html) | [GetPHDPillEffect](pills.md#getphdpilleffect)([`PillEffect`](https://wofsauge.github.io/IsaacDocs/rep/enums/PillEffect.html) pillEffect) |
+| string | [GetPillEffectName](pills.md#getpilleffectname)([`PillEffect`](https://wofsauge.github.io/IsaacDocs/rep/enums/PillEffect.html) pillEffect) |
+| [PillEffectType](../custom-enums/pilleffecttype.md) | [GetPillEffectType](pills.md#getpilleffecttype)([`PillEffect`](https://wofsauge.github.io/IsaacDocs/rep/enums/PillEffect.html) pillEffect) |
+| boolean | [IsHorsePill](pills.md#ishorsepill)([`PillColor`](https://wofsauge.github.io/IsaacDocs/rep/enums/PillColor.html) pillColor) |
 
 ## Functions
 

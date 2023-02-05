@@ -4,20 +4,20 @@
 
 | Return Value | Function |
 | - | - |
-| {type : GridEntityType, variant : integer} | [ConvertXMLGridEntityType](gridentities.md#convertxmlgridentitytype)()[`GridEntityXMLType`](../custom-enums/gridentityxmltype.md) gridEntityXMLType, `integer` gridEntityXMLVariant) |
-| [Entity](https://wofsauge.github.io/IsaacDocs/rep/Entity.html)\[] | [GetCollidingEntitiesWithGridEntity](gridentities.md#getcollidingentitieswithgridentity)()[`GridEntity`](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html) gridEntity) |
-| [GridEntity](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html)\[] | [GetGridEntities](gridentities.md#getgridentities)()[`GridEntityType`](https://wofsauge.github.io/IsaacDocs/rep/enums/GridEntityType.html) ...) |
-| table<integer, [GridEntity](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html)> | [GetGridEntitiesMap](gridentities.md#getgridentitiesmap)()[`GridEntityType`](https://wofsauge.github.io/IsaacDocs/rep/enums/GridEntityType.html) ...) |
-| [GridEntity](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html)\[] | [GetSurroundingGridEntities](gridentities.md#getsurroundinggridentities)()[`GridEntity`](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html) gridIndex) |
-| [GridEntity](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html) | [GetTopLeftWall](gridentities.md#gettopleftwall)()) |
-| integer | [GetTopLeftWallGridIndex](gridentities.md#gettopleftwallgridindex)()) |
-| boolean | [IsGridEntityBreakableByExplosion](gridentities.md#isgridentitybreakablebyexplosion)()[`GridEntity`](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html) gridEntity) |
-| boolean | [IsGridEntityBroken](gridentities.md#isgridentitybroken)()[`GridEntity`](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html) gridEntity) |
-| void | [RemoveGridEntities](gridentities.md#removegridentities)()[`GridEntity`](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html)`[]` gridEntities, `boolean` updateRoom) |
-| void | [RemoveGridEntity](gridentities.md#removegridentity)()[`GridEntity`](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html)` | integer` gridEntityOrGridIndex, `boolean` updateRoom) |
-| boolean | [SpawnGigaPoop](gridentities.md#spawngigapoop)()[`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html)` | integer` topLeftGridIndexOrPosition, `boolean?` force) |
-| [GridEntity](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html)? | [SpawnGridEntity](gridentities.md#spawngridentity)()[`GridEntityType`](https://wofsauge.github.io/IsaacDocs/rep/enums/GridEntityType.html) gridEntityType, `integer` gridEntityVariant, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html)` | integer` gridIndexOrPosition, `boolean?` force) |
-| [GridEntity](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html)? | [SpawnVoidPortal](gridentities.md#spawnvoidportal)()[`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html)` | integer` gridIndexOrPosition, `boolean?` force) |
+| {type : GridEntityType, variant : integer} | [ConvertXMLGridEntityType](gridentities.md#convertxmlgridentitytype)([`GridEntityXMLType`](../custom-enums/gridentityxmltype.md) gridEntityXMLType, `integer` gridEntityXMLVariant) |
+| [Entity](https://wofsauge.github.io/IsaacDocs/rep/Entity.html)\[] | [GetCollidingEntitiesWithGridEntity](gridentities.md#getcollidingentitieswithgridentity)([`GridEntity`](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html) gridEntity) |
+| [GridEntity](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html)\[] | [GetGridEntities](gridentities.md#getgridentities)([`GridEntityType`](https://wofsauge.github.io/IsaacDocs/rep/enums/GridEntityType.html) ...) |
+| table<integer, [GridEntity](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html)> | [GetGridEntitiesMap](gridentities.md#getgridentitiesmap)([`GridEntityType`](https://wofsauge.github.io/IsaacDocs/rep/enums/GridEntityType.html) ...) |
+| [GridEntity](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html)\[] | [GetSurroundingGridEntities](gridentities.md#getsurroundinggridentities)([`GridEntity`](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html) gridIndex) |
+| [GridEntity](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html) | [GetTopLeftWall](gridentities.md#gettopleftwall)() |
+| integer | [GetTopLeftWallGridIndex](gridentities.md#gettopleftwallgridindex)() |
+| boolean | [IsGridEntityBreakableByExplosion](gridentities.md#isgridentitybreakablebyexplosion)([`GridEntity`](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html) gridEntity) |
+| boolean | [IsGridEntityBroken](gridentities.md#isgridentitybroken)([`GridEntity`](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html) gridEntity) |
+| void | [RemoveGridEntities](gridentities.md#removegridentities)([`GridEntity`](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html)`[]` gridEntities, `boolean` updateRoom) |
+| void | [RemoveGridEntity](gridentities.md#removegridentity)([`GridEntity`](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html)` | integer` gridEntityOrGridIndex, `boolean` updateRoom) |
+| boolean | [SpawnGigaPoop](gridentities.md#spawngigapoop)([`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html)` | integer` topLeftGridIndexOrPosition, `boolean?` force) |
+| [GridEntity](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html)? | [SpawnGridEntity](gridentities.md#spawngridentity)([`GridEntityType`](https://wofsauge.github.io/IsaacDocs/rep/enums/GridEntityType.html) gridEntityType, `integer` gridEntityVariant, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html)` | integer` gridIndexOrPosition, `boolean?` force) |
+| [GridEntity](https://wofsauge.github.io/IsaacDocs/rep/GridEntity.html)? | [SpawnVoidPortal](gridentities.md#spawnvoidportal)([`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html)` | integer` gridIndexOrPosition, `boolean?` force) |
 
 ## Functions
 

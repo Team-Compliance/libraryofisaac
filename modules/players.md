@@ -4,41 +4,41 @@
 
 | Return Value | Function |
 | - | - |
-| void | [AddSmeltedTrinket](players.md#addsmeltedtrinket)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) trinketId) |
-| boolean | [DoesAnyPlayerHasItem](players.md#doesanyplayerhasitem)()[`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleId, `boolean?` ignoreModifiers =  false) |
-| boolean | [DoesAnyPlayerHasTrinket](players.md#doesanyplayerhastrinket)()[`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) trinketId, `boolean?` ignoreModifiers =  false) |
-| integer | [GetBlackHeartsNum](players.md#getblackheartsnum)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
-| string | [GetCharacterDeathAnimationName](players.md#getcharacterdeathanimationname)()[`PlayerType`](https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html) character) |
-| integer | [GetCharacterMaxHeartContainers](players.md#getcharactermaxheartcontainers)()[`PlayerType`](https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html) character) |
-| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)\[] | [GetClosestPlayers](players.md#getclosestplayers)()[`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) center, `integer?` numberOfPlayers?) |
-| integer | [GetHearts](players.md#gethearts)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
-| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)? | [GetPlayerByIndex](players.md#getplayerbyindex)()`PlayerIndex` playerIndex) |
-| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)? | [GetPlayerFromEntity](players.md#getplayerfromentity)()[`Entity`](https://wofsauge.github.io/IsaacDocs/rep/Entity.html) entity) |
-| void | [GetPlayerHealthType](players.md#getplayerhealthtype)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`HealthType`](../custom-enums/healthtype.md) healthType) |
-| PlayerIndex | [GetPlayerIndex](players.md#getplayerindex)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, `boolean?` differentiateSoulAndForgotten?) |
-| InventoryObject\[] | [GetPlayerInventory](players.md#getplayerinventory)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`InventoryType`](../custom-enums/inventorytype.md)`?` inventoryTypeFilter?) |
-| void | [GetPlayerMaxHeartContainers](players.md#getplayermaxheartcontainers)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
-| integer | [GetPlayerNumHitsRemaining](players.md#getplayernumhitsremaining)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
-| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)\[] | [GetPlayers](players.md#getplayers)()`boolean?` ignoreCoopBabies? =  true) |
-| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)\[] | [GetPlayersByCollectible](players.md#getplayersbycollectible)()[`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleId) |
-| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)\[] | [GetPlayersByTrinket](players.md#getplayersbytrinket)()[`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) trinketId) |
-| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)\[] | [GetPlayersOfType](players.md#getplayersoftype)()[`PlayerType`](https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html) playerType) |
-| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)\[] | [GetPlayersWithControllerIndex](players.md#getplayerswithcontrollerindex)()`integer` controllerIndex) |
-| integer | [GetSmeltedTrinketMultiplier](players.md#getsmeltedtrinketmultiplier)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) trinket) |
-| integer | [GetSoulHearts](players.md#getsoulhearts)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
-| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)? | [GetSubPlayerParent](players.md#getsubplayerparent)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) subPlayer) |
-| void | [GiveTrinketsBack](players.md#givetrinketsback)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, `TrinketSituation?` trinketSituation) |
-| boolean | [IsActiveTaintedLazForm](players.md#isactivetaintedlazform)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
-| void | [IsChildPlayer](players.md#ischildplayer)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
-| boolean | [IsDamageToPlayerFatal](players.md#isdamagetoplayerfatal)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, `number` amount, [`EntityRef`](https://wofsauge.github.io/IsaacDocs/rep/EntityRef.html) source, `integer?` lastDamageGameFrame) |
-| boolean | [IsKeeper](players.md#iskeeper)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
-| boolean | [IsTaintedLazarus](players.md#istaintedlazarus)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
-| TrinketSituation? | [TemporarilyRemoveTrinket](players.md#temporarilyremovetrinket)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) trinketType) |
-| TrinketSituation? | [TemporarilyRemoveTrinkets](players.md#temporarilyremovetrinkets)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
-| boolean | [WillMysteriousPaperRevive](players.md#willmysteriouspaperrevive)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
-| boolean | [WillPlayerRevive](players.md#willplayerrevive)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
-| boolean | [WillReviveFromHeartbreak](players.md#willrevivefromheartbreak)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
-| boolean | [WillReviveFromSpiritShackles](players.md#willrevivefromspiritshackles)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| void | [AddSmeltedTrinket](players.md#addsmeltedtrinket)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) trinketId) |
+| boolean | [DoesAnyPlayerHasItem](players.md#doesanyplayerhasitem)([`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleId, `boolean?` ignoreModifiers =  false) |
+| boolean | [DoesAnyPlayerHasTrinket](players.md#doesanyplayerhastrinket)([`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) trinketId, `boolean?` ignoreModifiers =  false) |
+| integer | [GetBlackHeartsNum](players.md#getblackheartsnum)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| string | [GetCharacterDeathAnimationName](players.md#getcharacterdeathanimationname)([`PlayerType`](https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html) character) |
+| integer | [GetCharacterMaxHeartContainers](players.md#getcharactermaxheartcontainers)([`PlayerType`](https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html) character) |
+| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)\[] | [GetClosestPlayers](players.md#getclosestplayers)([`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) center, `integer?` numberOfPlayers?) |
+| integer | [GetHearts](players.md#gethearts)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)? | [GetPlayerByIndex](players.md#getplayerbyindex)(`PlayerIndex` playerIndex) |
+| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)? | [GetPlayerFromEntity](players.md#getplayerfromentity)([`Entity`](https://wofsauge.github.io/IsaacDocs/rep/Entity.html) entity) |
+| void | [GetPlayerHealthType](players.md#getplayerhealthtype)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`HealthType`](../custom-enums/healthtype.md) healthType) |
+| PlayerIndex | [GetPlayerIndex](players.md#getplayerindex)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, `boolean?` differentiateSoulAndForgotten?) |
+| InventoryObject\[] | [GetPlayerInventory](players.md#getplayerinventory)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`InventoryType`](../custom-enums/inventorytype.md)`?` inventoryTypeFilter?) |
+| void | [GetPlayerMaxHeartContainers](players.md#getplayermaxheartcontainers)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| integer | [GetPlayerNumHitsRemaining](players.md#getplayernumhitsremaining)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)\[] | [GetPlayers](players.md#getplayers)(`boolean?` ignoreCoopBabies? =  true) |
+| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)\[] | [GetPlayersByCollectible](players.md#getplayersbycollectible)([`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectibleId) |
+| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)\[] | [GetPlayersByTrinket](players.md#getplayersbytrinket)([`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) trinketId) |
+| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)\[] | [GetPlayersOfType](players.md#getplayersoftype)([`PlayerType`](https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html) playerType) |
+| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)\[] | [GetPlayersWithControllerIndex](players.md#getplayerswithcontrollerindex)(`integer` controllerIndex) |
+| integer | [GetSmeltedTrinketMultiplier](players.md#getsmeltedtrinketmultiplier)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) trinket) |
+| integer | [GetSoulHearts](players.md#getsoulhearts)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)? | [GetSubPlayerParent](players.md#getsubplayerparent)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) subPlayer) |
+| void | [GiveTrinketsBack](players.md#givetrinketsback)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, `TrinketSituation?` trinketSituation) |
+| boolean | [IsActiveTaintedLazForm](players.md#isactivetaintedlazform)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| void | [IsChildPlayer](players.md#ischildplayer)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| boolean | [IsDamageToPlayerFatal](players.md#isdamagetoplayerfatal)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, `number` amount, [`EntityRef`](https://wofsauge.github.io/IsaacDocs/rep/EntityRef.html) source, `integer?` lastDamageGameFrame) |
+| boolean | [IsKeeper](players.md#iskeeper)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| boolean | [IsTaintedLazarus](players.md#istaintedlazarus)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| TrinketSituation? | [TemporarilyRemoveTrinket](players.md#temporarilyremovetrinket)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) trinketType) |
+| TrinketSituation? | [TemporarilyRemoveTrinkets](players.md#temporarilyremovetrinkets)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| boolean | [WillMysteriousPaperRevive](players.md#willmysteriouspaperrevive)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| boolean | [WillPlayerRevive](players.md#willplayerrevive)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| boolean | [WillReviveFromHeartbreak](players.md#willrevivefromheartbreak)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| boolean | [WillReviveFromSpiritShackles](players.md#willrevivefromspiritshackles)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
 
 ## Functions
 

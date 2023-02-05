@@ -4,8 +4,8 @@
 
 | Return Value | Function |
 | - | - |
-| integer\[] | [GetAllGridIndexes](gridindexes.md#getallgridindexes)()`boolean?` onlyInRoom) |
-| integer\[] | [GetGridIndexesBetween](gridindexes.md#getgridindexesbetween)()`integer` gridIndex1, `integer` gridIndex2, [`RoomShape`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomShape.html) roomShape) |
+| integer\[] | [GetAllGridIndexes](gridindexes.md#getallgridindexes)(`boolean?` onlyInRoom) |
+| integer\[] | [GetGridIndexesBetween](gridindexes.md#getgridindexesbetween)(`integer` gridIndex1, `integer` gridIndex2, [`RoomShape`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomShape.html) roomShape) |
 
 ## Functions
 

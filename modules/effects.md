@@ -4,7 +4,7 @@
 
 | Return Value | Function |
 | - | - |
-| void | [IsCloseEnoughToTriggerDiceFloor](effects.md#iscloseenoughtotriggerdicefloor)()[`Entity`](https://wofsauge.github.io/IsaacDocs/rep/Entity.html) entity, [`EntityEffect`](https://wofsauge.github.io/IsaacDocs/rep/EntityEffect.html) diceFloor) |
+| void | [IsCloseEnoughToTriggerDiceFloor](effects.md#iscloseenoughtotriggerdicefloor)([`Entity`](https://wofsauge.github.io/IsaacDocs/rep/Entity.html) entity, [`EntityEffect`](https://wofsauge.github.io/IsaacDocs/rep/EntityEffect.html) diceFloor) |
 
 ## Functions
 

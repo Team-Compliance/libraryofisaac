@@ -4,25 +4,25 @@
 
 | Return Value | Function |
 | - | - |
-| string? | [GetIsaacAPIClassName](isaacapiclass.md#getisaacapiclassname)()`unknown` object) |
-| boolean | [IsBitSet128](isaacapiclass.md#isbitset128)()`unknown` variable) |
-| boolean | [IsColor](isaacapiclass.md#iscolor)()`unknown` variable) |
-| boolean | [IsKColor](isaacapiclass.md#iskcolor)()`unknown` variable) |
-| boolean | [IsKnife](isaacapiclass.md#isknife)()`unknown` variable) |
-| boolean | [IsLaser](isaacapiclass.md#islaser)()`unknown` variable) |
-| boolean | [IsNPC](isaacapiclass.md#isnpc)()`unknown` variable) |
-| boolean | [IsPickup](isaacapiclass.md#ispickup)()`unknown` variable) |
-| boolean | [IsPit](isaacapiclass.md#ispit)()`unknown` variable) |
-| boolean | [IsPlayer](isaacapiclass.md#isplayer)()`unknown` variable) |
-| boolean | [IsPoop](isaacapiclass.md#ispoop)()`unknown` variable) |
-| boolean | [IsPressurePlate](isaacapiclass.md#ispressureplate)()`unknown` variable) |
-| boolean | [IsProjectile](isaacapiclass.md#isprojectile)()`unknown` variable) |
-| boolean | [IsRNG](isaacapiclass.md#isrng)()`unknown` variable) |
-| boolean | [IsRock](isaacapiclass.md#isrock)()`unknown` variable) |
-| boolean | [IsSpikes](isaacapiclass.md#isspikes)()`unknown` variable) |
-| boolean | [IsTear](isaacapiclass.md#istear)()`unknown` variable) |
-| boolean | [IsTNT](isaacapiclass.md#istnt)()`unknown` variable) |
-| boolean | [IsVector](isaacapiclass.md#isvector)()`unknown` variable) |
+| string? | [GetIsaacAPIClassName](isaacapiclass.md#getisaacapiclassname)(`unknown` object) |
+| boolean | [IsBitSet128](isaacapiclass.md#isbitset128)(`unknown` variable) |
+| boolean | [IsColor](isaacapiclass.md#iscolor)(`unknown` variable) |
+| boolean | [IsKColor](isaacapiclass.md#iskcolor)(`unknown` variable) |
+| boolean | [IsKnife](isaacapiclass.md#isknife)(`unknown` variable) |
+| boolean | [IsLaser](isaacapiclass.md#islaser)(`unknown` variable) |
+| boolean | [IsNPC](isaacapiclass.md#isnpc)(`unknown` variable) |
+| boolean | [IsPickup](isaacapiclass.md#ispickup)(`unknown` variable) |
+| boolean | [IsPit](isaacapiclass.md#ispit)(`unknown` variable) |
+| boolean | [IsPlayer](isaacapiclass.md#isplayer)(`unknown` variable) |
+| boolean | [IsPoop](isaacapiclass.md#ispoop)(`unknown` variable) |
+| boolean | [IsPressurePlate](isaacapiclass.md#ispressureplate)(`unknown` variable) |
+| boolean | [IsProjectile](isaacapiclass.md#isprojectile)(`unknown` variable) |
+| boolean | [IsRNG](isaacapiclass.md#isrng)(`unknown` variable) |
+| boolean | [IsRock](isaacapiclass.md#isrock)(`unknown` variable) |
+| boolean | [IsSpikes](isaacapiclass.md#isspikes)(`unknown` variable) |
+| boolean | [IsTear](isaacapiclass.md#istear)(`unknown` variable) |
+| boolean | [IsTNT](isaacapiclass.md#istnt)(`unknown` variable) |
+| boolean | [IsVector](isaacapiclass.md#isvector)(`unknown` variable) |
 
 ## Functions
 

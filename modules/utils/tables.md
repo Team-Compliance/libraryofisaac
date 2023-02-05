@@ -4,28 +4,28 @@
 
 | Return Value | Function |
 | - | - |
-| boolean | [All](tables.md#all)()`T[]` toCheck, `fun(key: integer | string, value:  T)` predicate) |
-| table<T, boolean> | [ConstructDictionaryFromTable](tables.md#constructdictionaryfromtable)()`T[]` oldTable) |
-| table | [Copy](tables.md#copy)()`table` toCopy) |
-| void | [CopyUserdataValuesToTable](tables.md#copyuserdatavaluestotable)()`unknown` object, `string[]` keys, `table<string, unknown>` map) |
-| integer | [Count](tables.md#count)()`T[]` toCount, `fun(key: integer | string, value:  T)` predicate =  foo() -> true) |
-| boolean | [Equals](tables.md#equals)()`T[]` table1, `T[]` table2) |
-| T\[] | [Filter](tables.md#filter)()`T[]` toFilter, `fun(key: integer | string, value:  T)` predicate) |
-| T? | [FindFirst](tables.md#findfirst)()`T[]` toFind, `fun(key: integer | string, value:  T)` predicate) |
-| void | [ForEach](tables.md#foreach)()`T[]` toIterate, `fun(index: string | integer, value: T)` funct) |
-| K\[] | [GetDictionaryKeys](tables.md#getdictionarykeys)()`table<K, V>` dictionary) |
-| number\[] | [GetNumbersFromTable](tables.md#getnumbersfromtable)()`table<string, unknown>` map, `string` objectName, `string` ...) |
-| boolean | [IsArray](tables.md#isarray)()`unknown` object) |
-| boolean | [IsEmpty](tables.md#isempty)()`table` map) |
-| boolean | [IsIn](tables.md#isin)()`T[]` list, `T` element) |
-| void | [IterateTableInOrder](tables.md#iteratetableinorder)()`table<K, V>` map, `fun(key:  K, value:  V)` func, `boolean?` inOrder? =  true ) |
-| S\[] | [Map](tables.md#map)()`T[]` list, `fun(index: string | integer, value: T)` funct) |
-| void | [Merge](tables.md#merge)()`table<any, unknown>` oldObject, `table<any, unknown>` newTable) |
-| T\[] | [Remove](tables.md#remove)()`T[]` originalTable, `any` ...) |
-| T\[] | [RemoveAll](tables.md#removeall)()`T[]` originalTable, `any` ...) |
-| boolean # True if one or more elements were removed, false otherwise. | [RemoveAllInPlace](tables.md#removeallinplace)()`T[]` originalTable, `any` ...) |
-| boolean | [RemoveInPlace](tables.md#removeinplace)()`any` originalTable, `any` ...) |
-| void | [TableHasKeys](tables.md#tablehaskeys)()`table<any, unknown>` map, `string` ...) |
+| boolean | [All](tables.md#all)(`T[]` toCheck, `fun(key: integer | string, value:  T)` predicate) |
+| table<T, boolean> | [ConstructDictionaryFromTable](tables.md#constructdictionaryfromtable)(`T[]` oldTable) |
+| table | [Copy](tables.md#copy)(`table` toCopy) |
+| void | [CopyUserdataValuesToTable](tables.md#copyuserdatavaluestotable)(`unknown` object, `string[]` keys, `table<string, unknown>` map) |
+| integer | [Count](tables.md#count)(`T[]` toCount, `fun(key: integer | string, value:  T)` predicate =  foo() -> true) |
+| boolean | [Equals](tables.md#equals)(`T[]` table1, `T[]` table2) |
+| T\[] | [Filter](tables.md#filter)(`T[]` toFilter, `fun(key: integer | string, value:  T)` predicate) |
+| T? | [FindFirst](tables.md#findfirst)(`T[]` toFind, `fun(key: integer | string, value:  T)` predicate) |
+| void | [ForEach](tables.md#foreach)(`T[]` toIterate, `fun(index: string | integer, value: T)` funct) |
+| K\[] | [GetDictionaryKeys](tables.md#getdictionarykeys)(`table<K, V>` dictionary) |
+| number\[] | [GetNumbersFromTable](tables.md#getnumbersfromtable)(`table<string, unknown>` map, `string` objectName, `string` ...) |
+| boolean | [IsArray](tables.md#isarray)(`unknown` object) |
+| boolean | [IsEmpty](tables.md#isempty)(`table` map) |
+| boolean | [IsIn](tables.md#isin)(`T[]` list, `T` element) |
+| void | [IterateTableInOrder](tables.md#iteratetableinorder)(`table<K, V>` map, `fun(key:  K, value:  V)` func, `boolean?` inOrder? =  true ) |
+| S\[] | [Map](tables.md#map)(`T[]` list, `fun(index: string | integer, value: T)` funct) |
+| void | [Merge](tables.md#merge)(`table<any, unknown>` oldObject, `table<any, unknown>` newTable) |
+| T\[] | [Remove](tables.md#remove)(`T[]` originalTable, `any` ...) |
+| T\[] | [RemoveAll](tables.md#removeall)(`T[]` originalTable, `any` ...) |
+| boolean # True if one or more elements were removed, false otherwise. | [RemoveAllInPlace](tables.md#removeallinplace)(`T[]` originalTable, `any` ...) |
+| boolean | [RemoveInPlace](tables.md#removeinplace)(`any` originalTable, `any` ...) |
+| void | [TableHasKeys](tables.md#tablehaskeys)(`table<any, unknown>` map, `string` ...) |
 
 ## Functions
 

@@ -4,8 +4,8 @@
 
 | Return Value | Function |
 | - | - |
-| unknown | [Decode](json.md#decode)()`any` str) |
-| string | [Encode](json.md#encode)()`any` val) |
+| unknown | [Decode](json.md#decode)(`any` str) |
+| string | [Encode](json.md#encode)(`any` val) |
 
 ## Functions
 

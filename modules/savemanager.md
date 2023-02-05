@@ -4,14 +4,14 @@
 
 | Return Value | Function |
 | - | - |
-| void | [AddPersistentVariable](savemanager.md#addpersistentvariable)()`table` mod, `string` variableName, `any` value, [`VariablePersistenceMode`](../custom-enums/variablepersistencemode.md) persistenceMode, `boolean?` ignoreGlowingHourglass? =  false, `fun(: )?` conditionalSave?) |
-| any | [GetPersistentVariable](savemanager.md#getpersistentvariable)()`table` mod, `string` variableName) |
-| void | [RemovePersistentVariable](savemanager.md#removepersistentvariable)()`table` mod, `string` variableName) |
-| void | [RemoveVariablesForFeatureKey](savemanager.md#removevariablesforfeaturekey)()`ModPersistentData` modPersistentData, `"run" | "level" | "room"` saveDataKey) |
-| void | [ResetPersistentVariable](savemanager.md#resetpersistentvariable)()`table` mod, `string` variableName) |
-| void | [RestoreDefaultForFeatureKey](savemanager.md#restoredefaultforfeaturekey)()`ModPersistentData` modPersistentData, `"run" | "level" | "room"` saveDataKey) |
-| void | [RestoreDefaultsForAllFeaturesKey](savemanager.md#restoredefaultsforallfeatureskey)()`"run" | "level" | "room"` saveKey) |
-| void | [SetPersistentVariable](savemanager.md#setpersistentvariable)()`table` mod, `string` variableName, `any` newValue, `boolean?` overrideType? =  false) |
+| void | [AddPersistentVariable](savemanager.md#addpersistentvariable)(`table` mod, `string` variableName, `any` value, [`VariablePersistenceMode`](../custom-enums/variablepersistencemode.md) persistenceMode, `boolean?` ignoreGlowingHourglass? =  false, `fun(: )?` conditionalSave?) |
+| any | [GetPersistentVariable](savemanager.md#getpersistentvariable)(`table` mod, `string` variableName) |
+| void | [RemovePersistentVariable](savemanager.md#removepersistentvariable)(`table` mod, `string` variableName) |
+| void | [RemoveVariablesForFeatureKey](savemanager.md#removevariablesforfeaturekey)(`ModPersistentData` modPersistentData, `"run" | "level" | "room"` saveDataKey) |
+| void | [ResetPersistentVariable](savemanager.md#resetpersistentvariable)(`table` mod, `string` variableName) |
+| void | [RestoreDefaultForFeatureKey](savemanager.md#restoredefaultforfeaturekey)(`ModPersistentData` modPersistentData, `"run" | "level" | "room"` saveDataKey) |
+| void | [RestoreDefaultsForAllFeaturesKey](savemanager.md#restoredefaultsforallfeatureskey)(`"run" | "level" | "room"` saveKey) |
+| void | [SetPersistentVariable](savemanager.md#setpersistentvariable)(`table` mod, `string` variableName, `any` newValue, `boolean?` overrideType? =  false) |
 
 ## Functions
 

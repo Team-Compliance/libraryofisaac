@@ -4,10 +4,10 @@
 
 | Return Value | Function |
 | - | - |
-| boolean | [EndsWith](string.md#endswith)()`string` s, `string` suffix) |
-| string\[] | [Split](string.md#split)()`string` s, `string` separator) |
-| boolean | [StartsWith](string.md#startswith)()`string` s, `string` prefix) |
-| string | [TrimPrefix](string.md#trimprefix)()`string` s, `string` prefix) |
+| boolean | [EndsWith](string.md#endswith)(`string` s, `string` suffix) |
+| string\[] | [Split](string.md#split)(`string` s, `string` separator) |
+| boolean | [StartsWith](string.md#startswith)(`string` s, `string` prefix) |
+| string | [TrimPrefix](string.md#trimprefix)(`string` s, `string` prefix) |
 
 ## Functions
 

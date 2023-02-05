@@ -4,7 +4,7 @@
 
 | Return Value | Function |
 | - | - |
-| number | [GetBombRadiusFromDamage](bombs.md#getbombradiusfromdamage)()`number` damage) |
+| number | [GetBombRadiusFromDamage](bombs.md#getbombradiusfromdamage)(`number` damage) |
 
 ## Functions
 

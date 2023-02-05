@@ -4,10 +4,10 @@
 
 | Return Value | Function |
 | - | - |
-| integer | [AddCharge](charge.md#addcharge)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`ActiveSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/ActiveSlot.html)`?` activeSlot =  `activeslot.slot_primary` , `integer?` numCharges =  1 , `boolean?` playSoundEffect =  true ) |
-| integer | [GetChargesAwayFromMax](charge.md#getchargesawayfrommax)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`ActiveSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/ActiveSlot.html)`?` activeSlot =  `activeslot.slot_primary` ) |
-| integer | [GetTotalCharge](charge.md#gettotalcharge)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`ActiveSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/ActiveSlot.html)`?` activeSlot =  `activeslot.slot_primary` ) |
-| boolean | [IsActiveSlotDoubleCharged](charge.md#isactiveslotdoublecharged)()[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`ActiveSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/ActiveSlot.html)`?` activeSlot =  `activeslot.slot_primary` ) |
+| integer | [AddCharge](charge.md#addcharge)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`ActiveSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/ActiveSlot.html)`?` activeSlot =  `activeslot.slot_primary` , `integer?` numCharges =  1 , `boolean?` playSoundEffect =  true ) |
+| integer | [GetChargesAwayFromMax](charge.md#getchargesawayfrommax)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`ActiveSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/ActiveSlot.html)`?` activeSlot =  `activeslot.slot_primary` ) |
+| integer | [GetTotalCharge](charge.md#gettotalcharge)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`ActiveSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/ActiveSlot.html)`?` activeSlot =  `activeslot.slot_primary` ) |
+| boolean | [IsActiveSlotDoubleCharged](charge.md#isactiveslotdoublecharged)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`ActiveSlot`](https://wofsauge.github.io/IsaacDocs/rep/enums/ActiveSlot.html)`?` activeSlot =  `activeslot.slot_primary` ) |
 
 ## Functions
 

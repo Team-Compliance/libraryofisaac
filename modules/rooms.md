@@ -4,22 +4,22 @@
 
 | Return Value | Function |
 | - | - |
-| void | [EmptyRoom](rooms.md#emptyroom)()) |
-| RoomHistoryData | [GetLatestRoomDescription](rooms.md#getlatestroomdescription)()) |
-| RoomHistoryData | [GetPreviousRoomDescription](rooms.md#getpreviousroomdescription)()) |
-| RoomConfig_Room? | [GetRoomData](rooms.md#getroomdata)()`integer?` roomGridIndex) |
-| [RoomDescriptor](https://wofsauge.github.io/IsaacDocs/rep/RoomDescriptor.html) | [GetRoomDescriptor](rooms.md#getroomdescriptor)()`integer?` roomGridIndex) |
-| [RoomDescriptor](https://wofsauge.github.io/IsaacDocs/rep/RoomDescriptor.html) | [GetRoomDescriptorReadOnly](rooms.md#getroomdescriptorreadonly)()) |
-| integer | [GetRoomGridIndex](rooms.md#getroomgridindex)()) |
-| RoomHistoryData\[] | [GetRoomHistory](rooms.md#getroomhistory)()) |
-| integer | [GetRoomShapeGridWidth](rooms.md#getroomshapegridwidth)()[`RoomShape`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomShape.html) shape) |
-| integer | [GetRoomStageID](rooms.md#getroomstageid)()`integer?` roomGridIndex) |
-| integer | [GetRoomSubType](rooms.md#getroomsubtype)()`integer?` roomGridIndex) |
-| boolean | [InBossRoomOf](rooms.md#inbossroomof)()[`BossID`](../custom-enums/bossid.md) bossID) |
-| boolean | [IsGridIndexInRoom](rooms.md#isgridindexinroom)()`integer` gridIndex) |
-| boolean | [IsGridIndexInRoomShape](rooms.md#isgridindexinroomshape)()`integer` gridIndex, [`RoomShape`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomShape.html) roomShape) |
-| boolean | [IsLeavingRoom](rooms.md#isleavingroom)()) |
-| void | [UpdateRoom](rooms.md#updateroom)()) |
+| void | [EmptyRoom](rooms.md#emptyroom)() |
+| RoomHistoryData | [GetLatestRoomDescription](rooms.md#getlatestroomdescription)() |
+| RoomHistoryData | [GetPreviousRoomDescription](rooms.md#getpreviousroomdescription)() |
+| RoomConfig_Room? | [GetRoomData](rooms.md#getroomdata)(`integer?` roomGridIndex) |
+| [RoomDescriptor](https://wofsauge.github.io/IsaacDocs/rep/RoomDescriptor.html) | [GetRoomDescriptor](rooms.md#getroomdescriptor)(`integer?` roomGridIndex) |
+| [RoomDescriptor](https://wofsauge.github.io/IsaacDocs/rep/RoomDescriptor.html) | [GetRoomDescriptorReadOnly](rooms.md#getroomdescriptorreadonly)() |
+| integer | [GetRoomGridIndex](rooms.md#getroomgridindex)() |
+| RoomHistoryData\[] | [GetRoomHistory](rooms.md#getroomhistory)() |
+| integer | [GetRoomShapeGridWidth](rooms.md#getroomshapegridwidth)([`RoomShape`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomShape.html) shape) |
+| integer | [GetRoomStageID](rooms.md#getroomstageid)(`integer?` roomGridIndex) |
+| integer | [GetRoomSubType](rooms.md#getroomsubtype)(`integer?` roomGridIndex) |
+| boolean | [InBossRoomOf](rooms.md#inbossroomof)([`BossID`](../custom-enums/bossid.md) bossID) |
+| boolean | [IsGridIndexInRoom](rooms.md#isgridindexinroom)(`integer` gridIndex) |
+| boolean | [IsGridIndexInRoomShape](rooms.md#isgridindexinroomshape)(`integer` gridIndex, [`RoomShape`](https://wofsauge.github.io/IsaacDocs/rep/enums/RoomShape.html) roomShape) |
+| boolean | [IsLeavingRoom](rooms.md#isleavingroom)() |
+| void | [UpdateRoom](rooms.md#updateroom)() |
 
 ## Functions
 

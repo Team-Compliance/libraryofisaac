@@ -4,17 +4,17 @@
 
 | Return Value | Function |
 | - | - |
-| boolean | [InBeastRoom](roomspecific.md#inbeastroom)()) |
-| boolean | [InCrawlSpace](roomspecific.md#incrawlspace)()) |
-| boolean | [InDeathCertificateArea](roomspecific.md#indeathcertificatearea)()) |
-| boolean | [InDevilsCrownTreasureRoom](roomspecific.md#indevilscrowntreasureroom)()) |
-| boolean | [InGenesisRoom](roomspecific.md#ingenesisroom)()) |
-| boolean | [InHomeCloset](roomspecific.md#inhomecloset)()) |
-| boolean | [InMegaSatanRoom](roomspecific.md#inmegasatanroom)()) |
-| boolean | [InMineShaft](roomspecific.md#inmineshaft)()) |
-| boolean | [InSecretExit](roomspecific.md#insecretexit)()) |
-| boolean | [InSecretShop](roomspecific.md#insecretshop)()) |
-| boolean | [InStartingRoom](roomspecific.md#instartingroom)()) |
+| boolean | [InBeastRoom](roomspecific.md#inbeastroom)() |
+| boolean | [InCrawlSpace](roomspecific.md#incrawlspace)() |
+| boolean | [InDeathCertificateArea](roomspecific.md#indeathcertificatearea)() |
+| boolean | [InDevilsCrownTreasureRoom](roomspecific.md#indevilscrowntreasureroom)() |
+| boolean | [InGenesisRoom](roomspecific.md#ingenesisroom)() |
+| boolean | [InHomeCloset](roomspecific.md#inhomecloset)() |
+| boolean | [InMegaSatanRoom](roomspecific.md#inmegasatanroom)() |
+| boolean | [InMineShaft](roomspecific.md#inmineshaft)() |
+| boolean | [InSecretExit](roomspecific.md#insecretexit)() |
+| boolean | [InSecretShop](roomspecific.md#insecretshop)() |
+| boolean | [InStartingRoom](roomspecific.md#instartingroom)() |
 
 ## Functions
 

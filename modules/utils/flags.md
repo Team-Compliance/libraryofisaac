@@ -4,10 +4,10 @@
 
 | Return Value | Function |
 | - | - |
-| integer | [AddFlags](flags.md#addflags)()`integer` flags, `integer` ...) |
-| integer | [CountBits](flags.md#countbits)()`integer` mask) |
-| boolean | [HasFlags](flags.md#hasflags)()`integer` flags, `integer` ...) |
-| integer | [RemoveFlags](flags.md#removeflags)()`integer` flags, `integer` ...) |
+| integer | [AddFlags](flags.md#addflags)(`integer` flags, `integer` ...) |
+| integer | [CountBits](flags.md#countbits)(`integer` mask) |
+| boolean | [HasFlags](flags.md#hasflags)(`integer` flags, `integer` ...) |
+| integer | [RemoveFlags](flags.md#removeflags)(`integer` flags, `integer` ...) |
 
 ## Functions
 

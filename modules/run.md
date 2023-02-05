@@ -4,8 +4,8 @@
 
 | Return Value | Function |
 | - | - |
-| void | [CanRunUnlockAchievements](run.md#canrununlockachievements)()) |
-| boolean | [IsGreedMode](run.md#isgreedmode)()) |
+| void | [CanRunUnlockAchievements](run.md#canrununlockachievements)() |
+| boolean | [IsGreedMode](run.md#isgreedmode)() |
 
 ## Functions
 

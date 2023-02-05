@@ -4,36 +4,36 @@
 
 | Return Value | Function |
 | - | - |
-| number | [EaseInBack](easings.md#easeinback)()`number` x) |
-| number | [EaseInBounce](easings.md#easeinbounce)()`number` x) |
-| number | [EaseInCirc](easings.md#easeincirc)()`number` x) |
-| number | [EaseInCubic](easings.md#easeincubic)()`number` x) |
-| number | [EaseInElastic](easings.md#easeinelastic)()`number` x) |
-| number | [EaseInExpo](easings.md#easeinexpo)()`number` x) |
-| number | [EaseInOutBack](easings.md#easeinoutback)()`number` x) |
-| number | [EaseInOutBounce](easings.md#easeinoutbounce)()`number` x) |
-| number | [EaseInOutCirc](easings.md#easeinoutcirc)()`number` x) |
-| number | [EaseInOutCubic](easings.md#easeinoutcubic)()`number` x) |
-| number | [EaseInOutElastic](easings.md#easeinoutelastic)()`number` x) |
-| number | [EaseInOutExpo](easings.md#easeinoutexpo)()`number` x) |
-| number | [EaseInOutQuad](easings.md#easeinoutquad)()`number` x) |
-| number | [EaseInOutQuart](easings.md#easeinoutquart)()`number` x) |
-| number | [EaseInOutQuint](easings.md#easeinoutquint)()`number` x) |
-| number | [EaseInOutSine](easings.md#easeinoutsine)()`number` x) |
-| number | [EaseInQuad](easings.md#easeinquad)()`number` x) |
-| number | [EaseInQuart](easings.md#easeinquart)()`number` x) |
-| number | [EaseInQuint](easings.md#easeinquint)()`number` x) |
-| number | [EaseInSine](easings.md#easeinsine)()`number` x) |
-| number | [EaseOutBack](easings.md#easeoutback)()`number` x) |
-| number | [EaseOutBounce](easings.md#easeoutbounce)()`number` x) |
-| number | [EaseOutCirc](easings.md#easeoutcirc)()`number` x) |
-| number | [EaseOutCubic](easings.md#easeoutcubic)()`number` x) |
-| number | [EaseOutElastic](easings.md#easeoutelastic)()`number` x) |
-| number | [EaseOutExpo](easings.md#easeoutexpo)()`number` x) |
-| number | [EaseOutQuad](easings.md#easeoutquad)()`number` x) |
-| number | [EaseOutQuart](easings.md#easeoutquart)()`number` x) |
-| number | [EaseOutQuint](easings.md#easeoutquint)()`number` x) |
-| number | [EaseOutSine](easings.md#easeoutsine)()`number` x) |
+| number | [EaseInBack](easings.md#easeinback)(`number` x) |
+| number | [EaseInBounce](easings.md#easeinbounce)(`number` x) |
+| number | [EaseInCirc](easings.md#easeincirc)(`number` x) |
+| number | [EaseInCubic](easings.md#easeincubic)(`number` x) |
+| number | [EaseInElastic](easings.md#easeinelastic)(`number` x) |
+| number | [EaseInExpo](easings.md#easeinexpo)(`number` x) |
+| number | [EaseInOutBack](easings.md#easeinoutback)(`number` x) |
+| number | [EaseInOutBounce](easings.md#easeinoutbounce)(`number` x) |
+| number | [EaseInOutCirc](easings.md#easeinoutcirc)(`number` x) |
+| number | [EaseInOutCubic](easings.md#easeinoutcubic)(`number` x) |
+| number | [EaseInOutElastic](easings.md#easeinoutelastic)(`number` x) |
+| number | [EaseInOutExpo](easings.md#easeinoutexpo)(`number` x) |
+| number | [EaseInOutQuad](easings.md#easeinoutquad)(`number` x) |
+| number | [EaseInOutQuart](easings.md#easeinoutquart)(`number` x) |
+| number | [EaseInOutQuint](easings.md#easeinoutquint)(`number` x) |
+| number | [EaseInOutSine](easings.md#easeinoutsine)(`number` x) |
+| number | [EaseInQuad](easings.md#easeinquad)(`number` x) |
+| number | [EaseInQuart](easings.md#easeinquart)(`number` x) |
+| number | [EaseInQuint](easings.md#easeinquint)(`number` x) |
+| number | [EaseInSine](easings.md#easeinsine)(`number` x) |
+| number | [EaseOutBack](easings.md#easeoutback)(`number` x) |
+| number | [EaseOutBounce](easings.md#easeoutbounce)(`number` x) |
+| number | [EaseOutCirc](easings.md#easeoutcirc)(`number` x) |
+| number | [EaseOutCubic](easings.md#easeoutcubic)(`number` x) |
+| number | [EaseOutElastic](easings.md#easeoutelastic)(`number` x) |
+| number | [EaseOutExpo](easings.md#easeoutexpo)(`number` x) |
+| number | [EaseOutQuad](easings.md#easeoutquad)(`number` x) |
+| number | [EaseOutQuart](easings.md#easeoutquart)(`number` x) |
+| number | [EaseOutQuint](easings.md#easeoutquint)(`number` x) |
+| number | [EaseOutSine](easings.md#easeoutsine)(`number` x) |
 
 ## Functions
 

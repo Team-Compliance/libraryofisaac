@@ -4,9 +4,9 @@
 
 | Return Value | Function |
 | - | - |
-| void | [RunInFrames](functions.md#runinframes)()`function` funct, `integer` frames, `any` ...) |
-| void | [RunNextLevel](functions.md#runnextlevel)()`function` funct, `any` ...) |
-| void | [RunNextRoom](functions.md#runnextroom)()`function` funct, `any` ...) |
+| void | [RunInFrames](functions.md#runinframes)(`function` funct, `integer` frames, `any` ...) |
+| void | [RunNextLevel](functions.md#runnextlevel)(`function` funct, `any` ...) |
+| void | [RunNextRoom](functions.md#runnextroom)(`function` funct, `any` ...) |
 
 ## Functions
 

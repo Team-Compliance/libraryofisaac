@@ -4,19 +4,19 @@
 
 | Return Value | Function |
 | - | - |
-| [ButtonAction](https://wofsauge.github.io/IsaacDocs/rep/enums/ButtonAction.html)\[] | [GetMoveActions](input.md#getmoveactions)()) |
-| [Keyboard](https://wofsauge.github.io/IsaacDocs/rep/enums/Keyboard.html)? | [GetPressedModifier](input.md#getpressedmodifier)()) |
-| [ButtonAction](https://wofsauge.github.io/IsaacDocs/rep/enums/ButtonAction.html)\[] | [GetShootActions](input.md#getshootactions)()) |
-| boolean | [IsActionPressedOnAnyInput](input.md#isactionpressedonanyinput)()[`ButtonAction`](https://wofsauge.github.io/IsaacDocs/rep/enums/ButtonAction.html) action) |
-| boolean | [IsActionTriggeredOnAnyInput](input.md#isactiontriggeredonanyinput)()[`ButtonAction`](https://wofsauge.github.io/IsaacDocs/rep/enums/ButtonAction.html) action) |
-| boolean | [IsKeyboardPressed](input.md#iskeyboardpressed)()[`Keyboard`](https://wofsauge.github.io/IsaacDocs/rep/enums/Keyboard.html) ...) |
-| boolean | [IsMoveAction](input.md#ismoveaction)()[`ButtonAction`](https://wofsauge.github.io/IsaacDocs/rep/enums/ButtonAction.html) buttonAction) |
-| boolean | [IsMoveActionPressedOnAnyInput](input.md#ismoveactionpressedonanyinput)()) |
-| boolean | [IsMoveActionTriggeredOnAnyInput](input.md#ismoveactiontriggeredonanyinput)()) |
-| boolean | [IsShootAction](input.md#isshootaction)()[`ButtonAction`](https://wofsauge.github.io/IsaacDocs/rep/enums/ButtonAction.html) buttonAction) |
-| boolean | [IsShootActionPressedOnAnyInput](input.md#isshootactionpressedonanyinput)()) |
-| boolean | [IsShootActionTriggeredOnAnyInput](input.md#isshootactiontriggeredonanyinput)()) |
-| string | [KeyboardToString](input.md#keyboardtostring)()[`Keyboard`](https://wofsauge.github.io/IsaacDocs/rep/enums/Keyboard.html) key, `boolean` shiftPressed) |
+| [ButtonAction](https://wofsauge.github.io/IsaacDocs/rep/enums/ButtonAction.html)\[] | [GetMoveActions](input.md#getmoveactions)() |
+| [Keyboard](https://wofsauge.github.io/IsaacDocs/rep/enums/Keyboard.html)? | [GetPressedModifier](input.md#getpressedmodifier)() |
+| [ButtonAction](https://wofsauge.github.io/IsaacDocs/rep/enums/ButtonAction.html)\[] | [GetShootActions](input.md#getshootactions)() |
+| boolean | [IsActionPressedOnAnyInput](input.md#isactionpressedonanyinput)([`ButtonAction`](https://wofsauge.github.io/IsaacDocs/rep/enums/ButtonAction.html) action) |
+| boolean | [IsActionTriggeredOnAnyInput](input.md#isactiontriggeredonanyinput)([`ButtonAction`](https://wofsauge.github.io/IsaacDocs/rep/enums/ButtonAction.html) action) |
+| boolean | [IsKeyboardPressed](input.md#iskeyboardpressed)([`Keyboard`](https://wofsauge.github.io/IsaacDocs/rep/enums/Keyboard.html) ...) |
+| boolean | [IsMoveAction](input.md#ismoveaction)([`ButtonAction`](https://wofsauge.github.io/IsaacDocs/rep/enums/ButtonAction.html) buttonAction) |
+| boolean | [IsMoveActionPressedOnAnyInput](input.md#ismoveactionpressedonanyinput)() |
+| boolean | [IsMoveActionTriggeredOnAnyInput](input.md#ismoveactiontriggeredonanyinput)() |
+| boolean | [IsShootAction](input.md#isshootaction)([`ButtonAction`](https://wofsauge.github.io/IsaacDocs/rep/enums/ButtonAction.html) buttonAction) |
+| boolean | [IsShootActionPressedOnAnyInput](input.md#isshootactionpressedonanyinput)() |
+| boolean | [IsShootActionTriggeredOnAnyInput](input.md#isshootactiontriggeredonanyinput)() |
+| string | [KeyboardToString](input.md#keyboardtostring)([`Keyboard`](https://wofsauge.github.io/IsaacDocs/rep/enums/Keyboard.html) key, `boolean` shiftPressed) |
 
 ## Functions
 

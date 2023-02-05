@@ -4,9 +4,9 @@
 
 | Return Value | Function |
 | - | - |
-| [EntityNPC](https://wofsauge.github.io/IsaacDocs/rep/EntityNPC.html)\[] | [GetBosses](bosses.md#getbosses)()[`EntityType`](https://wofsauge.github.io/IsaacDocs/rep/enums/EntityType.html)`?` entityType =  -1 , `integer?` variant =  -1 , `integer?` subType =  -1 , `boolean?` ignoreFriendly =  false) |
-| boolean | [IsSin](bosses.md#issin)()[`EntityNPC`](https://wofsauge.github.io/IsaacDocs/rep/EntityNPC.html) npc) |
-| [EntityNPC](https://wofsauge.github.io/IsaacDocs/rep/EntityNPC.html) | [SpawnBoss](bosses.md#spawnboss)()[`EntityType`](https://wofsauge.github.io/IsaacDocs/rep/enums/EntityType.html) entityType, `integer` variant, `integer` subType, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) position, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html)`?` velocity, [`Entity`](https://wofsauge.github.io/IsaacDocs/rep/Entity.html)`?` spawner, `integer | `[`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html)`?` seedOrRNG?, `integer?` numSegments) |
+| [EntityNPC](https://wofsauge.github.io/IsaacDocs/rep/EntityNPC.html)\[] | [GetBosses](bosses.md#getbosses)([`EntityType`](https://wofsauge.github.io/IsaacDocs/rep/enums/EntityType.html)`?` entityType =  -1 , `integer?` variant =  -1 , `integer?` subType =  -1 , `boolean?` ignoreFriendly =  false) |
+| boolean | [IsSin](bosses.md#issin)([`EntityNPC`](https://wofsauge.github.io/IsaacDocs/rep/EntityNPC.html) npc) |
+| [EntityNPC](https://wofsauge.github.io/IsaacDocs/rep/EntityNPC.html) | [SpawnBoss](bosses.md#spawnboss)([`EntityType`](https://wofsauge.github.io/IsaacDocs/rep/enums/EntityType.html) entityType, `integer` variant, `integer` subType, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) position, [`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html)`?` velocity, [`Entity`](https://wofsauge.github.io/IsaacDocs/rep/Entity.html)`?` spawner, `integer | `[`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html)`?` seedOrRNG?, `integer?` numSegments) |
 
 ## Functions
 

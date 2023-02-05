@@ -4,12 +4,12 @@
 
 | Return Value | Function |
 | - | - |
-| [StageType](https://wofsauge.github.io/IsaacDocs/rep/enums/StageType.html) | [CalculateStageType](stage.md#calculatestagetype)()[`LevelStage`](https://wofsauge.github.io/IsaacDocs/rep/enums/LevelStage.html) stage) |
-| [StageType](https://wofsauge.github.io/IsaacDocs/rep/enums/StageType.html) | [CalculateStageTypeRepentance](stage.md#calculatestagetyperepentance)()[`LevelStage`](https://wofsauge.github.io/IsaacDocs/rep/enums/LevelStage.html) stage) |
-| integer | [GetEffectiveStage](stage.md#geteffectivestage)()) |
-| boolean | [OnAscent](stage.md#onascent)()) |
-| boolean | [OnFirstFloor](stage.md#onfirstfloor)()) |
-| boolean | [OnRepentanceStage](stage.md#onrepentancestage)()) |
+| [StageType](https://wofsauge.github.io/IsaacDocs/rep/enums/StageType.html) | [CalculateStageType](stage.md#calculatestagetype)([`LevelStage`](https://wofsauge.github.io/IsaacDocs/rep/enums/LevelStage.html) stage) |
+| [StageType](https://wofsauge.github.io/IsaacDocs/rep/enums/StageType.html) | [CalculateStageTypeRepentance](stage.md#calculatestagetyperepentance)([`LevelStage`](https://wofsauge.github.io/IsaacDocs/rep/enums/LevelStage.html) stage) |
+| integer | [GetEffectiveStage](stage.md#geteffectivestage)() |
+| boolean | [OnAscent](stage.md#onascent)() |
+| boolean | [OnFirstFloor](stage.md#onfirstfloor)() |
+| boolean | [OnRepentanceStage](stage.md#onrepentancestage)() |
 
 ## Functions
 
