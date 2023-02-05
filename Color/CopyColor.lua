@@ -1,4 +1,4 @@
----Copies a color
+---Copies a color.
 ---@param color Color
 ---@return Color
 function TSIL.Color.CopyColor(color)

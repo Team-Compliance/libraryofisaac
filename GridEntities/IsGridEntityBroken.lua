@@ -17,8 +17,8 @@ local GridEntityTypeToBrokenState = {
 --- 
 --- Note that `GridEntityType.GRID_LOCK` will turn to being broken before the actual
 --- collision is turned off.
---- @param gridEntity GridEntity
---- @return boolean
+---@param gridEntity GridEntity
+---@return boolean
 function TSIL.GridEntities.IsGridEntityBroken(gridEntity)
     local gridEntityType = gridEntity:GetType()
     local brokenState = GridEntityTypeToBrokenState[gridEntityType]

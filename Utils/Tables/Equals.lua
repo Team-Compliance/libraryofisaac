@@ -1,8 +1,8 @@
 --- Helper function for determining if two arrays contain the exact same elements. 
---- @generic T: any
---- @param table1 T[]
---- @param table2 T[]
---- @return boolean
+---@generic T: any
+---@param table1 T[]
+---@param table2 T[]
+---@return boolean
 function TSIL.Utils.Tables.Equals(table1, table2)
 	if #table1 ~= #table2 then
 		return false

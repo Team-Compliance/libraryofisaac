@@ -1,7 +1,7 @@
 --- Helper function to check if two collectible sprites are the same.
---- @param sprite1 Sprite
---- @param sprite2 Sprite
---- @return boolean
+---@param sprite1 Sprite
+---@param sprite2 Sprite
+---@return boolean
 function TSIL.Collectibles.CollectibleSpriteEquals(sprite1, sprite2)
     local xStart = -1
     local xFinish = 1
@@ -26,7 +26,7 @@ end
 
 --- Helper function to change the sprite of a collectible pedestal
 ---@param collectible EntityPickup
----@param spriteSheet string? # Optional. If not set, the sprite will be removed, like if the item had already been taken.
+---@param spriteSheet string? @Optional. If not set, the sprite will be removed, like if the item had already been taken.
 function TSIL.Collectibles.SetCollectibleSprite(collectible, spriteSheet)
     local sprite = collectible:GetSprite()
 

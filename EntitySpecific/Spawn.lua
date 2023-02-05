@@ -27,7 +27,7 @@ end
 ---@param subType integer
 ---@param position Vector
 ---@param velocity Vector?
----@param spawner Entity??
+---@param spawner Entity?
 ---@param seedOrRNG integer | RNG?
 ---@return EntityBomb
 function TSIL.EntitySpecific.SpawnBomb(bombVariant, subType, position, velocity, spawner, seedOrRNG)
@@ -127,7 +127,7 @@ end
 ---@param subType integer
 ---@param position Vector
 ---@param velocity Vector?
----@param spawner Entity??
+---@param spawner Entity?
 ---@param seedOrRNG integer | RNG?
 ---@return EntityPickup
 function TSIL.EntitySpecific.SpawnPickup(pickupVariant, subType, position, velocity, spawner, seedOrRNG)
@@ -147,7 +147,7 @@ end
 ---@param subType integer
 ---@param position Vector
 ---@param velocity Vector?
----@param spawner Entity??
+---@param spawner Entity?
 ---@param seedOrRNG integer | RNG?
 ---@return EntityProjectile
 function TSIL.EntitySpecific.SpawnProjectile(projectileVariant, subType, position, velocity, spawner, seedOrRNG)
@@ -167,7 +167,7 @@ end
 ---@param subType integer
 ---@param position Vector
 ---@param velocity Vector?
----@param spawner Entity??
+---@param spawner Entity?
 ---@param seedOrRNG integer | RNG?
 ---@return Entity
 function TSIL.EntitySpecific.SpawnSlot(slotVariant, subType, position, velocity, spawner, seedOrRNG)

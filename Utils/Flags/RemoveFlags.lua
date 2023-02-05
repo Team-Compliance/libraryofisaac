@@ -1,7 +1,7 @@
 --- Removes the given flags from another one.
---- @param flags integer
---- @param ... integer
---- @return integer
+---@param flags integer
+---@param ... integer
+---@return integer
 function TSIL.Utils.Flags.RemoveFlags(flags, ...)
 	local flagsToRemove = {...}
 

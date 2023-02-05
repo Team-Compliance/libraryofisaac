@@ -1,7 +1,7 @@
 --- Helper function to spawn a door.
 ---@param doorVariant DoorVariant
 ---@param indexOrPosition integer | Vector
----@param force boolean? @ Default : true. Set this to true if you want to replace existing grid entities in the same tile.
+---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
 ---@return GridEntityDoor?
 function TSIL.GridSpecific.SpawnDoor(doorVariant, indexOrPosition, force)
     local gridEntity = TSIL.GridEntities.SpawnGridEntity(
@@ -25,7 +25,7 @@ end
 --- Helper function to spawn a pit.
 ---@param pitVariant PitVariant
 ---@param indexOrPosition integer | Vector
----@param force boolean? @ Default : true. Set this to true if you want to replace existing grid entities in the same tile.
+---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
 ---@return GridEntityPit?
 function TSIL.GridSpecific.SpawnPit(pitVariant, indexOrPosition, force)
     local gridEntity = TSIL.GridEntities.SpawnGridEntity(
@@ -49,7 +49,7 @@ end
 --- Helper function to spawn a poop.
 ---@param poopVariant PoopGridEntityVariant
 ---@param indexOrPosition integer | Vector
----@param force boolean? @ Default : true. Set this to true if you want to replace existing grid entities in the same tile.
+---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
 ---@return GridEntityPoop?
 function TSIL.GridSpecific.SpawnPoop(poopVariant, indexOrPosition, force)
     local gridEntity = TSIL.GridEntities.SpawnGridEntity(
@@ -73,7 +73,7 @@ end
 --- Helper function to spawn a pressure plate.
 ---@param pressurePlateVariant PressurePlateVariant
 ---@param indexOrPosition integer | Vector
----@param force boolean? @ Default : true. Set this to true if you want to replace existing grid entities in the same tile.
+---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
 ---@return GridEntityPressurePlate?
 function TSIL.GridSpecific.SpawnPressurePlate(pressurePlateVariant, indexOrPosition, force)
     local gridEntity = TSIL.GridEntities.SpawnGridEntity(
@@ -97,7 +97,7 @@ end
 --- Helper function to spawn a rock.
 ---@param rockVariant RockVariant
 ---@param indexOrPosition integer | Vector
----@param force boolean? @ Default : true. Set this to true if you want to replace existing grid entities in the same tile.
+---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
 ---@return GridEntityRock?
 function TSIL.GridSpecific.SpawnRock(rockVariant, indexOrPosition, force)
     local gridEntity = TSIL.GridEntities.SpawnGridEntity(
@@ -121,7 +121,7 @@ end
 --- Helper function to spawn a spike.
 ---@param spikeVariant integer
 ---@param indexOrPosition integer | Vector
----@param force boolean? @ Default : true. Set this to true if you want to replace existing grid entities in the same tile.
+---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
 ---@return GridEntitySpikes?
 function TSIL.GridSpecific.SpawnSpikes(spikeVariant, indexOrPosition, force)
     local gridEntity = TSIL.GridEntities.SpawnGridEntity(
@@ -145,7 +145,7 @@ end
 --- Helper function to spawn TNT.
 ---@param TNTVariant integer
 ---@param indexOrPosition integer | Vector
----@param force boolean? @ Default : true. Set this to true if you want to replace existing grid entities in the same tile.
+---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
 ---@return GridEntityTNT?
 function TSIL.GridSpecific.SpawnTNT(TNTVariant, indexOrPosition, force)
     local gridEntity = TSIL.GridEntities.SpawnGridEntity(

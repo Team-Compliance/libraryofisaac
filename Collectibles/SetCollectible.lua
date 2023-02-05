@@ -1,5 +1,5 @@
 --- Helper function to set a collectible sprite to a red question mark.
---- @param collectible EntityPickup
+---@param collectible EntityPickup
 function TSIL.Collectibles.SetCollectibleBlind(collectible)
     if collectible.Type ~= EntityType.ENTITY_PICKUP or
     collectible.Variant ~= PickupVariant.PICKUP_COLLECTIBLE then

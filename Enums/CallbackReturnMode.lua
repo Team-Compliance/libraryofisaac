@@ -1,4 +1,4 @@
---- @enum CallbackReturnMode
+---@enum CallbackReturnMode
 TSIL.Enums.CallbackReturnMode = {
 	NONE = 0,
 	SKIP_NEXT = 1,

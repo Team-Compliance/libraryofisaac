@@ -4,11 +4,11 @@
 --- - Walls and pits collision
 --- - Removing existing grid entities
 --- - Allows you to use the grid index
---- @param gridEntityType GridEntityType
---- @param gridEntityVariant integer
---- @param gridIndexOrPosition Vector | integer
---- @param force boolean? @Default : true. Set this to true if you want to replace existing grid entities in the same tile.
---- @return GridEntity?
+---@param gridEntityType GridEntityType
+---@param gridEntityVariant integer
+---@param gridIndexOrPosition Vector | integer
+---@param force boolean? @Default : true. Set this to true if you want to replace existing grid entities in the same tile.
+---@return GridEntity?
 function TSIL.GridEntities.SpawnGridEntity(gridEntityType, gridEntityVariant, gridIndexOrPosition, force)
     if force == nil then
         force = true
@@ -57,9 +57,9 @@ end
 ---
 --- This is more complicated than just spawning a trapdoor with the appropriate variant, as
 --- it won't have the correct graphics and it won't lead to The Void.
---- @param gridIndexOrPosition Vector | integer
---- @param force boolean? @Default : true. Set this to true if you want to replace existing grid entities in the same tile.
---- @return GridEntity?
+---@param gridIndexOrPosition Vector | integer
+---@param force boolean? @Default : true. Set this to true if you want to replace existing grid entities in the same tile.
+---@return GridEntity?
 function TSIL.GridEntities.SpawnVoidPortal(gridIndexOrPosition, force)
     if force == nil then
         force = true
@@ -89,9 +89,9 @@ end
 --- Helper function to spawn a giant poop.
 --- 
 --- Will return true if the poop has successfully spawned.
---- @param topLeftGridIndexOrPosition Vector | integer @Where the top left corner of the poop will be placed.
---- @param force boolean? @Default : true. Set this to true if you want to replace existing grid entities in the same tiles.
---- @return boolean
+---@param topLeftGridIndexOrPosition Vector | integer @Where the top left corner of the poop will be placed.
+---@param force boolean? @Default : true. Set this to true if you want to replace existing grid entities in the same tiles.
+---@return boolean
 function TSIL.GridEntities.SpawnGigaPoop(topLeftGridIndexOrPosition, force)
     local room = Game():GetRoom()
     local topLeftGridIndex = topLeftGridIndexOrPosition

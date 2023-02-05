@@ -1,9 +1,9 @@
 ---@class PlayerIndex : number
 
 --- Returns a given player's index. Useful for storing unique data per player.
---- @param player EntityPlayer
---- @param differentiateSoulAndForgotten? boolean
---- @return PlayerIndex
+---@param player EntityPlayer
+---@param differentiateSoulAndForgotten? boolean
+---@return PlayerIndex
 function TSIL.Players.GetPlayerIndex(player, differentiateSoulAndForgotten)
 	if differentiateSoulAndForgotten == nil then
 		differentiateSoulAndForgotten = false
@@ -28,8 +28,8 @@ function TSIL.Players.GetPlayerIndex(player, differentiateSoulAndForgotten)
 end
 
 --- Returns a player given its index.
---- @param playerIndex PlayerIndex
---- @return EntityPlayer?
+---@param playerIndex PlayerIndex
+---@return EntityPlayer?
 function TSIL.Players.GetPlayerByIndex(playerIndex)
 	local players = TSIL.Players.GetPlayers()
 

@@ -1,8 +1,8 @@
 --- Filters a table given a predicate
---- @generic T:any
---- @param toFilter T[]
---- @param predicate fun(key: integer | string, value: T): boolean
---- @return T[]
+---@generic T:any
+---@param toFilter T[]
+---@param predicate fun(key: integer | string, value: T): boolean
+---@return T[]
 function TSIL.Utils.Tables.Filter(toFilter, predicate)
 	local filtered = {}	
 

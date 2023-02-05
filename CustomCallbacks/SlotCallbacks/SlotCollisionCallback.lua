@@ -3,7 +3,7 @@ TSIL.__RegisterCustomCallback(
 	TSIL.Enums.CustomCallback.POST_SLOT_ANIMATION_CHANGED,
     TSIL.Enums.CallbackReturnMode.NONE,
     TSIL.Enums.CallbackOptionalArgType.ENTITY_VARIANT_SUBTYPE,
-    TSIL.Enums.CallbackOptionalArgType.ENTITY_SUBTYPE
+    TSIL.Enums.CallbackOptionalArgType.PLAYER_TYPE_VARIANT
 )
 
 

@@ -1,7 +1,7 @@
 --- Adds the given flag to another one.
---- @param flags integer
---- @param ... integer
---- @return integer
+---@param flags integer
+---@param ... integer
+---@return integer
 function TSIL.Utils.Flags.AddFlags(flags, ...)
 	local flagsToAdd = {...}
 

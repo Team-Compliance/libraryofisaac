@@ -1,7 +1,7 @@
 --- Checks whether a given flag has all of the other given flags.
---- @param flags integer
---- @param ... integer
---- @return boolean
+---@param flags integer
+---@param ... integer
+---@return boolean
 function TSIL.Utils.Flags.HasFlags(flags, ...)
 	local flagsToCheck = {...}
 

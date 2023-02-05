@@ -3,8 +3,8 @@
 ---
 --- This function works by looking at the `Parent` and the `SpawnerEntity` fields (in that order).
 --- As a last resort, it will attempt to use the `Entity.ToPlayer` method on the entity itself.
---- @param entity Entity
---- @return EntityPlayer?
+---@param entity Entity
+---@return EntityPlayer?
 function TSIL.Players.GetPlayerFromEntity(entity)
   if entity.Parent then
     local player = entity.Parent:ToPlayer()

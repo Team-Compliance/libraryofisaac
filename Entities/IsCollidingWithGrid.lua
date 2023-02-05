@@ -1,7 +1,7 @@
 --- Checks if an entity is colliding with a grid entity.
 --- If it does, returns the grid entity it's colliding with, else returns nil.
---- @param entity Entity
---- @return GridEntity?
+---@param entity Entity
+---@return GridEntity?
 function TSIL.Entities.IsCollidingWithGrid(entity)
 	local room = Game():GetRoom()
 

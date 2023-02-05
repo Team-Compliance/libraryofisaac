@@ -133,8 +133,12 @@ local function onPeffectUpdate(_, player)
             if not PlayerRecentlyCollidedWithBulb(player) then
                 if currentCharge < previousCharge then
                     local collectibleType = player:GetActiveItem(activeSlot)
-                    TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_ITEM_DISCHARGE, collectibleType,
-                        activeSlot)
+                    TSIL.__TriggerCustomCallback(
+                        TSIL.Enums.CustomCallback.POST_ITEM_DISCHARGE,
+                        player,
+                        collectibleType,
+                        activeSlot
+                    )
                 end
             end
         end

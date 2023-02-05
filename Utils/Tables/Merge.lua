@@ -62,8 +62,8 @@ end
 ---variables that are no longer used in the code, or copy over old variables of a different type,
 ---which can cause run-time errors. In such cases, users will have to manually delete their save
 ---data.
----@param oldObject table<any, unknown> | any[] The old table to merge the values into.
----@param newTable table<any, unknown> The new table to merge the values from. This must be a Lua table that represents serialized data. In other words, it should be created with the `DeepCopy` function using `SerializationType.SERIALIZE`.
+---@param oldObject table<any, unknown> @The old table to merge the values into.
+---@param newTable table<any, unknown> @The new table to merge the values from. This must be a Lua table that represents serialized data. In other words, it should be created with the `DeepCopy` function using `SerializationType.SERIALIZE`.
 function TSIL.Utils.Tables.Merge(oldObject, newTable)
     if type(oldObject) ~= "table" then
         error("The first argument given to the merge function is not a table")

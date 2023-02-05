@@ -1,9 +1,9 @@
 --- Returns n randomly selected elements from a table.
---- @generic T any
---- @param toChoose T[]
---- @param numberOfElements? integer @Default: 1
---- @param seedOrRNG integer | RNG? Optional. The `Seed` or `RNG` object to use. If an `RNG` object is provided, the `RNG.Next` method will be called. Default is `TSIL.RNG.GetRandomSeed()`.
---- @return T[]
+---@generic T any
+---@param toChoose T[]
+---@param numberOfElements? integer @Default: 1
+---@param seedOrRNG integer | RNG? @Default: `TSIL.RNG.GetRandomSeed()` | The `Seed` or `RNG` object to use. If an `RNG` object is provided, the `RNG.Next` method will be called.
+---@return T[]
 function TSIL.Random.GetRandomElementsFromTable(toChoose, numberOfElements, seedOrRNG)
 	---@type RNG
     local rng

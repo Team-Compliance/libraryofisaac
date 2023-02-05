@@ -1,4 +1,4 @@
---- @enum GridEntityXMLType
+---@enum GridEntityXMLType
 TSIL.Enums.GridEntityXMLType = {
 	DECORATION = 0,
 	ROCK = 1000,

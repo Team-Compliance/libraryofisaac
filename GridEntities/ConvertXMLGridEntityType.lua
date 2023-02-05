@@ -39,9 +39,9 @@ local GridEntityXMLMap = {
 --- Helper function to convert the grid entity type found in a room XML file to the corresponding
 --- grid entity type and variant normally used by the game. For example, a rock is represented as
 --- 1000.0 in a room XML file, but `GridEntityType.GRID_ROCK` is equal to 2.
---- @param gridEntityXMLType GridEntityXMLType
---- @param gridEntityXMLVariant integer
---- @return {type : GridEntityType, variant : integer}
+---@param gridEntityXMLType GridEntityXMLType
+---@param gridEntityXMLVariant integer
+---@return {type : GridEntityType, variant : integer}
 function TSIL.GridEntities.ConvertXMLGridEntityType(gridEntityXMLType, gridEntityXMLVariant)
 	local gridEntityVariantPair = GridEntityXMLMap[gridEntityXMLType]
 

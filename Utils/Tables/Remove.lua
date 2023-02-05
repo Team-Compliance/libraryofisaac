@@ -7,10 +7,10 @@
 --- If there is more than one matching element in the table, this function will only remove the first
 --- matching element. If you want to remove all of the elements, use the `RemoveAll` function
 --- instead.
---- @generic T 
---- @param originalTable T[]
---- @vararg any
---- @return T[]
+---@generic T 
+---@param originalTable T[]
+---@vararg any
+---@return T[]
 function TSIL.Utils.Tables.Remove(originalTable, ...)
 	local copiedTable = TSIL.Utils.Tables.Copy(originalTable)
 	TSIL.Utils.Tables.RemoveInPlace(copiedTable, ...)
@@ -25,10 +25,10 @@ end
 --- 
 --- If there is more than one matching element in the table, this function will remove every matching
 --- element. If you want to only remove the first matching element, use the `Remove` function instead.
---- @generic T 
---- @param originalTable T[]
---- @vararg any
---- @return T[]
+---@generic T 
+---@param originalTable T[]
+---@vararg any
+---@return T[]
 function TSIL.Utils.Tables.RemoveAll(originalTable, ...)
 	local copiedTable = TSIL.Utils.Tables.Copy(originalTable)
 	TSIL.Utils.Tables.RemoveAllInPlace(copiedTable, ...)
@@ -43,10 +43,10 @@ end
 --- If there is more than one matching element in the table, this function will remove every matching
 --- element. If you want to only remove the first matching element, use the `RemoveInPlace`
 --- function instead.
---- @generic T 
---- @param originalTable T[]
---- @vararg any
---- @return boolean # True if one or more elements were removed, false otherwise. 
+---@generic T 
+---@param originalTable T[]
+---@vararg any
+---@return boolean # True if one or more elements were removed, false otherwise. 
 function TSIL.Utils.Tables.RemoveAllInPlace(originalTable, ...)
 	local removedElement = false
 	for _, elementToRemove in pairs({...}) do
@@ -69,9 +69,9 @@ end
 --- If there is more than one matching element in the table, this function will only remove the first
 --- matching element. If you want to remove all of the elements, use the `RemoveAllInPlace` function
 --- instead.
---- @param originalTable any
---- @vararg any
---- @return boolean # True if one or more elements were removed, false otherwise. 
+---@param originalTable any
+---@vararg any
+---@return boolean @True if one or more elements were removed, false otherwise. 
 function TSIL.Utils.Tables.RemoveInPlace(originalTable, ...)
 	local removedElement = false
 

@@ -4,7 +4,7 @@
 --- each familiar stolen. (Checking for the presence of this entity seems to be the only way to
 --- detect when the Siren steals a familiar.)
 ---@param familiar EntityFamiliar
----@return Entity? @ Returns the hitdden "Siren Helper" entity corresponding to the given familiar, if it exists. Returns nil otherwise.
+---@return Entity? @ Returns the hidden "Siren Helper" entity corresponding to the given familiar, if it exists. Returns nil otherwise.
 function TSIL.Familiars.GetSirenHelper(familiar)
     local familiarPtrHash = GetPtrHash(familiar)
 

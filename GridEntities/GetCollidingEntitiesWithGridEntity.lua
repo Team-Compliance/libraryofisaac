@@ -2,8 +2,8 @@
 --- 
 --- Note that this function won't work in the `POST_NEW_ROOM` callback, since
 --- entities don't have collision yet.
---- @param gridEntity GridEntity
---- @return Entity[]
+---@param gridEntity GridEntity
+---@return Entity[]
 function TSIL.GridEntities.GetCollidingEntitiesWithGridEntity(gridEntity)
 	local closeEntities = Isaac.FindInRadius(gridEntity.Position, 80)
 

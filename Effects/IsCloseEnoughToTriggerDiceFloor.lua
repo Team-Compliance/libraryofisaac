@@ -6,9 +6,9 @@ local DICE_FLOOR_TRIGGER_SQUARE_SIZE = 75
 ---@param entity Entity
 ---@param diceFloor EntityEffect
 function TSIL.Effects.IsCloseEnoughToTriggerDiceFloor(entity, diceFloor)
-    local topLeft = diceFloor.Position + Vector(-75, -75)
-    local topRight = diceFloor.Position + Vector(75, -75)
-    local bottomRight = diceFloor.Position + Vector(75, 75)
+    local topLeft = diceFloor.Position + Vector(-DICE_FLOOR_TRIGGER_SQUARE_SIZE, -DICE_FLOOR_TRIGGER_SQUARE_SIZE)
+    local topRight = diceFloor.Position + Vector(DICE_FLOOR_TRIGGER_SQUARE_SIZE, -DICE_FLOOR_TRIGGER_SQUARE_SIZE)
+    local bottomRight = diceFloor.Position + Vector(DICE_FLOOR_TRIGGER_SQUARE_SIZE, DICE_FLOOR_TRIGGER_SQUARE_SIZE)
 
     return TSIL.Utils.Math.IsInRectangle(entity.Position, topLeft, topRight, bottomRight)
 end

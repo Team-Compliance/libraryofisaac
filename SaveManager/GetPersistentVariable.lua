@@ -1,9 +1,9 @@
 --##use SaveManager/SaveDataManager.lua
 
 --- Gets a variable from the save manager.
---- @param mod table
---- @param variableName string
---- @return any
+---@param mod table
+---@param variableName string
+---@return any
 function TSIL.SaveManager.GetPersistentVariable(mod, variableName)
 	local PersistentData = TSIL.__VERSION_PERSISTENT_DATA.PersistentData
 

@@ -1,4 +1,4 @@
---- @enum CrawlSpaceVariant
+---@enum CrawlSpaceVariant
 TSIL.Enums.CrawlSpaceVariant = {
 	NORMAL = 0,
 	GREAT_GIDEON = 1,
@@ -7,14 +7,14 @@ TSIL.Enums.CrawlSpaceVariant = {
 	NULL = 4
 }
 
---- @enum PitVariant
+---@enum PitVariant
 TSIL.Enums.PitVariant = {
 	NORMAL = 0,
 	FISSURE_SPAWNER = 16
 }
 
 
---- @enum PoopGridEntityVariant
+---@enum PoopGridEntityVariant
 TSIL.Enums.PoopGridEntityVariant = {
 	NORMAL = 0,
 	RED = 1,
@@ -31,7 +31,7 @@ TSIL.Enums.PoopGridEntityVariant = {
 }
 
 
---- @enum PressurePlateVariant
+---@enum PressurePlateVariant
 TSIL.Enums.PressurePlateVariant = {
 	PRESSURE_PLATE = 0,
 	REWARD_PLATE = 1,
@@ -42,21 +42,21 @@ TSIL.Enums.PressurePlateVariant = {
 }
 
 
---- @enum RockVariant
+---@enum RockVariant
 TSIL.Enums.RockVariant = {
 	NORMAL = 0,
 	EVENT = 1
 }
 
 
---- @enum StatueVariant
+---@enum StatueVariant
 TSIL.Enums.StatueVariant = {
 	DEVIL = 0,
 	ANGEL = 1
 }
 
 
---- @enum TrapdoorVariant
+---@enum TrapdoorVariant
 TSIL.Enums.TrapdoorVariant = {
 	NORMAL = 0,
 	VOID_PORTAL = 1

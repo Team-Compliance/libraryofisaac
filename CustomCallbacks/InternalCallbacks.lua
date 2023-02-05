@@ -1,8 +1,8 @@
---- @param id string
---- @param callback ModCallbacks | CustomCallback
---- @param funct function
---- @param priority integer | CallbackPriority?
---- @param optionalParam? integer
+---@param id string
+---@param callback ModCallbacks | CustomCallback
+---@param funct function
+---@param priority integer | CallbackPriority?
+---@param optionalParam? integer
 function TSIL.__AddInternalCallback(id, callback, funct, priority, optionalParam)
 	if priority == nil then
 		priority = CallbackPriority.DEFAULT

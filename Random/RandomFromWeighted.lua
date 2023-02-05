@@ -2,10 +2,10 @@
 --- Each choice must be given as a pair of chance and value.
 --- 
 --- `{chance = x, value = y}`
---- @generic T any
---- @param seedOrRNG integer | RNG
---- @param ... {chance : integer, value : T}
---- @return T
+---@generic T any
+---@param seedOrRNG integer | RNG
+---@param ... {chance : integer, value : T}
+---@return T
 function TSIL.Random.GetRandomElementFromWeightedList(seedOrRNG, ...)
 	local rng
 

@@ -1,7 +1,7 @@
 --- Returns a list with all items currently loaded.
 ---
 --- Use only inside a callback or not all modded items may be loaded.
---- @return ItemConfig_Item[]
+---@return ItemConfig_Item[]
 function TSIL.Collectibles.GetCollectibles()
 	local collectibles = {}
 
@@ -23,13 +23,8 @@ end
 --- Returns a list of all items of a certain quality.
 ---
 --- Use only inside a callback or not all modded items may be loaded.
---- @param quality integer
---- | 0
---- | 1
---- | 2
---- | 3
---- | 4
---- @return ItemConfig_Item[]
+---@param quality integer
+---@return ItemConfig_Item[]
 function TSIL.Collectibles.GetCollectiblesByQuality(quality)
 	local collectibles = TSIL.Collectibles.GetCollectibles()
 
@@ -40,7 +35,7 @@ end
 
 
 --- Returns a list of all vanilla items.
---- @return ItemConfig_Item[]
+---@return ItemConfig_Item[]
 function TSIL.Collectibles.GetVanillaCollectibles()
 	local collectibles = {}
 
@@ -61,7 +56,7 @@ end
 --- Returns a list of all modded items currently loaded.
 --- 
 --- Use only inside a callback or not all modded items may be loaded.
---- @return ItemConfig_Item[]
+---@return ItemConfig_Item[]
 function TSIL.Collectibles.GetModdedCollectibles()
 	local collectibles = {}
 

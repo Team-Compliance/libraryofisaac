@@ -1,6 +1,6 @@
 --- Helper function to get all grid entities around a grid index, not including itself.
---- @param gridIndex GridEntity
---- @return GridEntity[]
+---@param gridIndex GridEntity
+---@return GridEntity[]
 function TSIL.GridEntities.GetSurroundingGridEntities(gridIndex)
 	local room = Game():GetRoom()
 

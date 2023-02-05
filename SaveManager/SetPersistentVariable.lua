@@ -1,10 +1,10 @@
 --##use SaveManager/SaveDataManager.lua
 
 --- Sets a variable from the save manager.
---- @param mod table
---- @param variableName string
---- @param newValue any
---- @param overrideType? boolean @default: false
+---@param mod table
+---@param variableName string
+---@param newValue any
+---@param overrideType? boolean @default: false
 function TSIL.SaveManager.SetPersistentVariable(mod, variableName, newValue, overrideType)
 	local PersistentData = TSIL.__VERSION_PERSISTENT_DATA.PersistentData
 

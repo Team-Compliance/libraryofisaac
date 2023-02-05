@@ -1,5 +1,5 @@
 --- Helper function to get all grid entities with type `GridEntityType.GRID_STAIRS` and the given variant.
----@param crawlSpaceVariant CrawlSpaceVariant? @ Default : -1. Which matches all variants.
+---@param crawlSpaceVariant CrawlSpaceVariant? @Default: -1. Which matches all variants.
 ---@return GridEntity[]
 function TSIL.GridSpecific.GetCrawlSpaces(crawlSpaceVariant)
     if not crawlSpaceVariant then
@@ -20,7 +20,7 @@ end
 
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_PIT` and the given variant.
----@param pitVariant PitVariant? @ Default : -1. Which matches all variants.
+---@param pitVariant PitVariant? @ Default: -1 | Which matches all variants.
 ---@return GridEntityPit[]
 function TSIL.GridSpecific.GetPits(pitVariant)
     if not pitVariant then
@@ -45,7 +45,7 @@ end
 
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_POOP` and the given variant.
----@param poopVariant PoopGridEntityVariant? @ Default : -1. Which matches all variants.
+---@param poopVariant PoopGridEntityVariant? @ Default: -1 | Which matches all variants.
 ---@return GridEntityPoop[]
 function TSIL.GridSpecific.GetPoops(poopVariant)
     if not poopVariant then
@@ -70,7 +70,7 @@ end
 
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_PRESSURE_PLATE` and the given variant.
----@param pressurePlateVariant PressurePlateVariant? @ Default : -1. Which matches all variants.
+---@param pressurePlateVariant PressurePlateVariant? @ Default: -1 | Which matches all variants.
 ---@return GridEntityPressurePlate[]
 function TSIL.GridSpecific.GetPressurePlates(pressurePlateVariant)
     if not pressurePlateVariant then
@@ -95,7 +95,7 @@ end
 
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_ROCK` and the given variant.
----@param rockVariant RockVariant? @ Default : -1. Which matches all variants.
+---@param rockVariant RockVariant? @ Default: -1 | Which matches all variants.
 ---@return GridEntityRock[]
 function TSIL.GridSpecific.GetRocks(rockVariant)
     if not rockVariant then
@@ -120,7 +120,7 @@ end
 
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_SPIKES` and the given variant.
----@param spikesVariant integer? @ Default : -1. Which matches all variants.
+---@param spikesVariant integer? @ Default: -1 | Which matches all variants.
 ---@return GridEntitySpikes[]
 function TSIL.GridSpecific.GetSpikes(spikesVariant)
     if not spikesVariant then
@@ -144,7 +144,7 @@ end
 
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_TNT` and the given variant.
----@param TNTVariant integer? @ Default : -1. Which matches all variants.
+---@param TNTVariant integer? @ Default: -1 | Which matches all variants.
 ---@return GridEntityTNT[]
 function TSIL.GridSpecific.GetTNTs(TNTVariant)
     if not TNTVariant then
@@ -168,7 +168,7 @@ end
 
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_TELEPORTER` and the given variant.
----@param teleporterVariant integer? @ Default : -1. Which matches all variants.
+---@param teleporterVariant integer? @ Default: -1 | Which matches all variants.
 ---@return GridEntity[]
 function TSIL.GridSpecific.GetTeleporters(teleporterVariant)
     if not teleporterVariant then
@@ -188,7 +188,7 @@ end
 
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_TRAPDOOR` and the given variant.
----@param trapdoorVariant TrapdoorVariant? @ Default : -1. Which matches all variants.
+---@param trapdoorVariant TrapdoorVariant? @ Default: -1 | Which matches all variants.
 ---@return GridEntity[]
 function TSIL.GridSpecific.GetTrapdoors(trapdoorVariant)
     if not trapdoorVariant then

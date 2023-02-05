@@ -15,8 +15,8 @@ TSIL.__AddInternalCallback(
 
 
 --- Runs a given function on the next `POST_NEW_ROOM` callback.
---- @param funct function
---- @param ... any
+---@param funct function
+---@param ... any
 function TSIL.Utils.Functions.RunNextRoom(funct, ...)
 	local args = {...}
 

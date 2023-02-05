@@ -9,8 +9,8 @@
 --- @field CollectedItems {[string]: integer}
 
 
---- @param player EntityPlayer
---- @param playerState PlayerInventory
+---@param player EntityPlayer
+---@param playerState PlayerInventory
 local function CheckCollectedItems(player, playerState)
 	local itemConfig = Isaac.GetItemConfig()
 	local itemList = itemConfig:GetCollectibles()
@@ -56,8 +56,8 @@ local function CheckCollectedItems(player, playerState)
 end
 
 
---- @param player EntityPlayer
---- @param playerState PlayerInventory
+---@param player EntityPlayer
+---@param playerState PlayerInventory
 local function CheckGulpedTrinkets(player, playerState)
 	local itemConfig = Isaac.GetItemConfig()
 	local trinketList = itemConfig:GetTrinkets()
@@ -106,7 +106,7 @@ local function CheckGulpedTrinkets(player, playerState)
 end
 
 
---- @param player EntityPlayer
+---@param player EntityPlayer
 local function OnPeffectUpdate(_, player)
 	--- @type PlayerInventory[]
 	local playerInventories = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "PLAYER_INVENTORIES")
@@ -150,9 +150,9 @@ TSIL.__AddInternalCallback(
 
 --- Returns a list of all the items/gulped trinkets (things that appear on the extra HUD) ordered by the time they were collected.
 --- This method is not perfect and will fail if the player rerolls all of their items or a mod gives several items in the same frame.
---- @param player EntityPlayer
---- @param inventoryTypeFilter? InventoryType
---- @return InventoryObject[]
+---@param player EntityPlayer
+---@param inventoryTypeFilter? InventoryType
+---@return InventoryObject[]
 function TSIL.Players.GetPlayerInventory(player, inventoryTypeFilter)
 	local playerIndex = TSIL.Players.GetPlayerIndex(player)
 

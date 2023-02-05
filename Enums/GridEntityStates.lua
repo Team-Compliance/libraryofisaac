@@ -1,11 +1,11 @@
---- @enum LockState
+---@enum LockState
 TSIL.Enums.LockState = {
     LOCKED = 0,
     UNLOCKED = 1,
 }
 
 
---- @enum PoopState
+---@enum PoopState
 TSIL.Enums.PoopState = {
     UNDAMAGED = 0,
     ONE_QUARTER_DAMAGED = 250,
@@ -15,7 +15,7 @@ TSIL.Enums.PoopState = {
 }
 
 
---- @enum RockState
+---@enum RockState
 TSIL.Enums.RockState = {
     UNBROKEN = 1,
     BROKEN = 2,
@@ -24,14 +24,14 @@ TSIL.Enums.RockState = {
 }
 
 
---- @enum SpiderWebState
+---@enum SpiderWebState
 TSIL.Enums.SpiderWebState = {
     UNBROKEN = 0,
     BROKEN = 1,
 }
 
 
---- @enum TNTState
+---@enum TNTState
 TSIL.Enums.TNTState = {
     UNDAMAGED = 0,
     ONE_QUARTER_DAMAGED = 1,

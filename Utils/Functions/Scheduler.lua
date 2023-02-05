@@ -21,9 +21,9 @@ TSIL.__AddInternalCallback(
 
 
 --- Runs a function in a given number of frames.
---- @param funct function
---- @param frames integer
---- @param ... any
+---@param funct function
+---@param frames integer
+---@param ... any
 function TSIL.Utils.Functions.RunInFrames(funct, frames, ...)
 	local args = {...}
 	table.insert(ScheduledFunctions, {funct = funct, frames = frames, params = args})

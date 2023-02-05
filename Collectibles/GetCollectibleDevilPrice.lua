@@ -1,7 +1,7 @@
 --- Helper function to get the coin cost a collectible would have if it were being offered as a
 --- Devil Room Deal.
---- @param collectibleType CollectibleType
---- @return integer
+---@param collectibleType CollectibleType
+---@return integer
 function TSIL.Collectibles.GetCollectibleDevilCoinPrice(collectibleType)
     if collectibleType == CollectibleType.COLLECTIBLE_NULL then
         return 0
@@ -21,9 +21,9 @@ end
 
 --- Helper function to get the heart cost a collectible would have if it were being offered as a
 --- Devil Room Deal.
---- @param collectibleType CollectibleType # If this is set to `COLLECTIBLE_NULL` then it'll return `PRICE_FREE`
---- @param player EntityPlayer
---- @return PickupPrice
+---@param collectibleType CollectibleType @ If this is set to `COLLECTIBLE_NULL` then it'll return `PRICE_FREE`
+---@param player EntityPlayer
+---@return PickupPrice
 function TSIL.Collectibles.GetCollectibleDevilHeartPrice(collectibleType, player)
     if collectibleType == CollectibleType.COLLECTIBLE_NULL then
         return PickupPrice.PRICE_FREE

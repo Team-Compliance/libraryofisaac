@@ -16,8 +16,8 @@ local GridEntityTypeBreakableByExplosion = {
 }
 
 --- Helper function to check if a GridEntity is able to be broken with an explosion.
---- @param gridEntity GridEntity
---- @return boolean
+---@param gridEntity GridEntity
+---@return boolean
 function TSIL.GridEntities.IsGridEntityBreakableByExplosion(gridEntity)
     local gridEntityType = gridEntity:GetType()
     local gridEntityVariant = gridEntity:GetVariant()

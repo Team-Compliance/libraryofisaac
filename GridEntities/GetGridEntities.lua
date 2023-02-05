@@ -1,6 +1,6 @@
 --- Returns a list with all grid entities in the room.
---- @param ... GridEntityType
---- @return GridEntity[]
+---@param ... GridEntityType
+---@return GridEntity[]
 function TSIL.GridEntities.GetGridEntities(...)
 	local gridEntityTypes = {...}
 
@@ -26,8 +26,8 @@ end
 
 
 --- Returns a map with all grid entities in the room indexed by their grid index.
---- @param ... GridEntityType
---- @return table<integer, GridEntity>
+---@param ... GridEntityType
+---@return table<integer, GridEntity>
 function TSIL.GridEntities.GetGridEntitiesMap(...)
 	local gridEntities = TSIL.GridEntities.GetGridEntities(...)
 	---@type table<integer, GridEntity>

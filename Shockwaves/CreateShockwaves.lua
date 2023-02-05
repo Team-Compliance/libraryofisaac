@@ -67,12 +67,12 @@ end
 ---@param center Vector
 ---@param radius number
 ---@param customShockwaveParams CustomShockwaveParams
----@param direction Vector? @Default : Vector(0, -1)
----@param angleWidth number? @Default : 360
----@param spacing number? @Default : 35 * customShockwaveParams.Size
----@param numRings integer? @Default : 1
----@param ringSpacing number? @Default : 35 * customShockwaveParams.Size
----@param ringDelay integer? @Default : 5
+---@param direction Vector? @ Default: Vector(0, -1)
+---@param angleWidth number? @ Default: 360
+---@param spacing number? @ Default: 35 * customShockwaveParams.Size
+---@param numRings integer? @ Default: 1
+---@param ringSpacing number? @ Default: 35 * customShockwaveParams.Size
+---@param ringDelay integer? @ Default: 5
 ---@return Entity[]
 function TSIL.ShockWaves.CreateShockwaveRing(source, center, radius, customShockwaveParams, direction, angleWidth, spacing, numRings, ringSpacing, ringDelay)
     local shockwaves = {}
@@ -144,9 +144,9 @@ end
 ---@param center Vector
 ---@param direction Vector
 ---@param customShockwaveParams CustomShockwaveParams
----@param spacing number? @Default : 35 * customShockwaveParams.Size
----@param delay integer? @Default : 1
----@param numShockwaves integer? @Default : -1 Which makes the line travel until it hits an obstacle it can't break
+---@param spacing number? @ Default: 35 * customShockwaveParams.Size
+---@param delay integer? @ Default: 1
+---@param numShockwaves integer? @ Default: -1 | Which makes the line travel until it hits an obstacle it can't break
 ---@return Entity?
 function TSIL.ShockWaves.CreateShockwaveLine(source, center, direction, customShockwaveParams, spacing, delay, numShockwaves)
     direction:Normalize()
@@ -179,11 +179,11 @@ end
 ---@param center Vector
 ---@param direction Vector
 ---@param customShockwaveParams CustomShockwaveParams
----@param seedOrRNG integer | RNG? Optional. The `Seed` or `RNG` object to use. If an `RNG` object is provided, the `RNG.Next` method will be called. Default is `TSIL.RNG.GetRandomSeed()`.
----@param randomOffset integer? @Default : 60
----@param spacing number? @Default : 35 * customShockwaveParams.Size
----@param delay integer? @Default : 1
----@param numShockwaves integer? @Default : -1 Which makes the line travel until it hits an obstacle it can't break
+---@param seedOrRNG integer | RNG? @Default: `TSIL.RNG.GetRandomSeed()` | The `Seed` or `RNG` object to use. If an `RNG` object is provided, the `RNG.Next` method will be called.
+---@param randomOffset integer? @ Default: 60
+---@param spacing number? @ Default: 35 * customShockwaveParams.Size
+---@param delay integer? @ Default: 1
+---@param numShockwaves integer? @ Default: -1 | Which makes the line travel until it hits an obstacle it can't break
 ---@return Entity?
 function TSIL.ShockWaves.CreateShockwaveRandomLine(source, center, direction, customShockwaveParams, seedOrRNG, randomOffset, spacing, delay, numShockwaves)
     direction:Normalize()

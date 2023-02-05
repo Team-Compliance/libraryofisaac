@@ -7,9 +7,9 @@
 ---run-time error if it encounters a key of another type.
 ---@generic K
 ---@generic V
----@param map table<K, V> The table to iterate over
----@param func fun(key: K, value: V) The function to run for each iteration 
----@param inOrder? boolean  Optional. Whether to iterate in order. True by default. You can dynamically set to false in situations where iterating randomly would not matter and you need the extra performance.
+---@param map table<K, V> @The table to iterate over
+---@param func fun(key: K, value: V) @The function to run for each iteration 
+---@param inOrder? boolean @Default: true | Whether to iterate in order. You can dynamically set to false in situations where iterating randomly would not matter and you need the extra performance.
 function TSIL.Utils.Tables.IterateTableInOrder(map, func, inOrder)
     if inOrder == nil then
         inOrder = true

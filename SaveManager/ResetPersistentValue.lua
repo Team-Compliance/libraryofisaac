@@ -1,8 +1,8 @@
 --##use SaveManager/SaveDataManager.lua
 
 --- Resets a variable to its default value in the save manager.
---- @param mod table
---- @param variableName string
+---@param mod table
+---@param variableName string
 function TSIL.SaveManager.ResetPersistentVariable(mod, variableName)
 	local PersistentData = TSIL.__VERSION_PERSISTENT_DATA.PersistentData
 

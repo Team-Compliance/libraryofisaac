@@ -8,7 +8,7 @@ TSIL.__RegisterCustomCallback(
 )
 
 
---- @param grid GridEntity
+---@param grid GridEntity
 local function OnGridUpdate(_, grid)
 	local closeEntities = Isaac.FindInRadius(grid.Position, 120)
 

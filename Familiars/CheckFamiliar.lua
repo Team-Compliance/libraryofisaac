@@ -22,7 +22,7 @@ local familiarGenerationRNG = nil
 ---@param collectibleType CollectibleType
 ---@param targetCount integer
 ---@param familiarVariant FamiliarVariant
----@param familiarSubtype integer? @ Optional. The SubType of the familiar to spawn or remove. If not specified, it will seach for existing familiars of all SubTypes, and spawn new familiars with a SubType of 0.
+---@param familiarSubtype integer? @Optional. The SubType of the familiar to spawn or remove. If not specified, it will seach for existing familiars of all SubTypes, and spawn new familiars with a SubType of 0.
 function TSIL.Familiars.CheckFamiliar(player, collectibleType, targetCount, familiarVariant, familiarSubtype)
     if not familiarGenerationRNG then
         familiarGenerationRNG = TSIL.RNG.NewRNG()

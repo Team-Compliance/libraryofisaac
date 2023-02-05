@@ -1,6 +1,6 @@
 --- Returns a list of all players.
---- @param ignoreCoopBabies? boolean @default: true
---- @return EntityPlayer[]
+---@param ignoreCoopBabies? boolean @Default: true
+---@return EntityPlayer[]
 function TSIL.Players.GetPlayers(ignoreCoopBabies)
 	if ignoreCoopBabies == nil then
 		ignoreCoopBabies = true
@@ -21,9 +21,9 @@ end
 
 --- Returns the n closest players to a certain point.
 --- The players are ordered by their distance.
---- @param center Vector
---- @param numberOfPlayers? integer @default : 1
---- @return EntityPlayer[]
+---@param center Vector
+---@param numberOfPlayers? integer @Default : 1
+---@return EntityPlayer[]
 function TSIL.Players.GetClosestPlayers(center, numberOfPlayers)
 	if numberOfPlayers == nil then
 		numberOfPlayers = 1
@@ -45,8 +45,8 @@ function TSIL.Players.GetClosestPlayers(center, numberOfPlayers)
 end
 
 --- Returns a list of all players that have a certain item
---- @param collectibleId CollectibleType
---- @return EntityPlayer[]
+---@param collectibleId CollectibleType
+---@return EntityPlayer[]
 function TSIL.Players.GetPlayersByCollectible(collectibleId)
 	local players = TSIL.Players.GetPlayers()
 
@@ -56,8 +56,8 @@ function TSIL.Players.GetPlayersByCollectible(collectibleId)
 end
 
 --- Returns all the players that have a certain trinket
---- @param trinketId TrinketType
---- @return EntityPlayer[]
+---@param trinketId TrinketType
+---@return EntityPlayer[]
 function TSIL.Players.GetPlayersByTrinket(trinketId)
 	local players = TSIL.Players.GetPlayers()
 

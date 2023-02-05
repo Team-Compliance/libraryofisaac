@@ -7,7 +7,7 @@
 --- functions, then you should provide a very high value for the number of trials.
 ---@param numTrials integer
 ---@vararg function
----@return number[] # A table containing the average time in milliseconds for each function (this will be printed in the log)
+---@return number[] @ A table containing the average time in milliseconds for each function (this will be printed in the log)
 function TSIL.Benchmark.Benchmark(numTrials, ...)
     local functions = {...}
 
