@@ -3,6 +3,7 @@
 Library of Isaac is a universal library full of any tool you could think of needed for modding, functioning as the complete API this game was missing. The library is community contributable, basically acting as a built in version of #resources in The Modding of Isaac server. All the information needed is able to be accessed through docs.
 
 Most of the code here was taken from [`isaacscript-common`](https://isaacscript.github.io/isaacscript-common), a bigger and more complete Isaac library that you should check out if you want a more type-safe solution.
+Note that in shared features between this library and isaacscript, this library may have bugs that are not present in isaacscript.
 
 ## About
 
