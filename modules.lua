@@ -39,6 +39,7 @@ TSIL.ShockWaves = {}
 TSIL.Sprites = {}
 TSIL.Stage = {}
 TSIL.Trinkets = {}
+TSIL.UI = {}
 TSIL.Utils = {}
 TSIL.Utils.DeepCopy = {}
 TSIL.Utils.Easings = {}

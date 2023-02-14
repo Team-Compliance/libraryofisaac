@@ -376,6 +376,7 @@ local TSIL_SCRIPTS = {
 	"Stage.OnFirstFloor",
 	"Stage.OnRepentanceStage",
 	"Trinkets.GoldenTrinket",
+	"UI.ScreenPosition",
 	"Utils.DeepCopy.DeepCopy",
 	"Utils.Easing.Easings",
 	"Utils.Flags.AddFlags",
