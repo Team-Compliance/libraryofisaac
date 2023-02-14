@@ -3,8 +3,5 @@
 ---@param map table
 ---@return boolean
 function TSIL.Utils.Tables.IsEmpty(map)
-    for _ in pairs(map) do
-        return false
-    end
-    return true
+	return next(map) == nil
 end
