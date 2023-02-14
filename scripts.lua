@@ -417,5 +417,6 @@ local TSIL_SCRIPTS = {
 	"Utils.Tables.TableHasKeys",
 	"Vector.CopyVector",
 	"Vector.Equals",
+	"Vector.VectorToDirection",
 }
 return TSIL_SCRIPTS
