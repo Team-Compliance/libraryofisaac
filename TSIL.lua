@@ -69,6 +69,7 @@ function LOCAL_TSIL.Init(FolderName)
 	--- @field Funct function
 	--- @field Priority integer | CallbackPriority
 	--- @field OptionalParam integer | integer[]?
+	--- @field Enabled boolean
 	if not rawget(TSIL, "__PROXY").__INTERNAL_CALLBACKS then
 		--- @type InternalTSILCallback[]
 		TSIL.__INTERNAL_CALLBACKS = {}
@@ -119,12 +120,7 @@ function LOCAL_TSIL.Init(FolderName)
 
 	--INTERNAL CALLBACKS
 	for _, internalCallback in pairs(TSIL.__INTERNAL_CALLBACKS) do
-		TSIL.__MOD:AddPriorityCallback(
-			internalCallback.Callback,
-			internalCallback.Priority - 10000,
-			internalCallback.Funct,
-			internalCallback.OptionalParam
-		)
+		TSIL.__EnableInternalCallback(internalCallback.Id)
 	end
 
 	--TSIL LOAD CALLBACK

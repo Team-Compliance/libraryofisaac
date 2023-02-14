@@ -32,8 +32,55 @@ function TSIL.__AddInternalCallback(id, callback, funct, priority, optionalParam
 			Callback = callback,
 			Funct = funct,
 			Priority = priority,
-			OptionalParam = optionalParam
+			OptionalParam = optionalParam,
+			Enabled = false
 		}
 		table.insert(TSIL.__INTERNAL_CALLBACKS, foundInternalCallback)
 	end
+end
+
+
+---Enables an internal callback and allows it to run.
+---@param id string @The internal callback id.
+function TSIL.__EnableInternalCallback(id)
+	local foundInternalCallback = nil
+
+	for _, internalVanillaCallback in ipairs(TSIL.__INTERNAL_CALLBACKS) do
+		if internalVanillaCallback.Id == id then
+			foundInternalCallback = internalVanillaCallback
+		end
+	end
+
+	if not foundInternalCallback then return end
+	if foundInternalCallback.Enabled then return end
+
+	foundInternalCallback.Enabled = true
+	TSIL.__MOD:AddPriorityCallback(
+		foundInternalCallback.Callback,
+		foundInternalCallback.Priority - 10000,
+		foundInternalCallback.Funct,
+		foundInternalCallback.OptionalParam
+	)
+end
+
+
+---Disables an internal callback and disallows it from running.
+---@param id string @The internal callback id.
+function TSIL.__DisableInternalCallback(id)
+	local foundInternalCallback = nil
+
+	for _, internalVanillaCallback in ipairs(TSIL.__INTERNAL_CALLBACKS) do
+		if internalVanillaCallback.Id == id then
+			foundInternalCallback = internalVanillaCallback
+		end
+	end
+
+	if not foundInternalCallback then return end
+	if not foundInternalCallback.Enabled then return end
+
+	foundInternalCallback.Enabled = false
+	TSIL.__MOD:RemoveCallback(
+		foundInternalCallback.Callback,
+		foundInternalCallback.Funct
+	)
 end
