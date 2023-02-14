@@ -321,6 +321,7 @@ local TSIL_SCRIPTS = {
 	"Players.IsChildPlayer",
 	"Players.IsSpecificPlayer",
 	"Players.PlayerIndex",
+	"Players.RemoveCollectibleCostume",
 	"Players.TaintedLaz.IsActiveTaintedLaz",
 	"Players.Trinkets.AddSmeltedTrinket",
 	"Players.Trinkets.SmeltedTrinketMultiplier",
