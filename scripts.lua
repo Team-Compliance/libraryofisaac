@@ -318,6 +318,7 @@ local TSIL_SCRIPTS = {
 	"Players.Inventory.AnyPlayerHasItem",
 	"Players.Inventory.AnyPlayerHasTrinket",
 	"Players.Inventory.PlayerInventory",
+	"Players.Inventory.PlayerHasCollectible",
 	"Players.IsChildPlayer",
 	"Players.IsSpecificPlayer",
 	"Players.PlayerIndex",
