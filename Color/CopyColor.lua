@@ -25,7 +25,7 @@ function TSIL.Color.CopyKColor(kColor)
     if not TSIL.IsaacAPIClass.IsKColor(kColor) then
         error("Failed to copy a KColor object since the provided object was not a userdata KColor class.")
     end
-    
+
     return KColor(
         kColor.Red,
         kColor.Green,

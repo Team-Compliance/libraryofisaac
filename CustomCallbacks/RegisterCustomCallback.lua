@@ -106,6 +106,20 @@ local function CheckOptionalParams(param, optionalParams)
 end
 
 
+---Registers a new custom callback.
+---
+---Each `CallbackOptionalArgType` refers to one argument passed
+---by the callback, so a callback with params:
+---```lua
+---(player: EntityPlayer, name: string, num: integer)
+---```
+---To allow the user to filter by player type and the `num` param
+---you'd need to use the following `CallbackOptionalArgType`:
+---```lua
+---CallbackOptionalArgType.PLAYER_TYPE,
+---CallbackOptionalArgType.NONE, --We need to skip the `name` argument
+---CallbackOptionalArgType.GENERIC
+---```
 ---@param callback CustomCallback
 ---@param returnMode? CallbackReturnMode @Default: CallbackReturnMode.NONE
 ---@param ... CallbackOptionalArgType

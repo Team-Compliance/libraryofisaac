@@ -1,6 +1,11 @@
+---Used when registering a custom callback using `TSIL.__RegisterCustomCallback()`.
+---
+---Defines how the callback filtering should treat each parameter.
 ---@enum CallbackOptionalArgType
 TSIL.Enums.CallbackOptionalArgType = {
+    --Directly checks for equality using `==`
     GENERIC = 0,
+    --Skips this argument when checking
     NONE = 1,
 
     ENTITY_TYPE = 2,

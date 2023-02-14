@@ -1,4 +1,6 @@
----@param id string
+---Similar to the vanilla `AddCallback` but newer versions will	
+---override older versions.
+---@param id string @Must be unique. Usually they are named `FEATURE_NAME_CALLBACK_NAME`.
 ---@param callback ModCallbacks | CustomCallback
 ---@param funct function
 ---@param priority integer | CallbackPriority?

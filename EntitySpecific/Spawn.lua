@@ -182,7 +182,7 @@ end
 ---@param position Vector
 ---@param velocity Vector?
 ---@param spawner Entity?
----@param seedOrRNG integer | RNG
+---@param seedOrRNG integer | RNG?
 ---@return EntityTear
 function TSIL.EntitySpecific.SpawnTear(tearVariant, subType, position, velocity, spawner, seedOrRNG)
     velocity = velocity or Vector.Zero

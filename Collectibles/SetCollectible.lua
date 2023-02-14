@@ -28,13 +28,18 @@ function TSIL.Collectibles.SetCollectibleGlitched(collectible)
     local collectibleType = itemPool:GetCollectible(ItemPoolType.POOL_TREASURE)
 
     TSIL.Collectibles.SetCollectibleSubType(collectible, collectibleType)
+
+    if not haveTMTRAINER then
+        Isaac.GetPlayer(0):RemoveCollectible(CollectibleType.COLLECTIBLE_TMTRAINER)
+    end
 end
 
 
 --- Helper function to change the collectible in a pedestal.
 ---
 --- If `COLLECTIBLE_NULL` is given as the new subtype, it'll try removing the item,
---- as if the player had already picked it.
+--- as if the player had already picked it. Check `TSIL.Collectibles.TryRemoveCollectible()`
+--- for more information.
 ---@param collectible EntityPickup
 ---@param newSubType CollectibleType
 function TSIL.Collectibles.SetCollectibleSubType(collectible, newSubType)
