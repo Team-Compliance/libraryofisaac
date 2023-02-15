@@ -13,6 +13,7 @@ local TSIL_SCRIPTS = {
 	"Enums.HealthType",
 	"Enums.InventoryType",
 	"Enums.ItemConfigTag",
+	"Enums.LineCheckMode",
 	"Enums.PillEffectType",
 	"Enums.ProjectilesMode",
 	"Enums.Serialization",
