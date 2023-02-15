@@ -30,7 +30,7 @@ end
 local function onPEffectUpdate(_, player)
 	local playerType = player:GetPlayerType()
 	local conversionHeartSubType = characterHealthConversionMap[playerType]
-	print("doe")
+
 	if conversionHeartSubType then
 		convertRedHeartContainers(player, conversionHeartSubType)
 		removeRedHearts(player)
@@ -58,20 +58,7 @@ local function onHeartCollision(_, pickup, collider)
 	end
 end
 
-local function registerCallbacks()
-	TSIL.__AddInternalCallback(
-		"CHARACTER_HEALTH_CONVERSION_PEFFECT_UPDATE_REORDERED",
-		TSIL.Enums.CustomCallback.POST_PEFFECT_UPDATE_REORDERED,
-		onPEffectUpdate
-	)
-
-	TSIL.__AddInternalCallback(
-		"CHARACTER_HEALTH_CONVERSION_PRE_PICKUP_COLLISION",
-		ModCallbacks.MC_PRE_PICKUP_COLLISION,
-		onHeartCollision,
-		PickupVariant.PICKUP_HEART
-	)
-end
+local function registerCallbacks() end
 
 --- Causes the provided player type to have their health be converted to the provided heart
 --- sub-type. This is the same mechanic that certain characters use for converting health, such as
@@ -84,3 +71,16 @@ function TSIL.Players.RegisterCharacterHealthConversion(playerType, conversionHe
 
 	characterHealthConversionMap[playerType] = conversionHeartSubType
 end
+
+TSIL.__AddInternalCallback(
+	"CHARACTER_HEALTH_CONVERSION_PEFFECT_UPDATE_REORDERED",
+	TSIL.Enums.CustomCallback.POST_PEFFECT_UPDATE_REORDERED,
+	onPEffectUpdate
+)
+
+TSIL.__AddInternalCallback(
+	"CHARACTER_HEALTH_CONVERSION_PRE_PICKUP_COLLISION",
+	ModCallbacks.MC_PRE_PICKUP_COLLISION,
+	onHeartCollision,
+	PickupVariant.PICKUP_HEART
+)
