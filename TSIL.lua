@@ -12,10 +12,7 @@ function LOCAL_TSIL.Init(FolderName)
 	else
 		--There's another version of TSIL version, overwrite it
 		for _, InternalCallback in pairs(TSIL.__INTERNAL_CALLBACKS) do
-			TSIL.__MOD:RemoveCallback(
-				InternalCallback.Callback,
-				InternalCallback.Funct
-			)
+			TSIL.__DisableInternalCallback(InternalCallback.Id)
 		end
 	end
 
