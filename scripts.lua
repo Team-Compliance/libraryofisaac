@@ -9,6 +9,7 @@ local TSIL_SCRIPTS = {
 	"Enums.GridEntityStates",
 	"Enums.GridEntityVariants",
 	"Enums.GridEntityXMLType",
+	"Enums.GridState",
 	"Enums.HealthType",
 	"Enums.InventoryType",
 	"Enums.ItemConfigTag",
