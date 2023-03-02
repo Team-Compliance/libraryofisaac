@@ -13,7 +13,7 @@ local function OnBombUpdate(_, bomb)
     end
 end
 TSIL.__AddInternalCallback(
-    "BOMB_EXPLODED_CALLBACK_POST_BOMB_UPDATE",
+    "BOMB_INIT_CALLBACK_POST_BOMB_UPDATE",
     ModCallbacks.MC_POST_BOMB_UPDATE,
     OnBombUpdate
 )
