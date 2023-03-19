@@ -279,13 +279,17 @@ end
 --- Helper function to change the collectible in a pedestal.
 ---
 --- If `COLLECTIBLE_NULL` is given as the new subtype, it'll try removing the item,
---- as if the player had already picked it.
+--- as if the player had already picked it. Check `TSIL.Collectibles.TryRemoveCollectible()`
+--- for more information.
 ---@param collectible EntityPickup
 ---@param newSubType CollectibleType
 function TSIL.Collectibles.SetCollectibleSubType(collectible, newSubType)
 end
 
---- Empties an item pedestal. If it's a shop item, it removes it completely.
+--- Empties an item pedestal as if a player had already
+--- picked it up.
+---
+--- If it's a shop item, it removes it completely.
 ---@param collectible EntityPickup
 ---@return boolean
 function TSIL.Collectibles.TryRemoveCollectible(collectible)
@@ -303,7 +307,9 @@ end
 function TSIL.Color.CopyKColor(kColor)
 end
 
----Gets a random color.
+---Helper function to get a random color.
+---
+---Only randomizes the R, G and B fields.
 ---@param seedOrRNG? integer | RNG @Default: `TSIL.RNG.GetRandomSeed()` | The `Seed` or `RNG` object to use. If an `RNG` object is provided, the `RNG:Next` method will be called.
 ---@param alpha number? @Default: 1 | The alpha value to use.
 ---@return Color
@@ -324,7 +330,9 @@ end
 function TSIL.Color.HexToKColor(hex, alpha)
 end
 
----@param id string
+---Similar to the vanilla `AddCallback` but newer versions will	
+---override older versions.
+---@param id string @Must be unique. Usually they are named `FEATURE_NAME_CALLBACK_NAME`.
 ---@param callback ModCallbacks | CustomCallback
 ---@param funct function
 ---@param priority integer | CallbackPriority?
@@ -332,6 +340,30 @@ end
 function TSIL.__AddInternalCallback(id, callback, funct, priority, optionalParam)
 end
 
+---Enables an internal callback and allows it to run.
+---@param id string @The internal callback id.
+function TSIL.__EnableInternalCallback(id)
+end
+
+---Disables an internal callback and disallows it from running.
+---@param id string @The internal callback id.
+function TSIL.__DisableInternalCallback(id)
+end
+
+---Registers a new custom callback.
+---
+---Each `CallbackOptionalArgType` refers to one argument passed
+---by the callback, so a callback with params:
+---```lua
+---(player: EntityPlayer, name: string, num: integer)
+---```
+---To allow the user to filter by player type and the `num` param
+---you'd need to use the following `CallbackOptionalArgType`:
+---```lua
+---CallbackOptionalArgType.PLAYER_TYPE,
+---CallbackOptionalArgType.NONE, --We need to skip the `name` argument
+---CallbackOptionalArgType.GENERIC
+---```
 ---@param callback CustomCallback
 ---@param returnMode? CallbackReturnMode @Default: CallbackReturnMode.NONE
 ---@param ... CallbackOptionalArgType
@@ -669,6 +701,34 @@ end
 function TSIL.Effects.IsCloseEnoughToTriggerDiceFloor(entity, diceFloor)
 end
 
+---Sets some arbitrary data for an entity. Use this instead of `Entity:GetData()` since that
+---is global and allows for other mods to edit your data.
+---
+---This is also better than manually keeping track of the data manually with the save manager
+---since the PtrHash can be reused after the entity is removed and this keeps track of it manually.
+---
+---Use only for non persistent entities like effects.
+---@param mod table
+---@param entity Entity
+---@param field string
+---@param value any
+function TSIL.Entities.SetEntityData(mod, entity, field, value)
+end
+
+---Gets some arbitrary data for an entity. Use this instead of `Entity:GetData()` since that
+---is global and allows for other mods to edit your data.
+---
+---This is also better than manually keeping track of the data manually with the save manager
+---since the PtrHash can be reused after the entity is removed and this keeps track of it manually.
+---
+---Use only for non persistent entities like effects.
+---@param mod table
+---@param entity Entity
+---@param field string
+---@return any
+function TSIL.Entities.GetEntityData(mod, entity, field)
+end
+
 --- Helper function to get all of the entities in the room or all of the entities tht match a specific entity type / variant / sub-type.
 --- Due to bugs with `Isaac.FindInRadius`, this function uses `Isaac.GetRoomEntities`, which is more expensive but is also more robust.
 --- (If a matching entity type is provided, then `Isaac.FindByType` will be used instead.)
@@ -908,7 +968,7 @@ end
 ---@param position Vector
 ---@param velocity Vector?
 ---@param spawner Entity?
----@param seedOrRNG integer | RNG
+---@param seedOrRNG integer | RNG?
 ---@return EntityTear
 function TSIL.EntitySpecific.SpawnTear(tearVariant, subType, position, velocity, spawner, seedOrRNG)
 end
@@ -1036,31 +1096,10 @@ TSIL.Enums.BossID = {
     CLUTCH = 102,
 }
 
----@enum CallbackOptionalArgType
-TSIL.Enums.CallbackOptionalArgType = {
-    GENERIC = 0,
-    NONE = 1,
-
-    ENTITY_TYPE = 2,
-    ENTITY_TYPE_VARIANT = 3,
-    ENTITY_TYPE_VARIANT_SUBTYPE = 4,
-    ENTITY_VARIANT_SUBTYPE = 5,
-    ENTITY_SUBTYPE = 6,
-
-    GRID_TYPE = 7,
-    GRID_TYPE_VARIANT = 8,
-    GRID_VARIANT = 9,
-
-    PLAYER_TYPE_VARIANT = 10,
-    PLAYER_TYPE = 11
-}
-
----@enum CallbackReturnMode
-TSIL.Enums.CallbackReturnMode = {
-	NONE = 0,
-	SKIP_NEXT = 1,
-	LAST_WINS = 2,
-	NEXT_ARGUMENT = 3
+---@enum ConversionHeartSubType
+TSIL.Enums.ConversionHeartSubType = {
+	BLACK = HeartSubType.HEART_BLACK,
+	SOUL = HeartSubType.HEART_SOUL,
 }
 
 ---@enum CustomCallback
@@ -2183,7 +2222,37 @@ TSIL.Enums.CustomCallback = {
 	--Params:
 	--
 	-- * player - EntityPlayer
-	PRE_NEW_LEVEL = "PRE_NEW_LEVEL"
+	PRE_NEW_LEVEL = "PRE_NEW_LEVEL",
+
+	--Called before a player is about to die. Return a `CustomReviveType` to make the
+	--player revive.
+	--
+	--To make the player play an animation after they revive, use the `POST_CUSTOM_REVIVE` callback.
+	--
+	--If a callback returns a non nil value, the rest will be skipped.
+	--
+	--Params:
+	--
+	-- * player - EntityPlayer
+	--
+	--Optional args:
+	--
+	-- * playerType - PlayerType
+	-- * playerVariant - PlayerVariant
+	PRE_CUSTOM_REVIVE = "PRE_CUSTOM_REVIVE",
+
+	--Called after a player revives via the `PRE_CUSTOM_REVIVE` callback. Use it to
+	--make the reviving player play a custom animation or to give them a custom amount of health.
+	--
+	--Params:
+	--
+	-- * player - EntityPlayer
+	--
+	--Optional args:
+	--
+	-- * playerType - PlayerType
+	-- * playerVariant - PlayerVariant
+	POST_CUSTOM_REVIVE = "POST_CUSTOM_REVIVE"
 }
 
 ---@enum Dimension
@@ -2331,6 +2400,16 @@ TSIL.Enums.GridEntityXMLType = {
 	TRAPDOOR = 9000,
 	CRAWL_SPACE = 9100,
 	GRAVITY = 10000
+}
+
+---@enum PitState
+TSIL.Enums.PitState = {
+	NORMAL = 0,
+
+	--- Pits can become filled when nearby rocks are bombed into them.
+	---
+	--- Note that the ladder collectible does not change the state to this.
+	FILLED = 1,
 }
 
 ---@enum HealthType
@@ -2669,13 +2748,48 @@ TSIL.Enums.PillEffectType = {
     MODDED = 3
 }
 
+---@enum ProjectilesMode
+TSIL.Enums.ProjectilesMode = {
+	ONE_PROJECTILE = 0,
+
+	-- Uses params.Spread.
+	TWO_PROJECTILES = 1,
+
+	-- Uses params.Spread.
+	THREE_PROJECTILES = 2,
+
+	-- Uses params.Spread.
+	THREE_PROJECTILES_SPREAD = 3,
+
+	-- Uses params.Spread.
+	FOUR_PROJECTILES = 4,
+
+	-- Uses params.Spread.
+	FIVE_PROJECTILES = 5,
+
+	-- Uses velocity.X as speed.
+	FOUR_PROJECTILES_PLUS_PATTERN = 6,
+
+	-- Uses velocity.X as speed.
+	FOUR_PROJECTILES_X_PATTERN = 7,
+
+	-- Uses velocity.X as speed.
+	EIGHT_PROJECTILES_STAR_PATTERN = 8,
+
+	---- Uses `velocity.X` as speed.
+	---- Uses `velocity.Y` as N.
+	---- To fire in an arc, use params.FireDirectionLimit and params.DotProductLimit.
+	N_PROJECTILES_IN_CIRCLE = 9,
+}
+
 ---@enum SerializationBrand
 TSIL.Enums.SerializationBrand = {
     BIT_SET_128 = "__BIT_SET_128",
     COLOR = "__COLOR",
     K_COLOR = "__K_COLOR",
     RNG = "__RNG",
-    VECTOR = "__VECTOR"
+    VECTOR = "__VECTOR",
+    TABLE_WITH_NUMBER_KEYS = "__TABLE_WITH_NUMBER_KEYS"
 }
 
 ---@enum SerializationType
@@ -4935,6 +5049,12 @@ end
 function TSIL.Players.GetPlayerMaxHeartContainers(player)
 end
 
+--- Causes the provided player type to have their health be converted to the provided heart
+--- sub-type. This is the same mechanic that certain characters use for converting health, such as
+--- Blue Baby having red heart containers being converted into soul hearts.
+function TSIL.Players.RegisterCharacterHealthConversion(playerType, conversionHeartSubType)
+end
+
 ---Returns the number of red hearts that the player has, excluding any rotten hearts. For example,
 ---if the player has one full black heart, one full soul heart, and one half black heart, this
 ---function returns 3.
@@ -4987,6 +5107,15 @@ end
 function TSIL.Players.DoesAnyPlayerHasTrinket(trinketId, ignoreModifiers)
 end
 
+--- Returns `true` if the player has one or more of the provided collectibles
+---
+--- This function is variadic, meaning that you can specify as many collectible types that you want
+--- to check for.
+---@param player EntityPlayer
+---@vararg CollectibleType
+function TSIL.Players.PlayerHasCollectible(player, ...)
+end
+
 --- Returns a list of all the items/gulped trinkets (things that appear on the extra HUD) ordered by the time they were collected.
 --- This method is not perfect and will fail if the player rerolls all of their items or a mod gives several items in the same frame.
 ---@param player EntityPlayer
@@ -5024,6 +5153,12 @@ end
 ---@param playerIndex PlayerIndex
 ---@return EntityPlayer?
 function TSIL.Players.GetPlayerByIndex(playerIndex)
+end
+
+--- Removes a costume from the provided player.
+---@param player EntityPlayer
+---@param collectible CollectibleType
+function TSIL.Players.RemoveCollectibleCostume(player, collectible)
 end
 
 --- Returns wether the given form of tainted lazarus is the active one.
@@ -5584,6 +5719,29 @@ end
 function TSIL.Serialize.SerializeIsaacAPIClass(class)
 end
 
+---Helper function to convert a serialized object to a table with number keys. (This
+---is used by the save data manager when reading data from the "save#.dat" file.)
+---@param tableWithNumberKeys table<unknown, unknown>
+---@return table
+function TSIL.Serialize.DeserializeTableWithNumberKeys(tableWithNumberKeys)
+end
+
+---Used to determine is the given table is a serialized table with number keys object created by the `DeepCopy`
+---function.
+---@param object unknown
+---@return boolean
+function TSIL.Serialize.IsSerializedTableWithNumberKeys(object)
+end
+
+---Helper function to convert a table with number keys object to a serialized version.
+---
+---This is useful since parsing a table with non consecutive number keys will result in
+---unexpect values being saved.
+---@param tableWithNumberKeys table
+---@return unknown
+function TSIL.Serialize.SerializeTableWithNumberKeys(tableWithNumberKeys)
+end
+
 ---Helper function to convert a serialized object to a normal `Vector` object. (This
 ---is used by the save data manager when reading data from the "save#.dat" file.)
 ---@param vector table<unknown, unknown>
@@ -5768,6 +5926,47 @@ end
 ---@param trinketType any
 ---@return integer
 function TSIL.Trinkets.GetNormalTrinketTypeFromGoldenTrinketType(trinketType)
+end
+
+--- Returns how many hearts that are being displayed on the provided player's UI
+---@param player EntityPlayer
+---@return integer
+function TSIL.UI.GetVisibleHearts(player)
+end
+
+--- Returns how many hearts that are being displayed in a row. If the player has more than 6
+--- hearts, then this function will return 6 due to the hearts wrapping into rows.
+---@param player EntityPlayer
+---@return integer
+function TSIL.UI.GetHeartRowLength(player)
+end
+
+---@return Vector
+function TSIL.UI.GetScreenBottomCenterPosition()
+end
+
+---@return Vector
+function TSIL.UI.GetScreenBottomLeftPosition()
+end
+
+---@return Vector
+function TSIL.UI.GetScreenBottomRightPosition()
+end
+
+---@return Vector
+function TSIL.UI.GetScreenCenterPosition()
+end
+
+---@return Vector
+function TSIL.UI.GetScreenTopCenterPosition()
+end
+
+---@return Vector
+function TSIL.UI.GetScreenTopLeftPos()
+end
+
+---@return Vector
+function TSIL.UI.GetScreenTopRightPos()
 end
 
 ---A semi-generic deep cloner. It will recursively copy all of the values so that none
@@ -6197,6 +6396,16 @@ end
 function TSIL.Utils.Tables.GetNumbersFromTable(map, objectName, ...)
 end
 
+---Helper function to check if the given object is a table with non
+---consecutive number keys.
+---
+---This is useful since this kind of table doesn't get properly serialized 
+---by the save manager.
+---@param object unknown
+---@return boolean
+function TSIL.Utils.Tables.HasNonConsecutiveNumberKeys(object)
+end
+
 --- Returns if the provided table is an array. This is a workaround as Lua has no formal way to differentiate between a normal array and a map.
 ---@param object unknown
 ---@return boolean
@@ -6326,6 +6535,16 @@ end
 function TSIL.Utils.Tables.RemoveInPlace(originalTable, ...)
 end
 
+--- Runs the provided callback for the provided table. Returns true if the callback returns true for
+--- at least one element in the table.
+---@generic K
+---@generic V
+---@param tbl table<K, V>
+---@param predicate fun(value: V, index: K, tbl: table<K, V>): boolean
+---@return boolean
+function TSIL.Utils.Tables.Some(tbl, predicate)
+end
+
 ---Helper function to check if a Lua table has all of the provided keys.
 ---This function is variadic, meaning that you can specify as many arguments as you want to check for.
 ---@param map table<any, unknown>
@@ -6354,10 +6573,24 @@ end
 function TSIL.Vector.VectorFuzzyEquals(v1, v2, epsilon)
 end
 
+--- Returns a random vector between (-1, -1) and (1, 1). You can get a larger vector by multiplying
+--- the returned vector.
+---
+--- Unlike `RandomVector()`, this function supports seeding.
+---@param seedOrRNG? integer | RNG Optional. The seed or `RNG` object to use. If an `RNG` object is provided, the `RNG:Next` method will be called. Default is `GetRandomSeed`
+function TSIL.Vector.GetRandomVector(seedOrRNG)
+end
+
 ---Helper function to see if a vector has a length greater than zero within the given tolerance `epsilon`.
 ---@param v Vector
 ---@param epsilon number? @Default: 0.001 | The tolerance of how close to zero the vector can be.
 ---@return boolean
 function TSIL.Vector.VectorHasLength(v, epsilon)
+end
+
+--- Returns a direction corresponding to the direction the provided vector is pointing.
+---@param vector Vector
+---@return Direction
+function TSIL.Vector.VectorToDirection(vector)
 end
 

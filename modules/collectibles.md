@@ -150,11 +150,12 @@ Helper function to change the sprite of a collectible pedestal
 `void SetCollectibleSubType(`[`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html)` collectible, `[`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html)` newSubType)`
 
 Helper function to change the collectible in a pedestal. 
-If `COLLECTIBLE_NULL` is given as the new subtype, it'll try removing the item, as if the player had already picked it. 
+If `COLLECTIBLE_NULL` is given as the new subtype, it'll try removing the item, as if the player had already picked it. Check `TSIL.Collectibles.TryRemoveCollectible()` for more information. 
 
 ### TryRemoveCollectible()
 
 `boolean TryRemoveCollectible(`[`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html)` collectible)`
 
-Empties an item pedestal. If it's a shop item, it removes it completely. 
+Empties an item pedestal as if a player had already picked it up. 
+If it's a shop item, it removes it completely. 
 

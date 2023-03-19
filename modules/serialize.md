@@ -10,6 +10,7 @@
 | unknown | [DeserializeIsaacAPIClass](serialize.md#deserializeisaacapiclass)(`unknown` serializedIsaacAPIClass) |
 | [KColor](https://wofsauge.github.io/IsaacDocs/rep/KColor.html) | [DeserializeKColor](serialize.md#deserializekcolor)(`table<unknown, unknown>` kColor) |
 | [RNG](https://wofsauge.github.io/IsaacDocs/rep/RNG.html) | [DeserializeRNG](serialize.md#deserializerng)(`table<unknown, unknown>` rng) |
+| table | [DeserializeTableWithNumberKeys](serialize.md#deserializetablewithnumberkeys)(`table<unknown, unknown>` tableWithNumberKeys) |
 | [Vector](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) | [DeserializeVector](serialize.md#deserializevector)(`table<unknown, unknown>` vector) |
 | boolean | [IsCopyableIsaacAPIClass](serialize.md#iscopyableisaacapiclass)(`unknown` object) |
 | boolean | [IsSerializationBrand](serialize.md#isserializationbrand)(`unknown` key) |
@@ -18,12 +19,14 @@
 | boolean | [IsSerializedIsaacAPIClass](serialize.md#isserializedisaacapiclass)(`unknown` object) |
 | boolean | [IsSerializedKColor](serialize.md#isserializedkcolor)(`unknown` object) |
 | boolean | [IsSerializedRNG](serialize.md#isserializedrng)(`unknown` object) |
+| boolean | [IsSerializedTableWithNumberKeys](serialize.md#isserializedtablewithnumberkeys)(`unknown` object) |
 | boolean | [IsSerializedVector](serialize.md#isserializedvector)(`unknown` object) |
 | unknown | [SerializeBitSet128](serialize.md#serializebitset128)([`BitSet128`](https://wofsauge.github.io/IsaacDocs/rep/BitSet128.html) bitSet128) |
 | unknown | [SerializeColor](serialize.md#serializecolor)([`Color`](https://wofsauge.github.io/IsaacDocs/rep/Color.html) color) |
 | unknown | [SerializeIsaacAPIClass](serialize.md#serializeisaacapiclass)(`unknown` class) |
 | unknown | [SerializeKColor](serialize.md#serializekcolor)([`KColor`](https://wofsauge.github.io/IsaacDocs/rep/KColor.html) kColor) |
 | unknown | [SerializeRNG](serialize.md#serializerng)([`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html) rng) |
+| unknown | [SerializeTableWithNumberKeys](serialize.md#serializetablewithnumberkeys)(`table` tableWithNumberKeys) |
 | unknown | [SerializeVector](serialize.md#serializevector)([`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html) vector) |
 
 ## Functions
@@ -65,6 +68,12 @@ Helper function to convert a serialized object to a normal `KColor` object. (Thi
 [`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html)` DeserializeRNG(table<unknown, unknown> rng)`
 
 Helper function to convert a serialized object to a normal `RNG` object. (This is used by the save data manager when reading data from the "save#.dat" file.) 
+
+### DeserializeTableWithNumberKeys()
+
+`table DeserializeTableWithNumberKeys(table<unknown, unknown> tableWithNumberKeys)`
+
+Helper function to convert a serialized object to a table with number keys. (This is used by the save data manager when reading data from the "save#.dat" file.) 
 
 ### DeserializeVector()
 
@@ -116,6 +125,12 @@ Used to determine is the given table is a serialized `KColor` object created by 
 
 Used to determine is the given table is a serialized `RNG` object created by the `DeepCopy` function. 
 
+### IsSerializedTableWithNumberKeys()
+
+`boolean IsSerializedTableWithNumberKeys(unknown object)`
+
+Used to determine is the given table is a serialized table with number keys object created by the `DeepCopy` function. 
+
 ### IsSerializedVector()
 
 `boolean IsSerializedVector(unknown object)`
@@ -152,6 +167,13 @@ Helper function to convert a `KColor` object to a serialized version.
 `unknown SerializeRNG(`[`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html)` rng)`
 
 Helper function to convert a `RNG` object to a serialized version. 
+
+### SerializeTableWithNumberKeys()
+
+`unknown SerializeTableWithNumberKeys(table tableWithNumberKeys)`
+
+Helper function to convert a table with number keys object to a serialized version. 
+This is useful since parsing a table with non consecutive number keys will result in unexpect values being saved. 
 
 ### SerializeVector()
 

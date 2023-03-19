@@ -142,6 +142,24 @@ This is useful since pickups trigger the `POST_PICKUP_INIT` callback when they r
 | collectibleType | CollectibleType |
 
 
+### POST_CUSTOM_REVIVE
+
+Called after a player revives via the `PRE_CUSTOM_REVIVE` callback. Use it to make the reviving player play a custom animation or to give them a custom amount of health. 
+
+#### Callback parameters
+
+| Name | Type |
+| - | - |
+| player | EntityPlayer |
+
+#### Optional arguments
+
+| Name | Type |
+| - | - |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
+
+
 ### POST_DICE_ROOM_ACTIVATED
 
 Called when a player enters the radius of activation of a dice floor. 
@@ -1463,6 +1481,26 @@ Used internally to make sure all of the library features are loaded
 ### PRE_BERSERK_DEATH
 
 Called when a player is about to exit the berserk state and will die when it ends. 
+
+#### Callback parameters
+
+| Name | Type |
+| - | - |
+| player | EntityPlayer |
+
+#### Optional arguments
+
+| Name | Type |
+| - | - |
+| playerType | PlayerType |
+| playerVariant | PlayerVariant |
+
+
+### PRE_CUSTOM_REVIVE
+
+Called before a player is about to die. Return a `CustomReviveType` to make the player revive. 
+To make the player play an animation after they revive, use the `POST_CUSTOM_REVIVE` callback. 
+If a callback returns a non nil value, the rest will be skipped. 
 
 #### Callback parameters
 

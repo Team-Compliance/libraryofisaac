@@ -28,7 +28,8 @@ Helper function to copy a `KColor` Isaac API class.
 
 [`Color`](https://wofsauge.github.io/IsaacDocs/rep/Color.html)` GetRandomColor(integer | `[`RNG`](https://wofsauge.github.io/IsaacDocs/rep/RNG.html)`? seedOrRNG? =  `tsil.rng.getrandomseed()` , number? alpha =  1 )`
 
-Gets a random color. 
+Helper function to get a random color. 
+Only randomizes the R, G and B fields. 
 
 ### HexToColor()
 

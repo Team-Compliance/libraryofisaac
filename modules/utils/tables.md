@@ -15,6 +15,7 @@
 | void | [ForEach](tables.md#foreach)(`T[]` toIterate, `fun(index: string | integer, value: T)` funct) |
 | K\[] | [GetDictionaryKeys](tables.md#getdictionarykeys)(`table<K, V>` dictionary) |
 | number\[] | [GetNumbersFromTable](tables.md#getnumbersfromtable)(`table<string, unknown>` map, `string` objectName, `string` ...) |
+| boolean | [HasNonConsecutiveNumberKeys](tables.md#hasnonconsecutivenumberkeys)(`unknown` object) |
 | boolean | [IsArray](tables.md#isarray)(`unknown` object) |
 | boolean | [IsEmpty](tables.md#isempty)(`table` map) |
 | boolean | [IsIn](tables.md#isin)(`T[]` list, `T` element) |
@@ -25,6 +26,7 @@
 | T\[] | [RemoveAll](tables.md#removeall)(`T[]` originalTable, `any` ...) |
 | boolean # True if one or more elements were removed, false otherwise. | [RemoveAllInPlace](tables.md#removeallinplace)(`T[]` originalTable, `any` ...) |
 | boolean | [RemoveInPlace](tables.md#removeinplace)(`any` originalTable, `any` ...) |
+| boolean | [Some](tables.md#some)(`table<K, V>` tbl, `fun(value:  V, index:  K, tbl:  table<K, V>: )` predicate) |
 | void | [TableHasKeys](tables.md#tablehaskeys)(`table<any, unknown>` map, `string` ...) |
 
 ## Functions
@@ -99,6 +101,13 @@ Returns a list of keys a dictionary has.
 Helper function to safely get number values from specific keys on a Lua table. Will throw an error if the specific value does not exist on the table or if it cannot be converted to a number. 
 This function is variadic, meaning that you can specify N arguments to get N values. 
 
+### HasNonConsecutiveNumberKeys()
+
+`boolean HasNonConsecutiveNumberKeys(unknown object)`
+
+Helper function to check if the given object is a table with non consecutive number keys. 
+This is useful since this kind of table doesn't get properly serialized by the save manager. 
+
 ### IsArray()
 
 `boolean IsArray(unknown object)`
@@ -170,6 +179,12 @@ If there is more than one matching element in the table, this function will remo
 Removes the specified element(s) from the table. If the specified element(s) are not found in the table, this function will do nothing. 
 This function is variadic, meaning that you can specify N arguments to remove N elements. 
 If there is more than one matching element in the table, this function will only remove the first matching element. If you want to remove all of the elements, use the `RemoveAllInPlace` function instead. 
+
+### Some()
+
+`boolean Some(table<K, V> tbl, fun(value:  V, index:  K, tbl:  table<K, V>: ) predicate)`
+
+Runs the provided callback for the provided table. Returns true if the callback returns true for at least one element in the table. 
 
 ### TableHasKeys()
 
