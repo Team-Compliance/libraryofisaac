@@ -1118,7 +1118,37 @@ TSIL.Enums.CustomCallback = {
 	--Params:
 	--
 	-- * player - EntityPlayer
-	PRE_NEW_LEVEL = "PRE_NEW_LEVEL"
+	PRE_NEW_LEVEL = "PRE_NEW_LEVEL",
+
+	--Called before a player is about to die. Return a `CustomReviveType` to make the
+	--player revive.
+	--
+	--To make the player play an animation after they revive, use the `POST_CUSTOM_REVIVE` callback.
+	--
+	--If a callback returns a non nil value, the rest will be skipped.
+	--
+	--Params:
+	--
+	-- * player - EntityPlayer
+	--
+	--Optional args:
+	--
+	-- * playerType - PlayerType
+	-- * playerVariant - PlayerVariant
+	PRE_CUSTOM_REVIVE = "PRE_CUSTOM_REVIVE",
+
+	--Called after a player revives via the `PRE_CUSTOM_REVIVE` callback. Use it to
+	--make the reviving player play a custom animation or to give them a custom amount of health.
+	--
+	--Params:
+	--
+	-- * player - EntityPlayer
+	--
+	--Optional args:
+	--
+	-- * playerType - PlayerType
+	-- * playerVariant - PlayerVariant
+	POST_CUSTOM_REVIVE = "POST_CUSTOM_REVIVE"
 }
 
 --To make sure our callbacks are named uniquely

@@ -5,11 +5,11 @@ local function OnTSILLoad()
     TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "postPlayerUpdateQueue_PLAYER_REORDERED_LOGIC", {}, TSIL.Enums.VariablePersistenceMode.RESET_RUN)
     TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "postPlayerRenderQueue_PLAYER_REORDERED_LOGIC", {}, TSIL.Enums.VariablePersistenceMode.RESET_RUN)
 end
--- TSIL.__AddInternalCallback(
---     "PLAYER_REORDERED_LOGIC_TSIL_LOAD",
---     TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
---     OnTSILLoad
--- )
+TSIL.__AddInternalCallback(
+    "PLAYER_REORDERED_LOGIC_TSIL_LOAD",
+    TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
+    OnTSILLoad
+)
 
 
 ---@param player EntityPlayer
@@ -26,11 +26,11 @@ local function PostPEffectUpdate(_, player)
         postPEffectUpdateQueue[#postPEffectUpdateQueue+1] = playerIndex
     end
 end
--- TSIL.__AddInternalCallback(
---     "PLAYER_REORDERED_POST_PEFFECT_UPDATE",
---     ModCallbacks.MC_POST_PEFFECT_UPDATE,
---     PostPEffectUpdate
--- )
+TSIL.__AddInternalCallback(
+    "PLAYER_REORDERED_POST_PEFFECT_UPDATE",
+    ModCallbacks.MC_POST_PEFFECT_UPDATE,
+    PostPEffectUpdate
+)
 
 
 ---@param player EntityPlayer
@@ -47,11 +47,11 @@ local function PostPlayerUpdate(_, player)
         postPlayerUpdateQueue[#postPlayerUpdateQueue+1] = playerIndex
     end
 end
--- TSIL.__AddInternalCallback(
---     "PLAYER_REORDERED_POST_PLAYER_UPDATE",
---     ModCallbacks.MC_POST_PLAYER_UPDATE,
---     PostPlayerUpdate
--- )
+TSIL.__AddInternalCallback(
+    "PLAYER_REORDERED_POST_PLAYER_UPDATE",
+    ModCallbacks.MC_POST_PLAYER_UPDATE,
+    PostPlayerUpdate
+)
 
 
 ---@param player EntityPlayer
@@ -68,11 +68,11 @@ local function PostPlayerRender(_, player)
         postPlayerRenderQueue[#postPlayerRenderQueue+1] = playerIndex
     end
 end
--- TSIL.__AddInternalCallback(
---     "PLAYER_REORDERED_POST_PLAYER_RENDER",
---     ModCallbacks.MC_POST_PLAYER_RENDER,
---     PostPlayerRender
--- )
+TSIL.__AddInternalCallback(
+    "PLAYER_REORDERED_POST_PLAYER_RENDER",
+    ModCallbacks.MC_POST_PLAYER_RENDER,
+    PostPlayerRender
+)
 
 
 ---@param playerIndexes PlayerIndex[]
@@ -98,8 +98,8 @@ local function PostGameStartedReorderedLast()
     local postPlayerRenderQueue = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "postPlayerRenderQueue_PLAYER_REORDERED_LOGIC")
     Dequeue(postPlayerRenderQueue, TSIL.Enums.CustomCallback.POST_PLAYER_RENDER_REORDERED)
 end
--- TSIL.__AddInternalCallback(
---     "PLAYER_REORDERED_LOGIC_GAME_STARTED_REORDERED_LAST",
---     TSIL.Enums.CustomCallback.POST_GAME_STARTED_REORDERED_LAST,
---     PostGameStartedReorderedLast
--- )
+TSIL.__AddInternalCallback(
+    "PLAYER_REORDERED_LOGIC_GAME_STARTED_REORDERED_LAST",
+    TSIL.Enums.CustomCallback.POST_GAME_STARTED_REORDERED_LAST,
+    PostGameStartedReorderedLast
+)
