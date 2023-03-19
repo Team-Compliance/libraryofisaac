@@ -2,7 +2,6 @@
 
 ## Overview
 
-<<<<<<< HEAD
 | Return Value | Function |
 | - | - |
 | boolean | [All](tables.md#all)(`T[]` toCheck, `fun(key: integer | string, value:  T)` predicate) |
@@ -29,32 +28,6 @@
 | boolean | [RemoveInPlace](tables.md#removeinplace)(`any` originalTable, `any` ...) |
 | boolean | [Some](tables.md#some)(`table<K, V>` tbl, `fun(value:  V, index:  K, tbl:  table<K, V>: )` predicate) |
 | void | [TableHasKeys](tables.md#tablehaskeys)(`table<any, unknown>` map, `string` ...) |
-=======
-| Return Value  | Function                                                                                                         |
-| ------------- | ---------------------------------------------------------------------------------------------------------------- |
-| boolean       | All(`T[]` toCheck, `fun(key: integer \| string, value: T): boolean` predicate)                                   |
-| \<T, boolean> | [ConstructDictionaryFromTable](tables.md#constructdictionaryfromtable)(`T[]` oldTable)                           |
-| table         | [Copy](tables.md#copy)(`table` toCopy)                                                                           |
-| void          | CopyUserdataValuesToTable(`unknown` object, `string[]` keys, `table<string, unknown>` map)                       |
-| integer       | [Count](tables.md#count)(`T[]` toCount, `fun(key: integer \| string, value: T): boolean` predicate = fun():true) |
-| boolean       | [Equals](tables.md#equals)(`T[]` table1, `T[]` table2)                                                           |
-| T\[]          | [Filter](tables.md#filter)(`T[]` toFilter, `fun(key: integer \| string, value: T): boolean` predicate)           |
-| T?            | [FindFirst](tables.md#findfirst)(`T[]` toFind, `fun(key: integer \| string, value: T): boolean` predicate)       |
-| void          | [ForEach](tables.md#foreach)(`T[]` toIterate, `fun(index: string\|integer, value:T)` funct)                      |
-| K\[]          | GetDictionaryKeys(`table<K, V>` dictionary)                                                                      |
-| number\[]     | GetNumbersFromTable(`table<string, unknown>` map, `string` objectName, `string` ...)                             |
-| boolean       | IsArray(`unknown` object)                                                                                        |
-| boolean       | IsEmpty(`table` map)                                                                                             |
-| boolean       | [IsIn](tables.md#isin)(`T[]` list, `T` element)                                                                  |
-| void          | IterateTableInOrder(`table<K, V>` map, `fun(key: K, value: V)` func, `boolean` inOrder = true)                   |
-| S\[]          | [Map](tables.md#map)(`T[]` list, `fun(index: string\|integer, value:T) : S` funct)                               |
-| void          | Merge(`table<any, unknown> \| any[]` oldObject, `table<any, unknown>` newTable)                                  |
-| T\[]          | [Remove](tables.md#remove)(`T[]` originalTable, `any` ...)                                                       |
-| T\[]          | [RemoveAll](tables.md#removeall)(`T[]` originalTable, `any` ...)                                                 |
-| boolean       | [RemoveAllInPlace](tables.md#removeallinplace)(`T[]` originalTable, `any` ...)                                   |
-| boolean       | [RemoveInPlace](tables.md#removeinplace)(`T[]` originalTable, `any` ...)                                         |
-| boolean       | TableHasKeys(`table<any, unknown>` map, `string` ...)                                                            |
->>>>>>> a758076e402f36d2fdc14db041665049bf922a92
 
 ## Functions
 
