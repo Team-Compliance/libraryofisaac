@@ -49,7 +49,9 @@ function LOCAL_TSIL.Init(FolderName)
 	setmetatable(TSIL, TSIL_META)
 
 	--VARIABLES INITIALIZATION
-	rawget(TSIL, "__PROXY").__MOD = RegisterMod("TSILMOD_" .. FolderName, 1)
+	if not rawget(TSIL, "__PROXY").__MOD then
+		rawget(TSIL, "__PROXY").__MOD = RegisterMod("TSIL_MOD", 1)
+	end
 	--Is always the highest version loaded
 	TSIL.__VERSION = LOCAL_TSIL_VERSION
 	--Is the last version loaded
@@ -83,7 +85,7 @@ function LOCAL_TSIL.Init(FolderName)
 		TSIL.__VERSION_PERSISTENT_DATA.RegisteredCustomCallbacks = {}
 
 		--- @class PersistentVariable
-		--- @field name string
+		-- --- @field name string
 		--- @field value any
 		--- @field default any
 		--- @field persistenceMode VariablePersistenceMode
@@ -91,10 +93,11 @@ function LOCAL_TSIL.Init(FolderName)
 		--- @field conditionalSave? fun(): boolean
 
 		--- @class ModPersistentData
-		--- @field mod string
-		--- @field variables PersistentVariable[]
+		--- @field mod table
+		--- @field variables table<string, PersistentVariable> Table where the keys represent the name of the variable
 
-		--- @type ModPersistentData[]
+		--- Table where the keys represent the name of the mod
+		--- @type table<string, ModPersistentData>
 		TSIL.__VERSION_PERSISTENT_DATA.PersistentData = {}
 
 		--- @type table<string, table<string, any>>

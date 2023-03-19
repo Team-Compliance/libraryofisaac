@@ -8,9 +8,7 @@ function TSIL.SaveManager.RemovePersistentVariable(mod, variableName)
 
 	local tables = TSIL.Utils.Tables
 
-	local modPersistentData = tables.FindFirst(PersistentData, function (_, modPersistentData)
-		return modPersistentData.mod == mod.Name
-	end)
+	local modPersistentData = PersistentData[mod.Name]
 
 	if modPersistentData == nil then
 		--The mod doesn't have any persistent data
@@ -19,10 +17,5 @@ function TSIL.SaveManager.RemovePersistentVariable(mod, variableName)
 
 	local modVariables = modPersistentData.variables
 
-	for index, modVariable in ipairs(modVariables) do
-		if modVariable.name == variableName then
-			table.remove(modVariables, index)
-			break
-		end
-	end
+	modVariables[variableName] = nil
 end

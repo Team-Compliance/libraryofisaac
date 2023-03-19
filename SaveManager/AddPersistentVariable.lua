@@ -15,38 +15,33 @@ function TSIL.SaveManager.AddPersistentVariable(mod, variableName, value, persis
 
 	local PersistentData = TSIL.__VERSION_PERSISTENT_DATA.PersistentData
 
-	local tables = TSIL.Utils.Tables
-
-	local modPersistentData = tables.FindFirst(PersistentData, function (_, modPersistentData)
-		return modPersistentData.mod == mod.Name
-	end)
+	local modPersistentData = PersistentData[mod.Name]
 
 	if modPersistentData == nil then
+		---@type ModPersistentData
 		modPersistentData = {
-			mod = mod.Name,
+			mod = mod,
 			variables = {}
 		}
-		table.insert(PersistentData, modPersistentData)
+		PersistentData[mod.Name] = modPersistentData
 	end
 
 	local modVariables = modPersistentData.variables
 
-	local foundVariable = tables.FindFirst(modVariables, function (_, modVariable)
-		return modVariable.name == variableName
-	end)
+	local foundVariable = modVariables[variableName]
 
 	if foundVariable ~= nil then
 		--The variable already exists
 		return
 	end
 
+	---@type PersistentVariable
 	local newVariable = {
-		name = variableName,
 		default = TSIL.Utils.DeepCopy.DeepCopy(value, TSIL.Enums.SerializationType.NONE),
 		value = value,
 		persistenceMode = persistenceMode,
 		ignoreGlowingHourglass = ignoreGlowingHourglass,
 		conditionalSave = conditionalSave
 	}
-	table.insert(modVariables, newVariable)
+	modVariables[variableName] = newVariable
 end

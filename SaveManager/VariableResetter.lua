@@ -62,7 +62,9 @@ function TSIL.SaveManager.RemoveVariablesForFeatureKey(modPersistentData, saveDa
 
     local persistenceModeToRemove = REMOVE_PERSISTENCE_MODE_PER_RESET_TIME[saveDataKey]
 
-    modPersistentData = TSIL.Utils.Tables.Filter(modPersistentData.variables, function (_, variable)
-        return variable.persistenceMode ~= persistenceModeToRemove
-    end)
+    for variableName, variable in pairs(modPersistentData.variables) do
+        if variable.persistenceMode == persistenceModeToRemove then
+            modPersistentData[variableName] = nil
+        end
+    end
 end

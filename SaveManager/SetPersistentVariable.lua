@@ -10,9 +10,7 @@ function TSIL.SaveManager.SetPersistentVariable(mod, variableName, newValue, ove
 
 	local tables = TSIL.Utils.Tables
 
-	local modPersistentData = tables.FindFirst(PersistentData, function (_, modPersistentData)
-		return modPersistentData.mod == mod.Name
-	end)
+	local modPersistentData = PersistentData[mod.Name]
 
 	if modPersistentData == nil then
 		--The mod doesn't have any persistent data
@@ -21,9 +19,7 @@ function TSIL.SaveManager.SetPersistentVariable(mod, variableName, newValue, ove
 
 	local modVariables = modPersistentData.variables
 
-	local foundVariable = tables.FindFirst(modVariables, function (_, modVariable)
-		return modVariable.name == variableName
-	end)
+	local foundVariable = modVariables[variableName]
 
 	if foundVariable == nil then
 		--The variable doesn't exist

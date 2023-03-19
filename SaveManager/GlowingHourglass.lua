@@ -11,7 +11,7 @@ local GLOWING_HOUR_GLASS_BACKUP_KEYS = {
 
 
 function TSIL.SaveManager.MakeGlowingHourGlassBackup()
-    TSIL.Utils.Tables.IterateTableInOrder(TSIL.__VERSION_PERSISTENT_DATA.PersistentData, function(_, modPersistentData)
+    TSIL.Utils.Tables.IterateTableInOrder(TSIL.__VERSION_PERSISTENT_DATA.PersistentData, function(modName, modPersistentData)
         --[[
             We make the Glowing Hour Glass backup using `SerializationType.SERIALIZE`, which means that
             we cannot operate on unserializable data, such as functions. Save data that utilizes
@@ -19,13 +19,13 @@ function TSIL.SaveManager.MakeGlowingHourGlassBackup()
             false, so we skip all save data that matches this criteria.
         ]]
 
-        local saveDataGlowingHourGlass = TSIL.__VERSION_PERSISTENT_DATA.GlowingHourglassPersistentDataBackup[modPersistentData.mod]
+        local saveDataGlowingHourGlass = TSIL.__VERSION_PERSISTENT_DATA.GlowingHourglassPersistentDataBackup[modName]
         if saveDataGlowingHourGlass == nil then
             saveDataGlowingHourGlass = {}
-            TSIL.__VERSION_PERSISTENT_DATA.GlowingHourglassPersistentDataBackup[modPersistentData.mod] = saveDataGlowingHourGlass
+            TSIL.__VERSION_PERSISTENT_DATA.GlowingHourglassPersistentDataBackup[modName] = saveDataGlowingHourGlass
         end
 
-        TSIL.Utils.Tables.IterateTableInOrder(modPersistentData.variables, function (_, variable)
+        TSIL.Utils.Tables.IterateTableInOrder(modPersistentData.variables, function (variableName, variable)
             local conditionalFunc = variable.conditionalSave
 
             if conditionalFunc ~= nil then
@@ -43,26 +43,26 @@ function TSIL.SaveManager.MakeGlowingHourGlassBackup()
                 return
             end
 
-            saveDataGlowingHourGlass[variable.name] = TSIL.Utils.DeepCopy.DeepCopy(variable.value, TSIL.Enums.SerializationType.NONE)
+            saveDataGlowingHourGlass[variableName] = TSIL.Utils.DeepCopy.DeepCopy(variable.value, TSIL.Enums.SerializationType.NONE)
         end)
     end)
 end
 
 
 function TSIL.SaveManager.RestoreGlowingHourGlassBackup()
-    TSIL.Utils.Tables.IterateTableInOrder(TSIL.__VERSION_PERSISTENT_DATA.PersistentData, function(_, modPersistentData)
+    TSIL.Utils.Tables.IterateTableInOrder(TSIL.__VERSION_PERSISTENT_DATA.PersistentData, function(modName, modPersistentData)
         --[[
             We make the Glowing Hour Glass backup using `SerializationType.SERIALIZE`, which means that
             we cannot operate on unserializable data, such as functions. Save data that utilizes
             unserializable data will typically be marked using a conditional function that evaluates to
             false, so we skip all save data that matches this criteria.
         ]]
-        local saveDataGlowingHourGlass = TSIL.__VERSION_PERSISTENT_DATA.GlowingHourglassPersistentDataBackup[modPersistentData.mod]
+        local saveDataGlowingHourGlass = TSIL.__VERSION_PERSISTENT_DATA.GlowingHourglassPersistentDataBackup[modName]
         if saveDataGlowingHourGlass == nil then
             return
         end
 
-        TSIL.Utils.Tables.IterateTableInOrder(modPersistentData.variables, function (_, variable)
+        TSIL.Utils.Tables.IterateTableInOrder(modPersistentData.variables, function (variableName, variable)
             local conditionalFunc = variable.conditionalSave
 
             if conditionalFunc ~= nil then
@@ -80,7 +80,7 @@ function TSIL.SaveManager.RestoreGlowingHourGlassBackup()
                 return
             end
 
-            local newValue = saveDataGlowingHourGlass[variable.name]
+            local newValue = saveDataGlowingHourGlass[variableName]
 
             if newValue == nil then
                 return
