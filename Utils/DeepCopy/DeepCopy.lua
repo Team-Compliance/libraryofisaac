@@ -52,11 +52,20 @@ function TSIL.Utils.DeepCopy.DeepCopy(value, serializationType, copies)
             copy = copies[value]
         else
             copy = {}
-            copies[value] = copy
-            for orig_key, orig_value in next, value, nil do
-                copy[TSIL.Utils.DeepCopy.DeepCopy(orig_key, serializationType, copies)] = TSIL.Utils.DeepCopy.DeepCopy(orig_value, serializationType, copies)
+            if serializationType == TSIL.Enums.SerializationType.SERIALIZE and
+            TSIL.Utils.Tables.HasNonConsecutiveNumberKeys(value) then
+                local serializedTable = TSIL.Serialize.SerializeTableWithNumberKeys(value)
+                copies[value] = serializedTable
+                for orig_key, orig_value in next, serializedTable, nil do
+                    copy[TSIL.Utils.DeepCopy.DeepCopy(orig_key, serializationType, copies)] = TSIL.Utils.DeepCopy.DeepCopy(orig_value, serializationType, copies)
+                end
+            else
+                copies[value] = copy
+                for orig_key, orig_value in next, value, nil do
+                    copy[TSIL.Utils.DeepCopy.DeepCopy(orig_key, serializationType, copies)] = TSIL.Utils.DeepCopy.DeepCopy(orig_value, serializationType, copies)
+                end
+                setmetatable(copy, TSIL.Utils.DeepCopy.DeepCopy(getmetatable(value), serializationType, copies))
             end
-            setmetatable(copy, TSIL.Utils.DeepCopy.DeepCopy(getmetatable(value), serializationType, copies))
         end
     elseif orig_type == "userdata" then
         copy = deepCopyUserdata(value, serializationType)

@@ -9,6 +9,18 @@ local function GetDeserializedValue(value)
     end
 
     if type(value) == "table" then
+        if TSIL.Serialize.IsSerializedTableWithNumberKeys(value) then
+            local deserializedTable = TSIL.Serialize.DeserializeTableWithNumberKeys(value)
+
+            local copiedTable = {}
+
+            for key, valueInTable in pairs(deserializedTable) do
+                copiedTable[key] = GetDeserializedValue(valueInTable)
+            end
+
+            return copiedTable
+        end
+
         local copiedTable = {}
 
         for key, valueInTable in pairs(value) do
