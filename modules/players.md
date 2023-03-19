@@ -33,6 +33,9 @@
 | boolean | [IsDamageToPlayerFatal](players.md#isdamagetoplayerfatal)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, `number` amount, [`EntityRef`](https://wofsauge.github.io/IsaacDocs/rep/EntityRef.html) source, `integer?` lastDamageGameFrame) |
 | boolean | [IsKeeper](players.md#iskeeper)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
 | boolean | [IsTaintedLazarus](players.md#istaintedlazarus)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| void | [PlayerHasCollectible](players.md#playerhascollectible)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) ...) |
+| void | [RegisterCharacterHealthConversion](players.md#registercharacterhealthconversion)() |
+| void | [RemoveCollectibleCostume](players.md#removecollectiblecostume)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectible) |
 | TrinketSituation? | [TemporarilyRemoveTrinket](players.md#temporarilyremovetrinket)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) trinketType) |
 | TrinketSituation? | [TemporarilyRemoveTrinkets](players.md#temporarilyremovetrinkets)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
 | boolean | [WillMysteriousPaperRevive](players.md#willmysteriouspaperrevive)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
@@ -221,6 +224,25 @@ Helper function to check if a player is either Keeper of T.Keeper.
 `boolean IsTaintedLazarus(`[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)` player)`
 
 Helper function to check if a player is any form of tainted lazarus. 
+
+### PlayerHasCollectible()
+
+`void PlayerHasCollectible(`[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)` player, `[`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html)` ...)`
+
+Returns `true` if the player has one or more of the provided collectibles 
+This function is variadic, meaning that you can specify as many collectible types that you want to check for. 
+
+### RegisterCharacterHealthConversion()
+
+`void RegisterCharacterHealthConversion()`
+
+Causes the provided player type to have their health be converted to the provided heart sub-type. This is the same mechanic that certain characters use for converting health, such as Blue Baby having red heart containers being converted into soul hearts. 
+
+### RemoveCollectibleCostume()
+
+`void RemoveCollectibleCostume(`[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)` player, `[`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html)` collectible)`
+
+Removes a costume from the provided player. 
 
 ### TemporarilyRemoveTrinket()
 

@@ -7,3 +7,4 @@
 | K_COLOR | "__K_COLOR" |  |
 | RNG | "__RNG" |  |
 | VECTOR | "__VECTOR" |  |
+| TABLE_WITH_NUMBER_KEYS | "__TABLE_WITH_NUMBER_KEYS" |  |
