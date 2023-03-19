@@ -1,7 +1,12 @@
 local CustomReviveStates = {
     NONE = 0,
+
+    --For one up revive
     WAITING_FOR_ROOM_TRANSITION = 1,
-    WAITING_FOR_ITEM_ANIMATION = 2
+    WAITING_FOR_ITEM_ANIMATION = 2,
+
+    --For lazarus soul revive
+    WAITING_FOR_PLAYER_REVIVE = 3
 }
 
 local function OnTSILLoad()
@@ -63,28 +68,7 @@ TSIL.__AddInternalCallback(
 )
 
 
----@param player EntityPlayer
-local function OnPeffectUpdateReordered(_, player)
-    local currentReviveState = TSIL.SaveManager.GetPersistentVariable(
-        TSIL.__MOD,
-        "CustomReviveState_CUSTOM_REVIVE_LOGIC"
-    )
-
-    if currentReviveState ~= CustomReviveStates.WAITING_FOR_ITEM_ANIMATION then
-        return
-    end
-
-    local revivingPlayerIndex = TSIL.SaveManager.GetPersistentVariable(
-        TSIL.__MOD,
-        "RevivingPlayerIndex_CUSTOM_REVIVE_LOGIC"
-    )
-
-    local playerIndex = TSIL.Players.GetPlayerIndex(player)
-
-    if playerIndex ~= revivingPlayerIndex then
-        return
-    end
-
+local function CheckForItemAnimation(player)
     local playerToCheck = player
 
     if player:GetPlayerType() == PlayerType.PLAYER_THESOUL_B then
@@ -110,6 +94,51 @@ local function OnPeffectUpdateReordered(_, player)
         TSIL.__MOD,
         "RevivingPlayerIndex_CUSTOM_REVIVE_LOGIC"
     )
+end
+
+
+---@param player EntityPlayer
+local function CheckForPlayerRevive(player)
+    if player:IsDead() then
+        return
+    end
+
+    TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_CUSTOM_REVIVE, player)
+
+    TSIL.SaveManager.ResetPersistentVariable(
+        TSIL.__MOD,
+        "CustomReviveState_CUSTOM_REVIVE_LOGIC"
+    )
+    TSIL.SaveManager.ResetPersistentVariable(
+        TSIL.__MOD,
+        "RevivingPlayerIndex_CUSTOM_REVIVE_LOGIC"
+    )
+end
+
+
+---@param player EntityPlayer
+local function OnPeffectUpdateReordered(_, player)
+    local revivingPlayerIndex = TSIL.SaveManager.GetPersistentVariable(
+        TSIL.__MOD,
+        "RevivingPlayerIndex_CUSTOM_REVIVE_LOGIC"
+    )
+
+    local playerIndex = TSIL.Players.GetPlayerIndex(player)
+
+    if playerIndex ~= revivingPlayerIndex then
+        return
+    end
+
+    local currentReviveState = TSIL.SaveManager.GetPersistentVariable(
+        TSIL.__MOD,
+        "CustomReviveState_CUSTOM_REVIVE_LOGIC"
+    )
+
+    if currentReviveState == CustomReviveStates.WAITING_FOR_ITEM_ANIMATION then
+        CheckForItemAnimation(player)
+    elseif currentReviveState == CustomReviveStates.WAITING_FOR_PLAYER_REVIVE then
+        CheckForPlayerRevive(player)
+    end
 end
 TSIL.__AddInternalCallback(
     "CUSTOM_REVIVE_LOGIC_POST_PEFFECT_UPDATE_REORDERED",
@@ -177,7 +206,22 @@ local function OnPlayerAboutToDie(player)
         end, 1)
     elseif revive == TSIL.Enums.CustomReviveType.SAME_ROOM then
         --Do Soul of Lazarus revive
-        player:UseCard(Card.CARD_SOUL_LAZARUS, UseFlag.USE_NOANIM)
+        ---@diagnostic disable-next-line: param-type-mismatch
+        player:UseCard(Card.CARD_SOUL_LAZARUS, UseFlag.USE_NOANIM | UseFlag.USE_NOANNOUNCER)
+
+        local playerIndex = TSIL.Players.GetPlayerIndex(player)
+
+        TSIL.SaveManager.SetPersistentVariable(
+            TSIL.__MOD,
+            "CustomReviveState_CUSTOM_REVIVE_LOGIC",
+            CustomReviveStates.WAITING_FOR_PLAYER_REVIVE
+        )
+
+        TSIL.SaveManager.SetPersistentVariable(
+            TSIL.__MOD,
+            "RevivingPlayerIndex_CUSTOM_REVIVE_LOGIC",
+            playerIndex
+        )
     end
 end
 
