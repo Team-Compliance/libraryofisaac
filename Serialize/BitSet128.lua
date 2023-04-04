@@ -7,7 +7,7 @@ local OBJECT_NAME = "BitSet128"
 ---@param bitSet128 table<unknown, unknown>
 ---@return BitSet128
 function TSIL.Serialize.DeserializeBitSet128(bitSet128)
-    local numbers = TSIL.Serialize.GetNumbersFromTable(bitSet128, OBJECT_NAME, table.unpack(KEYS))
+    local numbers = TSIL.Utils.Tables.GetNumbersFromTable(bitSet128, OBJECT_NAME, table.unpack(KEYS))
 
     if numbers[1] == nil then
         error("Failed to deserialize BitSet128 as the provided object did not have a value for: l")
