@@ -4,19 +4,19 @@
 --- `{chance = x, value = y}`
 ---@generic T any
 ---@param seedOrRNG integer | RNG
----@param ... {chance : integer, value : T}
+---@param possibles {chance : integer, value : T}[]
 ---@return T
-function TSIL.Random.GetRandomElementFromWeightedList(seedOrRNG, ...)
+function TSIL.Random.GetRandomElementFromWeightedList(seedOrRNG, possibles)
+	---@type RNG
 	local rng
 
 	if type(seedOrRNG) == "number" then
 		rng = RNG()
 		rng:SetSeed(seedOrRNG, 35)
 	else
+		---@cast seedOrRNG RNG
 		rng = seedOrRNG
 	end
-
-	local possibles = {...}
 
 	local totalChance = 0
 	for _, possibility in ipairs(possibles) do
@@ -28,14 +28,12 @@ function TSIL.Random.GetRandomElementFromWeightedList(seedOrRNG, ...)
 	local result = nil
 
 	for _, possibility in ipairs(possibles) do
-		local chance = possibility.chance + cumulativeChance
+		cumulativeChance = cumulativeChance + possibility.chance
 
-		if chance < randomChance then
+		if cumulativeChance > randomChance then
 			result = possibility.value
 			break
 		end
-
-		cumulativeChance = cumulativeChance + possibility.chance
 	end
 
 	return result
