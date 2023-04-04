@@ -3,7 +3,7 @@
 TSIL.__RegisterCustomCallback(
     TSIL.Enums.CustomCallback.POST_PICKUP_INIT_FIRST,
     TSIL.Enums.CallbackReturnMode.NONE,
-    TSIL.Enums.CallbackOptionalArgType.ENTITY_TYPE_VARIANT_SUBTYPE
+    TSIL.Enums.CallbackOptionalArgType.ENTITY_VARIANT_SUBTYPE
 )
 
 
