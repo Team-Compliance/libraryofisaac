@@ -311,6 +311,7 @@ local TSIL_SCRIPTS = {
 "Json.json",
 "Log.GetParentFunctionDescription",
 "Log.Log",
+"Pause.Pause",
 "Pickups.GetCoinValue",
 "Pickups.IsChest",
 "Pickups.PickupIndex",

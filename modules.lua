@@ -24,6 +24,7 @@ TSIL.IsaacAPIClass = {}
 TSIL.ItemPool = {}
 TSIL.JSON = {}
 TSIL.Log = {}
+TSIL.Pause = {}
 TSIL.Pickups = {}
 TSIL.PickupSpecific = {}
 TSIL.Pills = {}
