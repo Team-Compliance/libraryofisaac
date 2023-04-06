@@ -204,13 +204,13 @@ local shouldUnpause = false
 
 ---@param entity Entity
 ---@param button ButtonAction
-local function OnInput(entity, _, button)
+local function OnInput(_, entity, _, button)
     if not shouldUnpause then return end
 
     if entity.Type ~= EntityType.ENTITY_PLAYER then return end
     if button ~= ButtonAction.ACTION_SHOOTRIGHT then return end
 
-    shouldUnpause = true
+    shouldUnpause = false
     return 1
 end
 TSIL.__AddInternalCallback(
@@ -266,12 +266,12 @@ function TSIL.Pause.Unpause()
 
     RemoveProjectiles()
 
+    shouldUnpause = true
+
     TSIL.SaveManager.ResetPersistentVariable(
         TSIL.__MOD,
         "TearProjectileRecords_PAUSE"
     )
-
-    shouldUnpause = true
 end
 
 
