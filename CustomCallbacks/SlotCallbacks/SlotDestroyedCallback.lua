@@ -42,7 +42,7 @@ local function OnSlotAnimationChange(_, slot)
     local alreadyBroken = TSIL.Utils.Tables.IsIn(BrokenSlots, slotPtr)
     if alreadyBroken then return end
 
-    if slot.GridCollisionClass == EntityGridCollisionClass.GROUND then
+    if slot.GridCollisionClass == EntityGridCollisionClass.GRIDCOLL_GROUND then
         BrokenSlots[#BrokenSlots+1] = slotPtr
         TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_SLOT_DESTROYED, slot, false)
     end
