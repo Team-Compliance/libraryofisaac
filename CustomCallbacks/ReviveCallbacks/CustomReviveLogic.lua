@@ -228,6 +228,9 @@ end
 
 ---@param player EntityPlayer
 local function OnFatalPlayerDamage(_, player)
+    --If the player has infinite hp, they aren't gonna die, so avoid purposedly killing them
+    if TSIL.Debug.IsDebugModeActive(TSIL.Enums.DebugMode.INFINITE_HP) then return end
+
     OnPlayerAboutToDie(player)
 end
 TSIL.__AddInternalCallback(
