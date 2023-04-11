@@ -1,6 +1,6 @@
---##POST_SLOT_ANIMATION_CHANGED
+--##PRE_SLOT_COLLISION
 TSIL.__RegisterCustomCallback(
-	TSIL.Enums.CustomCallback.POST_SLOT_ANIMATION_CHANGED,
+	TSIL.Enums.CustomCallback.PRE_SLOT_COLLISION,
     TSIL.Enums.CallbackReturnMode.NONE,
     TSIL.Enums.CallbackOptionalArgType.ENTITY_VARIANT_SUBTYPE,
     TSIL.Enums.CallbackOptionalArgType.PLAYER_TYPE_VARIANT
