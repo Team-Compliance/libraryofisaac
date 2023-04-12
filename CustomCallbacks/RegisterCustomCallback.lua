@@ -135,7 +135,7 @@ function TSIL.__RegisterCustomCallback(callback, returnMode, ...)
 
     local foundRegistered = registeredCustomCallbacks[callback]
 
-    if foundRegistered and foundRegistered.Version > TSIL.__LOCAL_VERSION then
+    if foundRegistered and foundRegistered.Version >= TSIL.__LOCAL_VERSION then
         return
     end
 
@@ -147,7 +147,7 @@ function TSIL.__RegisterCustomCallback(callback, returnMode, ...)
 
             --Vanilla RunCallback prevents the execution of all the other functions if one has an error.
             --To prevent this we manually loop through each callback, which allows us to use pcall.
-            
+
             local callbacks = Isaac.GetCallbacks(callback)
             ---@type CallbackEntry[]
             local filteredCallbacks = {}

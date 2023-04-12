@@ -1,10 +1,8 @@
 local ScheduledFunctions = {}
 
 local function OnFrameUpdate()
-	print("Hola")
 	TSIL.Utils.Tables.ForEach(ScheduledFunctions, function (_, scheduledFunction)
 		scheduledFunction.frames = scheduledFunction.frames - 1
-		print(scheduledFunction.frames)
 
 		if scheduledFunction.frames <= 0 then
 			scheduledFunction.funct(table.unpack(scheduledFunction.params))

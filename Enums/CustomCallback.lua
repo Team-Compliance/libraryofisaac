@@ -1151,7 +1151,11 @@ TSIL.Enums.CustomCallback = {
 	POST_CUSTOM_REVIVE = "POST_CUSTOM_REVIVE"
 }
 
+
 --To make sure our callbacks are named uniquely
+local UNIQUE_PREFFIX = "TSIL_CUSTOM_CB_"
 for key, value in pairs(TSIL.Enums.CustomCallback) do
-	TSIL.Enums.CustomCallback[key] = "TSIL_CUSTOM_CB_" .. value
+	if value:sub(1, #UNIQUE_PREFFIX) == UNIQUE_PREFFIX then
+		TSIL.Enums.CustomCallback[key] = UNIQUE_PREFFIX .. value
+	end
 end
