@@ -130,7 +130,7 @@ local TSIL_SCRIPTS = {
 "CustomCallbacks.TearCallbacks.TearInitVeryLateCallback",
 "Ambush.GetAmbushType",
 "Benchmark.Benchmark",
-"BitSet128.CopyBitSet",
+"BitSet128.CopyBitSet128",
 "Bombs.GetBombRadiusFromDamage",
 "Bosses.GetBosses",
 "Bosses.IsSin",
