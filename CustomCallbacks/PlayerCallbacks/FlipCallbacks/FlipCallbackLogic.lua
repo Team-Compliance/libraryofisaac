@@ -36,7 +36,7 @@ end
 
 
 ---@param player EntityPlayer
-local function OnFlipUse(_, _, player)
+local function OnFlipUse(_, _, _, player)
     if not TSIL.Players.IsTaintedLazarus(player) then
         return
     end
