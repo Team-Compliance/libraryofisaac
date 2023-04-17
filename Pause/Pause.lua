@@ -1,3 +1,8 @@
+local CONTINOUSLY_SPAWNING_EFFECTS = {
+    [EffectVariant.WATER_DROPLET] = true,
+    [EffectVariant.RAIN_DROP] = true
+}
+
 local function OnTSILLoad()
     TSIL.SaveManager.AddPersistentVariable(
         TSIL.__MOD,
@@ -211,7 +216,7 @@ local function OnInput(_, entity, _, button)
     if button ~= ButtonAction.ACTION_SHOOTRIGHT then return end
 
     shouldUnpause = false
-    return 1
+    return 0.75
 end
 TSIL.__AddInternalCallback(
     "ON_INPUT_PAUSE",
@@ -219,6 +224,26 @@ TSIL.__AddInternalCallback(
     OnInput,
     CallbackPriority.DEFAULT,
     InputHook.GET_ACTION_VALUE
+)
+
+
+---@param effect EntityEffect
+local function OnEffectInit(_, effect)
+    --Effects only pause if they are there when the item is used.
+    --Since we are using the item every frame, every single spawned effect will be paused too.
+
+    --This can cause lag in some rooms in downpour where water drops spawn continously, for example
+    if not CONTINOUSLY_SPAWNING_EFFECTS[effect.Variant] then return end
+
+    if TSIL.Pause.IsPaused() then
+        effect:Remove()
+    end
+end
+TSIL.__AddInternalCallback(
+    "ON_EFFECT_INIT_PAUSE",
+    ModCallbacks.MC_POST_EFFECT_INIT,
+    OnEffectInit,
+    CallbackPriority.DEFAULT
 )
 
 
