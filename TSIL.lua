@@ -1,5 +1,5 @@
 local LOCAL_TSIL = {}
-local LOCAL_TSIL_VERSION = 0.27
+local LOCAL_TSIL_VERSION = 0.28
 
 --- Initializes the TSIL library
 ---@param FolderName string
@@ -9,6 +9,7 @@ function LOCAL_TSIL.Init(FolderName)
 		TSIL = {}
 		TSIL.__PROXY = {}
 		TSIL.__FUNCTION_VERSIONS = {}
+		TSIL.__MODULES = {}
 	else
 		--There's another version of TSIL version, overwrite it
 		for _, InternalCallback in pairs(TSIL.__INTERNAL_CALLBACKS) do
@@ -21,16 +22,27 @@ function LOCAL_TSIL.Init(FolderName)
 
 	function TSIL_META.__index(module, key)
 		local proxy = rawget(module, "__PROXY")
+		local modules = rawget(module, "__MODULES")
 
-		if proxy[key] == nil then
-			local newModule = {}
-			newModule.__PROXY = {}
-			newModule.__FUNCTION_VERSIONS = {}
-			setmetatable(newModule, TSIL_META)
-			proxy[key] = newModule
+		local value = proxy[key]
+
+		if value == nil then
+			--The module is currently not in the proxy, create it
+			value = {}
+			value.__PROXY = {}
+			value.__FUNCTION_VERSIONS = {}
+			value.__MODULES = {}
+			modules[key] = true
 		end
 
-		return proxy[key]
+		if modules[key] then
+			--Only set the metatable if it's a module
+			setmetatable(value, TSIL_META)
+		end
+
+		proxy[key] = value
+
+		return value
 	end
 
 	function TSIL_META.__newindex(module, key, value)
@@ -85,7 +97,6 @@ function LOCAL_TSIL.Init(FolderName)
 		TSIL.__VERSION_PERSISTENT_DATA.RegisteredCustomCallbacks = {}
 
 		--- @class PersistentVariable
-		-- --- @field name string
 		--- @field value any
 		--- @field default any
 		--- @field persistenceMode VariablePersistenceMode
