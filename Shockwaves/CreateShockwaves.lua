@@ -2,7 +2,7 @@
 
 ---Creates a new shockwave with the given params.
 ---
----Returns the spawned shockwave, if it can't spawn it, returns nil.
+---Returns the spawned shockwave. If it can't spawn it, returns nil.
 ---@param source Entity
 ---@param position Vector
 ---@param customShockwaveParams CustomShockwaveParams
@@ -121,7 +121,7 @@ function TSIL.ShockWaves.CreateShockwaveRing(source, center, radius, customShock
     numRings = numRings - 1
 
     if numRings > 0 and #shockwaves > 0 then
-        TSIL.Utils.Functions.RunInFrames(TSIL.ShockWaves.CreateShockwaveRing, ringDelay,
+        TSIL.Utils.Functions.RunInFramesTemporary(TSIL.ShockWaves.CreateShockwaveRing, ringDelay,
             source,
             center,
             radius + ringSpacing,
@@ -157,7 +157,7 @@ function TSIL.ShockWaves.CreateShockwaveLine(source, center, direction, customSh
     local shockwave = TSIL.ShockWaves.CreateShockwave(source, center + direction * spacing, customShockwaveParams)
 
     if shockwave and numShockwaves ~= 0 then
-        TSIL.Utils.Functions.RunInFrames(TSIL.ShockWaves.CreateShockwaveLine, delay,
+        TSIL.Utils.Functions.RunInFramesTemporary(TSIL.ShockWaves.CreateShockwaveLine, delay,
             source,
             center + direction * spacing,
             direction,
@@ -207,7 +207,7 @@ function TSIL.ShockWaves.CreateShockwaveRandomLine(source, center, direction, cu
 
         local randomAngle = TSIL.Random.GetRandomInt(randomOffset - (randomOffset/2), randomOffset + (randomOffset/2), rng)
         local randomDirection = direction:Rotated(randomAngle)
-        TSIL.Utils.Functions.RunInFrames(TSIL.ShockWaves.CreateShockwaveRandomLine, delay,
+        TSIL.Utils.Functions.RunInFramesTemporary(TSIL.ShockWaves.CreateShockwaveRandomLine, delay,
             source,
             center + randomDirection * spacing,
             direction,
