@@ -3,55 +3,74 @@
 --- @field Id CollectibleType | TrinketType
 
 --- @class PlayerInventory
---- @field PlayerIndex integer
 --- @field InventoryOrdered InventoryObject[]
 --- @field GulpedTrinkets {[string]: integer}
 --- @field CollectedItems {[string]: integer}
 
 
+---@param item ItemConfig_Item
 ---@param player EntityPlayer
----@param playerState PlayerInventory
-local function CheckCollectedItems(player, playerState)
-	local itemConfig = Isaac.GetItemConfig()
-	local itemList = itemConfig:GetCollectibles()
+---@param playerInventory PlayerInventory
+---@param playerHistory table
+local function CheckItemInInventory(item, player, playerInventory, playerHistory)
+	local itemID = item.ID
 
-	--itemList.Size actually returns the last item id, not the actual size
-	for id = 1, itemList.Size - 1, 1 do
-		local item = itemConfig:GetCollectible(id)
-		--Only check for non active items
-		if item and item.Type ~= ItemType.ITEM_ACTIVE then
-			local itemId = item.ID
-			local itemIdStr = tostring(itemId)
+	local pastCollectibleNum = playerInventory.CollectedItems[itemID] or 0
+	local actualCollectibleNum = player:GetCollectibleNum(itemID, true)
 
-			local pastCollectibleNum = playerState.CollectedItems[itemIdStr] or 0
-			--- @diagnostic disable-next-line: param-type-mismatch
-			local actualCollectibleNum = player:GetCollectibleNum(itemId, true)
+	if actualCollectibleNum > pastCollectibleNum then
+		--If the actual num is bigger than what we had, player has picked up an item
+		playerInventory.CollectedItems[itemID] = actualCollectibleNum
+		for _ = 1, actualCollectibleNum - pastCollectibleNum, 1 do
+			table.insert(
+				playerInventory.InventoryOrdered,
+				{
+					Type = TSIL.Enums.InventoryType.COLLECTIBLE,
+					Id = itemID
+				}
+			)
+		end
 
-			if actualCollectibleNum > pastCollectibleNum then
-				--If the actual num is bigger than what we had, player has picked up an item
-				playerState.CollectedItems[itemIdStr] = actualCollectibleNum
-				for _ = 1, actualCollectibleNum - pastCollectibleNum, 1 do
-					table.insert(playerState.InventoryOrdered, { Type = TSIL.Enums.InventoryType.COLLECTIBLE, Id = itemId })
+		local pickedUpItemBefore = playerHistory[itemID] == nil
+		TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_PLAYER_COLLECTIBLE_ADDED, player, itemID, pickedUpItemBefore)
+		playerHistory[itemID] = true
+	elseif actualCollectibleNum < pastCollectibleNum then
+		--If the actual num is smaller than what we had, player has lost an item
+		playerInventory.CollectedItems[itemID] = actualCollectibleNum
+
+		local numItemsFound = 0
+		local indexesToRemove = {}
+		for index, inventoryItem in ipairs(playerInventory.InventoryOrdered) do
+			if inventoryItem.Type == TSIL.Enums.InventoryType.COLLECTIBLE and
+			inventoryItem.Id == itemID then
+				--We substract the number of items found to account for removing earlier indexes
+				indexesToRemove[#indexesToRemove+1] = index - numItemsFound
+				numItemsFound = numItemsFound + 1
+
+				if numItemsFound >= pastCollectibleNum - actualCollectibleNum then
+					--We found all the items we need to remove
+					break
 				end
-
-				TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_PLAYER_COLLECTIBLE_ADDED, player, itemId)
-			elseif actualCollectibleNum < pastCollectibleNum then
-				--If the actual num is smaller than what we had, player has lost an item
-				playerState.CollectedItems[itemIdStr] = actualCollectibleNum
-
-				for i = 1, #playerState.InventoryOrdered, 1 do
-					local inventoryItem = playerState.InventoryOrdered[i]
-					if inventoryItem.Type == TSIL.Enums.InventoryType.COLLECTIBLE and inventoryItem.Id == itemId then
-						for _ = 1, pastCollectibleNum - actualCollectibleNum, 1 do
-							table.remove(playerState.InventoryOrdered, i)
-						end
-						break
-					end
-				end
-
-				TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_PLAYER_COLLECTIBLE_REMOVED, player, itemId)
 			end
 		end
+
+		for _, indexToRemove in ipairs(indexesToRemove) do
+			table.remove(playerInventory.InventoryOrdered, indexToRemove)
+		end
+
+		TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_PLAYER_COLLECTIBLE_REMOVED, player, itemID)
+	end
+end
+
+
+---@param player EntityPlayer
+---@param playerState PlayerInventory
+---@param playerHistory table
+local function CheckCollectedItems(player, playerState, playerHistory)
+	local items = TSIL.Collectibles.GetCollectibles()
+
+	for _, item in ipairs(items) do
+		CheckItemInInventory(item, player, playerState, playerHistory)
 	end
 end
 
@@ -110,25 +129,29 @@ end
 local function OnPeffectUpdate(_, player)
 	--- @type PlayerInventory[]
 	local playerInventories = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "PLAYER_INVENTORIES")
+	local playerHistories = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "PLAYER_ITEM_HISTORIES")
+
 	local playerIndex = TSIL.Players.GetPlayerIndex(player)
-	local playerInventory = TSIL.Utils.Tables.FindFirst(playerInventories, function(_, playerInventory)
-		return playerInventory.PlayerIndex == playerIndex
-	end)
+
+	local playerInventory = playerInventories[playerIndex]
+	local playerHistory = playerHistories[playerIndex]
 
 	if not playerInventory then
-		local newInventory = {
+		playerInventory = {
 			PlayerIndex = playerIndex,
 			InventoryOrdered = {},
 			GulpedTrinkets = {},
 			CollectedItems = {}
 		}
-		--If for some reason the current state is nil, initialize it again
-		table.insert(playerInventories, newInventory)
-
-		playerInventory = newInventory
+		playerInventories[playerIndex] = playerInventory
 	end
 
-	CheckCollectedItems(player, playerInventory)
+	if not playerHistory then
+		playerHistory = {}
+		playerHistories[playerIndex] = playerHistory
+	end
+
+	CheckCollectedItems(player, playerInventory, playerHistory)
 
 	CheckGulpedTrinkets(player, playerInventory)
 end
@@ -140,7 +163,18 @@ TSIL.__AddInternalCallback(
 
 
 local function OnTSILLoaded()
-	TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "PLAYER_INVENTORIES", {}, TSIL.Enums.VariablePersistenceMode.RESET_RUN)
+	TSIL.SaveManager.AddPersistentVariable(
+		TSIL.__MOD,
+		"PLAYER_INVENTORIES",
+		{},
+		TSIL.Enums.VariablePersistenceMode.RESET_RUN
+	)
+	TSIL.SaveManager.AddPersistentVariable(
+		TSIL.__MOD,
+		"PLAYER_ITEM_HISTORIES",
+		{},
+		TSIL.Enums.VariablePersistenceMode.RESET_RUN
+	)
 end
 TSIL.__AddInternalCallback(
 	"PLAYER_INVENTORY_TSIL_LOADED",
@@ -148,8 +182,11 @@ TSIL.__AddInternalCallback(
 	OnTSILLoaded
 )
 
---- Returns a list of all the items/gulped trinkets (things that appear on the extra HUD) ordered by the time they were collected.
---- This method is not perfect and will fail if the player rerolls all of their items or a mod gives several items in the same frame.
+--- Returns a list of all the items/gulped trinkets (things that appear on the extra HUD) ordered by
+--- the time they were collected.
+---
+--- This method is not perfect and will fail if the player rerolls all of their items or a mod gives
+--- several items in the same frame.
 ---@param player EntityPlayer
 ---@param inventoryTypeFilter? InventoryType
 ---@return InventoryObject[]
@@ -161,9 +198,11 @@ function TSIL.Players.GetPlayerInventory(player, inventoryTypeFilter)
 	--- @type PlayerInventory[]
 	local playerInventories = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "PLAYER_INVENTORIES")
 
-	local chosenInventory = TablesUtils.Filter(playerInventories, function(_, playerInventory)
-		return playerInventory.PlayerIndex == playerIndex
-	end)[1].InventoryOrdered
+	if playerInventories[playerIndex] == nil then
+		return {}
+	end
+
+	local chosenInventory = playerInventories[playerIndex].InventoryOrdered
 
 	if inventoryTypeFilter then
 		local filteredInventory = TablesUtils.Filter(chosenInventory, function(_, inventoryItem)
