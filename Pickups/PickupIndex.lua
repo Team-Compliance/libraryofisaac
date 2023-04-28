@@ -203,8 +203,6 @@ TSIL.__AddInternalCallback(
 --- Specifically, `PickupIndex` is a number that represents the spawn order of the pickup on the
 --- current run. For example, the first pickup spawned will have an index of 1, the second one will
 --- have an index of 2, and so on.
----
---- Tracking pickups requires stateful tracking, so using pickup indexes requires an upgraded mod.
 ---@param pickup EntityPickup
 ---@return PickupIndex
 function TSIL.Pickups.GetPickupIndex(pickup)

@@ -8,6 +8,7 @@ TSIL.Collectibles = {}
 TSIL.Color = {}
 TSIL.Enums = {}
 TSIL.Enums.CustomCallback = {}
+TSIL.CustomItemPools = {}
 TSIL.Debug = {}
 TSIL.Dimensions = {}
 TSIL.Direction = {}

@@ -1,4 +1,4 @@
----@class PlayerIndex : number
+---@class PlayerIndex : integer
 
 --- Returns a given player's index. Useful for storing unique data per player.
 ---@param player EntityPlayer

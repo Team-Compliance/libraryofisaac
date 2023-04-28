@@ -31,7 +31,7 @@ TSIL.__AddInternalCallback(
 )
 
 
-local function PostGameStarted(isContinued)
+local function PostGameStarted(_, isContinued)
     RecordCurrentStage()
 
     TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_GAME_STARTED_REORDERED, isContinued)

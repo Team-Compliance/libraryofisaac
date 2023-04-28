@@ -63,6 +63,8 @@ local function registerCallbacks() end
 --- Causes the provided player type to have their health be converted to the provided heart
 --- sub-type. This is the same mechanic that certain characters use for converting health, such as
 --- Blue Baby having red heart containers being converted into soul hearts.
+---@param playerType PlayerType
+---@param conversionHeartSubType ConversionHeartSubType
 function TSIL.Players.RegisterCharacterHealthConversion(playerType, conversionHeartSubType)
 	if not initialized then
 		initialized = true
