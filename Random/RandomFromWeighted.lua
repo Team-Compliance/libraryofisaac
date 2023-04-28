@@ -4,7 +4,7 @@
 --- `{chance = x, value = y}`
 ---@generic T any
 ---@param seedOrRNG integer | RNG
----@param possibles {chance : integer, value : T}[]
+---@param possibles {chance : number, value : T}[]
 ---@return T
 function TSIL.Random.GetRandomElementFromWeightedList(seedOrRNG, possibles)
 	---@type RNG
@@ -23,7 +23,7 @@ function TSIL.Random.GetRandomElementFromWeightedList(seedOrRNG, possibles)
 		totalChance = totalChance + possibility.chance
 	end
 
-	local randomChance = rng:RandomInt(totalChance)
+	local randomChance = TSIL.Random.GetRandomFloat(0, totalChance, rng)
 	local cumulativeChance = 0
 	local result = nil
 
