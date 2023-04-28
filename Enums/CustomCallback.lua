@@ -522,7 +522,10 @@ TSIL.Enums.CustomCallback = {
 	-- * itemType - InventoryType
 	PRE_ITEM_PICKUP = "PRE_ITEM_PICKUP",
 	--Called whenever an item exits a player's item queue. i.e. when it enters
-	--the player inventory
+	--the player inventory.
+	--
+	--This callback will trigger for trinkets and collectibles, and if the collectible is
+	--added through the console or code it won't trigger. For that use `POST_PLAYER_COLLECTIBLE_ADDED`.
 	--
 	--Params:
 	--
@@ -543,12 +546,14 @@ TSIL.Enums.CustomCallback = {
 	--
 	-- * player - EntityPlayer
 	-- * collectibleType - CollectibleType
+	-- * firstTime - boolean
 	--
 	--Optional args:
 	--
 	-- * playerType - PlayerType
 	-- * playerVariant - PlayerVariant
 	-- * collectibleType - CollectibleType
+	-- * firstTime - boolean
 	POST_PLAYER_COLLECTIBLE_ADDED = "POST_PLAYER_COLLECTIBLE_ADDED",
 	--Called whenever an item is removed from a player's inventory.
 	--
@@ -1148,7 +1153,26 @@ TSIL.Enums.CustomCallback = {
 	--
 	-- * playerType - PlayerType
 	-- * playerVariant - PlayerVariant
-	POST_CUSTOM_REVIVE = "POST_CUSTOM_REVIVE"
+	POST_CUSTOM_REVIVE = "POST_CUSTOM_REVIVE",
+
+	--Called after an item is selected from a custom item pool.
+	--Return a new collectible type to change the returned collectible.
+	--
+	--If a non nil value is returned, it'll become the `selectedCollectible` argument
+	--for next callbacks.
+	--
+	--Params:
+	--
+	-- * selectedCollectible - CollectibleType
+	-- * customItemPool - integer
+	-- * decrease - boolean
+	-- * seed - integer
+	--
+	--Optional args:
+	--
+	-- * collectibleType - CollectibleType
+	-- * customItemPoolType - integer
+	POST_GET_COLLECTIBLE_CUSTOM_ITEM_POOL = "POST_GET_COLLECTIBLE_CUSTOM_ITEM_POOL"
 }
 
 
