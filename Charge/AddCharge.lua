@@ -48,8 +48,8 @@ end
 --- The AAA battery should grant an extra charge when the active item is one away from being fully charged.
 ---@param player EntityPlayer
 ---@param activeSlot ActiveSlot
----@param chargesToAdd number
----@return number
+---@param chargesToAdd integer
+---@return integer
 local function getChargesToAddWithAAAModifier(player, activeSlot, chargesToAdd)
     local hasAAABattery = player:HasTrinket(TrinketType.TRINKET_AAA_BATTERY)
     
@@ -107,8 +107,13 @@ function TSIL.Charge.AddCharge(player, activeSlot, numCharges, playSoundEffect)
         chargesToAdd = numCharges
     end
 
-    -- // The AAA Battery trinket might grant an additional charge.
+    -- The AAA Battery trinket might grant an additional charge.
     local modifiedChargesToAdd = getChargesToAddWithAAAModifier(player, activeSlot, chargesToAdd)
+
+    -- If we're removing charges, we ignore the AAA extra charge
+    if numCharges < 0 then
+        modifiedChargesToAdd = chargesToAdd
+    end
     
     local totalCharge = TSIL.Charge.GetTotalCharge(player, activeSlot)
     local newCharge = totalCharge + modifiedChargesToAdd
@@ -120,7 +125,11 @@ function TSIL.Charge.AddCharge(player, activeSlot, numCharges, playSoundEffect)
     hud:FlashChargeBar(player, activeSlot)
 
     if playSoundEffect then
-        playChargeSoundEffect(player, activeSlot)
+        if numCharges < 0 then
+            SFXManager():Play(SoundEffect.SOUND_BATTERYDISCHARGE)
+        else
+            playChargeSoundEffect(player, activeSlot)
+        end
     end
 
     return modifiedChargesToAdd

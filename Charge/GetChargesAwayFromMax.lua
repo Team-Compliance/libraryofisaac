@@ -8,11 +8,9 @@
 ---@param activeSlot ActiveSlot? @Default: `ActiveSlot.SLOT_PRIMARY` | The slot to get the charges from.
 ---@return integer
 function TSIL.Charge.GetChargesAwayFromMax(player, activeSlot)
-    activeSlot = activeSlot or ActiveSlot.SLOT_PRIMARY
     local totalCharge = TSIL.Charge.GetTotalCharge(player, activeSlot)
-    local activeItem = player:GetActiveItem(activeSlot)
     local hasBattery = player:HasCollectible(CollectibleType.COLLECTIBLE_BATTERY)
-    local maxCharges = TSIL.Collectibles.GetCollectibleMaxCharges(activeItem)
+    local maxCharges = TSIL.Charge.GetMaxCharges(player, activeSlot)
 
     ---@type number
     local effectiveMaxCharges

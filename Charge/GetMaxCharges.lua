@@ -3,7 +3,7 @@
 ---Useful since just checking the item config won't account for items that can have multiple number of
 ---charges, like Blank Card.
 ---@param player EntityPlayer @The player to get the charges from 
----@param activeSlot ActiveSlot @Default: `ActiveSlot.SLOT_PRIMARY` | The slot to get the charges from.
+---@param activeSlot ActiveSlot? @Default: `ActiveSlot.SLOT_PRIMARY` | The slot to get the charges from.
 ---@return integer
 function TSIL.Charge.GetMaxCharges(player, activeSlot)
     if not activeSlot then activeSlot = ActiveSlot.SLOT_PRIMARY end
