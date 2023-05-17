@@ -9,7 +9,7 @@ TSIL.__RegisterCustomCallback(
 local function OnTSILLoad()
     TSIL.SaveManager.AddPersistentVariable(
         TSIL.__MOD,
-        "CollectedPickups_NPC_STATE_CHANGE_CALLBACK",
+        "CollectedPickups_PICKUP_COLLECT_CALLBACK",
         {},
         TSIL.Enums.VariablePersistenceMode.RESET_ROOM
     )
@@ -29,7 +29,7 @@ local function OnPickupRender(_, pickup)
 
     local pickupPtr = GetPtrHash(pickup)
 
-    local collectedPickups = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "npcStatesLastFrame_NPC_STATE_CHANGE_CALLBACK")
+    local collectedPickups = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "CollectedPickups_PICKUP_COLLECT_CALLBACK")
 
     if TSIL.Utils.Tables.IsIn(collectedPickups, pickupPtr) then return end
 
