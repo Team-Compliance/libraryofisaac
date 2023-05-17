@@ -138,6 +138,7 @@ local TSIL_SCRIPTS = {
 "Bosses.SpawnBoss",
 "Charge.AddCharge",
 "Charge.GetChargesAwayFromMax",
+"Charge.GetMaxCharges",
 "Charge.GetTotalCharge",
 "Charge.IsActiveSlotDoubleCharged",
 "Collectibles.CollectibleHasFlag",
