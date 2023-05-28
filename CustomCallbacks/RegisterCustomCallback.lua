@@ -1,81 +1,81 @@
 ---@type table<CallbackOptionalArgType, fun(param: any, optionalArgs: table)>
 local OPTIONAL_PARAMS_PER_OPTIONAL_ARG_TYPE = {
-    [TSIL.Enums.CallbackOptionalArgType.GENERIC] = function (param, optionalArgs)
-        optionalArgs[#optionalArgs+1] = param
+    [TSIL.Enums.CallbackOptionalArgType.GENERIC] = function(param, optionalArgs)
+        optionalArgs[#optionalArgs + 1] = param
     end,
 
-    [TSIL.Enums.CallbackOptionalArgType.NONE] = function () end,
+    [TSIL.Enums.CallbackOptionalArgType.NONE] = function() end,
 
     ---@param param Entity
     ---@param optionalArgs table
-    [TSIL.Enums.CallbackOptionalArgType.ENTITY_TYPE] = function (param, optionalArgs)
-        optionalArgs[#optionalArgs+1] = param.Type
-    end,
-
-    ---@param param Entity
-    ---@param optionalArgs table
-    [TSIL.Enums.CallbackOptionalArgType.ENTITY_TYPE_VARIANT] = function (param, optionalArgs)
-        optionalArgs[#optionalArgs+1] = param.Type
-        optionalArgs[#optionalArgs+1] = param.Variant
+    [TSIL.Enums.CallbackOptionalArgType.ENTITY_TYPE] = function(param, optionalArgs)
+        optionalArgs[#optionalArgs + 1] = param.Type
     end,
 
     ---@param param Entity
     ---@param optionalArgs table
-    [TSIL.Enums.CallbackOptionalArgType.ENTITY_TYPE_VARIANT_SUBTYPE] = function (param, optionalArgs)
-        optionalArgs[#optionalArgs+1] = param.Type
-        optionalArgs[#optionalArgs+1] = param.Variant
-        optionalArgs[#optionalArgs+1] = param.SubType
+    [TSIL.Enums.CallbackOptionalArgType.ENTITY_TYPE_VARIANT] = function(param, optionalArgs)
+        optionalArgs[#optionalArgs + 1] = param.Type
+        optionalArgs[#optionalArgs + 1] = param.Variant
     end,
 
     ---@param param Entity
     ---@param optionalArgs table
-    [TSIL.Enums.CallbackOptionalArgType.ENTITY_VARIANT_SUBTYPE] = function (param, optionalArgs)
-        optionalArgs[#optionalArgs+1] = param.Variant
-        optionalArgs[#optionalArgs+1] = param.SubType
+    [TSIL.Enums.CallbackOptionalArgType.ENTITY_TYPE_VARIANT_SUBTYPE] = function(param, optionalArgs)
+        optionalArgs[#optionalArgs + 1] = param.Type
+        optionalArgs[#optionalArgs + 1] = param.Variant
+        optionalArgs[#optionalArgs + 1] = param.SubType
     end,
 
     ---@param param Entity
     ---@param optionalArgs table
-    [TSIL.Enums.CallbackOptionalArgType.ENTITY_SUBTYPE] = function (param, optionalArgs)
-        optionalArgs[#optionalArgs+1] = param.SubType
+    [TSIL.Enums.CallbackOptionalArgType.ENTITY_VARIANT_SUBTYPE] = function(param, optionalArgs)
+        optionalArgs[#optionalArgs + 1] = param.Variant
+        optionalArgs[#optionalArgs + 1] = param.SubType
+    end,
+
+    ---@param param Entity
+    ---@param optionalArgs table
+    [TSIL.Enums.CallbackOptionalArgType.ENTITY_SUBTYPE] = function(param, optionalArgs)
+        optionalArgs[#optionalArgs + 1] = param.SubType
     end,
 
     ---@param param GridEntity
     ---@param optionalArgs table
-    [TSIL.Enums.CallbackOptionalArgType.GRID_TYPE] = function (param, optionalArgs)
-        optionalArgs[#optionalArgs+1] = param:GetType()
+    [TSIL.Enums.CallbackOptionalArgType.GRID_TYPE] = function(param, optionalArgs)
+        optionalArgs[#optionalArgs + 1] = param:GetType()
     end,
 
     ---@param param GridEntity
     ---@param optionalArgs table
-    [TSIL.Enums.CallbackOptionalArgType.GRID_TYPE_VARIANT] = function (param, optionalArgs)
-        optionalArgs[#optionalArgs+1] = param:GetType()
-        optionalArgs[#optionalArgs+1] = param:GetVariant()
+    [TSIL.Enums.CallbackOptionalArgType.GRID_TYPE_VARIANT] = function(param, optionalArgs)
+        optionalArgs[#optionalArgs + 1] = param:GetType()
+        optionalArgs[#optionalArgs + 1] = param:GetVariant()
     end,
 
     ---@param param GridEntity
     ---@param optionalArgs table
-    [TSIL.Enums.CallbackOptionalArgType.GRID_VARIANT] = function (param, optionalArgs)
-        optionalArgs[#optionalArgs+1] = param:GetVariant()
+    [TSIL.Enums.CallbackOptionalArgType.GRID_VARIANT] = function(param, optionalArgs)
+        optionalArgs[#optionalArgs + 1] = param:GetVariant()
     end,
 
     ---@param param EntityPlayer
     ---@param optionalArgs table
-    [TSIL.Enums.CallbackOptionalArgType.PLAYER_TYPE_VARIANT] = function (param, optionalArgs)
-        optionalArgs[#optionalArgs+1] = param:GetPlayerType()
-        optionalArgs[#optionalArgs+1] = param.Variant
+    [TSIL.Enums.CallbackOptionalArgType.PLAYER_TYPE_VARIANT] = function(param, optionalArgs)
+        optionalArgs[#optionalArgs + 1] = param:GetPlayerType()
+        optionalArgs[#optionalArgs + 1] = param.Variant
     end,
 
     ---@param param EntityPlayer
     ---@param optionalArgs table
-    [TSIL.Enums.CallbackOptionalArgType.PLAYER_TYPE] = function (param, optionalArgs)
-        optionalArgs[#optionalArgs+1] = param:GetPlayerType()
+    [TSIL.Enums.CallbackOptionalArgType.PLAYER_TYPE] = function(param, optionalArgs)
+        optionalArgs[#optionalArgs + 1] = param:GetPlayerType()
     end,
 }
 
 
 ---@param functionParams table
----@param optionalArgTypes CallbackOptionalArgType[] 
+---@param optionalArgTypes CallbackOptionalArgType[]
 ---@return table
 local function GetOptionalParams(functionParams, optionalArgTypes)
     local optionalArgs = {}
@@ -124,7 +124,7 @@ end
 ---@param returnMode? CallbackReturnMode @Default: CallbackReturnMode.NONE
 ---@param ... CallbackOptionalArgType
 function TSIL.__RegisterCustomCallback(callback, returnMode, ...)
-    local optionalArgTypes = {...}
+    local optionalArgTypes = { ... }
     local CallbackReturnMode = TSIL.Enums.CallbackReturnMode
 
     if returnMode == nil then
@@ -141,8 +141,8 @@ function TSIL.__RegisterCustomCallback(callback, returnMode, ...)
 
     local newRegistered = {
         Version = TSIL.__LOCAL_VERSION,
-        Trigger = function (...)
-            local functionParams = {...}
+        Trigger = function(...)
+            local functionParams = { ... }
             local optionalParams = GetOptionalParams(functionParams, optionalArgTypes)
 
             --Vanilla RunCallback prevents the execution of all the other functions if one has an error.
@@ -156,8 +156,8 @@ function TSIL.__RegisterCustomCallback(callback, returnMode, ...)
                 local param = callbackEntry.Param
 
                 if (param == nil or #optionalParams == 0) or
-                CheckOptionalParams(param, optionalParams) then
-                    filteredCallbacks[#filteredCallbacks+1] = callbackEntry
+                    CheckOptionalParams(param, optionalParams) then
+                    filteredCallbacks[#filteredCallbacks + 1] = callbackEntry
                 end
             end
 
@@ -168,7 +168,9 @@ function TSIL.__RegisterCustomCallback(callback, returnMode, ...)
             for _, callbackEntry in ipairs(filteredCallbacks) do
                 local status, returnValue = pcall(callbackEntry.Function, callbackEntry.Mod, ...)
 
-                if status and returnValue ~= nil then
+                if not status then
+                    print(returnMode)
+                elseif returnValue ~= nil then
                     if returnMode == CallbackReturnMode.SKIP_NEXT then
                         return returnValue
                     elseif returnMode == CallbackReturnMode.LAST_WINS then
@@ -194,13 +196,11 @@ function TSIL.__RegisterCustomCallback(callback, returnMode, ...)
     registeredCustomCallbacks[callback] = newRegistered
 end
 
-
 ---@param param integer?
 ---@return boolean
 function TSIL.__IsDefaultParam(param)
     return param == nil or param == -1
 end
-
 
 ---@param callback CustomCallback
 ---@param ... any
