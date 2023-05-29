@@ -48,6 +48,15 @@ end
 
 ---@param isFromNewRoomCallback boolean
 local function CheckRoomChanged(isFromNewRoomCallback)
+    local level = Game():GetLevel()
+    local stage = level:GetStage()
+    local frameCount = Game():GetFrameCount()
+
+    --Fix for a weird stage api related crash
+    if stage == 0 and frameCount == 0 then
+        return
+    end
+
     if IsNewRoom() then
         TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_NEW_ROOM_EARLY, isFromNewRoomCallback)
     end

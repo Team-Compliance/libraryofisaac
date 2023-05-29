@@ -17,6 +17,8 @@ function TSIL.GridEntities.SpawnGridEntity(gridEntityType, gridEntityVariant, gr
     local room = Game():GetRoom()
     local position = gridIndexOrPosition
 
+    Isaac.DebugString("[TSIL] From Spawn: " .. Game():GetFrameCount())
+
     if type(gridIndexOrPosition) == "number" then
         position = room:GetGridPosition(gridIndexOrPosition)
     end
