@@ -149,6 +149,19 @@ TSIL.Enums.CustomCallback = {
 	-- * newWave - integer
 	POST_GREED_MODE_WAVE = "POST_GREED_MODE_WAVE",
 
+	--Works exactly the same as the regular `ENTITY_REMOVE` callback but
+	--let's you specify more arguments for filtering.
+	--
+	--Params:
+	--
+	-- * entity - Entity
+	--
+	--Optional args:
+	--
+	-- * entiyType - EntityType
+	-- * entityVariant - integer
+	-- * entitySubType - integer
+	POST_ENTITY_REMOVE_FILTER = "POST_ENTITY_REMOVE_FILTER",
 	--Works exactly the same as the regular `ENTITY_TAKE_DMG` callback but
 	--let's you specify more arguments for filtering.
 	--
@@ -594,7 +607,6 @@ TSIL.Enums.CustomCallback = {
 	-- * playerVariant - PlayerVariant
 	-- * trinketType - TrinketType
 	POST_PLAYER_GULPED_TRINKET_REMOVED = "POST_PLAYER_GULPED_TRINKET_REMOVED",
-
 	--Called whenever a player transforms into esau jr.
 	--
 	--This is useful because the player doesn't actually tranform into esau
@@ -612,11 +624,7 @@ TSIL.Enums.CustomCallback = {
 	--Params:
 	--
 	-- * player - EntityPlayer
-
-	POST_ENTITY_REMOVE_FILTER = "POST_ENTITY_REMOVE_FILTER",
-
 	POST_FIRST_ESAU_JR = "POST_FIRST_ESAU_JR",
-
 	--Called whenever a T.Lazarus player uses flip.
 	--
 	--This is useful because the unlike the `POST_USE_ITEM` callback, this provides
@@ -635,7 +643,6 @@ TSIL.Enums.CustomCallback = {
 	--
 	-- * player - EntityPlayer
 	POST_FIRST_FLIP = "POST_FIRST_FLIP",
-
 	--Called whenever the player's health changes.
 	--
 	--Params:
