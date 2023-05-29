@@ -169,7 +169,7 @@ function TSIL.__RegisterCustomCallback(callback, returnMode, ...)
                 local status, returnValue = pcall(callbackEntry.Function, callbackEntry.Mod, ...)
 
                 if not status then
-                    print(returnMode)
+                    print(returnValue)
                 elseif returnValue ~= nil then
                     if returnMode == CallbackReturnMode.SKIP_NEXT then
                         return returnValue

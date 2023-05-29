@@ -74,7 +74,7 @@ TSIL.Enums.CustomCallback = {
 	--Optional args:
 	--
 	-- * collectibleType - CollectibleType
-	POST_COLLECTIBLE_EMPTY =  "POST_COLLECTIBLE_EMPTY",
+	POST_COLLECTIBLE_EMPTY = "POST_COLLECTIBLE_EMPTY",
 	--Called from the `POST_PICKUP_INIT` the first time a pedestal is encountered.
 	--
 	--This is useful since pickups trigger the `POST_PICKUP_INIT` callback when they
@@ -606,12 +606,15 @@ TSIL.Enums.CustomCallback = {
 	POST_ESAU_JR = "POST_ESAU_JR",
 	--Called the first time a player transforms into esau jr in a run.
 	--
-	--This is useful because the esau jr.'s entity player is not accessible 
+	--This is useful because the esau jr.'s entity player is not accessible
 	--before it is created.
 	--
 	--Params:
 	--
 	-- * player - EntityPlayer
+
+	POST_ENTITY_REMOVE_FILTER = "POST_ENTITY_REMOVE_FILTER",
+
 	POST_FIRST_ESAU_JR = "POST_FIRST_ESAU_JR",
 
 	--Called whenever a T.Lazarus player uses flip.
