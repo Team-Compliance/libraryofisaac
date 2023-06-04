@@ -18,6 +18,22 @@ local REMOVE_PERSISTENCE_MODE_PER_RESET_TIME = {
     room = TSIL.Enums.VariablePersistenceMode.REMOVE_ROOM
 }
 
+---@param variable PersistentVariable
+local function ResetVariable(variable)
+    if type(variable.value) == "table" and type(variable.default) == "table" then
+        -- We update the table instead of assigning it directly so the original table gets updated too
+        for key, _ in pairs(variable.value) do
+            variable.value[key] = nil
+        end
+
+        for key, value in pairs(variable.default) do
+            variable.value[key] = TSIL.Utils.DeepCopy.DeepCopy(value, TSIL.Enums.SerializationType.NONE)
+        end
+    else
+        variable.value = TSIL.Utils.DeepCopy.DeepCopy(variable.default, TSIL.Enums.SerializationType.NONE)
+    end
+end
+
 
 function TSIL.SaveManager.RestoreDefaultsForAllFeaturesAndKeys()
     for _, saveKey in ipairs(RESETTABLE_SAVE_DATA_KEYS) do
@@ -43,12 +59,12 @@ function TSIL.SaveManager.RestoreDefaultForFeatureKey(modPersistentData, saveDat
 
     local persistenceModeToReset = RESET_PERSISTENCE_MODE_PER_RESET_TIME[saveDataKey]
 
-    TSIL.Utils.Tables.IterateTableInOrder(modPersistentData.variables, function(_, variable)
+    TSIL.Utils.Tables.IterateTableInOrder(modPersistentData.variables, function(name, variable)
         if variable.persistenceMode ~= persistenceModeToReset then
             return
         end
 
-        variable.value = TSIL.Utils.DeepCopy.DeepCopy(variable.default, TSIL.Enums.SerializationType.NONE)
+        ResetVariable(variable)
     end)
 end
 
