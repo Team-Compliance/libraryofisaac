@@ -3,7 +3,6 @@
 function TSIL.GridEntities.GetTopLeftWallGridIndex()
 	local room = Game():GetRoom()
 	local gridSize = room:GetGridSize()
-	Isaac.DebugString("[TSIL] From Top Left Thing: " .. Game():GetFrameCount())
 	local roomShape = room:GetRoomShape()
 
 	for i = 0, gridSize, 1 do

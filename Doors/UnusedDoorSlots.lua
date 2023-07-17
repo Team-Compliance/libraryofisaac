@@ -9,7 +9,7 @@ function TSIL.Doors.GetUnusedDoorSlots()
     for i = 0, DoorSlot.NUM_DOOR_SLOTS-1, 1 do
         ---@cast i DoorSlot
         if room:IsDoorSlotAllowed(i) and not room:GetDoor(i) then
-            unusedDoorSlots[#unusedDoorSlots+1] = unusedDoorSlots
+            unusedDoorSlots[#unusedDoorSlots+1] = i
         end
     end
 

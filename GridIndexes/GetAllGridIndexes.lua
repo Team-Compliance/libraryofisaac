@@ -14,7 +14,7 @@ function TSIL.GridIndexes.GetAllGridIndexes(onlyInRoom)
 
 	for i = 0, gridSize, 1 do
 		if not onlyInRoom or TSIL.Rooms.IsGridIndexInRoomShape(i, roomShape) then
-			gridIndexes[#gridIndexes+1] = gridIndexes
+			gridIndexes[#gridIndexes+1] = i
 		end
 	end
 
