@@ -1,4 +1,4 @@
---##use Players/Inventory/PlayerInventory.lua
+--##use Players/Inventory/PlayerInventoryLogic.lua
 --##POST_PLAYER_COLLECTIBLE_ADDED
 
 TSIL.__RegisterCustomCallback(

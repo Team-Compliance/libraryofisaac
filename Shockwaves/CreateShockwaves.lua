@@ -121,7 +121,7 @@ function TSIL.ShockWaves.CreateShockwaveRing(source, center, radius, customShock
     numRings = numRings - 1
 
     if numRings > 0 and #shockwaves > 0 then
-        TSIL.Utils.Functions.RunInFramesTemporary(TSIL.ShockWaves.CreateShockwaveRing, ringDelay,
+        TSIL.Utils.Functions.RunInFrames(TSIL.ShockWaves.CreateShockwaveRing, ringDelay,
             source,
             center,
             radius + ringSpacing,

@@ -3,6 +3,7 @@
 ---@return GridEntity[]
 function TSIL.GridEntities.GetGridEntities(...)
 	local gridEntityTypes = {...}
+	local gridEntityTypesDict = TSIL.Utils.Tables.ConstructDictionaryFromTable(gridEntityTypes)
 
 	---@type GridEntity[]
 	local gridEntities = {}
@@ -12,16 +13,12 @@ function TSIL.GridEntities.GetGridEntities(...)
 	for i = 0, room:GetGridSize() - 1, 1 do
 		local gridEntity = room:GetGridEntity(i)
 
-		gridEntities[#gridEntities+1] = gridEntity
+		if #gridEntityTypes == 0 or gridEntityTypesDict[gridEntity:GetType()] then
+			gridEntities[#gridEntities+1] = gridEntity
+		end
 	end
 
-	if #gridEntityTypes > 0 then
-		return TSIL.Utils.Tables.Filter(gridEntities, function (_, gridEntity)
-			return TSIL.Utils.Tables.IsIn(gridEntityTypes, gridEntity:GetType())
-		end)
-	else
-		return gridEntities
-	end
+	return gridEntities
 end
 
 
