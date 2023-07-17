@@ -149,41 +149,46 @@ function TSIL.__RegisterCustomCallback(callback, returnMode, ...)
             --To prevent this we manually loop through each callback, which allows us to use pcall.
 
             local callbacks = Isaac.GetCallbacks(callback)
-            ---@type CallbackEntry[]
-            local filteredCallbacks = {}
+            -- ---@type CallbackEntry[]
+            -- local filteredCallbacks = {}
+
+            -- for _, callbackEntry in ipairs(callbacks) do
+            --     local param = callbackEntry.Param
+
+            --     if (param == nil or #optionalParams == 0) or
+            --         CheckOptionalParams(param, optionalParams) then
+            --         filteredCallbacks[#filteredCallbacks + 1] = callbackEntry
+            --     end
+            -- end
+
+            -- if #filteredCallbacks == 0 then return end
+
+            local finalReturn
 
             for _, callbackEntry in ipairs(callbacks) do
                 local param = callbackEntry.Param
 
-                if (param == nil or #optionalParams == 0) or
-                    CheckOptionalParams(param, optionalParams) then
-                    filteredCallbacks[#filteredCallbacks + 1] = callbackEntry
-                end
-            end
+                if (param == nil or #optionalParams == 0)
+                or CheckOptionalParams(param, optionalParams) then
+                    local status, returnValue = pcall(callbackEntry.Function, callbackEntry.Mod, ...)
 
-            if #filteredCallbacks == 0 then return end
+                    if not status then
+                        print(returnValue)
+                    elseif returnValue ~= nil then
+                        if returnMode == CallbackReturnMode.SKIP_NEXT then
+                            return returnValue
+                        elseif returnMode == CallbackReturnMode.LAST_WINS then
+                            finalReturn = returnValue
+                        elseif returnMode == CallbackReturnMode.NEXT_ARGUMENT then
+                            finalReturn = returnValue
 
-            local finalReturn
-
-            for _, callbackEntry in ipairs(filteredCallbacks) do
-                local status, returnValue = pcall(callbackEntry.Function, callbackEntry.Mod, ...)
-
-                if not status then
-                    print(returnValue)
-                elseif returnValue ~= nil then
-                    if returnMode == CallbackReturnMode.SKIP_NEXT then
-                        return returnValue
-                    elseif returnMode == CallbackReturnMode.LAST_WINS then
-                        finalReturn = returnValue
-                    elseif returnMode == CallbackReturnMode.NEXT_ARGUMENT then
-                        finalReturn = returnValue
-
-                        if type(returnValue) == "table" then
-                            for i, n in ipairs(returnValue) do
-                                functionParams[i] = n
+                            if type(returnValue) == "table" then
+                                for i, n in ipairs(returnValue) do
+                                    functionParams[i] = n
+                                end
+                            else
+                                functionParams[1] = returnValue
                             end
-                        else
-                            functionParams[1] = returnValue
                         end
                     end
                 end
