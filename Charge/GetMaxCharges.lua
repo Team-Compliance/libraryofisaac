@@ -8,7 +8,7 @@
 function TSIL.Charge.GetMaxCharges(player, activeSlot)
     if not activeSlot then activeSlot = ActiveSlot.SLOT_PRIMARY end
 
-    local previousCharge = player:GetActiveCharge(activeSlot)
+    local previousCharge = TSIL.Charge.GetTotalCharge(player, activeSlot)
     --We set the charge to an arbitrary high value to ensure it always maxes out
     player:SetActiveCharge(math.floor(math.maxinteger/100), activeSlot)
     local currentCharge = player:GetActiveCharge(activeSlot)
