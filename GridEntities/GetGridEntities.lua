@@ -13,7 +13,7 @@ function TSIL.GridEntities.GetGridEntities(...)
 	for i = 0, room:GetGridSize() - 1, 1 do
 		local gridEntity = room:GetGridEntity(i)
 
-		if #gridEntityTypes == 0 or gridEntityTypesDict[gridEntity:GetType()] then
+		if #gridEntityTypes == 0 or (gridEntity and gridEntityTypesDict[gridEntity:GetType()]) then
 			gridEntities[#gridEntities+1] = gridEntity
 		end
 	end
