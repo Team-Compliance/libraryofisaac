@@ -5,9 +5,9 @@ function TSIL.Ambush.GetAmbushType()
     local room = Game():GetRoom()
     local roomType = room:GetType()
 
-    if roomType == RoomType.BOSS_RUSH then
+    if roomType == RoomType.ROOM_BOSSRUSH then
         return TSIL.Enums.AmbushType.BOSS_RUSH
-    elseif roomType == RoomType.CHALLENGE then
+    elseif roomType == RoomType.ROOM_CHALLENGE then
         return TSIL.Enums.AmbushType.CHALLENGE_ROOM
     end
 end
