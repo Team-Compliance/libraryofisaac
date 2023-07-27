@@ -27,6 +27,17 @@ TSIL.Enums.CustomCallback = {
 	--
 	-- * ambushType - AmbushType
 	POST_AMBUSH_FINISHED = "POST_AMBUSH_FINISHED",
+	--Called on first frame after clearing a wave in challenge room or boss rush.
+	--Internally it's called the first frame either `Isaac.CountEnemies` or `Isaac.CountBosses` returns 0, depending on ambush type.
+	--
+	--Params:
+	--
+	-- * ambushType - AmbushType
+	--
+	--Optional args:
+	--
+	-- * ambushType - AmbushType
+	POST_AMBUSH_WAVE = "POST_AMBUSH_WAVE",
 
 	--Called whenever the clear state of a room changes.
 	--
