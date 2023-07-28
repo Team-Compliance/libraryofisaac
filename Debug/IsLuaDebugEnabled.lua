@@ -9,5 +9,5 @@
 ---is enabled or not.
 ---@return boolean
 function TSIL.Debug.IsLuaDebugEnabled()
-    return _G.package ~= nil
+    return not not _LUADEBUG
 end
