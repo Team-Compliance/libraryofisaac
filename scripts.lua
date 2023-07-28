@@ -28,6 +28,7 @@ local TSIL_SCRIPTS = {
 "CustomCallbacks.RegisterCustomCallback",
 "CustomCallbacks.AmbushCallbacks.AmbushFinishedCallback",
 "CustomCallbacks.AmbushCallbacks.AmbushStartedCallback",
+"CustomCallbacks.AmbushCallbacks.AmbushWaveCallback",
 "CustomCallbacks.BombCallbacks.BombExplodedCallback",
 "CustomCallbacks.BombCallbacks.BombInitLateCallback",
 "CustomCallbacks.CollectibleCallbacks.CollectibleEmptyCallback",
