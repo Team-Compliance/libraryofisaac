@@ -4,8 +4,9 @@
 ---@param funct function
 ---@param optionalParam any?
 function TSIL.Utils.Functions.RunNextCallback(mod, callback, funct, optionalParam)
-    local callbackFunct = function (...)
-        mod:RemoveCallback(callback, funct)
+    local callbackFunct
+    callbackFunct = function (...)
+        mod:RemoveCallback(callback, callbackFunct)
         return funct(...)
     end
 
