@@ -8,7 +8,19 @@ TSIL.__RegisterCustomCallback(
 
 ---@param tear EntityTear
 local function OnTearUpdate(_, tear)
-    if tear.FrameCount ~= 0 then return end
+    local hasTriggered = TSIL.Entities.GetEntityData(
+        TSIL.__MOD,
+        tear,
+        "hasTriggered_TEAR_INIT_LATE_CALLBACK"
+    )
+    if hasTriggered then return end
+
+    TSIL.Entities.SetEntityData(
+        TSIL.__MOD,
+        tear,
+        "hasTriggered_TEAR_INIT_LATE_CALLBACK",
+        true
+    )
 
     TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_TEAR_INIT_LATE, tear)
 end
