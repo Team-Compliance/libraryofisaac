@@ -6,25 +6,21 @@ TSIL.__RegisterCustomCallback(
 )
 
 
-local function OnTSILLoad()
-    TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "pickupsFired_PICKUP_INIT_LATE_CALLBACK", {}, TSIL.Enums.VariablePersistenceMode.RESET_ROOM)
-end
-TSIL.__AddInternalCallback(
-    "PICKUP_INIT_LATE_CALLBACK_TSIL_LOAD",
-    TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
-    OnTSILLoad
-)
-
-
 ---@param pickup EntityPickup
 local function OnPickupUpdate(_, pickup)
-    local ptrHash = GetPtrHash(pickup)
-    local ptrHashStr = tostring(ptrHash)
+    local hasTriggered = TSIL.Entities.GetEntityData(
+        TSIL.__MOD,
+        pickup,
+        "HasTriggeredCallback_PICKUP_INIT_LATE_CALLBACK"
+    )
 
-    local pickupsFired = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "pickupsFired_PICKUP_INIT_LATE_CALLBACK")
-
-    if not pickupsFired[ptrHashStr] then
-        pickupsFired[ptrHashStr] = true
+    if not hasTriggered then
+        TSIL.Entities.SetEntityData(
+            TSIL.__MOD,
+            pickup,
+            "HasTriggeredCallback_LASER_INIT_LATE_CALLBACK",
+            true
+        )
         TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_PICKUP_INIT_LATE, pickup)
     end
 end

@@ -6,29 +6,21 @@ TSIL.__RegisterCustomCallback(
     TSIL.Enums.CallbackOptionalArgType.ENTITY_VARIANT_SUBTYPE
 )
 
-
-local function OnTSILLoad()
-    TSIL.SaveManager.AddPersistentVariable(
-        TSIL.__MOD,
-        "knifesInRoom_KINFE_INIT_LATE_CALLBACK",
-        {},
-        TSIL.Enums.VariablePersistenceMode.RESET_ROOM
-    )
-end
-TSIL.__AddInternalCallback(
-    "KNIFE_INIT_LATE_CALLBACK_ON_TSIL_LOAD",
-    TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
-    OnTSILLoad
-)
-
-
 ---@param knife EntityKnife
 local function OnKnifeUpdate(_, knife)
-    local knifesInRoom = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "knifesInRoom_KINFE_INIT_LATE_CALLBACK")
-    local knifePtr = GetPtrHash(knife)
+    local hasTriggered = TSIL.Entities.GetEntityData(
+        TSIL.__MOD,
+        knife,
+        "HasTriggeredCallback_KNIFE_INIT_LATE_CALLBACK"
+    )
 
-    if not TSIL.Utils.Tables.IsIn(knifesInRoom, knifePtr) then
-        knifesInRoom[#knifesInRoom+1] = knifePtr
+    if not hasTriggered then
+        TSIL.Entities.SetEntityData(
+            TSIL.__MOD,
+            knife,
+            "HasTriggeredCallback_KNIFE_INIT_LATE_CALLBACK",
+            true
+        )
         TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_KNIFE_INIT_LATE, knife)
     end
 end
