@@ -1,5 +1,3 @@
 .vscode
 .luarc.json
-
-docs.lua
-dependencies.json
+metadata.xml
