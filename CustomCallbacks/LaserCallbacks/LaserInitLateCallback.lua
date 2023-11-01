@@ -7,28 +7,21 @@ TSIL.__RegisterCustomCallback(
 )
 
 
-local function OnTSILLoad()
-    TSIL.SaveManager.AddPersistentVariable(
-        TSIL.__MOD,
-        "lasersInRoom_KINFE_INIT_LATE_CALLBACK",
-        {},
-        TSIL.Enums.VariablePersistenceMode.RESET_ROOM
-    )
-end
-TSIL.__AddInternalCallback(
-    "LASER_INIT_LATE_CALLBACK_ON_TSIL_LOAD",
-    TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
-    OnTSILLoad
-)
-
-
 ---@param laser EntityLaser
 local function OnLaserUpdate(_, laser)
-    local lasersInRoom = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "lasersInRoom_KINFE_INIT_LATE_CALLBACK")
-    local laserPtr = GetPtrHash(laser)
+    local hasTriggered = TSIL.Entities.GetEntityData(
+        TSIL.__MOD,
+        laser,
+        "HasTriggeredCallback_LASER_INIT_LATE_CALLBACK"
+    )
 
-    if not TSIL.Utils.Tables.IsIn(lasersInRoom, laserPtr) then
-        lasersInRoom[#lasersInRoom+1] = laserPtr
+    if not hasTriggered then
+        TSIL.Entities.SetEntityData(
+            TSIL.__MOD,
+            laser,
+            "HasTriggeredCallback_LASER_INIT_LATE_CALLBACK",
+            true
+        )
         TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_LASER_INIT_LATE, laser)
     end
 end
