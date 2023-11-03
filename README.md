@@ -13,7 +13,7 @@ We also plan to make the library available as a mod for larger mods that will us
 
 VSCode extension:
 
-https://marketplace.visualstudio.com/items?itemName=ThiccoCatto.library-of-isaac-dev-extension
+https://marketplace.visualstudio.com/items?itemName=ThiccoCatto.library-of-isaac-extension
 
 Documentation for the library:
 
