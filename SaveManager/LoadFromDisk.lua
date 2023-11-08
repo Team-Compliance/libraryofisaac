@@ -108,15 +108,17 @@ function TSIL.SaveManager.LoadFromDisk()
             hasLoadedLibraryData = true
 
             local libraryPersistentData = PersistentData["TSIL_MOD"]
-            local newDeserializedLibrarySaveData = TSIL.Utils.DeepCopy.DeepCopy(
-                newSaveData.TSIL_DATA,
-                TSIL.Enums.SerializationType.DESERIALIZE
-            )
+            if libraryPersistentData then
+                local newDeserializedLibrarySaveData = TSIL.Utils.DeepCopy.DeepCopy(
+                    newSaveData.TSIL_DATA,
+                    TSIL.Enums.SerializationType.DESERIALIZE
+                )
 
-            mergeSaveData(
-                libraryPersistentData.variables,
-                newDeserializedLibrarySaveData
-            )
+                mergeSaveData(
+                    libraryPersistentData.variables,
+                    newDeserializedLibrarySaveData
+                )
+            end
         end
 
         local newDeserializedSaveData = TSIL.Utils.DeepCopy.DeepCopy(

@@ -37,7 +37,10 @@ function TSIL.SaveManager.SaveToDisk()
 
     --First get the save data for the library
     local libraryPersistentData = PersistentData["TSIL_MOD"]
-    local librarySaveData = getSaveDataForMod(libraryPersistentData)
+    local librarySaveData
+    if libraryPersistentData then
+        librarySaveData = getSaveDataForMod(libraryPersistentData)
+    end
 
     TSIL.Utils.Tables.IterateTableInOrder(PersistentData, function (modName, modPersistentData)
         --We skip the library data, since we don't need to save it separately
