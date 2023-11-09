@@ -6,6 +6,7 @@
 | - | - |
 | number | [GetTime](debug.md#gettime)() |
 | string | [GetTraceback](debug.md#gettraceback)() |
+| boolean | [IsDebugModeActive](debug.md#isdebugmodeactive)([`DebugMode`](../custom-enums/debugmode.md) mode) |
 | boolean | [IsLuaDebugEnabled](debug.md#isluadebugenabled)() |
 | void | [Traceback](debug.md#traceback)() |
 
@@ -26,6 +27,12 @@ If the "--luadebug" flag is not present, then this function will use the `Isaac.
 
 Helper function to get a stack trace. 
 This will only work if the `--luadebug` launch option is enabled. 
+
+### IsDebugModeActive()
+
+`boolean IsDebugModeActive(`[`DebugMode`](../custom-enums/debugmode.md)` mode)`
+
+Helper function to check if a debug mode is active. 
 
 ### IsLuaDebugEnabled()
 

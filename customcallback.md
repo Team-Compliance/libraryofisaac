@@ -59,6 +59,23 @@ Called whenever on the first frame a challenge room or a boss rush is started. I
 | ambushType | AmbushType |
 
 
+### POST_AMBUSH_WAVE
+
+Called on first frame after clearing a wave in challenge room or boss rush. Internally it's called the first frame either `Isaac.CountEnemies` or `Isaac.CountBosses` returns 0, depending on ambush type. 
+
+#### Callback parameters
+
+| Name | Type |
+| - | - |
+| ambushType | AmbushType |
+
+#### Optional arguments
+
+| Name | Type |
+| - | - |
+| ambushType | AmbushType |
+
+
 ### POST_BOMB_EXPLODED
 
 Called when a bomb explodes. More specifically, this is called whenever a bomb plays it's `Explode` animation. 
@@ -250,6 +267,25 @@ Called everytime an effect entity's state changes.
 | effectSubType | integer |
 
 
+### POST_ENTITY_REMOVE_FILTER
+
+Works exactly the same as the regular `ENTITY_REMOVE` callback but let's you specify more arguments for filtering. 
+
+#### Callback parameters
+
+| Name | Type |
+| - | - |
+| entity | Entity |
+
+#### Optional arguments
+
+| Name | Type |
+| - | - |
+| entiyType | EntityType |
+| entityVariant | integer |
+| entitySubType | integer |
+
+
 ### POST_ESAU_JR
 
 Called whenever a player transforms into esau jr. 
@@ -357,6 +393,28 @@ Fires last in relation to the other reordered callbacks, so you can execute code
 | Name | Type |
 | - | - |
 | isContinued | boolean |
+
+
+### POST_GET_COLLECTIBLE_CUSTOM_ITEM_POOL
+
+Called after an item is selected from a custom item pool. Return a new collectible type to change the returned collectible. 
+If a non nil value is returned, it'll become the `selectedCollectible` argument for next callbacks. 
+
+#### Callback parameters
+
+| Name | Type |
+| - | - |
+| selectedCollectible | CollectibleType |
+| customItemPool | integer |
+| decrease | boolean |
+| seed | integer |
+
+#### Optional arguments
+
+| Name | Type |
+| - | - |
+| collectibleType | CollectibleType |
+| customItemPoolType | integer |
 
 
 ### POST_GREED_MODE_WAVE
@@ -550,7 +608,8 @@ This is useful because throwable items don't actually discharge until they are t
 
 ### POST_ITEM_PICKUP
 
-Called whenever an item exits a player's item queue. i.e. when it enters the player inventory 
+Called whenever an item exits a player's item queue. i.e. when it enters the player inventory. 
+This callback will trigger for trinkets and collectibles, and if the collectible is added through the console or code it won't trigger. For that use `POST_PLAYER_COLLECTIBLE_ADDED`. 
 
 #### Callback parameters
 
@@ -867,6 +926,7 @@ Called whenever an item is added to a player's inventory.
 | - | - |
 | player | EntityPlayer |
 | collectibleType | CollectibleType |
+| firstTime | boolean |
 
 #### Optional arguments
 
@@ -875,6 +935,7 @@ Called whenever an item is added to a player's inventory.
 | playerType | PlayerType |
 | playerVariant | PlayerVariant |
 | collectibleType | CollectibleType |
+| firstTime | boolean |
 
 
 ### POST_PLAYER_COLLECTIBLE_REMOVED
@@ -1613,11 +1674,56 @@ Return true to ignore internal AI. Return nil or false otherwise
 | entitySubType | integer |
 
 
+### PRE_SAVE_MANAGER_LOAD_FROM_DISK
+
+Called before the save manager loads data from the disk for each mod. Return a table to be used as the library persistent data and avoid the save manager from loading the mod's data. 
+Use this callback together with `PRE_SAVE_MANAGER_SAVE_TO_DISK` if you want to use a different save manager. 
+Note that the modName may be nil if it's only loading the library data. This will happen if no mod is using the save manager but the library is still using it internally. 
+
+#### Callback parameters
+
+| Name | Type |
+| - | - |
+| modName | string? |
+
+#### Optional arguments
+
+| Name | Type |
+| - | - |
+| modName | string |
+
+
+### PRE_SAVE_MANAGER_SAVE_TO_DISK
+
+Called before the save manager saves data to the disk for each mod. Return `true` to skip saving for the current mod. If you choose to skip, you must save the library persistent data yourself so it can later be loaded. 
+Use this callback together with `PRE_SAVE_MANAGER_LOAD_FROM_DISK` if you want to use a different save manager. 
+Note that the modName and modPersistentData may be nil if it's only saving the library data. This will happen if no mod is using the save manager but the library is still using it internally. 
+
+#### Callback parameters
+
+| Name | Type |
+| - | - |
+| modName | string? |
+| modPersistentData | table? |
+| libraryPersistentData | table |
+
+#### Optional arguments
+
+| Name | Type |
+| - | - |
+| modName | string |
+
+
 ### PRE_SLOT_COLLISION
 
 Called from the `PRE_PLAYER_COLLISION` callback whenever the player collides with a slot. 
-Params 
- * slot - Entity  * player - EntityPlayer 
+
+#### Callback parameters
+
+| Name | Type |
+| - | - |
+| slot | Entity |
+| player | EntityPlayer? |
 
 #### Optional arguments
 

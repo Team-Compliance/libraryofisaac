@@ -29,12 +29,15 @@
 | [EntityPlayer](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)? | [GetSubPlayerParent](players.md#getsubplayerparent)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) subPlayer) |
 | void | [GiveTrinketsBack](players.md#givetrinketsback)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, `TrinketSituation?` trinketSituation) |
 | boolean | [IsActiveTaintedLazForm](players.md#isactivetaintedlazform)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| boolean | [IsBethany](players.md#isbethany)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
 | void | [IsChildPlayer](players.md#ischildplayer)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
 | boolean | [IsDamageToPlayerFatal](players.md#isdamagetoplayerfatal)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, `number` amount, [`EntityRef`](https://wofsauge.github.io/IsaacDocs/rep/EntityRef.html) source, `integer?` lastDamageGameFrame) |
+| boolean | [IsJacobOrEsau](players.md#isjacoboresau)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
 | boolean | [IsKeeper](players.md#iskeeper)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
 | boolean | [IsTaintedLazarus](players.md#istaintedlazarus)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
+| boolean | [IsTheLost](players.md#isthelost)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
 | void | [PlayerHasCollectible](players.md#playerhascollectible)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) ...) |
-| void | [RegisterCharacterHealthConversion](players.md#registercharacterhealthconversion)() |
+| void | [RegisterCharacterHealthConversion](players.md#registercharacterhealthconversion)([`PlayerType`](https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html) playerType, [`ConversionHeartSubType`](../custom-enums/conversionheartsubtype.md) conversionHeartSubType) |
 | void | [RemoveCollectibleCostume](players.md#removecollectiblecostume)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`CollectibleType`](https://wofsauge.github.io/IsaacDocs/rep/enums/CollectibleType.html) collectible) |
 | TrinketSituation? | [TemporarilyRemoveTrinket](players.md#temporarilyremovetrinket)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player, [`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html) trinketType) |
 | TrinketSituation? | [TemporarilyRemoveTrinkets](players.md#temporarilyremovetrinkets)([`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html) player) |
@@ -118,13 +121,14 @@ Helper function to get the amount of a given health type a player has.
 
 `PlayerIndex GetPlayerIndex(`[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)` player, boolean? differentiateSoulAndForgotten?)`
 
-Returns a given player's index. Useful for storing unique data per player. 
+@class PlayerIndex : integer Returns a given player's index. Useful for storing unique data per player. 
 
 ### GetPlayerInventory()
 
 `InventoryObject[] GetPlayerInventory(`[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)` player, `[`InventoryType`](../custom-enums/inventorytype.md)`? inventoryTypeFilter?)`
 
-Returns a list of all the items/gulped trinkets (things that appear on the extra HUD) ordered by the time they were collected. This method is not perfect and will fail if the player rerolls all of their items or a mod gives several items in the same frame. 
+@class InventoryObject @field Type InventoryType @field Id CollectibleType | TrinketType Returns a list of all the items/gulped trinkets (things that appear on the extra HUD) ordered by the time they were collected. 
+This method is not perfect and will fail if the player rerolls all of their items or a mod gives several items in the same frame. 
 
 ### GetPlayerMaxHeartContainers()
 
@@ -201,6 +205,12 @@ Helper function to restore the player's trinkets back to the way they were befor
 Returns wether the given form of tainted lazarus is the active one. If the given player is not tainted lazarus, it'll always return false. 
 Accounts for when the player has Birthright. 
 
+### IsBethany()
+
+`boolean IsBethany(`[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)` player)`
+
+Helper function to check if a player is Bethany or T.Bethany. 
+
 ### IsChildPlayer()
 
 `void IsChildPlayer(`[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)` player)`
@@ -213,6 +223,12 @@ Helper function to detect if a player is a "child player", meaning they have a d
 
 Uses the player's current health and other miscellaneous things to determine if incoming damage will be fatal. 
 
+### IsJacobOrEsau()
+
+`boolean IsJacobOrEsau(`[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)` player)`
+
+Helper function to check if a player is either Jacob or Esau. Note that this will only be true for the non tainted versions. 
+
 ### IsKeeper()
 
 `boolean IsKeeper(`[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)` player)`
@@ -223,7 +239,13 @@ Helper function to check if a player is either Keeper of T.Keeper.
 
 `boolean IsTaintedLazarus(`[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)` player)`
 
-Helper function to check if a player is any form of tainted lazarus. 
+Helper function to check if a player is any form of Tainted Lazarus. 
+
+### IsTheLost()
+
+`boolean IsTheLost(`[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)` player)`
+
+Helper function to check if a player is The Lost or T.The Lost. 
 
 ### PlayerHasCollectible()
 
@@ -234,7 +256,7 @@ This function is variadic, meaning that you can specify as many collectible type
 
 ### RegisterCharacterHealthConversion()
 
-`void RegisterCharacterHealthConversion()`
+`void RegisterCharacterHealthConversion(`[`PlayerType`](https://wofsauge.github.io/IsaacDocs/rep/enums/PlayerType.html)` playerType, `[`ConversionHeartSubType`](../custom-enums/conversionheartsubtype.md)` conversionHeartSubType)`
 
 Causes the provided player type to have their health be converted to the provided heart sub-type. This is the same mechanic that certain characters use for converting health, such as Blue Baby having red heart containers being converted into soul hearts. 
 
@@ -248,7 +270,7 @@ Removes a costume from the provided player.
 
 `TrinketSituation? TemporarilyRemoveTrinket(`[`EntityPlayer`](https://wofsauge.github.io/IsaacDocs/rep/EntityPlayer.html)` player, `[`TrinketType`](https://wofsauge.github.io/IsaacDocs/rep/enums/TrinketType.html)` trinketType)`
 
-Helper function to temporarily remove a specific kind of trinket from the player. Use this in combination with the `giveTrinketsBack` function to take away and give back a trinket on the same frame. This function correctly handles multiple trinket slots and ensures that all copies of the trinket are removed, including smelted trinkets. 
+@class TrinketSituation @field TrinketTypeRemoved TrinketType @field TrinketType1 TrinketType @field TrinketType2 TrinketType @field NumSmeltedTrinkets integer Helper function to temporarily remove a specific kind of trinket from the player. Use this in combination with the `giveTrinketsBack` function to take away and give back a trinket on the same frame. This function correctly handles multiple trinket slots and ensures that all copies of the trinket are removed, including smelted trinkets. 
 Note that one smelted golden trinket is the same as two smelted normal trinkets. 
 
 ### TemporarilyRemoveTrinkets()

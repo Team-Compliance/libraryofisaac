@@ -19,7 +19,7 @@
 [`Entity`](https://wofsauge.github.io/IsaacDocs/rep/Entity.html)`? CreateShockwave(`[`Entity`](https://wofsauge.github.io/IsaacDocs/rep/Entity.html)` source, `[`Vector`](https://wofsauge.github.io/IsaacDocs/rep/Vector.html)` position, CustomShockwaveParams customShockwaveParams)`
 
 Creates a new shockwave with the given params. 
-Returns the spawned shockwave, if it can't spawn it, returns nil. 
+Returns the spawned shockwave. If it can't spawn it, returns nil. 
 
 ### CreateShockwaveLine()
 
@@ -46,7 +46,7 @@ Returns the spawned shockwaves. If multiple rings are set to spawn, returns only
 
 `CustomShockwaveParams CustomShockwaveParams()`
 
-Creates a new `CustomShockwaveParams` object. 
+@class CustomShockwaveParams @field Duration integer @field Size number @field Damage number @field SelfDamage boolean @field DamagePlayers boolean @field DestroyGrid boolean @field GoOverPits boolean @field Color Color @field SpriteSheet string @field Sound SoundEffect @field SoundMode ShockwaveSoundMode Creates a new `CustomShockwaveParams` object. 
 
 ### GetCustomShockwaveData()
 

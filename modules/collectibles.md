@@ -55,7 +55,7 @@ Helper function to get the heart cost a collectible would have if it were being 
 
 `CollectibleIndex GetCollectibleIndex(`[`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html)` collectible)`
 
-Mods may have to keep track of data relating to a collectible. Finding an index for these kinds of data structures is difficult, since collectibles are respawned every time a player re-enters a room (like all other pickups), so the `PtrHash` will change. 
+@class CollectibleIndex Mods may have to keep track of data relating to a collectible. Finding an index for these kinds of data structures is difficult, since collectibles are respawned every time a player re-enters a room (like all other pickups), so the `PtrHash` will change. 
 Use this function to get a unique index for a collectible to use in these data structures. 
 Collectibles are a special case of pickups: they cannot be pushed around. (They actually can be pushed, but usually will stay on the same grid index.) Thus, it is possible to generate a somewhat reliable non-stateful index for collectibles. We use a 4-tuple of the room list index, the grid index of the collectible in the room, the collectible's `SubType`, and the collectible's `InitSeed`. 
 Collectibles that are shifted by Tainted Isaac's mechanic will have unique collectible indexes because the `SubType` is different. (The collectible entities share the same `InitSeed` and `PtrHash`.) 

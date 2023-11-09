@@ -1,6 +1,60 @@
 ---@diagnostic disable: duplicate-doc-alias, duplicate-set-field, missing-return
 _G.TSIL = {}
 
+TSIL.Ambush = {}
+TSIL.Benchmark = {}
+TSIL.BitSet128 = {}
+TSIL.Bombs = {}
+TSIL.Bosses = {}
+TSIL.Charge = {}
+TSIL.Collectibles = {}
+TSIL.Color = {}
+TSIL.Enums = {}
+TSIL.Enums.CustomCallback = {}
+TSIL.CustomItemPools = {}
+TSIL.Debug = {}
+TSIL.Dimensions = {}
+TSIL.Direction = {}
+TSIL.Doors = {}
+TSIL.Effects = {}
+TSIL.Entities = {}
+TSIL.EntitySpecific = {}
+TSIL.Familiars = {}
+TSIL.GridEntities = {}
+TSIL.GridIndexes = {}
+TSIL.GridSpecific = {}
+TSIL.Input = {}
+TSIL.IsaacAPIClass = {}
+TSIL.ItemPool = {}
+TSIL.JSON = {}
+TSIL.Log = {}
+TSIL.Pause = {}
+TSIL.Pickups = {}
+TSIL.PickupSpecific = {}
+TSIL.Pills = {}
+TSIL.Players = {}
+TSIL.Random = {}
+TSIL.RNG = {}
+TSIL.Rooms = {}
+TSIL.RoomSpecific = {}
+TSIL.Run = {}
+TSIL.SaveManager = {}
+TSIL.Serialize = {}
+TSIL.ShockWaves = {}
+TSIL.Sprites = {}
+TSIL.Stage = {}
+TSIL.Trinkets = {}
+TSIL.UI = {}
+TSIL.Utils = {}
+TSIL.Utils.DeepCopy = {}
+TSIL.Utils.Easings = {}
+TSIL.Utils.Flags = {}
+TSIL.Utils.Functions = {}
+TSIL.Utils.Math = {}
+TSIL.Utils.String = {}
+TSIL.Utils.Tables = {}
+TSIL.Vector = {}
+
 ---Helper function to get the corresponding ambush type for the current room. Returns nil if
 ---the current room does not correspond to any particular ambush type
 ---@return AmbushType?
@@ -96,6 +150,16 @@ end
 function TSIL.Charge.GetChargesAwayFromMax(player, activeSlot)
 end
 
+---Helper function to get the maximum number of charges the player has for a given active slot.
+---
+---Useful since just checking the item config won't account for items that can have multiple number of
+---charges, like Blank Card.
+---@param player EntityPlayer @The player to get the charges from 
+---@param activeSlot ActiveSlot? @Default: `ActiveSlot.SLOT_PRIMARY` | The slot to get the charges from.
+---@return integer
+function TSIL.Charge.GetMaxCharges(player, activeSlot)
+end
+
 --- Helper function to get the combined normal charge and the battery charge for the player's active
 --- item. This is useful because you have to add these two values together when setting the active
 --- charge.
@@ -147,6 +211,9 @@ end
 ---@return PickupPrice
 function TSIL.Collectibles.GetCollectibleDevilHeartPrice(collectibleType, player)
 end
+
+---@class CollectibleIndex
+
 
 --- Mods may have to keep track of data relating to a collectible. Finding an index for these kinds
 --- of data structures is difficult, since collectibles are respawned every time a player re-enters a
@@ -350,6 +417,11 @@ end
 function TSIL.__DisableInternalCallback(id)
 end
 
+---@class PickingUpItem
+---@field ID CollectibleType | TrinketType
+---@field Type ItemType
+
+
 ---Registers a new custom callback.
 ---
 ---Each `CallbackOptionalArgType` refers to one argument passed
@@ -381,6 +453,93 @@ end
 function TSIL.__TriggerCustomCallback(callback, ...)
 end
 
+---Adds an item to a custom item pool for the current run.
+---
+---If the item wasn't in the pool to begin with, it'll create a new entry for the item.
+---If the item was already in the pool, it'll add the weight you passed to the entry already in the pool,
+---unless the `ignoreDuplicate` param is set to true.
+---@param customItemPoolType integer
+---@param newItemPoolCollectible CustomItemPoolCollectible
+---@param ignoreIfDuplicate? boolean @ Default: false | Set to true so if the item is in the pool, it doesn't get added again
+function TSIL.CustomItemPools.AddCollectible(customItemPoolType, newItemPoolCollectible, ignoreIfDuplicate)
+end
+
+---Adds an item to a registered custom item pool.
+---
+---Unlike `TSIL.CustomItemPools.AddCollectible`, this will add the collectible to the registered pool,
+---so when the pool is reset, this new item will be in the pool.
+---@param customItemPoolType integer
+---@param newItemPoolCollectible CustomItemPoolCollectible
+function TSIL.CustomItemPools.AddCollectibleToRegisteredPool(customItemPoolType, newItemPoolCollectible)
+end
+
+---Adds a list of collectibles to a registered custom item pool.
+---
+---Unlike `TSIL.CustomItemPools.AddCollectible`, this will add the collectible to the registered pool,
+---so when the pool is reset, this new item will be in the pool.
+---@param customItemPoolType integer
+---@param itemPoolCollectibles CustomItemPoolCollectible[]
+function TSIL.CustomItemPools.AddCollectiblesToRegisteredPool(customItemPoolType, itemPoolCollectibles)
+end
+
+---Helper function to get an item from a custom item pool created with `TSIL.CustomItemPools.RegisterCustomItemPool()`.
+---
+---Similar to vanilla pools, the item will only get it's weight decreased if the `decrease` argument is set to true.
+---@param customItemPoolType integer
+---@param decrease? boolean @Default: true
+---@param seedOrRNG? integer | RNG @Default: `TSIL.RNG.GetRandomSeed()` | The `Seed` or `RNG` object to use. If an `RNG` object is provided, the `RNG:Next` method will be called.
+---@param defaultItem? CollectibleType @Default: CollectibleType.COLLECTIBLE_NULL
+function TSIL.CustomItemPools.GetCollectible(customItemPoolType, decrease, seedOrRNG, defaultItem)
+end
+
+---Helper function to get a copy of the current item entries for a given pool.
+---@param customItemPoolType integer
+---@return CustomItemPoolCollectible[]
+function TSIL.CustomItemPools.GetCollectibleEntriesInItemPool(customItemPoolType)
+end
+
+---Helper function to check if a certain collectible is in a custom item pool.
+---@param customItemPoolType integer
+---@param collectibleType CollectibleType
+---@return boolean
+function TSIL.CustomItemPools.IsCollectibleInCustomPool(customItemPoolType, collectibleType)
+end
+
+---@class CustomItemPoolCollectible
+---@field Collectible CollectibleType
+---@field Weight number
+---@field DecreaseBy number
+---@field RemoveOn number
+
+
+---Registers a new custom item pool. Use this function once after loading the library to
+---load your item pool.
+---
+---This function also returns an automatically assigned ID you need to refer to your item pool.
+---
+---For example:
+---```lua
+---local myItemPoolItems = {
+--- {Collectible = CollectibleType.COLLECTIBLE_SAD_ONION, Weight = 1, DecreaseBy = 1, RemoveOn = 0.1},
+--- {Collectible = CollectibleType.COLLECTIBLE_BRIMSTONE, Weight = 1, DecreaseBy = 1, RemoveOn = 0.1},
+---}
+---local MY_ITEM_POOL = TSIL.CustomItemPools.RegisterCustomItemPool(myItemPoolItems)
+---```
+---@param collectibles? CustomItemPoolCollectible[] @ Default: {}
+---@return integer
+function TSIL.CustomItemPools.RegisterCustomItemPool(collectibles)
+end
+
+---Helper function to remove an item from the given custom item pool.
+---
+---Will return true if the item was in the pool before being removed.
+---@param customItemPoolType integer
+---@param collectibleType CollectibleType
+---@param decreaseBy? number @ If provided, it'll remove the weight from the item instead of removing the item completely
+---@return boolean
+function TSIL.CustomItemPools.RemoveCollectible(customItemPoolType, collectibleType, decreaseBy)
+end
+
 ---Helper function to get the current time for benchmarking / profiling purposes.
 ---
 ---The return value will either be in seconds or milliseconds, depending on if the "--luadebug" flag
@@ -402,6 +561,12 @@ end
 ---This will only work if the `--luadebug` launch option is enabled.
 ---@return string
 function TSIL.Debug.GetTraceback()
+end
+
+---Helper function to check if a debug mode is active.
+---@param mode DebugMode
+---@return boolean
+function TSIL.Debug.IsDebugModeActive(mode)
 end
 
 ---Players can boot the game with an launch option called "--luadebug", which will enable additional
@@ -1096,6 +1261,54 @@ TSIL.Enums.BossID = {
     CLUTCH = 102,
 }
 
+---Used when registering a custom callback using `TSIL.__RegisterCustomCallback()`.
+---
+---Defines how the callback filtering should treat each parameter.
+---@enum CallbackOptionalArgType
+TSIL.Enums.CallbackOptionalArgType = {
+    --Directly checks for equality using `==`
+    GENERIC = 0,
+    --Skips this argument when checking
+    NONE = 1,
+
+    ENTITY_TYPE = 2,
+    ENTITY_TYPE_VARIANT = 3,
+    ENTITY_TYPE_VARIANT_SUBTYPE = 4,
+    ENTITY_VARIANT_SUBTYPE = 5,
+    ENTITY_SUBTYPE = 6,
+
+    GRID_TYPE = 7,
+    GRID_TYPE_VARIANT = 8,
+    GRID_VARIANT = 9,
+
+    PLAYER_TYPE_VARIANT = 10,
+    PLAYER_TYPE = 11,
+
+    MOD_NAME = 12
+}
+
+---Used when registering a custom callback using `TSIL.__RegisterCustomCallback()`.
+---
+---Defines how the returned values of the executed functions will be treated and
+---what value is returned by `TSIL.__TriggerCustomCallback()`.
+---@enum CallbackReturnMode
+TSIL.Enums.CallbackReturnMode = {
+	--Returned values are ignored
+	NONE = 0,
+	--When a function returns a non nil value
+	--the rest are skipped.
+	SKIP_NEXT = 1,
+	--The last function to return a non nil value
+	--overwrites all other returned values
+	LAST_WINS = 2,
+	--When a function returns a non nil value, the returned
+	--value is used as the first argument for the next functions.
+	--If a table is returned, the first element of the table will
+	--be the first argument, the second element will be the second
+	--argument, etc.
+	NEXT_ARGUMENT = 3
+}
+
 ---@enum ConversionHeartSubType
 TSIL.Enums.ConversionHeartSubType = {
 	BLACK = HeartSubType.HEART_BLACK,
@@ -1108,6 +1321,48 @@ TSIL.Enums.CustomCallback = {
 	--
 	--Used internally to make sure all of the library features are loaded
 	POST_TSIL_LOAD = "POST_TSIL_LOAD",
+
+	--Called before the save manager saves data to the disk for each mod. Return
+	--`true` to skip saving for the current mod. If you choose to skip, you must
+	--save the library persistent data yourself so it can later be loaded.
+	--
+	--Use this callback together with `PRE_SAVE_MANAGER_LOAD_FROM_DISK` if you want
+	--to use a different save manager.
+	--
+	--Note that the modName and modPersistentData may be nil if it's only saving the library data.
+	--This will happen if no mod is using the save manager but the library is still using
+	--it internally.
+	--
+	--Params:
+	--
+	-- * modName - string?
+	-- * modPersistentData - table?
+	-- * libraryPersistentData - table
+	--
+	--Optional args:
+	--
+	-- * modName - string
+	PRE_SAVE_MANAGER_SAVE_TO_DISK = "PRE_SAVE_MANAGER_SAVE_TO_DISK",
+
+	--Called before the save manager loads data from the disk for each mod. Return
+	--a table to be used as the library persistent data and avoid the save manager from
+	--loading the mod's data.
+	--
+	--Use this callback together with `PRE_SAVE_MANAGER_SAVE_TO_DISK` if you want
+	--to use a different save manager.
+	--
+	--Note that the modName may be nil if it's only loading the library data.
+	--This will happen if no mod is using the save manager but the library is still using
+	--it internally.
+	--
+	--Params:
+	--
+	-- * modName - string?
+	--
+	--Optional args:
+	--
+	-- * modName - string
+	PRE_SAVE_MANAGER_LOAD_FROM_DISK = "PRE_SAVE_MANAGER_LOAD_FROM_DISK",
 
 	--Called whenever on the first frame a challenge room or a boss rush is started.
 	--Internally it's called the first frame `Room.IsAmbushDone` is true.
@@ -1131,6 +1386,17 @@ TSIL.Enums.CustomCallback = {
 	--
 	-- * ambushType - AmbushType
 	POST_AMBUSH_FINISHED = "POST_AMBUSH_FINISHED",
+	--Called on first frame after clearing a wave in challenge room or boss rush.
+	--Internally it's called the first frame either `Isaac.CountEnemies` or `Isaac.CountBosses` returns 0, depending on ambush type.
+	--
+	--Params:
+	--
+	-- * ambushType - AmbushType
+	--
+	--Optional args:
+	--
+	-- * ambushType - AmbushType
+	POST_AMBUSH_WAVE = "POST_AMBUSH_WAVE",
 
 	--Called whenever the clear state of a room changes.
 	--
@@ -1178,7 +1444,7 @@ TSIL.Enums.CustomCallback = {
 	--Optional args:
 	--
 	-- * collectibleType - CollectibleType
-	POST_COLLECTIBLE_EMPTY =  "POST_COLLECTIBLE_EMPTY",
+	POST_COLLECTIBLE_EMPTY = "POST_COLLECTIBLE_EMPTY",
 	--Called from the `POST_PICKUP_INIT` the first time a pedestal is encountered.
 	--
 	--This is useful since pickups trigger the `POST_PICKUP_INIT` callback when they
@@ -1253,6 +1519,19 @@ TSIL.Enums.CustomCallback = {
 	-- * newWave - integer
 	POST_GREED_MODE_WAVE = "POST_GREED_MODE_WAVE",
 
+	--Works exactly the same as the regular `ENTITY_REMOVE` callback but
+	--let's you specify more arguments for filtering.
+	--
+	--Params:
+	--
+	-- * entity - Entity
+	--
+	--Optional args:
+	--
+	-- * entiyType - EntityType
+	-- * entityVariant - integer
+	-- * entitySubType - integer
+	POST_ENTITY_REMOVE_FILTER = "POST_ENTITY_REMOVE_FILTER",
 	--Works exactly the same as the regular `ENTITY_TAKE_DMG` callback but
 	--let's you specify more arguments for filtering.
 	--
@@ -1626,7 +1905,10 @@ TSIL.Enums.CustomCallback = {
 	-- * itemType - InventoryType
 	PRE_ITEM_PICKUP = "PRE_ITEM_PICKUP",
 	--Called whenever an item exits a player's item queue. i.e. when it enters
-	--the player inventory
+	--the player inventory.
+	--
+	--This callback will trigger for trinkets and collectibles, and if the collectible is
+	--added through the console or code it won't trigger. For that use `POST_PLAYER_COLLECTIBLE_ADDED`.
 	--
 	--Params:
 	--
@@ -1647,12 +1929,14 @@ TSIL.Enums.CustomCallback = {
 	--
 	-- * player - EntityPlayer
 	-- * collectibleType - CollectibleType
+	-- * firstTime - boolean
 	--
 	--Optional args:
 	--
 	-- * playerType - PlayerType
 	-- * playerVariant - PlayerVariant
 	-- * collectibleType - CollectibleType
+	-- * firstTime - boolean
 	POST_PLAYER_COLLECTIBLE_ADDED = "POST_PLAYER_COLLECTIBLE_ADDED",
 	--Called whenever an item is removed from a player's inventory.
 	--
@@ -1693,7 +1977,6 @@ TSIL.Enums.CustomCallback = {
 	-- * playerVariant - PlayerVariant
 	-- * trinketType - TrinketType
 	POST_PLAYER_GULPED_TRINKET_REMOVED = "POST_PLAYER_GULPED_TRINKET_REMOVED",
-
 	--Called whenever a player transforms into esau jr.
 	--
 	--This is useful because the player doesn't actually tranform into esau
@@ -1705,14 +1988,13 @@ TSIL.Enums.CustomCallback = {
 	POST_ESAU_JR = "POST_ESAU_JR",
 	--Called the first time a player transforms into esau jr in a run.
 	--
-	--This is useful because the esau jr.'s entity player is not accessible 
+	--This is useful because the esau jr.'s entity player is not accessible
 	--before it is created.
 	--
 	--Params:
 	--
 	-- * player - EntityPlayer
 	POST_FIRST_ESAU_JR = "POST_FIRST_ESAU_JR",
-
 	--Called whenever a T.Lazarus player uses flip.
 	--
 	--This is useful because the unlike the `POST_USE_ITEM` callback, this provides
@@ -1731,7 +2013,6 @@ TSIL.Enums.CustomCallback = {
 	--
 	-- * player - EntityPlayer
 	POST_FIRST_FLIP = "POST_FIRST_FLIP",
-
 	--Called whenever the player's health changes.
 	--
 	--Params:
@@ -2252,7 +2533,56 @@ TSIL.Enums.CustomCallback = {
 	--
 	-- * playerType - PlayerType
 	-- * playerVariant - PlayerVariant
-	POST_CUSTOM_REVIVE = "POST_CUSTOM_REVIVE"
+	POST_CUSTOM_REVIVE = "POST_CUSTOM_REVIVE",
+
+	--Called after an item is selected from a custom item pool.
+	--Return a new collectible type to change the returned collectible.
+	--
+	--If a non nil value is returned, it'll become the `selectedCollectible` argument
+	--for next callbacks.
+	--
+	--Params:
+	--
+	-- * selectedCollectible - CollectibleType
+	-- * customItemPool - integer
+	-- * decrease - boolean
+	-- * seed - integer
+	--
+	--Optional args:
+	--
+	-- * collectibleType - CollectibleType
+	-- * customItemPoolType - integer
+	POST_GET_COLLECTIBLE_CUSTOM_ITEM_POOL = "POST_GET_COLLECTIBLE_CUSTOM_ITEM_POOL"
+}
+
+---Used in the `PRE_CUSTOM_REVIVE` callback to determine how the player should revive.
+---@enum CustomReviveType
+TSIL.Enums.CustomReviveType = {
+    --Internally uses Soul of Lazarus
+    SAME_ROOM = 0,
+
+    --Internally uses 1 UP
+    PREVIOUS_ROOM = 1
+}
+
+---@enum DebugMode
+TSIL.Enums.DebugMode = {
+    ENTITY_POSITIONS = 1,
+    ---Shows grid and grid collision values
+    SHOW_GRID = 2,
+    INFINITE_HP = 3,
+    HIGH_DAMAGE = 4,
+    ROOM_INFO = 5,
+    SHOW_HITBOX = 6,
+    SHOW_DAMAGE_VALUES = 7,
+    INFINITE_CHARGE = 8,
+    HIGH_LUCK = 9,
+    QUICK_KILL = 10,
+    ---Shows grid and grid indexes
+    SHOW_GRID_INFO = 11,
+    PLAYER_INFO = 12,
+    SHOW_GRID_COLLISION = 13,
+    SHOW_LUA_MEMORY_USAGE = 14
 }
 
 ---@enum Dimension
@@ -2814,6 +3144,39 @@ TSIL.Enums.ShockwaveSoundMode = {
     ON_CREATE = 1,
     LOOP = 2
 }
+
+---@enum StageID
+TSIL.Enums.StageID = {
+    SPECIAL_ROOMS = 0,
+    BASEMENT = 1,
+    CELLAR = 2,
+    BURNING_BASEMENT = 3,
+    CAVES = 4,
+    CATACOMBS = 5,
+    FLOODED_CAVES = 6,
+    DEPTHS = 7,
+    NECROPOLIS = 8,
+    DANK_DEPTHS = 9,
+    WOMB = 10,
+    UTERO = 11,
+    SCARRED_WOMB = 12,
+    BLUE_WOMB = 13,
+    SHEOL = 14,
+    CATHEDRAL = 15,
+    DARK_ROOM = 16,
+    CHEST = 17,
+    VOID = 26,
+    DOWNPOUR = 27,
+    DROSS = 28,
+    MINES = 29,
+    ASHPIT = 30,
+    MAUSOLEUM = 31,
+    GEHENNA = 32,
+    CORPSE = 33,
+    MORTIS = 34,
+    HOME = 35,
+    BACKWARDS = 36,
+  }
 
 ---@enum BlueFlySubType
 --- For `EntityType.FAMILIAR` (3), `FamiliarVariant.BLUE_FLY` (43). 
@@ -4720,6 +5083,25 @@ end
 function TSIL.Log.Log(message)
 end
 
+---Helper function to pause the game similarly to how the game does when showing a giant book
+---or an achievement.
+---
+---Internally it's done by using the pause item on every frame and keeping track of every tear
+---and projectile's states.
+function TSIL.Pause.Pause()
+end
+
+---Unpauses the game if it was previously paused by `TSIL.Pause.Pause()`.
+---
+---Because of limitations with the Pause item, this will remove all projectiles.
+function TSIL.Pause.Unpause()
+end
+
+---Helper function to check if the game is being paused by the library
+---@return boolean
+function TSIL.Pause.IsPaused()
+end
+
 ---Helper function to get the corresponding coin amount from a `CoinSubType`. Returns 1 for modded sub-types.
 ---@param coinSubType CoinSubType
 ---@return integer
@@ -4732,6 +5114,14 @@ end
 function TSIL.Pickups.IsChest(pickup)
 end
 
+---@class PickupIndex : integer
+
+
+---@class PickupDescription
+---@field Position Vector
+---@field InitSeed integer
+
+
 --- Mods often have to track variables relating to a pickups. Finding an index for these kinds of
 --- data structures is difficult, since pickups are respawned every time a player re-enters a room,
 --- so the `PtrHash` will change.
@@ -4741,8 +5131,6 @@ end
 --- Specifically, `PickupIndex` is a number that represents the spawn order of the pickup on the
 --- current run. For example, the first pickup spawned will have an index of 1, the second one will
 --- have an index of 2, and so on.
----
---- Tracking pickups requires stateful tracking, so using pickup indexes requires an upgraded mod.
 ---@param pickup EntityPickup
 ---@return PickupIndex
 function TSIL.Pickups.GetPickupIndex(pickup)
@@ -5052,6 +5440,8 @@ end
 --- Causes the provided player type to have their health be converted to the provided heart
 --- sub-type. This is the same mechanic that certain characters use for converting health, such as
 --- Blue Baby having red heart containers being converted into soul hearts.
+---@param playerType PlayerType
+---@param conversionHeartSubType ConversionHeartSubType
 function TSIL.Players.RegisterCharacterHealthConversion(playerType, conversionHeartSubType)
 end
 
@@ -5116,8 +5506,16 @@ end
 function TSIL.Players.PlayerHasCollectible(player, ...)
 end
 
---- Returns a list of all the items/gulped trinkets (things that appear on the extra HUD) ordered by the time they were collected.
---- This method is not perfect and will fail if the player rerolls all of their items or a mod gives several items in the same frame.
+--- @class InventoryObject
+--- @field Type InventoryType
+--- @field Id CollectibleType | TrinketType
+
+
+--- Returns a list of all the items/gulped trinkets (things that appear on the extra HUD) ordered by
+--- the time they were collected.
+---
+--- This method is not perfect and will fail if the player rerolls all of their items or a mod gives
+--- several items in the same frame.
 ---@param player EntityPlayer
 ---@param inventoryTypeFilter? InventoryType
 ---@return InventoryObject[]
@@ -5136,11 +5534,33 @@ end
 function TSIL.Players.IsKeeper(player)
 end
 
----Helper function to check if a player is any form of tainted lazarus.
+---Helper function to check if a player is any form of Tainted Lazarus.
 ---@param player EntityPlayer
 ---@return boolean
 function TSIL.Players.IsTaintedLazarus(player)
 end
+
+---Helper function to check if a player is The Lost or T.The Lost.
+---@param player EntityPlayer
+---@return boolean
+function TSIL.Players.IsTheLost(player)
+end
+
+---Helper function to check if a player is Bethany or T.Bethany.
+---@param player EntityPlayer
+---@return boolean
+function TSIL.Players.IsBethany(player)
+end
+
+---Helper function to check if a player is either Jacob or Esau. Note that
+---this will only be true for the non tainted versions.
+---@param player EntityPlayer
+---@return boolean
+function TSIL.Players.IsJacobOrEsau(player)
+end
+
+---@class PlayerIndex : integer
+
 
 --- Returns a given player's index. Useful for storing unique data per player.
 ---@param player EntityPlayer
@@ -5183,6 +5603,13 @@ end
 ---@return integer
 function TSIL.Players.GetSmeltedTrinketMultiplier(player, trinket)
 end
+
+---@class TrinketSituation
+---@field TrinketTypeRemoved TrinketType
+---@field TrinketType1 TrinketType
+---@field TrinketType2 TrinketType
+---@field NumSmeltedTrinkets integer
+
 
 --- Helper function to temporarily remove a specific kind of trinket from the player. Use this in
 --- combination with the `giveTrinketsBack` function to take away and give back a trinket on the same
@@ -5296,9 +5723,9 @@ end
 --- `{chance = x, value = y}`
 ---@generic T any
 ---@param seedOrRNG integer | RNG
----@param ... {chance : integer, value : T}
+---@param possibles {chance : number, value : T}[]
 ---@return T
-function TSIL.Random.GetRandomElementFromWeightedList(seedOrRNG, ...)
+function TSIL.Random.GetRandomElementFromWeightedList(seedOrRNG, possibles)
 end
 
 ---Copies an `RNG` object
@@ -5415,6 +5842,20 @@ end
 ---@return integer
 function TSIL.Rooms.GetRoomSubType(roomGridIndex)
 end
+
+---@class RoomHistoryData
+---@field Stage LevelStage
+---@field StageType StageType
+---@field RoomType RoomType
+---@field StageID StageID
+---@field Dimension Dimension
+---@field RoomVariant integer
+---@field RoomSubType integer
+---@field RoomName string
+---@field RoomGridIndex integer
+---@field RoomListIndex integer
+---@field RoomVisitedCount integer
+
 
 ---Helper function to get information about all of the rooms that a player has visited thus far on this run.
 ---@return RoomHistoryData[]
@@ -5764,7 +6205,7 @@ end
 
 ---Creates a new shockwave with the given params.
 ---
----Returns the spawned shockwave, if it can't spawn it, returns nil.
+---Returns the spawned shockwave. If it can't spawn it, returns nil.
 ---@param source Entity
 ---@param position Vector
 ---@param customShockwaveParams CustomShockwaveParams
@@ -5831,6 +6272,20 @@ end
 ---@return table?
 function TSIL.ShockWaves.GetCustomShockwaveData(entity)
 end
+
+---@class CustomShockwaveParams
+---@field Duration integer
+---@field Size number
+---@field Damage number
+---@field SelfDamage boolean
+---@field DamagePlayers boolean
+---@field DestroyGrid boolean
+---@field GoOverPits boolean
+---@field Color Color
+---@field SpriteSheet string
+---@field Sound SoundEffect
+---@field SoundMode ShockwaveSoundMode
+
 
 ---Creates a new `CustomShockwaveParams` object.
 ---@return CustomShockwaveParams
@@ -6201,6 +6656,14 @@ end
 function TSIL.Utils.Flags.RemoveFlags(flags, ...)
 end
 
+--- Runs a function the next time a callback is triggered. After it gets called once, it is removed
+---@param mod table
+---@param callback ModCallbacks | CustomCallback
+---@param funct function
+---@param optionalParam any?
+function TSIL.Utils.Functions.RunNextCallback(mod, callback, funct, optionalParam)
+end
+
 --- Runs a given function on the next `POST_NEW_LEVEL` callback.
 ---@param funct function
 ---@param ... any
@@ -6218,6 +6681,15 @@ end
 ---@param frames integer
 ---@param ... any
 function TSIL.Utils.Functions.RunInFrames(funct, frames, ...)
+end
+
+--- Runs a function in a given number of frames.
+--- 
+--- Unlike `TSIL.Utils.Functions.RunInFrames` this will not persist when moving to a different room.
+---@param funct function
+---@param frames integer
+---@param ... any
+function TSIL.Utils.Functions.RunInFramesTemporary(funct, frames, ...)
 end
 
 --- Returns whether a given rectangle is intersecting a given circle.

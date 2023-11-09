@@ -1,4 +1,4 @@
-# InventoryObject
+# CustomShockwaveParams
 
 ## Fields
 

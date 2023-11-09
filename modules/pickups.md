@@ -22,10 +22,9 @@ Helper function to get the corresponding coin amount from a `CoinSubType`. Retur
 
 `PickupIndex GetPickupIndex(`[`EntityPickup`](https://wofsauge.github.io/IsaacDocs/rep/EntityPickup.html)` pickup)`
 
-Mods often have to track variables relating to a pickups. Finding an index for these kinds of data structures is difficult, since pickups are respawned every time a player re-enters a room, so the `PtrHash` will change. 
+@class PickupIndex : integer @class PickupDescription @field Position Vector @field InitSeed integer Mods often have to track variables relating to a pickups. Finding an index for these kinds of data structures is difficult, since pickups are respawned every time a player re-enters a room, so the `PtrHash` will change. 
 Use this function to get a unique index for a pickup to use in these data structures. 
 Specifically, `PickupIndex` is a number that represents the spawn order of the pickup on the current run. For example, the first pickup spawned will have an index of 1, the second one will have an index of 2, and so on. 
-Tracking pickups requires stateful tracking, so using pickup indexes requires an upgraded mod. 
 
 ### GetRedHearts()
 

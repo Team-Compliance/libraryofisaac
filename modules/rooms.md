@@ -75,7 +75,7 @@ Data structures that store data per room should use the room's `ListIndex` inste
 
 `RoomHistoryData[] GetRoomHistory()`
 
-Helper function to get information about all of the rooms that a player has visited thus far on this run. 
+@class RoomHistoryData @field Stage LevelStage @field StageType StageType @field RoomType RoomType @field StageID StageID @field Dimension Dimension @field RoomVariant integer @field RoomSubType integer @field RoomName string @field RoomGridIndex integer @field RoomListIndex integer @field RoomVisitedCount integer Helper function to get information about all of the rooms that a player has visited thus far on this run. 
 
 ### GetRoomShapeGridWidth()
 
