@@ -5,6 +5,48 @@ TSIL.Enums.CustomCallback = {
 	--Used internally to make sure all of the library features are loaded
 	POST_TSIL_LOAD = "POST_TSIL_LOAD",
 
+	--Called before the save manager saves data to the disk for each mod. Return
+	--`true` to skip saving for the current mod. If you choose to skip, you must
+	--save the library persistent data yourself so it can later be loaded.
+	--
+	--Use this callback together with `PRE_SAVE_MANAGER_LOAD_FROM_DISK` if you want
+	--to use a different save manager.
+	--
+	--Note that the modName and modPersistentData may be nil if it's only saving the library data.
+	--This will happen if no mod is using the save manager but the library is still using
+	--it internally.
+	--
+	--Params:
+	--
+	-- * modName - string?
+	-- * modPersistentData - table?
+	-- * libraryPersistentData - table
+	--
+	--Optional args:
+	--
+	-- * modName - string
+	PRE_SAVE_MANAGER_SAVE_TO_DISK = "PRE_SAVE_MANAGER_SAVE_TO_DISK",
+
+	--Called before the save manager loads data from the disk for each mod. Return
+	--a table to be used as the library persistent data and avoid the save manager from
+	--loading the mod's data.
+	--
+	--Use this callback together with `PRE_SAVE_MANAGER_SAVE_TO_DISK` if you want
+	--to use a different save manager.
+	--
+	--Note that the modName may be nil if it's only loading the library data.
+	--This will happen if no mod is using the save manager but the library is still using
+	--it internally.
+	--
+	--Params:
+	--
+	-- * modName - string?
+	--
+	--Optional args:
+	--
+	-- * modName - string
+	PRE_SAVE_MANAGER_LOAD_FROM_DISK = "PRE_SAVE_MANAGER_LOAD_FROM_DISK",
+
 	--Called whenever on the first frame a challenge room or a boss rush is started.
 	--Internally it's called the first frame `Room.IsAmbushDone` is true.
 	--

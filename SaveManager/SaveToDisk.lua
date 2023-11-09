@@ -42,6 +42,8 @@ function TSIL.SaveManager.SaveToDisk()
         librarySaveData = getSaveDataForMod(libraryPersistentData)
     end
 
+    local hasSavedLibraryData = false
+
     TSIL.Utils.Tables.IterateTableInOrder(PersistentData, function (modName, modPersistentData)
         --We skip the library data, since we don't need to save it separately
         --If we did save it separately it'd override the data of the mod that's running it
@@ -49,7 +51,21 @@ function TSIL.SaveManager.SaveToDisk()
             return
         end
 
+        hasSavedLibraryData = true
+
         local saveData = getSaveDataForMod(modPersistentData)
+
+        local shouldOverride = TSIL.__TriggerCustomCallback(
+            TSIL.Enums.CustomCallback.PRE_SAVE_MANAGER_SAVE_TO_DISK,
+            modName,
+            modPersistentData,
+            librarySaveData
+        )
+
+        -- The mod wants to skip saving data.
+        if shouldOverride then
+            return
+        end
 
         --We need to save the library data with the mod data so it doesnt override it
         local modAndLibraryData = {
@@ -63,4 +79,26 @@ function TSIL.SaveManager.SaveToDisk()
         --lost if the library was running in a different mod folder
         modPersistentData.mod:SaveData(jsonString)
     end)
+
+    if not hasSavedLibraryData then
+        local hasModSaved = TSIL.__TriggerCustomCallback(
+            TSIL.Enums.CustomCallback.PRE_SAVE_MANAGER_SAVE_TO_DISK,
+            nil,
+            nil,
+            librarySaveData
+        )
+
+        -- Some other mod saved the library data
+        if hasModSaved then return end
+
+        local modAndLibraryData = {
+            TSIL_DATA = librarySaveData,
+        }
+
+        local jsonString = TSIL.JSON.Encode(modAndLibraryData)
+
+        --We save each mod's save data in their own mod, so the data doesn't get
+        --lost if the library was running in a different mod folder
+        TSIL.__MOD:SaveData(jsonString)
+    end
 end

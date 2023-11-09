@@ -19,5 +19,7 @@ TSIL.Enums.CallbackOptionalArgType = {
     GRID_VARIANT = 9,
 
     PLAYER_TYPE_VARIANT = 10,
-    PLAYER_TYPE = 11
+    PLAYER_TYPE = 11,
+
+    MOD_NAME = 12
 }

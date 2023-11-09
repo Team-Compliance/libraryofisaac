@@ -13,9 +13,9 @@ local function convertRedHeartContainers(player, heartSubType)
 
 	player:AddMaxHearts(maxHearts * -1, false)
 
-	if heartSubType == HeartSubType.HEART_SOUL then
+	if heartSubType == TSIL.Enums.ConversionHeartSubType.SOUL then
 		player:AddSoulHearts(maxHearts)
-	elseif heartSubType == HeartSubType.HEART_BLACK then
+	elseif heartSubType == TSIL.Enums.ConversionHeartSubType.BLACK then
 		player:AddBlackHearts(maxHearts)
 	end
 end

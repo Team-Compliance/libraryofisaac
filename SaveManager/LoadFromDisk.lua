@@ -92,6 +92,34 @@ function TSIL.SaveManager.LoadFromDisk()
 
         local modToLoad = modPersistentData.mod
 
+        local overrideLibraryData = TSIL.__TriggerCustomCallback(
+            TSIL.Enums.CustomCallback.PRE_SAVE_MANAGER_LOAD_FROM_DISK,
+            modToLoad
+        )
+
+        -- The mod wants to skip loading data
+        if overrideLibraryData then
+            if not hasLoadedLibraryData then
+                hasLoadedLibraryData = true
+
+                local libraryPersistentData = PersistentData["TSIL_MOD"]
+
+                if libraryPersistentData then
+                    local newDeserializedLibrarySaveData = TSIL.Utils.DeepCopy.DeepCopy(
+                        overrideLibraryData,
+                        TSIL.Enums.SerializationType.DESERIALIZE
+                    )
+
+                    mergeSaveData(
+                        libraryPersistentData.variables,
+                        newDeserializedLibrarySaveData
+                    )
+                end
+            end
+
+            return
+        end
+
         -- There is not "save#.dat file for this save slot."
         if not modToLoad:HasData() then return end
 
@@ -131,4 +159,50 @@ function TSIL.SaveManager.LoadFromDisk()
             newDeserializedSaveData
         )
     end)
+
+    --If no mods use the save manager, it may still need to load it
+    if not hasLoadedLibraryData then
+        local overrideLibraryData = TSIL.__TriggerCustomCallback(
+            TSIL.Enums.CustomCallback.PRE_SAVE_MANAGER_LOAD_FROM_DISK,
+            nil
+        )
+
+        if overrideLibraryData then
+            local libraryPersistentData = PersistentData["TSIL_MOD"]
+
+            if libraryPersistentData then
+                local newDeserializedLibrarySaveData = TSIL.Utils.DeepCopy.DeepCopy(
+                    overrideLibraryData,
+                    TSIL.Enums.SerializationType.DESERIALIZE
+                )
+
+                mergeSaveData(
+                    libraryPersistentData.variables,
+                    newDeserializedLibrarySaveData
+                )
+            end
+        else
+            --The default mod doesn't have data
+            if not TSIL.__MOD:HasData() then return end
+
+            local jsonString = readSaveDatFile(TSIL.__MOD)
+            local newSaveData = TSIL.JSON.Decode(jsonString)
+
+            --This save data doesn't follow the format, ignore it
+            if not newSaveData.TSIL_DATA then return end
+
+            local libraryPersistentData = PersistentData["TSIL_MOD"]
+            if libraryPersistentData then
+                local newDeserializedLibrarySaveData = TSIL.Utils.DeepCopy.DeepCopy(
+                    newSaveData.TSIL_DATA,
+                    TSIL.Enums.SerializationType.DESERIALIZE
+                )
+
+                mergeSaveData(
+                    libraryPersistentData.variables,
+                    newDeserializedLibrarySaveData
+                )
+            end
+        end
+    end
 end

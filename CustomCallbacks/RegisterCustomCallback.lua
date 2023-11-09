@@ -88,16 +88,24 @@ local function GetOptionalParams(functionParams, optionalArgTypes)
 end
 
 
+---@param param1 any
+---@param param2 any
+---@return boolean
+local function CompareParams(param1, param2)
+    return param1 == nil or param2 == nil or param1 == param2
+end
+
+
 ---@param param any
 ---@param optionalParams table
 ---@return boolean
 local function CheckOptionalParams(param, optionalParams)
     if type(param) ~= "table" then
-        return optionalParams[1] == param
+        return CompareParams(optionalParams[1], param)
     end
 
     for index, targetParam in ipairs(optionalParams) do
-        if param[index] ~= nil and param[index] ~= targetParam then
+        if not CompareParams(targetParam, param[index]) then
             return false
         end
     end
