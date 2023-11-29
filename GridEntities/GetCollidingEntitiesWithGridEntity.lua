@@ -8,8 +8,9 @@ function TSIL.GridEntities.GetCollidingEntitiesWithGridEntity(gridEntity)
 	local closeEntities = Isaac.FindInRadius(gridEntity.Position, 80)
 
 	return TSIL.Utils.Tables.Filter(closeEntities, function (_, entity)
-		return entity:CollidesWithGrid() and
-		TSIL.Utils.Math.IsCircleIntersectingWithRectangle(
+		return entity:CollidesWithGrid()
+		and TSIL.Entities.CanCollideWithGridEntity(entity, gridEntity)
+		and TSIL.Utils.Math.IsCircleIntersectingWithRectangle(
 			gridEntity.Position,
 			Vector(20, 20),
 			entity.Position,
