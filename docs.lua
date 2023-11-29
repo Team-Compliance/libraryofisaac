@@ -866,6 +866,13 @@ end
 function TSIL.Effects.IsCloseEnoughToTriggerDiceFloor(entity, diceFloor)
 end
 
+---Helper function to check if an entity can collide with a given grid entity.
+---@param entity Entity
+---@param gridEntity GridEntity
+---@return boolean
+function TSIL.Entities.CanCollideWithGridEntity(entity, gridEntity)
+end
+
 ---Sets some arbitrary data for an entity. Use this instead of `Entity:GetData()` since that
 ---is global and allows for other mods to edit your data.
 ---

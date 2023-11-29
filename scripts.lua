@@ -295,6 +295,7 @@ local TSIL_SCRIPTS = {
 "Doors.RemoveDoors",
 "Doors.UnusedDoorSlots",
 "Effects.IsCloseEnoughToTriggerDiceFloor",
+"Entities.CanCollideWithGridEntity",
 "Entities.EntityData",
 "Entities.GetEntities",
 "Entities.GetSetEntityPositionsVelocities",
