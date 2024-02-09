@@ -5,9 +5,9 @@
 ---@return boolean
 function TSIL.Charge.IsActiveSlotDoubleCharged(player, activeSlot)
     activeSlot = activeSlot or ActiveSlot.SLOT_PRIMARY
-    local collectibleType = player:GetActiveItem(activeSlot)
-    local batteryCharge = player:GetBatteryCharge(activeSlot)
-    local maxCharges = TSIL.Collectibles.GetCollectibleMaxCharges(collectibleType)
+
+    local totalCharge = player:GetTotalActiveCharge(activeSlot)
+    local maxCharge = player:GetActiveMaxCharge(activeSlot)
     
-    return batteryCharge >= maxCharges
+    return totalCharge >= maxCharge * 2
 end

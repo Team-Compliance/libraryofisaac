@@ -104,8 +104,7 @@ function TSIL.Players.WillMysteriousPaperRevive(player)
 
     -- We want to explicitly check the length of the death animation because we might be playing on a
     -- modded character that has a custom death animation.
-    local character = player:GetPlayerType()
-    local animation = TSIL.Players.GetCharacterDeathAnimationName(character)
+    local animation = player:GetDeathAnimationName()
     local deathAnimationFrames = TSIL.Sprites.GetLastFrameOfAnimation(sprite, animation)
     local frameOfDeath = gameFrameCount + deathAnimationFrames + 1
     -- (We add 1 because it takes one frame for the death animation to begin.)

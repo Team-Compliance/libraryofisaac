@@ -6,14 +6,22 @@ function TSIL.Color.CopyColor(color)
         error("Failed to copy a Color object since the provided object was not a userdata Color class.")
     end
 
+    local tint = color:GetTint()
+    local offset = color:GetOffset()
+    local colorize = color:GetColorize()
+
     return Color(
-        color.R,
-        color.G,
-        color.B,
-        color.A,
-        color.RO,
-        color.GO,
-        color.BO
+        tint.R,
+        tint.G,
+        tint.B,
+        tint.A,
+        offset.R,
+        offset.G,
+        offset.B,
+        colorize.R,
+        colorize.G,
+        colorize.B,
+        colorize.A
     )
 end
 

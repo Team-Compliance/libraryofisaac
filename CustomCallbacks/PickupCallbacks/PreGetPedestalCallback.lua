@@ -16,7 +16,7 @@ local function PreCollectibleCollision(_, collectible, collider)
     local player = collider:ToPlayer()
     if player == nil then return end
 
-    local numCoins = player:GetNumCoins();
+    local numCoins = player:GetNumCoins()
     if collectible.Price > numCoins then return end
 
     if collectible.Wait > 0 or player.ItemHoldCooldown > 0 then return end

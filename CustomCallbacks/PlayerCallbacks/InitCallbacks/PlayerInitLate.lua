@@ -31,8 +31,8 @@ local function OnPeffectUpdate(_, player)
         "PlayersTriggered_PLAYER_INIT_LATE_CALLBACK"
     )
 
-    if not TSIL.Utils.Tables.IsIn(playersTriggered, playerIndex) then
-        playersTriggered[#playersTriggered+1] = playerIndex
+    if not playersTriggered[playerIndex] then
+        playersTriggered[playerIndex] = true
         TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_PLAYER_INIT_LATE, player)
     end
 end

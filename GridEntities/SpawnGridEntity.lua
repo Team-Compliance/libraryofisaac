@@ -3,7 +3,7 @@
 --- Use this instead of `Isaac.GridSpawn` as it handles:
 --- - Walls and pits collision
 --- - Removing existing grid entities
---- - Allows you to use the grid index
+--- - Allows you to use the grid index or position
 ---@param gridEntityType GridEntityType
 ---@param gridEntityVariant integer
 ---@param gridIndexOrPosition Vector | integer
@@ -26,6 +26,7 @@ function TSIL.GridEntities.SpawnGridEntity(gridEntityType, gridEntityVariant, gr
     local existingGridEntity = room:GetGridEntityFromPos(position)
 
     if existingGridEntity then
+        -- If force is set to false and there is already a grid entity, skip spawning it.
         if not force then
             return
         else

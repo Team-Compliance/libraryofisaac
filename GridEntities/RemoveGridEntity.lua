@@ -2,8 +2,8 @@
 ---
 --- If removing a Devil or Angel Statue it'll also remove the associated effect.
 ---@param gridEntityOrGridIndex GridEntity | integer
----@param updateRoom boolean @ Whether or not to update the room after the grid entity is removed. If not, you won't be able to place another one until next frame. However doing so is expensive, so set this to false if you need to run this multiple times.
-function TSIL.GridEntities.RemoveGridEntity(gridEntityOrGridIndex, updateRoom)
+---@param immediate boolean? @Default: true | Whether or not to use Repentogon's RemoveGridEntityImmediate. Vanilla RemoveGridEntity doesn't update the room, making it impossible to spawn a new grid entity on the same frame.
+function TSIL.GridEntities.RemoveGridEntity(gridEntityOrGridIndex, immediate)
     local room = Game():GetRoom()
 
     ---@type GridEntity
@@ -20,14 +20,18 @@ function TSIL.GridEntities.RemoveGridEntity(gridEntityOrGridIndex, updateRoom)
         gridEntity = gridEntityOrGridIndex
     end
 
+    if immediate == nil then
+        immediate = true
+    end
+
     local gridEntityType = gridEntity:GetType()
     local gridEntityVariant = gridEntity:GetVariant()
     local gridEntityPosition = gridEntity.Position
 
-    room:RemoveGridEntity(gridEntity:GetGridIndex(), 0, false)
-
-    if updateRoom then
-        TSIL.Rooms.UpdateRoom()
+    if immediate then
+        room:RemoveGridEntityImmediate(gridEntity:GetGridIndex(), 0, false)
+    else
+        room:RemoveGridEntity(gridEntity:GetGridIndex(), 0, false)
     end
 
     --Remove statue decoration
@@ -51,13 +55,9 @@ end
 
 --- Helper function to remove all grid entities from a given list.
 ---@param gridEntities GridEntity[]
----@param updateRoom boolean @ Whether or not to update the room after the grid entity is removed. If not, you won't be able to place another one until next frame. However doing so is expensive, so set this to false if you need to run this multiple times.
-function TSIL.GridEntities.RemoveGridEntities(gridEntities, updateRoom)
+---@param immediate boolean? @Default: true | Whether or not to use Repentogon's RemoveGridEntityImmediate. Vanilla RemoveGridEntity doesn't update the room, making it impossible to spawn a new grid entity on the same frame.
+function TSIL.GridEntities.RemoveGridEntities(gridEntities, immediate)
     TSIL.Utils.Tables.ForEach(gridEntities, function (_, gridEntity)
-        TSIL.GridEntities.RemoveGridEntity(gridEntity, false)
+        TSIL.GridEntities.RemoveGridEntity(gridEntity, immediate)
     end)
-
-    if updateRoom then
-        TSIL.Rooms.UpdateRoom()
-    end
 end

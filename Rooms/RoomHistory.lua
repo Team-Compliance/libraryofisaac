@@ -23,11 +23,11 @@ TSIL.__AddInternalCallback(
 
 ---@param isFromNewRoomCallback boolean
 local function OnNewRoomEarly(_, isFromNewRoomCallback)
-    local level = Game():GetLevel();
-    local stage = level:GetStage();
-    local stageType = level:GetStageType();
-    local room = Game():GetRoom();
-    local roomType = room:GetType();
+    local level = Game():GetLevel()
+    local stage = level:GetStage()
+    local stageType = level:GetStageType()
+    local room = Game():GetRoom()
+    local roomType = room:GetType()
     local roomDescriptor = level:GetCurrentRoomDesc()
     local roomData = roomDescriptor.Data
     local stageID = roomData.StageID
@@ -61,8 +61,8 @@ local function OnNewRoomEarly(_, isFromNewRoomCallback)
     roomHistory[#roomHistory+1] = roomHistoryData
 end
 TSIL.__AddInternalCallback(
-    "ROOM_HISTORY_POST_NEW_ROOM_EARLY",
-    TSIL.Enums.CustomCallback.POST_NEW_ROOM_EARLY,
+    "ROOM_HISTORY_PRE_NEW_ROOM",
+    ModCallbacks.MC_PRE_NEW_ROOM,
     OnNewRoomEarly
 )
 

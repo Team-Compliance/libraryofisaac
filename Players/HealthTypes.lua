@@ -46,9 +46,9 @@ end
 
 ---Helper function to get the amount of a given health type a player has.
 ---@param player EntityPlayer
----@param healthType HealthType
+---@param healthType PlayerHeartType
 function TSIL.Players.GetPlayerHealthType(player, healthType)
-    local HealthType = TSIL.Enums.HealthType
+    local HealthType = TSIL.Enums.PlayerHeartType
     if healthType == HealthType.RED then
         return TSIL.Players.GetHearts(player)
     elseif healthType == HealthType.SOUL then

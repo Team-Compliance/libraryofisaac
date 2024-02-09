@@ -6,24 +6,13 @@ TSIL.__RegisterCustomCallback(
 )
 
 
-local function OnTSILLoad()
-    TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "pickupStatesLastFrame_PICKUP_STATE_CHANGE_CALLBACK", {}, TSIL.Enums.VariablePersistenceMode.RESET_ROOM)
-end
-TSIL.__AddInternalCallback(
-    "PICKUP_STATE_CHANGED_CALLBACK_ON_TSIL_LOAD",
-    TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
-    OnTSILLoad
-)
-
-
 ---@param pickup EntityPickup
 local function OnPickupUpdate(_, pickup)
-    local pickupPtr = GetPtrHash(pickup)
-    local pickupPtrStr = tostring(pickupPtr)
-
-    local pickupStatesLastFrame = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "pickupStatesLastFrame_PICKUP_STATE_CHANGE_CALLBACK")
-
-    local pickupStateLastFrame = pickupStatesLastFrame[pickupPtrStr]
+    local pickupStateLastFrame = TSIL.Entities.GetEntityData(
+        TSIL.__MOD,
+        pickup,
+        "PickupStateLastFrame_PICKUP_STATE_CHANGED"
+    )
     local pickupStateCurrentFrame = pickup.State
 
     if pickupStateLastFrame ~= nil and
@@ -36,7 +25,12 @@ local function OnPickupUpdate(_, pickup)
         )
     end
 
-    pickupStatesLastFrame[pickupPtrStr] = pickupStateCurrentFrame
+    TSIL.Entities.SetEntityData(
+        TSIL.__MOD,
+        pickup,
+        "PickupStateLastFrame_PICKUP_STATE_CHANGED",
+        pickupStateCurrentFrame
+    )
 end
 TSIL.__AddInternalCallback(
     "PICKUP_STATE_CHANGED_CALLBACK_ON_PICKUP_UPDATE",

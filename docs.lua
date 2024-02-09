@@ -121,23 +121,6 @@ end
 function TSIL.Bosses.SpawnBoss(entityType, variant, subType, position, velocity, spawner, seedOrRNG, numSegments)
 end
 
---- Helper function to add a charge to the player's active item. Will flash the HUD and play the
---- appropriate sound effect, depending on whether the charge is partially full or completely full.
----
---- If the player's active item is already fully charged, then this function will return 0 and not
---- flash the hud.
----
---- This function will take the following things into account:
---- - The Battery
---- - AAA Battery
----@param player EntityPlayer @The player to grant the charges to.
----@param activeSlot ActiveSlot? @Default: `ActiveSlot.SLOT_PRIMARY` | The slot to grant the charges to.
----@param numCharges integer? @Default: 1 | The amount of charges to grant.
----@param playSoundEffect boolean? @Default: true | Whether to play a charge-related sound effect.
----@return integer @The amount of charges that were actually granted. For example, if the active item was only one away from a full charge, but the `numCharges` provided to the function was 2, then this function would return 1.
-function TSIL.Charge.AddCharge(player, activeSlot, numCharges, playSoundEffect)
-end
-
 --- Helper function to get the amount of charges away from the maximum charge that a particular
 --- player is.
 ---
@@ -150,23 +133,14 @@ end
 function TSIL.Charge.GetChargesAwayFromMax(player, activeSlot)
 end
 
----Helper function to get the maximum number of charges the player has for a given active slot.
+--- Helper function to return the maximum charge a player can have in
+--- a given active slot.
 ---
----Useful since just checking the item config won't account for items that can have multiple number of
----charges, like Blank Card.
----@param player EntityPlayer @The player to get the charges from 
----@param activeSlot ActiveSlot? @Default: `ActiveSlot.SLOT_PRIMARY` | The slot to get the charges from.
----@return integer
-function TSIL.Charge.GetMaxCharges(player, activeSlot)
-end
-
---- Helper function to get the combined normal charge and the battery charge for the player's active
---- item. This is useful because you have to add these two values together when setting the active
---- charge.
----@param player EntityPlayer @The player to get the charges from.
----@param activeSlot ActiveSlot? @Default: `ActiveSlot.SLOT_PRIMARY` | The slot to get the charges from.
----@return integer
-function TSIL.Charge.GetTotalCharge(player, activeSlot)
+--- Use this over `player:GetActiveMaxCharge` if you want to account for
+--- the over charge given by The Battery.
+---@param player EntityPlayer
+---@param activeSlot ActiveSlot? @Default: `ActiveSlot.SLOT_PRIMARY` | The slot to get the max charges from.
+function TSIL.Charge.GetEffectiveMaxCharge(player, activeSlot)
 end
 
 --- Helper function to check if a player's active item is "double charged", meaning that it has both
@@ -358,7 +332,7 @@ end
 ---
 --- If it's a shop item, it removes it completely.
 ---@param collectible EntityPickup
----@return boolean
+---@return boolean Whether the collectible could be emptied.
 function TSIL.Collectibles.TryRemoveCollectible(collectible)
 end
 
@@ -564,7 +538,7 @@ function TSIL.Debug.GetTraceback()
 end
 
 ---Helper function to check if a debug mode is active.
----@param mode DebugMode
+---@param mode DebugFlag
 ---@return boolean
 function TSIL.Debug.IsDebugModeActive(mode)
 end
@@ -586,11 +560,6 @@ end
 ---`console.trace` function.
 ---This will only work if the `--luadebug` launch option is enabled
 function TSIL.Debug.Traceback()
-end
-
---- Helper function to get the current dimension.
----@return Dimension @ If something fails, `Dimension.CURRENT` will be returned
-function TSIL.Dimensions.GetDimension()
 end
 
 --- Helper function to check if the players are in a given dimension.
@@ -941,7 +910,7 @@ function TSIL.Entities.SetEntityVelocities(velocities, entities)
 end
 
 --- Checks if an entity is colliding with a grid entity.
---- If it does, returns the grid entity it's colliding with, else returns nil.
+--- If it does, returns the first grid entity it's colliding with, else returns nil.
 ---@param entity Entity
 ---@return GridEntity?
 function TSIL.Entities.IsCollidingWithGrid(entity)
@@ -1149,123 +1118,6 @@ end
 TSIL.Enums.AmbushType = {
     CHALLENGE_ROOM = 0,
     BOSS_RUSH = 1
-}
-
----@enum BossID
-TSIL.Enums.BossID = {
-    MONSTRO = 1,
-    LARRY_JR = 2,
-    CHUB = 3,
-    GURDY = 4,
-    MONSTRO_II = 5,
-    MOM = 6,
-    SCOLEX = 7,
-    MOMS_HEART = 8,
-    FAMINE = 9,
-    PESTILENCE = 10,
-    WAR = 11,
-    DEATH = 12,
-    DUKE_OF_FLIES = 13,
-    PEEP = 14,
-    LOKI = 15,
-    BLASTOCYST = 16,
-    GEMINI = 17,
-    FISTULA = 18,
-    GISH = 19,
-    STEVEN = 20,
-    CHAD = 21,
-    HEADLESS_HORSEMAN = 22,
-    THE_FALLEN = 23,
-    SATAN = 24,
-    IT_LIVES = 25,
-    THE_HOLLOW = 26,
-    THE_CARRION_QUEEN = 27,
-    GURDY_JR = 28,
-    THE_HUSK = 29,
-    THE_BLOAT = 30,
-    LOKII = 31,
-    THE_BLIGHTED_OVUM = 32,
-    TERATOMA = 33,
-    THE_WIDOW = 34,
-    MASK_OF_INFAMY = 35,
-    THE_WRETCHED = 36,
-    PIN = 37,
-    CONQUEST = 38,
-    ISAAC = 39,
-
-    -- Also known as "???".
-    BLUE_BABY = 40,
-
-    DADDY_LONG_LEGS = 41,
-    TRIACHNID = 42,
-    THE_HAUNT = 43,
-    DINGLE = 44,
-    MEGA_MAW = 45,
-    THE_GATE = 46,
-    MEGA_FATTY = 47,
-    THE_CAGE = 48,
-    MAMA_GURDY = 49,
-    DARK_ONE = 50,
-    THE_ADVERSARY = 51,
-    POLYCEPHALUS = 52,
-    MR_FRED = 53,
-    THE_LAMB = 54,
-    MEGA_SATAN = 55,
-    GURGLINGS = 56,
-    THE_STAIN = 57,
-    BROWNIE = 58,
-    THE_FORSAKEN = 59,
-    LITTLE_HORN = 60,
-    RAG_MAN = 61,
-    ULTRA_GREED = 62,
-    HUSH = 63,
-    DANGLE = 64,
-    TURDLING = 65,
-    THE_FRAIL = 66,
-    RAG_MEGA = 67,
-    SISTERS_VIS = 68,
-    BIG_HORN = 69,
-    DELIRIUM = 70,
-    THE_MATRIARCH = 72,
-    THE_PILE = 73,
-    REAP_CREEP = 74,
-    LIL_BLUB = 75,
-    WORMWOOD = 76,
-    RAINMAKER = 77,
-    THE_VISAGE = 78,
-    THE_SIREN = 79,
-    TUFF_TWINS = 80,
-    THE_HERETIC = 81,
-    HORNFEL = 82,
-    GREAT_GIDEON = 83,
-    BABY_PLUM = 84,
-    THE_SCOURGE = 85,
-    CHIMERA = 86,
-    ROTGUT = 87,
-    MOTHER = 88,
-    MAUSOLEUM_MOM = 89,
-    MAUSOLEUM_MOMS_HEART = 90,
-    MIN_MIN = 91,
-    CLOG = 92,
-    SINGE = 93,
-    BUMBINO = 94,
-    COLOSTOMIA = 95,
-    THE_SHELL = 96,
-    TURDLET = 97,
-
-    -- This boss is currently unfinished and there are no boss rooms for it.
-    RAGLICH = 98,
-
-    -- Dogma does not have its own boss rooms; it appears in a normal room.
-    DOGMA = 99,
-
-    -- The Beast does not have its own boss rooms; it appears in a crawl space.
-    BEAST = 100,
-
-    HORNY_BOYS = 101,
-
-    -- In the "00.special rooms.stb" file, the room names are listed as "The Possessor" instead of "Clutch".
-    CLUTCH = 102,
 }
 
 ---Used when registering a custom callback using `TSIL.__RegisterCustomCallback()`.
@@ -1853,6 +1705,19 @@ TSIL.Enums.CustomCallback = {
 	-- * slotVariant - SlotVariant
 	-- * slotSubType - integer
 	POST_SLOT_DESTROYED = "POST_SLOT_DESTROYED",
+	--Called whenever a slot's state changes.
+	--
+	--Params:
+	--
+	-- * slot - EntitySlot
+	-- * oldState - integer
+	-- * newState - integer
+	--
+	--Optional args:
+	--
+	-- * slotVariant - SlotVariant
+	-- * slotSubType - integer
+	POST_SLOT_STATE_CHANGED = "POST_SLOT_STATE_CHANGED",
 	--Called from the `PRE_PLAYER_COLLISION` callback whenever the
 	--player collides with a slot.
 	--
@@ -2592,14 +2457,6 @@ TSIL.Enums.DebugMode = {
     SHOW_LUA_MEMORY_USAGE = 14
 }
 
----@enum Dimension
-TSIL.Enums.Dimension = {
-    CURRENT = -1,
-    MAIN = 0,
-    SECONDARY = 1,
-    DEATH_CERTIFICATE = 2
-}
-
 ---@enum LockState
 TSIL.Enums.LockState = {
     LOCKED = 0,
@@ -2638,8 +2495,18 @@ TSIL.Enums.TNTState = {
     EXPLODED = 4
 }
 
----@enum CrawlSpaceVariant
-TSIL.Enums.CrawlSpaceVariant = {
+---@enum PitState
+TSIL.Enums.PitState = {
+	NORMAL = 0,
+
+	--- Pits can become filled when nearby rocks are bombed into them.
+	---
+	--- Note that the ladder collectible does not change the state to this.
+	FILLED = 1,
+}
+
+---@enum StairsVariant
+TSIL.Enums.StairsVariant = {
 	NORMAL = 0,
 	GREAT_GIDEON = 1,
 	SECRET_SHOP = 2,
@@ -2651,32 +2518,6 @@ TSIL.Enums.CrawlSpaceVariant = {
 TSIL.Enums.PitVariant = {
 	NORMAL = 0,
 	FISSURE_SPAWNER = 16
-}
-
----@enum PoopGridEntityVariant
-TSIL.Enums.PoopGridEntityVariant = {
-	NORMAL = 0,
-	RED = 1,
-	CORN = 2,
-	GOLDEN = 3,
-	RAINBOW = 4,
-	BLACK = 5,
-	WHITE = 6,
-	GIGA_TOP_LEFT = 7,
-	GIGA_TOP_RIGHT = 8,
-	GIGA_BOTTOM_LEFT = 9,
-	GIGA_BOTTOM_RIGHT = 10,
-	CHARMING = 11
-}
-
----@enum PressurePlateVariant
-TSIL.Enums.PressurePlateVariant = {
-	PRESSURE_PLATE = 0,
-	REWARD_PLATE = 1,
-	GREED_PLATE = 2,
-	RAIL_PLATE = 3,
-	KILL_ALL_ENEMIES_PLATE = 9,
-	SPAWN_ROCKS_PLATE = 10
 }
 
 ---@enum RockVariant
@@ -2737,29 +2578,6 @@ TSIL.Enums.GridEntityXMLType = {
 	TRAPDOOR = 9000,
 	CRAWL_SPACE = 9100,
 	GRAVITY = 10000
-}
-
----@enum PitState
-TSIL.Enums.PitState = {
-	NORMAL = 0,
-
-	--- Pits can become filled when nearby rocks are bombed into them.
-	---
-	--- Note that the ladder collectible does not change the state to this.
-	FILLED = 1,
-}
-
----@enum HealthType
-TSIL.Enums.HealthType = {
-    RED = 1,
-    SOUL = 2,
-    ETERNAL = 3,
-    BLACK = 4,
-    GOLDEN = 5,
-    BONE = 6,
-    ROTTEN = 7,
-    BROKEN = 8,
-    MAX_HEARTS = 9,
 }
 
 ---@enum InventoryType
@@ -3085,6 +2903,19 @@ TSIL.Enums.PillEffectType = {
     MODDED = 3
 }
 
+---@enum PlayerHeartType
+TSIL.Enums.PlayerHeartType = {
+    RED = 1,
+    SOUL = 2,
+    ETERNAL = 3,
+    BLACK = 4,
+    GOLDEN = 5,
+    BONE = 6,
+    ROTTEN = 7,
+    BROKEN = 8,
+    MAX_HEARTS = 9,
+}
+
 ---@enum ProjectilesMode
 TSIL.Enums.ProjectilesMode = {
 	ONE_PROJECTILE = 0,
@@ -3183,7 +3014,7 @@ TSIL.Enums.StageID = {
     MORTIS = 34,
     HOME = 35,
     BACKWARDS = 36,
-  }
+}
 
 ---@enum BlueFlySubType
 --- For `EntityType.FAMILIAR` (3), `FamiliarVariant.BLUE_FLY` (43). 
@@ -3370,43 +3201,6 @@ TSIL.Enums.VariablePersistenceMode = {
 	REMOVE_LEVEL = 6,
 	--The save manager will remove your variable on a new run
 	REMOVE_RUN = 7
-}
-
----@enum SlotVariant
----- For `EntityType.SLOT` (6).
-TSIL.Enums.SlotVariant = {
-	SLOT_MACHINE = 1,
-	BLOOD_DONATION_MACHINE = 2,
-	FORTUNE_TELLING_MACHINE = 3,
-	BEGGAR = 4,
-	DEVIL_BEGGAR = 5,
-	SHELL_GAME = 6,
-	KEY_BEGGAR = 7,
-	DONATION_MACHINE = 8,
-	BOMB_BEGGAR = 9,
-	RESTOCK_MACHINE = 10,
-	GREED_DONATION_MACHINE = 11,
-	DRESSING_TABLE = 12,
-	BATTERY_BEGGAR = 13,
-	TAINTED_UNLOCK = 14,
-	HELL_GAME = 15,
-	CRANE_GAME = 16,
-	CONFESSIONAL = 17,
-	ROTTEN_BEGGAR = 18
-}
-
----@enum KnifeVariant
---- For `EntityType.ENTITY_KNIFE` (8). 
-TSIL.Enums.KnifeVariant = {
-    MOMS_KNIFE = 8,
-    BONE_CLUB = 1,
-    BONE_SCYTHE = 2,
-    DONKEY_JAWBONE = 3,
-    BAG_OF_CRAFTING = 4,
-    SUMPTORIUM = 5,
-    NOTCHED_AXE = 9,
-    SPIRIT_SWORD = 10,
-    TECH_SWORD = 11,
 }
 
 ---@enum GaperVariant
@@ -4550,6 +4344,7 @@ TSIL.Enums.GenericPropVariant = {
 ---@param targetCount integer
 ---@param familiarVariant FamiliarVariant
 ---@param familiarSubtype integer? @Optional. The SubType of the familiar to spawn or remove. If not specified, it will seach for existing familiars of all SubTypes, and spawn new familiars with a SubType of 0.
+---@return EntityFamiliar[]
 function TSIL.Familiars.CheckFamiliar(player, collectibleType, targetCount, familiarVariant, familiarSubtype)
 end
 
@@ -4575,6 +4370,7 @@ end
 ---@param collectibleType CollectibleType
 ---@param familiarVariant FamiliarVariant
 ---@param familiarSubtype integer? @ Optional. The SubType of the familiar to spawn or remove. If not specified, it will seach for existing familiars of all SubTypes, and spawn new familiars with a SubType of 0.
+---@return EntityFamiliar[]
 function TSIL.Familiars.CheckFamiliarFromCollectibles(player, collectibleType, familiarVariant, familiarSubtype)
 end
 
@@ -4665,14 +4461,14 @@ end
 ---
 --- If removing a Devil or Angel Statue it'll also remove the associated effect.
 ---@param gridEntityOrGridIndex GridEntity | integer
----@param updateRoom boolean @ Whether or not to update the room after the grid entity is removed. If not, you won't be able to place another one until next frame. However doing so is expensive, so set this to false if you need to run this multiple times.
-function TSIL.GridEntities.RemoveGridEntity(gridEntityOrGridIndex, updateRoom)
+---@param immediate boolean? @Default: true | Whether or not to use Repentogon's RemoveGridEntityImmediate. Vanilla RemoveGridEntity doesn't update the room, making it impossible to spawn a new grid entity on the same frame.
+function TSIL.GridEntities.RemoveGridEntity(gridEntityOrGridIndex, immediate)
 end
 
 --- Helper function to remove all grid entities from a given list.
 ---@param gridEntities GridEntity[]
----@param updateRoom boolean @ Whether or not to update the room after the grid entity is removed. If not, you won't be able to place another one until next frame. However doing so is expensive, so set this to false if you need to run this multiple times.
-function TSIL.GridEntities.RemoveGridEntities(gridEntities, updateRoom)
+---@param immediate boolean? @Default: true | Whether or not to use Repentogon's RemoveGridEntityImmediate. Vanilla RemoveGridEntity doesn't update the room, making it impossible to spawn a new grid entity on the same frame.
+function TSIL.GridEntities.RemoveGridEntities(gridEntities, immediate)
 end
 
 --- Helper function to spawn a grid entity.
@@ -4680,7 +4476,7 @@ end
 --- Use this instead of `Isaac.GridSpawn` as it handles:
 --- - Walls and pits collision
 --- - Removing existing grid entities
---- - Allows you to use the grid index
+--- - Allows you to use the grid index or position
 ---@param gridEntityType GridEntityType
 ---@param gridEntityVariant integer
 ---@param gridIndexOrPosition Vector | integer
@@ -4726,58 +4522,92 @@ end
 function TSIL.GridIndexes.GetGridIndexesBetween(gridIndex1, gridIndex2, roomShape)
 end
 
---- Helper function to get all grid entities with type `GridEntityType.GRID_STAIRS` and the given variant.
----@param crawlSpaceVariant CrawlSpaceVariant? @Default: -1. Which matches all variants.
----@return GridEntity[]
-function TSIL.GridSpecific.GetCrawlSpaces(crawlSpaceVariant)
+--- Helper function to get all the grid entities with type `GridEntityType.GRID_DECORATION` and the given variant.
+---@param decorationVariant integer? @Default: -1. Which matches all variants.
+---@return GridEntityDecoration[]
+function TSIL.GridSpecific.GetDecorations(decorationVariant)
+end
+
+--- Helper function to get all the grid entities with type `GridEntityType.GRID_FIREPLACE` and the given variant.
+---
+--- Keep in mind that fires are actually entities with on top of an invisible grid entity.
+---@param fireVariant integer? @Default: -1. Which matches all variants.
+---@return GridEntityFire[]
+function TSIL.GridSpecific.GetFires(fireVariant)
+end
+
+--- Helper function to get all the grid entities with type `GridEntityType.GRID_GRAVITY` and the given variant.
+---@param gravityVariant integer? @Default: -1. Which matches all variants.
+---@return GridEntityGravity[]
+function TSIL.GridSpecific.GetGravities(gravityVariant)
 end
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_PIT` and the given variant.
----@param pitVariant PitVariant? @ Default: -1 | Which matches all variants.
+---@param pitVariant PitVariant? @Default: -1. Which matches all variants.
 ---@return GridEntityPit[]
 function TSIL.GridSpecific.GetPits(pitVariant)
 end
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_POOP` and the given variant.
----@param poopVariant PoopGridEntityVariant? @ Default: -1 | Which matches all variants.
+---@param poopVariant GridPoopVariant? @Default: -1. Which matches all variants.
 ---@return GridEntityPoop[]
 function TSIL.GridSpecific.GetPoops(poopVariant)
 end
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_PRESSURE_PLATE` and the given variant.
----@param pressurePlateVariant PressurePlateVariant? @ Default: -1 | Which matches all variants.
+---@param pressurePlateVariant PressurePlateVariant? @Default: -1. Which matches all variants.
 ---@return GridEntityPressurePlate[]
 function TSIL.GridSpecific.GetPressurePlates(pressurePlateVariant)
 end
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_ROCK` and the given variant.
----@param rockVariant RockVariant? @ Default: -1 | Which matches all variants.
----@return GridEntityRock[]
+---@param rockVariant RockVariant? @Default: -1. Which matches all variants.
+---@return GridEntityPoop[]
 function TSIL.GridSpecific.GetRocks(rockVariant)
 end
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_SPIKES` and the given variant.
----@param spikesVariant integer? @ Default: -1 | Which matches all variants.
+---@param spikeVariant integer? @Default: -1. Which matches all variants.
 ---@return GridEntitySpikes[]
-function TSIL.GridSpecific.GetSpikes(spikesVariant)
+function TSIL.GridSpecific.GetSpikes(spikeVariant)
+end
+
+--- Helper function to get all grid entities with type `GridEntityType.GRID_STAIRS` and the given variant.
+---@param stairsVariant StairsVariant? @Default: -1. Which matches all variants.
+---@return GridEntityStairs[]
+function TSIL.GridSpecific.GetStairs(stairsVariant)
+end
+
+--- Helper function to get all grid entities with type `GridEntityType.GRID_STATUE` and the given variant.
+---@param statueVariant StatueVariant? @Default: -1. Which matches all variants.
+---@return GridEntityStatue[]
+function TSIL.GridSpecific.GetStatues(statueVariant)
 end
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_TNT` and the given variant.
----@param TNTVariant integer? @ Default: -1 | Which matches all variants.
+---@param TNTVariant integer? @Default: -1. Which matches all variants.
 ---@return GridEntityTNT[]
 function TSIL.GridSpecific.GetTNTs(TNTVariant)
 end
 
---- Helper function to get all grid entities with type `GridEntityType.GRID_TELEPORTER` and the given variant.
----@param teleporterVariant integer? @ Default: -1 | Which matches all variants.
----@return GridEntity[]
-function TSIL.GridSpecific.GetTeleporters(teleporterVariant)
+--- Helper function to get all grid entities with type `GridEntityType.GRID_TRAPDOOR` and the given variant.
+---@param trapdoorVariant TrapdoorVariant? @Default: -1. Which matches all variants.
+---@return GridEntityTrapDoor[]
+function TSIL.GridSpecific.GetTrapdoors(trapdoorVariant)
 end
 
---- Helper function to get all grid entities with type `GridEntityType.GRID_TRAPDOOR` and the given variant.
----@param trapdoorVariant TrapdoorVariant? @ Default: -1 | Which matches all variants.
----@return GridEntity[]
-function TSIL.GridSpecific.GetTrapdoors(trapdoorVariant)
+--- Helper function to get all grid entities with type `GridEntityType.GRID_WALL` and the given variant.
+---@param wallVariant integer? @Default: -1. Which matches all variants.
+---@return GridEntityWall[]
+function TSIL.GridSpecific.GetWalls(wallVariant)
+end
+
+--- Helper function to spawn a decoration.
+---@param decorationVariant integer
+---@param indexOrPosition integer | Vector
+---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
+---@return GridEntityDecoration?
+function TSIL.GridSpecific.SpawnDecoration(decorationVariant, indexOrPosition, force)
 end
 
 --- Helper function to spawn a door.
@@ -4786,6 +4616,22 @@ end
 ---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
 ---@return GridEntityDoor?
 function TSIL.GridSpecific.SpawnDoor(doorVariant, indexOrPosition, force)
+end
+
+--- Helper function to spawn a fireplace.
+---@param fireVariant integer
+---@param indexOrPosition integer | Vector
+---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
+---@return GridEntityFire?
+function TSIL.GridSpecific.SpawnFire(fireVariant, indexOrPosition, force)
+end
+
+--- Helper function to spawn a gravity grid entity.
+---@param gravityVariant integer
+---@param indexOrPosition integer | Vector
+---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
+---@return GridEntityGravity?
+function TSIL.GridSpecific.SpawnGravity(gravityVariant, indexOrPosition, force)
 end
 
 --- Helper function to spawn a pit.
@@ -4797,7 +4643,7 @@ function TSIL.GridSpecific.SpawnPit(pitVariant, indexOrPosition, force)
 end
 
 --- Helper function to spawn a poop.
----@param poopVariant PoopGridEntityVariant
+---@param poopVariant GridPoopVariant
 ---@param indexOrPosition integer | Vector
 ---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
 ---@return GridEntityPoop?
@@ -4820,7 +4666,7 @@ end
 function TSIL.GridSpecific.SpawnRock(rockVariant, indexOrPosition, force)
 end
 
---- Helper function to spawn a spike.
+--- Helper function to spawn spikes.
 ---@param spikeVariant integer
 ---@param indexOrPosition integer | Vector
 ---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
@@ -4828,12 +4674,44 @@ end
 function TSIL.GridSpecific.SpawnSpikes(spikeVariant, indexOrPosition, force)
 end
 
---- Helper function to spawn TNT.
+--- Helper function to spawn stairs.
+---@param stairsVariant StairsVariant
+---@param indexOrPosition integer | Vector
+---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
+---@return GridEntityStairs?
+function TSIL.GridSpecific.SpawnStairs(stairsVariant, indexOrPosition, force)
+end
+
+--- Helper function to spawn a statue.
+---@param statueVariant StatueVariant
+---@param indexOrPosition integer | Vector
+---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
+---@return GridEntityStatue?
+function TSIL.GridSpecific.SpawnStatue(statueVariant, indexOrPosition, force)
+end
+
+--- Helper function to spawn a TNT.
 ---@param TNTVariant integer
 ---@param indexOrPosition integer | Vector
 ---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
 ---@return GridEntityTNT?
-function TSIL.GridSpecific.SpawnTNT(TNTVariant, indexOrPosition, force)
+function TSIL.GridSpecific.SpawnStatue(TNTVariant, indexOrPosition, force)
+end
+
+--- Helper function to spawn a trapdoor.
+---@param trapdoorVariant TrapdoorVariant
+---@param indexOrPosition integer | Vector
+---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
+---@return GridEntityTrapDoor?
+function TSIL.GridSpecific.SpawnTrapdoor(trapdoorVariant, indexOrPosition, force)
+end
+
+--- Helper function to spawn a wall.
+---@param wallVariant integer
+---@param indexOrPosition integer | Vector
+---@param force boolean? @ Default: true | Set this to true if you want to replace existing grid entities in the same tile.
+---@return GridEntityWall?
+function TSIL.GridSpecific.SpawnTrapdoor(wallVariant, indexOrPosition, force)
 end
 
 --- Helper function to get all the values of the `ButtonAction` enum that correspond to movement.
@@ -4922,6 +4800,12 @@ end
 function TSIL.IsaacAPIClass.IsColor(variable)
 end
 
+---Helper function to check if something is an instantiated `ColorModifier` object.
+---@param variable any
+---@return boolean
+function TSIL.IsaacAPIClass.IsColorModifier(variable)
+end
+
 ---Helper function to detect if a variable is of type `KColor`
 ---@param variable unknown
 ---@return boolean
@@ -4994,6 +4878,12 @@ end
 function TSIL.IsaacAPIClass.IsRock(variable)
 end
 
+---Helper function to detect if a variable is of type `EntitySlot`
+---@param variable any
+---@return boolean
+function TSIL.IsaacAPIClass.IsSlot(variable)
+end
+
 ---Helper function to detect if a variable is of type `GridEntitySpikes`
 ---@param variable unknown
 ---@return boolean
@@ -5036,12 +4926,8 @@ end
 
 ---Helper function to see if the given collectible is still present in the given item pool.
 ---
----If the collectible is non-offensive, any Tainted Losts will be temporarily changed to Isaac 
----and then changed back. (This is because Tainted Lost is not able to retrieve non-offensive 
----collectibles from item pools).
----
----Under the hood, this function works by using the ItemPool.AddRoomBlacklist method to blacklist
----every collectible except for the one provided.
+---This function ignores modifiers like T.Lost offensive item mechanic and passive effects like the NO! trinket.
+---If you want to account for them, use `ItemPool:CanSpawnCollectible()`.
 ---@param collectibleType CollectibleType
 ---@param itemPoolType ItemPoolType
 ---@return boolean
@@ -5322,13 +5208,6 @@ end
 function TSIL.Pills.GetFalsePHDPillEffect(pillEffect)
 end
 
---- Helper function to get the name of a given pill effect.
---- For modded pill effects it returns the name set in the xml.
----@param pillEffect PillEffect
----@return string
-function TSIL.Pills.GetPillEffectName(pillEffect)
-end
-
 --- Helper function to get the `PillEffectType` of a given pill effect.
 ---
 --- Due to API limitations, it'll returns `PillEffectType.MODDED` for modded pills.
@@ -5355,15 +5234,6 @@ end
 function TSIL.Pills.IsHorsePill(pillColor)
 end
 
----Helper function to determine which death animation a character will play
---- - Most characters have a 56 frame death animation (i.e. the "Death" animation).
---- - The Lost and Tainted Lost have a 38 frame death animation (i.e. the "LostDeath" animation).
---- - Tainted Forgotten has a 20 frame death animation (i.e. the "ForgottenDeath" animation).
----@param character PlayerType
----@return string
-function TSIL.Players.GetCharacterDeathAnimationName(character)
-end
-
 --- Returns the combined value of all of the player's red hearts, soul/black hearts, and bone hearts,
 --- minus the value of the player's rotten hearts.
 ---
@@ -5384,12 +5254,6 @@ end
 ---@param entity Entity
 ---@return EntityPlayer?
 function TSIL.Players.GetPlayerFromEntity(entity)
-end
-
---- Returns a list of all players.
----@param ignoreCoopBabies? boolean @Default: true
----@return EntityPlayer[]
-function TSIL.Players.GetPlayers(ignoreCoopBabies)
 end
 
 --- Returns the n closest players to a certain point.
@@ -5444,14 +5308,6 @@ end
 function TSIL.Players.GetPlayerMaxHeartContainers(player)
 end
 
---- Causes the provided player type to have their health be converted to the provided heart
---- sub-type. This is the same mechanic that certain characters use for converting health, such as
---- Blue Baby having red heart containers being converted into soul hearts.
----@param playerType PlayerType
----@param conversionHeartSubType ConversionHeartSubType
-function TSIL.Players.RegisterCharacterHealthConversion(playerType, conversionHeartSubType)
-end
-
 ---Returns the number of red hearts that the player has, excluding any rotten hearts. For example,
 ---if the player has one full black heart, one full soul heart, and one half black heart, this
 ---function returns 3.
@@ -5486,22 +5342,8 @@ end
 
 ---Helper function to get the amount of a given health type a player has.
 ---@param player EntityPlayer
----@param healthType HealthType
+---@param healthType PlayerHeartType
 function TSIL.Players.GetPlayerHealthType(player, healthType)
-end
-
---- Returns true if at least one player has the given item.
----@param collectibleId CollectibleType
----@param ignoreModifiers boolean? @Default: false
----@return boolean
-function TSIL.Players.DoesAnyPlayerHasItem(collectibleId, ignoreModifiers)
-end
-
---- Returns true if at least one player has the given trinket.
----@param trinketId TrinketType
----@param ignoreModifiers boolean? @Default: false
----@return boolean
-function TSIL.Players.DoesAnyPlayerHasTrinket(trinketId, ignoreModifiers)
 end
 
 --- Returns `true` if the player has one or more of the provided collectibles
@@ -5511,22 +5353,6 @@ end
 ---@param player EntityPlayer
 ---@vararg CollectibleType
 function TSIL.Players.PlayerHasCollectible(player, ...)
-end
-
---- @class InventoryObject
---- @field Type InventoryType
---- @field Id CollectibleType | TrinketType
-
-
---- Returns a list of all the items/gulped trinkets (things that appear on the extra HUD) ordered by
---- the time they were collected.
----
---- This method is not perfect and will fail if the player rerolls all of their items or a mod gives
---- several items in the same frame.
----@param player EntityPlayer
----@param inventoryTypeFilter? InventoryType
----@return InventoryObject[]
-function TSIL.Players.GetPlayerInventory(player, inventoryTypeFilter)
 end
 
 ---Helper function to detect if a player is a "child player", meaning they
@@ -5595,12 +5421,6 @@ end
 ---@param player EntityPlayer
 ---@return boolean
 function TSIL.Players.IsActiveTaintedLazForm(player)
-end
-
---- Gives the player an smelted trinket without changing the player's current held trinkets.
----@param player EntityPlayer
----@param trinketId TrinketType
-function TSIL.Players.AddSmeltedTrinket(player, trinketId)
 end
 
 --- Returns the number of trinkets a player has smelted.
@@ -5822,21 +5642,21 @@ function TSIL.Rooms.GetRoomGridIndex()
 end
 
 --- Helper function to get the descriptor for a room.
----@param roomGridIndex integer?
+---@param roomGridIndex integer? @Leave nil to get the current room descriptor.
 ---@return RoomDescriptor
 function TSIL.Rooms.GetRoomDescriptor(roomGridIndex)
 end
 
 --- Helper function to get the room data for the provided room.
----@param roomGridIndex integer?
----@return RoomConfig_Room?
+---@param roomGridIndex integer? @Leave nil to get the current room data.
+---@return RoomConfig_Room? @Can be nil if the room index doesn't correspond to a real room.
 function TSIL.Rooms.GetRoomData(roomGridIndex)
 end
 
 --- Helper function to get the stage ID for a room from the XML/STB data. The room stage ID will
 --- correspond to the first number in the filename of the XML/STB file. For example, a Depths room
 --- would have a stage ID of 7.
----@param roomGridIndex integer?
+---@param roomGridIndex integer? @Leave nil to get the current room stage ID.
 ---@return integer
 function TSIL.Rooms.GetRoomStageID(roomGridIndex)
 end
@@ -5845,7 +5665,7 @@ end
 --- correspond to different things depending on what XML/STB file it draws from. For example, in the
 --- "00.special rooms.stb" file, an Angel Room with a sub-type of 0 will correspond to a normal Angel
 --- Room and a sub-type of 1 will correspond to an Angel Room shop for The Stairway.
----@param roomGridIndex integer?
+---@param roomGridIndex integer? @Leave nil to get the current room subtype.
 ---@return integer
 function TSIL.Rooms.GetRoomSubType(roomGridIndex)
 end
@@ -6301,7 +6121,7 @@ end
 
 ---Helper function to get the last frame of a certain animation.
 ---@param sprite Sprite
----@param animation string?
+---@param animation string? @Leave nil to get the last frame of the current animation
 ---@return integer
 function TSIL.Sprites.GetLastFrameOfAnimation(sprite, animation)
 end

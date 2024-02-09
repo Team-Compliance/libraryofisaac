@@ -29,4 +29,4 @@ TSIL.Enums.StageID = {
     MORTIS = 34,
     HOME = 35,
     BACKWARDS = 36,
-  }
+}

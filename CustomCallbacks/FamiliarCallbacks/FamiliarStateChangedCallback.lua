@@ -6,29 +6,20 @@ TSIL.__RegisterCustomCallback(
 )
 
 
-local function OnTSILLoad()
-    TSIL.SaveManager.AddPersistentVariable(
-        TSIL.__MOD,
-        "familiarStates_FAMILIAR_STATE_CHANGED_CALLBACK",
-        {},
-        TSIL.Enums.VariablePersistenceMode.RESET_ROOM
-    )
-end
-TSIL.__AddInternalCallback(
-    "FAMILIAR_STATE_CHANGED_CALLBACK_ON_TSIL_LOAD",
-    TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
-    OnTSILLoad
-)
-
-
 ---@param familiar EntityFamiliar
 local function OnFamiliarUpdate(_, familiar)
-    local familiarStates = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "familiarStates_FAMILIAR_STATE_CHANGED_CALLBACK")
-    local familiarPtr = GetPtrHash(familiar)
-
-    local previousState = familiarStates[tostring(familiarPtr)]
+    local previousState = TSIL.Entities.GetEntityData(
+        TSIL.__MOD,
+        familiar,
+        "familiarStateLastFrame_FAMILIAR_STATE_CHANGED_CALLBACK"
+    )
     local currentState = familiar.State
-    familiarStates[tostring(familiarPtr)] = currentState
+    TSIL.Entities.SetEntityData(
+        TSIL.__MOD,
+        familiar,
+        "familiarStateLastFrame_FAMILIAR_STATE_CHANGED_CALLBACK",
+        currentState
+    )
 
     if previousState == nil or previousState == currentState then
         return

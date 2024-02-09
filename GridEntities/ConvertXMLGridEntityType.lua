@@ -32,7 +32,7 @@ local GridEntityXMLMap = {
 	[TSIL.Enums.GridEntityXMLType.STATUE_ANGEL] = {GridEntityType.GRID_STATUE, TSIL.Enums.StatueVariant.ANGEL},
 	[TSIL.Enums.GridEntityXMLType.TELEPORTER] = {GridEntityType.GRID_TELEPORTER, 0},
 	[TSIL.Enums.GridEntityXMLType.TRAPDOOR] = {GridEntityType.GRID_TRAPDOOR, 0},
-	[TSIL.Enums.GridEntityXMLType.CRAWL_SPACE] = {GridEntityType.GRID_STAIRS, TSIL.Enums.CrawlSpaceVariant.NORMAL},
+	[TSIL.Enums.GridEntityXMLType.CRAWL_SPACE] = {GridEntityType.GRID_STAIRS, TSIL.Enums.StairsVariant.NORMAL},
 	[TSIL.Enums.GridEntityXMLType.GRAVITY] = {GridEntityType.GRID_GRAVITY, 0},
 }
 

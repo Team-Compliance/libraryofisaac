@@ -7,28 +7,24 @@ TSIL.__RegisterCustomCallback(
 )
 
 
-local function OnTSILLoad()
-    TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "collectibleTypeMap_COLLETIBLE_EMPTY_CALLBACK", {}, TSIL.Enums.VariablePersistenceMode.RESET_ROOM)
-end
-TSIL.__AddInternalCallback(
-    "COLLECTIBLE_EMPTY_CALLBACK_TSIL_LOADED",
-    TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
-    OnTSILLoad
-)
-
-
 ---@param collectible EntityPickup
 local function OnCollectibleUpdate(_, collectible)
-    local collectibleTypeMap = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "collectibleTypeMap_COLLETIBLE_EMPTY_CALLBACK")
-    local ptrHash = GetPtrHash(collectible)
 
-    local oldCollectibleType = collectibleTypeMap[tostring(ptrHash)]
-
+    local oldCollectibleType = TSIL.Entities.GetEntityData(
+        TSIL.__MOD,
+        collectible,
+        "collectibleType_COLLECTIBLE_EMPTY_CALLBACK"
+    )
     if oldCollectibleType == nil then
         oldCollectibleType = collectible.SubType
     end
 
-    collectibleTypeMap[tostring(ptrHash)] = collectible.SubType
+    TSIL.Entities.SetEntityData(
+        TSIL.__MOD,
+        collectible,
+        "collectibleType_COLLECTIBLE_EMPTY_CALLBACK",
+        collectible.SubType
+    )
 
     if oldCollectibleType ~= collectible.SubType and
     collectible.SubType == CollectibleType.COLLECTIBLE_NULL then

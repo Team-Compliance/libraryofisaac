@@ -1,5 +1,5 @@
----@enum HealthType
-TSIL.Enums.HealthType = {
+---@enum PlayerHeartType
+TSIL.Enums.PlayerHeartType = {
     RED = 1,
     SOUL = 2,
     ETERNAL = 3,

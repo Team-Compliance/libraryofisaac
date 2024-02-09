@@ -6,24 +6,13 @@ TSIL.__RegisterCustomCallback(
 )
 
 
-local function OnTSILLoad()
-    TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "npcStatesLastFrame_NPC_STATE_CHANGE_CALLBACK", {}, TSIL.Enums.VariablePersistenceMode.RESET_ROOM)
-end
-TSIL.__AddInternalCallback(
-    "NPC_STATE_CHANGED_CALLBACK_ON_TSIL_LOAD",
-    TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
-    OnTSILLoad
-)
-
-
 ---@param npc EntityNPC
 local function OnNPCUpdate(_, npc)
-    local npcPtr = GetPtrHash(npc)
-    local npcPtrStr = tostring(npcPtr)
-
-    local npcStatesLastFrame = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "npcStatesLastFrame_NPC_STATE_CHANGE_CALLBACK")
-
-    local npcStateLastFrame = npcStatesLastFrame[npcPtrStr]
+    local npcStateLastFrame = TSIL.Entities.GetEntityData(
+        TSIL.__MOD,
+        npc,
+        "NPCStateLastFrame_NPC_STATE_CHANGED_CALLBACK"
+    )
     local npcStateCurrentFrame = npc.State
 
     if npcStateLastFrame ~= nil and
@@ -36,7 +25,12 @@ local function OnNPCUpdate(_, npc)
         )
     end
 
-    npcStatesLastFrame[npcPtrStr] = npcStateCurrentFrame
+    TSIL.Entities.SetEntityData(
+        TSIL.__MOD,
+        npc,
+        "NPCStateLastFrame_NPC_STATE_CHANGED_CALLBACK",
+        npcStateCurrentFrame
+    )
 end
 TSIL.__AddInternalCallback(
     "NPC_STATE_CHANGED_CALLBACK_ON_NPC_UPDATE",

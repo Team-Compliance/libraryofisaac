@@ -23,6 +23,7 @@ local familiarGenerationRNG = nil
 ---@param targetCount integer
 ---@param familiarVariant FamiliarVariant
 ---@param familiarSubtype integer? @Optional. The SubType of the familiar to spawn or remove. If not specified, it will seach for existing familiars of all SubTypes, and spawn new familiars with a SubType of 0.
+---@return EntityFamiliar[]
 function TSIL.Familiars.CheckFamiliar(player, collectibleType, targetCount, familiarVariant, familiarSubtype)
     if not familiarGenerationRNG then
         familiarGenerationRNG = TSIL.RNG.NewRNG()
@@ -32,7 +33,7 @@ function TSIL.Familiars.CheckFamiliar(player, collectibleType, targetCount, fami
 
     local itemConfigItem = Isaac.GetItemConfig():GetCollectible(collectibleType)
 
-    player:CheckFamiliar(familiarVariant, targetCount, familiarGenerationRNG, itemConfigItem, familiarSubtype)
+    return player:CheckFamiliarEx(familiarVariant, targetCount, familiarGenerationRNG, itemConfigItem, familiarSubtype)
 end
 
 
@@ -58,6 +59,7 @@ end
 ---@param collectibleType CollectibleType
 ---@param familiarVariant FamiliarVariant
 ---@param familiarSubtype integer? @ Optional. The SubType of the familiar to spawn or remove. If not specified, it will seach for existing familiars of all SubTypes, and spawn new familiars with a SubType of 0.
+---@return EntityFamiliar[]
 function TSIL.Familiars.CheckFamiliarFromCollectibles(player, collectibleType, familiarVariant, familiarSubtype)
     local numCollectibles = player:GetCollectibleNum(collectibleType)
 
@@ -66,7 +68,7 @@ function TSIL.Familiars.CheckFamiliarFromCollectibles(player, collectibleType, f
 
     local targetCount = numCollectibles + numCollectibleEffects
 
-    TSIL.Familiars.CheckFamiliar(
+    return TSIL.Familiars.CheckFamiliar(
         player,
         collectibleType,
         targetCount,

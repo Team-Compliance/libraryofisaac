@@ -39,3 +39,13 @@ TSIL.Enums.TNTState = {
     THREE_QUARTERS_DAMAGED = 3,
     EXPLODED = 4
 }
+
+---@enum PitState
+TSIL.Enums.PitState = {
+	NORMAL = 0,
+
+	--- Pits can become filled when nearby rocks are bombed into them.
+	---
+	--- Note that the ladder collectible does not change the state to this.
+	FILLED = 1,
+}

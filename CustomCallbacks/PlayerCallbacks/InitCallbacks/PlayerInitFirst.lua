@@ -12,7 +12,8 @@ local function OnNewRoomReordered()
         return
     end
 
-    for _, player in ipairs(TSIL.Players.GetPlayers()) do
+    for i = 0, Game():GetNumPlayers()-1, 1 do
+        local player = Game():GetPlayer(i)
         TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_PLAYER_INIT_FIRST, player)
     end
 end

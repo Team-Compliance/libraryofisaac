@@ -1,11 +1,8 @@
 ---Helper function to check if a debug mode is active.
----@param mode DebugMode
+---@param mode DebugFlag
 ---@return boolean
 function TSIL.Debug.IsDebugModeActive(mode)
-    local cmd = "debug " .. mode
+    local debugFlags = Game():GetDebugFlags()
 
-    local result = Isaac.ExecuteCommand(cmd)
-    Isaac.ExecuteCommand(cmd)
-
-    return result == "Disabled debug flag."
+    return TSIL.Utils.Flags.HasFlags(debugFlags, mode)
 end

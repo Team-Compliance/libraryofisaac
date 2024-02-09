@@ -6,5 +6,5 @@ function TSIL.Collectibles.CollectibleHasFlag(collectibleType, flag)
     local itemConfig = Isaac.GetItemConfig()
     local itemConfigItem = itemConfig:GetCollectible(collectibleType)
 
-    return TSIL.Utils.Flags.HasFlags(itemConfigItem.Tags, flag)
+    return itemConfigItem:HasTags(flag)
 end

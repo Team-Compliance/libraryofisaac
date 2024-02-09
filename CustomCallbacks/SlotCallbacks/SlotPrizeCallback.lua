@@ -8,9 +8,13 @@ TSIL.__RegisterCustomCallback(
 local function OnSlotUpdate(_, slot)
 	local slotSpr = slot:GetSprite()
 
-	if not slotSpr:IsEventTriggered("Prize") and not slotSpr:IsEventTriggered("Disappear") then return end
-
-	TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_SLOT_PRIZE, slot, slotSpr:IsEventTriggered("Disappear"))
+	if slotSpr:IsEventTriggered("Prize") or slotSpr:IsEventTriggered("Disappear") then
+		TSIL.__TriggerCustomCallback(
+			TSIL.Enums.CustomCallback.POST_SLOT_PRIZE,
+			slot,
+			slotSpr:IsEventTriggered("Disappear")
+		)
+	end
 end
 TSIL.__AddInternalCallback(
 	"SLOT_PRIZE_CALLBACK_SLOT_UPDATE",

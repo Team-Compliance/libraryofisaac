@@ -31,7 +31,7 @@ end
 ---@param playerIndex PlayerIndex
 ---@return EntityPlayer?
 function TSIL.Players.GetPlayerByIndex(playerIndex)
-	local players = TSIL.Players.GetPlayers()
+	local players = PlayerManager.GetPlayers()
 
 	return TSIL.Utils.Tables.FindFirst(players, function(_, player)
 		return TSIL.Players.GetPlayerIndex(player) == playerIndex

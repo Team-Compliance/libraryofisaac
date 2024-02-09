@@ -1,208 +1,200 @@
---- Helper function to get all grid entities with type `GridEntityType.GRID_STAIRS` and the given variant.
----@param crawlSpaceVariant CrawlSpaceVariant? @Default: -1. Which matches all variants.
----@return GridEntity[]
-function TSIL.GridSpecific.GetCrawlSpaces(crawlSpaceVariant)
-    if not crawlSpaceVariant then
-        ---@diagnostic disable-next-line: cast-local-type
-        crawlSpaceVariant = -1
+---@generic T : GridEntity
+---@param type GridEntityType
+---@param variant integer?
+---@param conversion fun(gridEntity: GridEntity) : T
+---@return T[]
+local function GetAllGridEntitiesOfTypeAndVariant(type, variant, conversion)
+    local gridEntities = TSIL.GridEntities.GetGridEntities(type)
+    local convertedGridEntities = {}
+
+    for _, gridEntity in ipairs(gridEntities) do
+        if (not variant or variant == -1) or variant == gridEntity:GetVariant() then
+            convertedGridEntities[#convertedGridEntities+1] = conversion(gridEntity)
+        end
     end
 
-    local crawlSpaces = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_STAIRS)
+    return convertedGridEntities
+end
 
-    if crawlSpaceVariant == -1 then
-        return crawlSpaces
-    else
-        return TSIL.Utils.Tables.Filter(crawlSpaces, function (_, crawlSpace)
-            return crawlSpace:GetVariant() == crawlSpaceVariant
-        end)
-    end
+
+--- Helper function to get all the grid entities with type `GridEntityType.GRID_DECORATION` and the given variant.
+---@param decorationVariant integer? @Default: -1. Which matches all variants.
+---@return GridEntityDecoration[]
+function TSIL.GridSpecific.GetDecorations(decorationVariant)
+    return GetAllGridEntitiesOfTypeAndVariant(
+        GridEntityType.GRID_DECORATION,
+        decorationVariant,
+        function (gridEntity)
+            return gridEntity:ToDecoration()
+        end
+    )
+end
+
+
+--- Helper function to get all the grid entities with type `GridEntityType.GRID_FIREPLACE` and the given variant.
+---
+--- Keep in mind that fires are actually entities with on top of an invisible grid entity.
+---@param fireVariant integer? @Default: -1. Which matches all variants.
+---@return GridEntityFire[]
+function TSIL.GridSpecific.GetFires(fireVariant)
+    return GetAllGridEntitiesOfTypeAndVariant(
+        GridEntityType.GRID_FIREPLACE,
+        fireVariant,
+        function (gridEntity)
+            return gridEntity:ToFire()
+        end
+    )
+end
+
+
+--- Helper function to get all the grid entities with type `GridEntityType.GRID_GRAVITY` and the given variant.
+---@param gravityVariant integer? @Default: -1. Which matches all variants.
+---@return GridEntityGravity[]
+function TSIL.GridSpecific.GetGravities(gravityVariant)
+    return GetAllGridEntitiesOfTypeAndVariant(
+        GridEntityType.GRID_GRAVITY,
+        gravityVariant,
+        function (gridEntity)
+            return gridEntity:ToGravity()
+        end
+    )
 end
 
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_PIT` and the given variant.
----@param pitVariant PitVariant? @ Default: -1 | Which matches all variants.
+---@param pitVariant PitVariant? @Default: -1. Which matches all variants.
 ---@return GridEntityPit[]
 function TSIL.GridSpecific.GetPits(pitVariant)
-    if not pitVariant then
-        ---@diagnostic disable-next-line: cast-local-type
-        pitVariant = -1
-    end
-
-    local pits = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_PIT)
-
-    if pitVariant == -1 then
-        return pits
-    else
-        local filteredPits = TSIL.Utils.Tables.Filter(pits, function (_, pit)
-            return pit:GetVariant() == pitVariant
-        end)
-
-        return TSIL.Utils.Tables.Map(filteredPits, function (_, pit)
-            return pit:ToPit()
-        end)
-    end
+    return GetAllGridEntitiesOfTypeAndVariant(
+        GridEntityType.GRID_PIT,
+        pitVariant,
+        function (gridEntity)
+            return gridEntity:ToPit()
+        end
+    )
 end
 
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_POOP` and the given variant.
----@param poopVariant PoopGridEntityVariant? @ Default: -1 | Which matches all variants.
+---@param poopVariant GridPoopVariant? @Default: -1. Which matches all variants.
 ---@return GridEntityPoop[]
 function TSIL.GridSpecific.GetPoops(poopVariant)
-    if not poopVariant then
-        ---@diagnostic disable-next-line: cast-local-type
-        poopVariant = -1
-    end
-
-    local poops = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_POOP)
-
-    if poopVariant == -1 then
-        return poops
-    else
-        local filteredPoops = TSIL.Utils.Tables.Filter(poops, function (_, poop)
-            return poop:GetVariant() == poopVariant
-        end)
-
-        return TSIL.Utils.Tables.Map(filteredPoops, function (_, poop)
-            return poop:ToPoop()
-        end)
-    end
+    return GetAllGridEntitiesOfTypeAndVariant(
+        GridEntityType.GRID_POOP,
+        poopVariant,
+        function (gridEntity)
+            return gridEntity:ToPoop()
+        end
+    )
 end
 
-
 --- Helper function to get all grid entities with type `GridEntityType.GRID_PRESSURE_PLATE` and the given variant.
----@param pressurePlateVariant PressurePlateVariant? @ Default: -1 | Which matches all variants.
+---@param pressurePlateVariant PressurePlateVariant? @Default: -1. Which matches all variants.
 ---@return GridEntityPressurePlate[]
 function TSIL.GridSpecific.GetPressurePlates(pressurePlateVariant)
-    if not pressurePlateVariant then
-        ---@diagnostic disable-next-line: cast-local-type
-        pressurePlateVariant = -1
-    end
-
-    local pressurePlates = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_PRESSURE_PLATE)
-
-    if pressurePlateVariant == -1 then
-        return pressurePlates
-    else
-        local filteredPressurePlates = TSIL.Utils.Tables.Filter(pressurePlates, function (_, pressurePlate)
-            return pressurePlate:GetVariant() == pressurePlateVariant
-        end)
-
-        return TSIL.Utils.Tables.Map(filteredPressurePlates, function (_, pressurePlate)
-            return pressurePlate:ToPressurePlate()
-        end)
-    end
+    return GetAllGridEntitiesOfTypeAndVariant(
+        GridEntityType.GRID_PRESSURE_PLATE,
+        pressurePlateVariant,
+        function (gridEntity)
+            return gridEntity:ToPressurePlate()
+        end
+    )
 end
 
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_ROCK` and the given variant.
----@param rockVariant RockVariant? @ Default: -1 | Which matches all variants.
----@return GridEntityRock[]
+---@param rockVariant RockVariant? @Default: -1. Which matches all variants.
+---@return GridEntityPoop[]
 function TSIL.GridSpecific.GetRocks(rockVariant)
-    if not rockVariant then
-        ---@diagnostic disable-next-line: cast-local-type
-        rockVariant = -1
-    end
-
-    local rocks = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_ROCK)
-
-    if rockVariant == -1 then
-        return rocks
-    else
-        local filteredRocks = TSIL.Utils.Tables.Filter(rocks, function (_, rock)
-            return rock:GetVariant() == rockVariant
-        end)
-
-        return TSIL.Utils.Tables.Map(filteredRocks, function (_, rock)
-            return rock:ToRock()
-        end)
-    end
+    return GetAllGridEntitiesOfTypeAndVariant(
+        GridEntityType.GRID_ROCK,
+        rockVariant,
+        function (gridEntity)
+            return gridEntity:ToRock()
+        end
+    )
 end
 
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_SPIKES` and the given variant.
----@param spikesVariant integer? @ Default: -1 | Which matches all variants.
+---@param spikeVariant integer? @Default: -1. Which matches all variants.
 ---@return GridEntitySpikes[]
-function TSIL.GridSpecific.GetSpikes(spikesVariant)
-    if not spikesVariant then
-        spikesVariant = -1
-    end
+function TSIL.GridSpecific.GetSpikes(spikeVariant)
+    return GetAllGridEntitiesOfTypeAndVariant(
+        GridEntityType.GRID_SPIKES,
+        spikeVariant,
+        function (gridEntity)
+            return gridEntity:ToRock()
+        end
+    )
+end
 
-    local spikes = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_SPIKES)
 
-    if spikesVariant == -1 then
-        return spikes
-    else
-        local filteredSpikes = TSIL.Utils.Tables.Filter(spikes, function (_, spike)
-            return spike:GetVariant() == spikesVariant
-        end)
+--- Helper function to get all grid entities with type `GridEntityType.GRID_STAIRS` and the given variant.
+---@param stairsVariant StairsVariant? @Default: -1. Which matches all variants.
+---@return GridEntityStairs[]
+function TSIL.GridSpecific.GetStairs(stairsVariant)
+    return GetAllGridEntitiesOfTypeAndVariant(
+        GridEntityType.GRID_GRAVITY,
+        stairsVariant,
+        function (gridEntity)
+            return gridEntity:ToStairs()
+        end
+    )
+end
 
-        return TSIL.Utils.Tables.Map(filteredSpikes, function (_, spike)
-            return spike:ToSpikes()
-        end)
-    end
+
+--- Helper function to get all grid entities with type `GridEntityType.GRID_STATUE` and the given variant.
+---@param statueVariant StatueVariant? @Default: -1. Which matches all variants.
+---@return GridEntityStatue[]
+function TSIL.GridSpecific.GetStatues(statueVariant)
+    return GetAllGridEntitiesOfTypeAndVariant(
+        GridEntityType.GRID_STATUE,
+        statueVariant,
+        function (gridEntity)
+            return gridEntity:ToStatue()
+        end
+    )
 end
 
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_TNT` and the given variant.
----@param TNTVariant integer? @ Default: -1 | Which matches all variants.
+---@param TNTVariant integer? @Default: -1. Which matches all variants.
 ---@return GridEntityTNT[]
 function TSIL.GridSpecific.GetTNTs(TNTVariant)
-    if not TNTVariant then
-        TNTVariant = -1
-    end
-
-    local TNTs = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_TNT)
-
-    if TNTVariant == -1 then
-        return TNTs
-    else
-        local filteredTNTs = TSIL.Utils.Tables.Filter(TNTs, function (_, TNT)
-            return TNT:GetVariant() == TNTVariant
-        end)
-
-        return TSIL.Utils.Tables.Map(filteredTNTs, function (_, TNT)
-            return TNT:ToTNT()
-        end)
-    end
-end
-
-
---- Helper function to get all grid entities with type `GridEntityType.GRID_TELEPORTER` and the given variant.
----@param teleporterVariant integer? @ Default: -1 | Which matches all variants.
----@return GridEntity[]
-function TSIL.GridSpecific.GetTeleporters(teleporterVariant)
-    if not teleporterVariant then
-        teleporterVariant = -1
-    end
-
-    local teleporters = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_TELEPORTER)
-
-    if teleporterVariant == -1 then
-        return teleporters
-    else
-        return TSIL.Utils.Tables.Filter(teleporters, function (_, teleporter)
-            return teleporter:GetVariant() == teleporterVariant
-        end)
-    end
+    return GetAllGridEntitiesOfTypeAndVariant(
+        GridEntityType.GRID_TNT,
+        TNTVariant,
+        function (gridEntity)
+            return gridEntity:ToTNT()
+        end
+    )
 end
 
 
 --- Helper function to get all grid entities with type `GridEntityType.GRID_TRAPDOOR` and the given variant.
----@param trapdoorVariant TrapdoorVariant? @ Default: -1 | Which matches all variants.
----@return GridEntity[]
+---@param trapdoorVariant TrapdoorVariant? @Default: -1. Which matches all variants.
+---@return GridEntityTrapDoor[]
 function TSIL.GridSpecific.GetTrapdoors(trapdoorVariant)
-    if not trapdoorVariant then
-        ---@diagnostic disable-next-line: cast-local-type
-        trapdoorVariant = -1
-    end
+    return GetAllGridEntitiesOfTypeAndVariant(
+        GridEntityType.GRID_TRAPDOOR,
+        trapdoorVariant,
+        function (gridEntity)
+            return gridEntity:ToTrapDoor()
+        end
+    )
+end
 
-    local trapdoors = TSIL.GridEntities.GetGridEntities(GridEntityType.GRID_TRAPDOOR)
 
-    if trapdoorVariant == -1 then
-        return trapdoors
-    else
-        return TSIL.Utils.Tables.Filter(trapdoors, function (_, trapdoor)
-            return trapdoor:GetVariant() == trapdoorVariant
-        end)
-    end
+--- Helper function to get all grid entities with type `GridEntityType.GRID_WALL` and the given variant.
+---@param wallVariant integer? @Default: -1. Which matches all variants.
+---@return GridEntityWall[]
+function TSIL.GridSpecific.GetWalls(wallVariant)
+    return GetAllGridEntitiesOfTypeAndVariant(
+        GridEntityType.GRID_WALL,
+        wallVariant,
+        function (gridEntity)
+            return gridEntity:ToWall()
+        end
+    )
 end

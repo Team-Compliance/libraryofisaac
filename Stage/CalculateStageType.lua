@@ -5,7 +5,7 @@
 function TSIL.Stage.CalculateStageType(stage)
     -- The following is the game's internal code to determine the floor type. (This came directly from
     -- Spider.)
-  
+
     --[[
       u32 Seed = g_Game->GetSeeds().GetStageSeed(NextStage);
       if (!g_Game->IsGreedMode()) {
@@ -18,17 +18,17 @@ function TSIL.Stage.CalculateStageType(stage)
       if (Seed % 3 == 0 && NextStage < STAGE5)
         StageType = STAGE_TYPE_AFTERBIRTH;
     ]]--
-  
+
     local seeds = Game():GetSeeds()
     local stageSeed = seeds:GetStageSeed(stage)
-  
+
     if stageSeed % 2 == 0 then
-      return StageType.STAGETYPE_WOTL
+        return StageType.STAGETYPE_WOTL
     end
-  
+
     if stageSeed % 3 == 0 then
-      return StageType.STAGETYPE_AFTERBIRTH
+        return StageType.STAGETYPE_AFTERBIRTH
     end
-  
+
     return StageType.STAGETYPE_ORIGINAL
 end

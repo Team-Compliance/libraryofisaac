@@ -12,26 +12,22 @@ local BONE_SWING_ANIMATIONS = {
 }
 
 
-local function OnTSILLoad()
-    TSIL.SaveManager.AddPersistentVariable(TSIL.__MOD, "boneClubAnimations_BONE_SWING_CALLBACK", {}, TSIL.Enums.VariablePersistenceMode.RESET_ROOM)
-end
-TSIL.__AddInternalCallback(
-    "BONE_SWING_CALLBACK_ON_TSIL_LOAD",
-    TSIL.Enums.CustomCallback.POST_TSIL_LOAD,
-    OnTSILLoad
-)
-
-
 ---@param boneClub EntityKnife
 local function OnBoneClubRender(boneClub)
     local sprite = boneClub:GetSprite()
     local animation = sprite:GetAnimation()
-    local ptrHash = GetPtrHash(boneClub)
-    local ptrHashStr = tostring(ptrHash)
 
-    local boneClubAnimations = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "boneClubAnimations_BONE_SWING_CALLBACK")
-    local animationOnLastFrame = boneClubAnimations[ptrHashStr]
-    boneClubAnimations[ptrHashStr] = animation
+    local animationOnLastFrame = TSIL.Entities.GetEntityData(
+        TSIL.__MOD,
+        boneClub,
+        "BoneClubAnimation"
+    )
+    TSIL.Entities.SetEntityData(
+        TSIL.__MOD,
+        boneClub,
+        "BoneClubAnimation",
+        animation
+    )
 
     if animationOnLastFrame ~= nil and
     animation ~= animationOnLastFrame and

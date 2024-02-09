@@ -16,22 +16,22 @@ TSIL.__AddInternalCallback(
 ---@param oldLazarus EntityPlayer
 ---@return EntityPlayer?
 local function GetNewLazarus(oldLazarus)
-  local oldCharacter = oldLazarus:GetPlayerType();
+    local oldCharacter = oldLazarus:GetPlayerType();
 
-  ---@type PlayerType
-  local newCharacter
-  if oldCharacter == PlayerType.PLAYER_LAZARUS2 then
-    newCharacter = PlayerType.PLAYER_LAZARUS_2_B;
-  elseif oldCharacter == PlayerType.PLAYER_LAZARUS_2_B then
-    newCharacter = PlayerType.PLAYER_LAZARUS2
-  else
+    ---@type PlayerType
+    local newCharacter
+    if oldCharacter == PlayerType.PLAYER_LAZARUS2 then
+        newCharacter = PlayerType.PLAYER_LAZARUS_2_B
+    elseif oldCharacter == PlayerType.PLAYER_LAZARUS_2_B then
+        newCharacter = PlayerType.PLAYER_LAZARUS2
+    else
         return nil
-  end
+    end
 
-  local playersOfType = TSIL.Players.GetPlayersOfType(newCharacter)
-  return TSIL.Utils.Tables.FindFirst(playersOfType, function (_, player)
+    local playersOfType = TSIL.Players.GetPlayersOfType(newCharacter)
+    return TSIL.Utils.Tables.FindFirst(playersOfType, function(_, player)
         return player.FrameCount == oldLazarus.FrameCount
-  end)
+    end)
 end
 
 
@@ -43,10 +43,11 @@ local function OnFlipUse(_, _, _, player)
 
     local newLazarus = GetNewLazarus(player)
     if newLazarus == nil then
-      return
+        return
     end
 
-    local usedFlipAtLeastOnce = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "usedFlipAtLeastOnce_FLIP_CALLBACK_LOGIC")
+    local usedFlipAtLeastOnce = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD,
+        "usedFlipAtLeastOnce_FLIP_CALLBACK_LOGIC")
     if not usedFlipAtLeastOnce then
         TSIL.SaveManager.SetPersistentVariable(TSIL.__MOD, "usedFlipAtLeastOnce_FLIP_CALLBACK_LOGIC", true)
         TSIL.__TriggerCustomCallback(TSIL.Enums.CustomCallback.POST_FIRST_FLIP, player)

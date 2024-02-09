@@ -529,6 +529,19 @@ TSIL.Enums.CustomCallback = {
 	-- * slotVariant - SlotVariant
 	-- * slotSubType - integer
 	POST_SLOT_DESTROYED = "POST_SLOT_DESTROYED",
+	--Called whenever a slot's state changes.
+	--
+	--Params:
+	--
+	-- * slot - EntitySlot
+	-- * oldState - integer
+	-- * newState - integer
+	--
+	--Optional args:
+	--
+	-- * slotVariant - SlotVariant
+	-- * slotSubType - integer
+	POST_SLOT_STATE_CHANGED = "POST_SLOT_STATE_CHANGED",
 	--Called from the `PRE_PLAYER_COLLISION` callback whenever the
 	--player collides with a slot.
 	--

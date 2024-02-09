@@ -10,8 +10,8 @@ local MINE_SHAFT_ROOM_SUB_TYPE_SET = {
 ---Helper function to check if the players are in the beast room.
 ---@return boolean
 function TSIL.RoomSpecific.InBeastRoom()
-    local room = Game():GetRoom();
-    local roomType = room:GetType();
+    local room = Game():GetRoom()
+    local roomType = room:GetType()
     local roomSubType = TSIL.Rooms.GetRoomSubType()
 
     return roomType == RoomType.ROOM_DUNGEON and roomSubType == 4
@@ -23,8 +23,8 @@ end
 ---player being in a boss fight that take place in a dungeon.
 ---@return boolean
 function TSIL.RoomSpecific.InCrawlSpace()
-    local room = Game:GetRoom();
-    local roomType = room:GetType();
+    local room = Game:GetRoom()
+    local roomType = room:GetType()
     local roomSubType = TSIL.Rooms.GetRoomSubType()
 
     return roomType == RoomType.ROOM_DUNGEON and roomSubType == 0
@@ -62,8 +62,8 @@ end
 ---Helper function to check if the players are in any of the home closets.
 ---@return boolean
 function TSIL.RoomSpecific.InHomeCloset()
-    local level = Game:GetLevel();
-    local stage = level:GetStage();
+    local level = Game:GetLevel()
+    local stage = level:GetStage()
     local roomSubType = TSIL.Rooms.GetRoomSubType()
 
     return stage == LevelStage.HOME and (roomSubType == 10 or roomSubType == 11)

@@ -3,10 +3,10 @@
 ---@param bossID BossID
 ---@return boolean
 function TSIL.Rooms.InBossRoomOf(bossID)
-    local room = Game():GetRoom();
-    local roomType = room:GetType();
-    local roomStageID = TSIL.Rooms.GetRoomStageID();
-    local roomSubType = TSIL.Rooms.GetRoomSubType();
+    local room = Game():GetRoom()
+    local roomType = room:GetType()
+    local roomStageID = TSIL.Rooms.GetRoomStageID()
+    local roomSubType = TSIL.Rooms.GetRoomSubType()
 
     return roomType == RoomType.ROOM_BOSS and
     roomStageID == TSIL.Enums.StageID.SPECIAL_ROOMS and

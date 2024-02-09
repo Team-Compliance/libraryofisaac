@@ -18,7 +18,7 @@ function TSIL.Collectibles.SetCollectibleGlitched(collectible)
         error("The SetCollectibleGlitched function was given a non collectible: " .. collectible.Type)
     end
 
-    local haveTMTRAINER = TSIL.Players.DoesAnyPlayerHasItem(CollectibleType.COLLECTIBLE_TMTRAINER)
+    local haveTMTRAINER = PlayerManager.AnyoneHasCollectible(CollectibleType.COLLECTIBLE_TMTRAINER)
 
     if not haveTMTRAINER then
         Isaac.GetPlayer(0):AddCollectible(CollectibleType.COLLECTIBLE_TMTRAINER)
