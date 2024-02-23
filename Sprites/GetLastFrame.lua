@@ -10,5 +10,5 @@ function TSIL.Sprites.GetLastFrameOfAnimation(sprite, animation)
         animationData = sprite:GetCurrentAnimationData()
     end
 
-    return animationData:GetLenght() - 1
+    return animationData:GetLength() - 1
 end

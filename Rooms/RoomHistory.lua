@@ -31,7 +31,7 @@ local function OnNewRoomEarly(_, isFromNewRoomCallback)
     local roomDescriptor = level:GetCurrentRoomDesc()
     local roomData = roomDescriptor.Data
     local stageID = roomData.StageID
-    local dimension = TSIL.Dimensions.GetDimension()
+    local dimension = Game():GetLevel():GetDimension()
     local roomVariant = roomData.Variant
     local roomSubType = roomData.Subtype
     local roomName = roomData.Name

@@ -123,7 +123,7 @@ local function onPeffectUpdate(_, player)
         activeItemMap[activeSlotIndex] = currentActiveItem
 
         if currentActiveItem == previousActiveItem then
-            local currentCharge = TSIL.Charge.GetTotalCharge(player, activeSlot)
+            local currentCharge = player:GetTotalActiveCharge(activeSlot)
             local previousCharge = chargeMap[activeSlotIndex]
             if previousCharge == nil then
                 previousCharge = currentCharge

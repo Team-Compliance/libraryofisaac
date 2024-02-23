@@ -30,7 +30,7 @@ The following enums have been added in Repentogon:
 - `POST_PLAYER_COLLECTIBLE_ADDED` has been replaced by `MC_POST_ADD_COLLECTIBLE`.
 - `POST_PURCHASE` has been replaced by `MC_POST_PICKUP_SHOP_PURCHASE`.
 - `POST_SLOT_UPDATE`, `POST_SLOT_RENDER`, `POST_SLOT_INIT` and `PRE_SLOT_COLLISION` have all been properly implemented.
-- `TSIL.Dimensions.GetDimension()` has been replaced by `Game:GetDimension()` and `Level:GetDimension()`.
+- `TSIL.Dimensions.GetDimension()` has been replaced by `Level:GetDimension()`.
 - Mentions of grid entity crawlspaces have been renamed to stairs to match the new `GridEntityStairs`.
 - `TSIL.Pills.GetPillEffectName()` is not neccessary now due to Repentogon exposing localization functions.
 - `TSIL.Players.DoesAnyPlayerHasItem()` has been replaced by `PlayerManager.AnyoneHasCollectible(Collectible)`.

@@ -2,5 +2,5 @@
 ---@param dimension Dimension
 ---@return boolean
 function TSIL.Dimensions.InDimension(dimension)
-    return Game():GetDimension() == dimension
+    return Game():GetLevel():GetDimension() == dimension
 end
