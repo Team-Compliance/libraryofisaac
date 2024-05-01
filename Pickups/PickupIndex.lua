@@ -29,7 +29,6 @@ TSIL.__AddInternalCallback(
 ---@return PickupIndex?
 local function GetStoredPickupIndex(pickup, pickupDescriptions)
     for pickupIndex, pickupDescription in pairs(pickupDescriptions) do
-        print(pickupIndex)
         if TSIL.Vector.VectorEquals(pickup.Position, pickupDescription.Position) and
             pickup.InitSeed == pickupDescription.InitSeed then
             return pickupIndex
@@ -81,7 +80,6 @@ local function TrackDespawningPickupMetadata(entity, pickupIndex)
         Position = entity.Position,
         InitSeed = entity.InitSeed,
     }
-    print("Adding " .. pickupIndex .. " to room " .. previousRoomListIndex)
     pickupDescriptions[pickupIndex] = pickupDescription
 
     -- If the despawning pickup was in a Treasure Room or Boss Room, then it is possible that the
@@ -115,10 +113,6 @@ local function CheckDespawningFromPlayerLeavingRoom(entity)
     local pickupIndexes = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "pickupIndexes_PICKUP_INDEX")
     local pickupIndex = pickupIndexes[ptrHash]
 
-    if entity:ToPickup() then
-        print("Pickup " .. ptrHash .. " has index " .. tostring(pickupIndex))
-    end
-
     if pickupIndex == nil then
         return
     end
@@ -143,7 +137,6 @@ local function GetPickupIndexFromPreviousData(pickup)
         pickupData[roomListIndex] = pickupDescriptions
     end
 
-    print("Checking pickups from room " .. roomListIndex)
     local pickupIndex = GetStoredPickupIndex(pickup, pickupDescriptions)
     if pickupIndex == nil then
         pickupIndex = GetPostAscentPickupIndex(pickup)
@@ -183,7 +176,6 @@ local function SetPickupIndex(pickup)
     local pickupCounter = TSIL.SaveManager.GetPersistentVariable(TSIL.__MOD, "pickupCounter_PICKUP_INDEX")
     pickupCounter = pickupCounter + 1
     TSIL.SaveManager.SetPersistentVariable(TSIL.__MOD, "pickupCounter_PICKUP_INDEX", pickupCounter)
-    print("Pickup " .. ptrHash .. " now has index " .. pickupCounter)
     pickupIndexes[ptrHash] = pickupCounter
 end
 

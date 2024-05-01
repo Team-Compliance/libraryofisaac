@@ -176,12 +176,6 @@ function TSIL.Rooms.IsLeavingRoom()
         return false
     end
 
-    print("Leaving room?")
-    print("Stage", stage, latestRoomDescription.Stage)
-    print("StageType", stageType, latestRoomDescription.StageType)
-    print("RoomListIndex", roomListIndex, latestRoomDescription.RoomListIndex)
-    print("RoomVisitedCount", roomVisitedCount, latestRoomDescription.RoomVisitedCount)
-
     return (
       stage ~= latestRoomDescription.Stage or
       stageType ~= latestRoomDescription.StageType or
