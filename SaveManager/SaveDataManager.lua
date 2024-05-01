@@ -79,7 +79,7 @@ local function OnNewRoomEarly()
 end
 TSIL.__AddInternalCallback(
     "SAVE_MANAGER_PRE_NEW_ROOM",
-    ModCallbacks.MC_PRE_NEW_ROOM,
+    TSIL.Enums.CustomCallback.POST_NEW_ROOM_EARLY,
     OnNewRoomEarly,
     CallbackPriority.IMPORTANT
 )

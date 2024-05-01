@@ -5702,7 +5702,7 @@ end
 ---
 --- This is useful in the `POST_ENTITY_REMOVE` callback; see the `isLeavingRoom` function.
 ---
---- Note that this function can return undefined in the case where it is called on the first room
+--- Note that this function can return nil in the case where it is called on the first room
 --- of the run.
 ---@return RoomHistoryData
 function TSIL.Rooms.GetLatestRoomDescription()

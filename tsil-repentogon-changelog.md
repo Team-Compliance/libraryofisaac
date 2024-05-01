@@ -25,7 +25,6 @@ The following enums have been added in Repentogon:
 - `TSIL.Charge.GetMaxCharge()` can be replaced by `player:GetActiveMaxCharge()` in some cases. You can now use `TSIL.Charge.GetEffectiveMaxCharge()` if you still want to account for The Battery.
 - `TSIL.Charge.GetTotalCharge()` has been replaced by `player:GetTotalActiveCharge()`.
 - All grid specific callbacks are now properly implemented.
-- `NEW_ROOM_EARLY` has been replaced by `MC_PRE_NEW_ROOM`.
 - `POST_PLAYER_COLLECTIBLE_REMOVED` has been replaced by `MC_POST_TRIGGER_COLLECTIBLE_REMOVED`.
 - `POST_PLAYER_COLLECTIBLE_ADDED` has been replaced by `MC_POST_ADD_COLLECTIBLE`.
 - `POST_PURCHASE` has been replaced by `MC_POST_PICKUP_SHOP_PURCHASE`.

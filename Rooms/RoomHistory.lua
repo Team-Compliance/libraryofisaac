@@ -62,7 +62,7 @@ local function OnNewRoomEarly(_, isFromNewRoomCallback)
 end
 TSIL.__AddInternalCallback(
     "ROOM_HISTORY_PRE_NEW_ROOM",
-    ModCallbacks.MC_PRE_NEW_ROOM,
+    TSIL.Enums.CustomCallback.POST_NEW_ROOM_EARLY,
     OnNewRoomEarly
 )
 
@@ -141,7 +141,7 @@ end
 ---
 --- This is useful in the `POST_ENTITY_REMOVE` callback; see the `isLeavingRoom` function.
 ---
---- Note that this function can return undefined in the case where it is called on the first room
+--- Note that this function can return nil in the case where it is called on the first room
 --- of the run.
 ---@return RoomHistoryData
 function TSIL.Rooms.GetLatestRoomDescription()
@@ -175,6 +175,12 @@ function TSIL.Rooms.IsLeavingRoom()
     if latestRoomDescription == nil then
         return false
     end
+
+    print("Leaving room?")
+    print("Stage", stage, latestRoomDescription.Stage)
+    print("StageType", stageType, latestRoomDescription.StageType)
+    print("RoomListIndex", roomListIndex, latestRoomDescription.RoomListIndex)
+    print("RoomVisitedCount", roomVisitedCount, latestRoomDescription.RoomVisitedCount)
 
     return (
       stage ~= latestRoomDescription.Stage or
