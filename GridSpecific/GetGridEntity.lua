@@ -135,7 +135,7 @@ end
 ---@return GridEntityStairs[]
 function TSIL.GridSpecific.GetStairs(stairsVariant)
     return GetAllGridEntitiesOfTypeAndVariant(
-        GridEntityType.GRID_GRAVITY,
+        GridEntityType.GRID_STAIRS,
         stairsVariant,
         function (gridEntity)
             return gridEntity:ToStairs()
