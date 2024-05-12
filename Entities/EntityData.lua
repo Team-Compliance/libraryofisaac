@@ -59,6 +59,8 @@ end
 local function OnEntityRemove(_, entity)
     local ptrHash = GetPtrHash(entity)
 
+    --We remove it in the next frame since the entity death callback runs
+    --after the entity is removed
     TSIL.Utils.Functions.RunInFrames(function ()
         for _, modEntityDatas in pairs(EntityDatas) do
             modEntityDatas[ptrHash] = nil
@@ -69,4 +71,14 @@ TSIL.__AddInternalCallback(
     "ENTITY_DATA_ON_ENTITY_REMOVE",
     ModCallbacks.MC_POST_ENTITY_REMOVE,
     OnEntityRemove
+)
+
+
+local function OnGameExit()
+    EntityDatas = {}
+end
+TSIL.__AddInternalCallback(
+    "ENTITY_DATA_ON_GAME_EXIT",
+    ModCallbacks.MC_PRE_GAME_EXIT,
+    OnGameExit
 )
