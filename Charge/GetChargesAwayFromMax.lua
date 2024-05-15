@@ -10,7 +10,7 @@
 function TSIL.Charge.GetChargesAwayFromMax(player, activeSlot)
     if not activeSlot then activeSlot = ActiveSlot.SLOT_PRIMARY end
 
-    local totalCharge = player:GetTotalActiveCharge(player, activeSlot)
+    local totalCharge = player:GetTotalActiveCharge(activeSlot)
     local hasBattery = player:HasCollectible(CollectibleType.COLLECTIBLE_BATTERY)
     local maxCharges = TSIL.Charge.GetEffectiveMaxCharge(player, activeSlot)
 
