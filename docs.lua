@@ -5829,7 +5829,7 @@ end
 
 --- Helper function to get the room data for the provided room.
 ---@param roomGridIndex integer?
----@return RoomConfig_Room?
+---@return RoomConfigRoom?
 function TSIL.Rooms.GetRoomData(roomGridIndex)
 end
 
