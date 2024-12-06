@@ -1,4 +1,4 @@
---##POST_NPC_UPDATE_FILTER
+--##POST_ENTITY_REMOVE_FILTER
 TSIL.__RegisterCustomCallback(
     TSIL.Enums.CustomCallback.POST_ENTITY_REMOVE_FILTER,
     TSIL.Enums.CallbackReturnMode.NONE,

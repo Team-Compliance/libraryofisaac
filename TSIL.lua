@@ -1,5 +1,5 @@
 local LOCAL_TSIL = {}
-local LOCAL_TSIL_VERSION = 0.321
+local LOCAL_TSIL_VERSION = 0.3211
 
 --- Initializes the TSIL library
 ---@param FolderName string
