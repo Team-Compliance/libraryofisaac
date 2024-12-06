@@ -5595,7 +5595,7 @@ end
 
 --- Helper function to check if the current room is a boss room for a particular boss. This will only
 --- work for bosses that have dedicated boss rooms in the "00.special rooms.stb" file.
----@param bossID BossID
+---@param bossID BossType
 ---@return boolean
 function TSIL.Rooms.InBossRoomOf(bossID)
 end
@@ -6122,7 +6122,7 @@ end
 ---Helper function to get the last frame of a certain animation.
 ---@param sprite Sprite
 ---@param animation string? @Leave nil to get the last frame of the current animation
----@return integer
+---@return integer @If the given animation doesn't exist, returns -1.
 function TSIL.Sprites.GetLastFrameOfAnimation(sprite, animation)
 end
 
