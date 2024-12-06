@@ -30,7 +30,7 @@ function TSIL.Players.IsDamageToPlayerFatal(player, amount, source, lastDamageGa
     local berserkChargeAfterHit = player.SamsonBerserkCharge + TAINTED_SAMSON_BERSERK_CHARGE_FROM_TAKING_DAMAGE
 
     local MAX_TAINTED_SAMSON_BERSERK_CHARGE = 100000
-    if character == PlayerType.SAMSON_B and
+    if character == PlayerType.PLAYER_SAMSON_B and
     berserkChargeAfterHit >= MAX_TAINTED_SAMSON_BERSERK_CHARGE then
         return false
     end
@@ -104,7 +104,7 @@ function TSIL.Players.WillMysteriousPaperRevive(player)
 
     -- We want to explicitly check the length of the death animation because we might be playing on a
     -- modded character that has a custom death animation.
-    local animation = player:GetDeathAnimationName()
+    local animation = player:GetDeathAnimName()
     local deathAnimationFrames = TSIL.Sprites.GetLastFrameOfAnimation(sprite, animation)
     local frameOfDeath = gameFrameCount + deathAnimationFrames + 1
     -- (We add 1 because it takes one frame for the death animation to begin.)

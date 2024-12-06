@@ -1,6 +1,6 @@
 --- Helper function to check if the current room is a boss room for a particular boss. This will only
 --- work for bosses that have dedicated boss rooms in the "00.special rooms.stb" file.
----@param bossID BossID
+---@param bossID BossType
 ---@return boolean
 function TSIL.Rooms.InBossRoomOf(bossID)
     local room = Game():GetRoom()

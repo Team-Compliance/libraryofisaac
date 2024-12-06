@@ -54,7 +54,7 @@ end
 
 --- Helper function to get the room data for the provided room.
 ---@param roomGridIndex integer? @Leave nil to get the current room data.
----@return RoomConfig_Room? @Can be nil if the room index doesn't correspond to a real room.
+---@return RoomConfigRoom? @Can be nil if the room index doesn't correspond to a real room.
 function TSIL.Rooms.GetRoomData(roomGridIndex)
 	local roomDescriptor = TSIL.Rooms.GetRoomDescriptor(roomGridIndex);
 	return roomDescriptor.Data

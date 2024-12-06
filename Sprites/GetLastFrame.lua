@@ -1,7 +1,7 @@
 ---Helper function to get the last frame of a certain animation.
 ---@param sprite Sprite
 ---@param animation string? @Leave nil to get the last frame of the current animation
----@return integer
+---@return integer @If the given animation doesn't exist, returns -1.
 function TSIL.Sprites.GetLastFrameOfAnimation(sprite, animation)
     local animationData
     if animation then
@@ -10,5 +10,9 @@ function TSIL.Sprites.GetLastFrameOfAnimation(sprite, animation)
         animationData = sprite:GetCurrentAnimationData()
     end
 
-    return animationData:GetLength() - 1
+    if animationData then
+        return animationData:GetLength() - 1
+    else
+        return -1
+    end
 end

@@ -248,7 +248,7 @@ end
 --- Returns a list with all items currently loaded.
 ---
 --- Use only inside a callback or not all modded items may be loaded.
----@return ItemConfig_Item[]
+---@return ItemConfigItem[]
 function TSIL.Collectibles.GetCollectibles()
 end
 
@@ -256,19 +256,19 @@ end
 ---
 --- Use only inside a callback or not all modded items may be loaded.
 ---@param quality integer
----@return ItemConfig_Item[]
+---@return ItemConfigItem[]
 function TSIL.Collectibles.GetCollectiblesByQuality(quality)
 end
 
 --- Returns a list of all vanilla items.
----@return ItemConfig_Item[]
+---@return ItemConfigItem[]
 function TSIL.Collectibles.GetVanillaCollectibles()
 end
 
 --- Returns a list of all modded items currently loaded.
 --- 
 --- Use only inside a callback or not all modded items may be loaded.
----@return ItemConfig_Item[]
+---@return ItemConfigItem[]
 function TSIL.Collectibles.GetModdedCollectibles()
 end
 
@@ -276,7 +276,7 @@ end
 --- 
 --- Use only inside a callback or not all modded items may be loaded.
 ---@param ... ItemConfigTag
----@return ItemConfig_Item[]
+---@return ItemConfigItem[]
 function TSIL.Collectibles.GetCollectiblesWithTag(...)
 end
 
@@ -5649,7 +5649,7 @@ end
 
 --- Helper function to get the room data for the provided room.
 ---@param roomGridIndex integer? @Leave nil to get the current room data.
----@return RoomConfig_Room? @Can be nil if the room index doesn't correspond to a real room.
+---@return RoomConfigRoom? @Can be nil if the room index doesn't correspond to a real room.
 function TSIL.Rooms.GetRoomData(roomGridIndex)
 end
 

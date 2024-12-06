@@ -1,7 +1,7 @@
 --- Returns a list with all items currently loaded.
 ---
 --- Use only inside a callback or not all modded items may be loaded.
----@return ItemConfig_Item[]
+---@return ItemConfigItem[]
 function TSIL.Collectibles.GetCollectibles()
 	local collectibles = {}
 
@@ -9,6 +9,7 @@ function TSIL.Collectibles.GetCollectibles()
 	local itemList = itemConfig:GetCollectibles()
 
 	--itemList.Size actually returns the last item id, not the actual size
+	---@diagnostic disable-next-line: undefined-field
 	for id = 1, itemList.Size - 1, 1 do
 		local item = itemConfig:GetCollectible(id)
 		if item then
@@ -24,7 +25,7 @@ end
 ---
 --- Use only inside a callback or not all modded items may be loaded.
 ---@param quality integer
----@return ItemConfig_Item[]
+---@return ItemConfigItem[]
 function TSIL.Collectibles.GetCollectiblesByQuality(quality)
 	local collectibles = TSIL.Collectibles.GetCollectibles()
 
@@ -35,7 +36,7 @@ end
 
 
 --- Returns a list of all vanilla items.
----@return ItemConfig_Item[]
+---@return ItemConfigItem[]
 function TSIL.Collectibles.GetVanillaCollectibles()
 	local collectibles = {}
 
@@ -56,7 +57,7 @@ end
 --- Returns a list of all modded items currently loaded.
 --- 
 --- Use only inside a callback or not all modded items may be loaded.
----@return ItemConfig_Item[]
+---@return ItemConfigItem[]
 function TSIL.Collectibles.GetModdedCollectibles()
 	local collectibles = {}
 
@@ -64,6 +65,7 @@ function TSIL.Collectibles.GetModdedCollectibles()
 	local itemList = itemConfig:GetCollectibles()
 
 	--itemList.Size actually returns the last item id, not the actual size
+	---@diagnostic disable-next-line: undefined-field
 	for id = CollectibleType.NUM_COLLECTIBLES, itemList.Size - 1, 1 do
 		local item = itemConfig:GetCollectible(id)
 		if item then
@@ -79,7 +81,7 @@ end
 --- 
 --- Use only inside a callback or not all modded items may be loaded.
 ---@param ... ItemConfigTag
----@return ItemConfig_Item[]
+---@return ItemConfigItem[]
 function TSIL.Collectibles.GetCollectiblesWithTag(...)
 	local tags = {...}
 	local totalTags = 0
@@ -93,6 +95,7 @@ function TSIL.Collectibles.GetCollectiblesWithTag(...)
 	local itemList = itemConfig:GetCollectibles()
 
 	--itemList.Size actually returns the last item id, not the actual size
+	---@diagnostic disable-next-line: undefined-field
 	for id = 1, itemList.Size - 1, 1 do
 		local item = itemConfig:GetCollectible(id)
 		if item and item:HasTags(totalTags) then
