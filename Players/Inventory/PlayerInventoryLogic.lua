@@ -71,7 +71,7 @@ local function RecalculateItemsInventory(player)
         if item then
             local prevCount = itemsCollected[id]
             if not prevCount then prevCount = 0 end
-            local currCount = player:GetCollectibleNum(id)
+            local currCount = player:GetCollectibleNum(id, true)
 
             if prevCount < currCount then
                 local difference = currCount - prevCount

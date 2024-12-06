@@ -3,9 +3,9 @@
 ---@param prefix string
 ---@return string
 function TSIL.Utils.String.TrimPrefix(s, prefix)
-    if s:sub(1, #s) ~= prefix then
+    if s:sub(1, #prefix) ~= prefix then
         return s
     end
 
-    return s:sub(#prefix)
+    return s:sub(#prefix + 1)
 end
