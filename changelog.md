@@ -2,6 +2,10 @@
 
 ## 0.329
 
+### Changes
+
+* Save Manager uses the repentogon Glowing Hourglass callbacks to ensure mod persistent data works the same as vanilla data when using Glowing Hourglass.
+
 ### Fixes
 
 * Save Manager now restores run persistent variables when using Glowing Hourglass.

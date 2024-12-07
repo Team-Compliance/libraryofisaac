@@ -111,7 +111,7 @@ function LOCAL_TSIL.Init(FolderName)
 		--- @type table<string, ModPersistentData>
 		TSIL.__VERSION_PERSISTENT_DATA.PersistentData = {}
 
-		--- @type table<string, table<string, any>>
+		--- @type table<integer, table<string, table<string, any>>>
 		TSIL.__VERSION_PERSISTENT_DATA.GlowingHourglassPersistentDataBackup = {}
 	end
 
