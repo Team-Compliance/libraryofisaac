@@ -7,6 +7,8 @@ local GLOWING_HOUR_GLASS_BACKUP_KEYS = {
     [TSIL.Enums.VariablePersistenceMode.REMOVE_ROOM] = true,
     [TSIL.Enums.VariablePersistenceMode.RESET_LEVEL] = true,
     [TSIL.Enums.VariablePersistenceMode.RESET_ROOM] = true,
+    [TSIL.Enums.VariablePersistenceMode.RESET_RUN] = true,
+    [TSIL.Enums.VariablePersistenceMode.REMOVE_RUN] = true
 }
 
 
