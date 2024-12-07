@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.329
+
+### Fixes
+
+* Save Manager now restores run persistent variables when using Glowing Hourglass.
+
 ## 0.328
 
 ### Changes
