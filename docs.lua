@@ -11,7 +11,6 @@ TSIL.Collectibles = {}
 TSIL.Color = {}
 TSIL.Enums = {}
 TSIL.Enums.CustomCallback = {}
-TSIL.CustomItemPools = {}
 TSIL.Debug = {}
 TSIL.Dimensions = {}
 TSIL.Direction = {}
@@ -425,93 +424,6 @@ end
 ---@param ... any
 ---@return unknown?
 function TSIL.__TriggerCustomCallback(callback, ...)
-end
-
----Adds an item to a custom item pool for the current run.
----
----If the item wasn't in the pool to begin with, it'll create a new entry for the item.
----If the item was already in the pool, it'll add the weight you passed to the entry already in the pool,
----unless the `ignoreDuplicate` param is set to true.
----@param customItemPoolType integer
----@param newItemPoolCollectible CustomItemPoolCollectible
----@param ignoreIfDuplicate? boolean @ Default: false | Set to true so if the item is in the pool, it doesn't get added again
-function TSIL.CustomItemPools.AddCollectible(customItemPoolType, newItemPoolCollectible, ignoreIfDuplicate)
-end
-
----Adds an item to a registered custom item pool.
----
----Unlike `TSIL.CustomItemPools.AddCollectible`, this will add the collectible to the registered pool,
----so when the pool is reset, this new item will be in the pool.
----@param customItemPoolType integer
----@param newItemPoolCollectible CustomItemPoolCollectible
-function TSIL.CustomItemPools.AddCollectibleToRegisteredPool(customItemPoolType, newItemPoolCollectible)
-end
-
----Adds a list of collectibles to a registered custom item pool.
----
----Unlike `TSIL.CustomItemPools.AddCollectible`, this will add the collectible to the registered pool,
----so when the pool is reset, this new item will be in the pool.
----@param customItemPoolType integer
----@param itemPoolCollectibles CustomItemPoolCollectible[]
-function TSIL.CustomItemPools.AddCollectiblesToRegisteredPool(customItemPoolType, itemPoolCollectibles)
-end
-
----Helper function to get an item from a custom item pool created with `TSIL.CustomItemPools.RegisterCustomItemPool()`.
----
----Similar to vanilla pools, the item will only get it's weight decreased if the `decrease` argument is set to true.
----@param customItemPoolType integer
----@param decrease? boolean @Default: true
----@param seedOrRNG? integer | RNG @Default: `TSIL.RNG.GetRandomSeed()` | The `Seed` or `RNG` object to use. If an `RNG` object is provided, the `RNG:Next` method will be called.
----@param defaultItem? CollectibleType @Default: CollectibleType.COLLECTIBLE_NULL
-function TSIL.CustomItemPools.GetCollectible(customItemPoolType, decrease, seedOrRNG, defaultItem)
-end
-
----Helper function to get a copy of the current item entries for a given pool.
----@param customItemPoolType integer
----@return CustomItemPoolCollectible[]
-function TSIL.CustomItemPools.GetCollectibleEntriesInItemPool(customItemPoolType)
-end
-
----Helper function to check if a certain collectible is in a custom item pool.
----@param customItemPoolType integer
----@param collectibleType CollectibleType
----@return boolean
-function TSIL.CustomItemPools.IsCollectibleInCustomPool(customItemPoolType, collectibleType)
-end
-
----@class CustomItemPoolCollectible
----@field Collectible CollectibleType
----@field Weight number
----@field DecreaseBy number
----@field RemoveOn number
-
-
----Registers a new custom item pool. Use this function once after loading the library to
----load your item pool.
----
----This function also returns an automatically assigned ID you need to refer to your item pool.
----
----For example:
----```lua
----local myItemPoolItems = {
---- {Collectible = CollectibleType.COLLECTIBLE_SAD_ONION, Weight = 1, DecreaseBy = 1, RemoveOn = 0.1},
---- {Collectible = CollectibleType.COLLECTIBLE_BRIMSTONE, Weight = 1, DecreaseBy = 1, RemoveOn = 0.1},
----}
----local MY_ITEM_POOL = TSIL.CustomItemPools.RegisterCustomItemPool(myItemPoolItems)
----```
----@param collectibles? CustomItemPoolCollectible[] @ Default: {}
----@return integer
-function TSIL.CustomItemPools.RegisterCustomItemPool(collectibles)
-end
-
----Helper function to remove an item from the given custom item pool.
----
----Will return true if the item was in the pool before being removed.
----@param customItemPoolType integer
----@param collectibleType CollectibleType
----@param decreaseBy? number @ If provided, it'll remove the weight from the item instead of removing the item completely
----@return boolean
-function TSIL.CustomItemPools.RemoveCollectible(customItemPoolType, collectibleType, decreaseBy)
 end
 
 ---Helper function to get the current time for benchmarking / profiling purposes.
@@ -2406,25 +2318,6 @@ TSIL.Enums.CustomCallback = {
 	-- * playerType - PlayerType
 	-- * playerVariant - PlayerVariant
 	POST_CUSTOM_REVIVE = "POST_CUSTOM_REVIVE",
-
-	--Called after an item is selected from a custom item pool.
-	--Return a new collectible type to change the returned collectible.
-	--
-	--If a non nil value is returned, it'll become the `selectedCollectible` argument
-	--for next callbacks.
-	--
-	--Params:
-	--
-	-- * selectedCollectible - CollectibleType
-	-- * customItemPool - integer
-	-- * decrease - boolean
-	-- * seed - integer
-	--
-	--Optional args:
-	--
-	-- * collectibleType - CollectibleType
-	-- * customItemPoolType - integer
-	POST_GET_COLLECTIBLE_CUSTOM_ITEM_POOL = "POST_GET_COLLECTIBLE_CUSTOM_ITEM_POOL"
 }
 
 ---Used in the `PRE_CUSTOM_REVIVE` callback to determine how the player should revive.
@@ -5817,6 +5710,16 @@ end
 ---@param variableName string
 ---@return any
 function TSIL.SaveManager.GetPersistentVariable(mod, variableName)
+end
+
+--- Saves a backaup of all persistent variables in the given Glowing Hourglass slot.
+---@param slot integer
+function TSIL.SaveManager.MakeGlowingHourGlassBackup(slot)
+end
+
+--- Restores all the persistent variables to be the same as in the given slot.
+---@param slot integer
+function TSIL.SaveManager.RestoreGlowingHourGlassBackup(slot)
 end
 
 --- Removes a variable from the save manager.

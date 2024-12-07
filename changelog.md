@@ -10,6 +10,13 @@
 
 * Save Manager now restores run persistent variables when using Glowing Hourglass.
 
+### Removed
+
+* `CustomItemPool` module has been removed since Repentogon allows modders to add item pools using the `itempools.xml` file.
+* For the same reason, `POST_GET_COLLECTIBLE_CUSTOM_ITEM_POOL` has been removed.
+
+---
+
 ## 0.328
 
 ### Changes

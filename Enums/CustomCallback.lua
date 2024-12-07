@@ -1230,25 +1230,6 @@ TSIL.Enums.CustomCallback = {
 	-- * playerType - PlayerType
 	-- * playerVariant - PlayerVariant
 	POST_CUSTOM_REVIVE = "POST_CUSTOM_REVIVE",
-
-	--Called after an item is selected from a custom item pool.
-	--Return a new collectible type to change the returned collectible.
-	--
-	--If a non nil value is returned, it'll become the `selectedCollectible` argument
-	--for next callbacks.
-	--
-	--Params:
-	--
-	-- * selectedCollectible - CollectibleType
-	-- * customItemPool - integer
-	-- * decrease - boolean
-	-- * seed - integer
-	--
-	--Optional args:
-	--
-	-- * collectibleType - CollectibleType
-	-- * customItemPoolType - integer
-	POST_GET_COLLECTIBLE_CUSTOM_ITEM_POOL = "POST_GET_COLLECTIBLE_CUSTOM_ITEM_POOL"
 }
 
 
