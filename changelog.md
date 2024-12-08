@@ -4,11 +4,12 @@
 
 ### Changes
 
-* Save Manager uses the repentogon Glowing Hourglass callbacks to ensure mod persistent data works the same as vanilla data when using Glowing Hourglass.
+* Save Manager uses the Repentogon Glowing Hourglass callbacks to ensure mod persistent data works the same as vanilla data when using Glowing Hourglass.
 
 ### Fixes
 
 * Save Manager now restores run persistent variables when using Glowing Hourglass.
+* Pickup Index persists correctly on boss rooms during ascent.
 
 ### Removed
 
