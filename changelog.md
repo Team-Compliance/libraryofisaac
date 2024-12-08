@@ -2,6 +2,15 @@
 
 ## 0.329
 
+### Additions
+
+* Added `TSIL.Pause.PausePlayer` and related functions.
+    * `TSIL.Pause.PausePlayer(EntityPlayer)`: Completely stops the player, removing its controls and making it intangible. Keep in mind that this only lasts for the current room.
+    * `TSIL.Pause.UnpausePlayer(EntityPlayer)`: Restores the player that was paused before.
+    * `TSIL.Pause.IsPlayerPaused(EntityPlayer)`: Checks if a player has been paused.
+    * `TSIL.Pause.PauseAllPlayers()`: Pauses all players.
+    * `TSIL.Pause.UnpauseAllPlayers()`: Unpauses all players.
+
 ### Changes
 
 * Save Manager uses the Repentogon Glowing Hourglass callbacks to ensure mod persistent data works the same as vanilla data when using Glowing Hourglass.
@@ -10,7 +19,7 @@
 
 * Save Manager now restores run persistent variables when using Glowing Hourglass.
 * Pickup Index persists correctly on boss rooms during ascent.
-* Save Manager keeps working even after using the `luamod` command.
+* Save Manager keeps working even after using the `luamod` command. Previously it would still work, but it wouldn't be able to load/save the file when exiting/countinuing the run.
 
 ### Removed
 

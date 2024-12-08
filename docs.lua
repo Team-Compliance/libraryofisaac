@@ -4888,6 +4888,35 @@ end
 function TSIL.Pause.IsPaused()
 end
 
+--- Pauses a player, removing its controls, stopping them in place and making them intangible.
+--- 
+--- Does nothing if the player was already paused.
+--- 
+--- Note that this only lasts for the current room.
+---@param player EntityPlayer
+function TSIL.Pause.PausePlayer(player)
+end
+
+--- Unpauses a player that was stopped using `TSIL.Pause.PausePlayer`.
+--- 
+--- Does nothing if the player wasn't paused.
+---@param player EntityPlayer
+function TSIL.Pause.UnpausePlayer(player)
+end
+
+--- Checks if a player was paused using `TSIL.Pause.PausePlayer`.
+---@param player EntityPlayer
+function TSIL.Pause.IsPlayerPaused(player)
+end
+
+--- Pauses all players. Check `TSIL.Pause.PausePlayer` for more information.
+function TSIL.Pause.PauseAllPlayers()
+end
+
+--- Unpauses all players. Check `TSIL.Pause.PausePlayer` for more information.
+function TSIL.Pause.UnpauseAllPlayers()
+end
+
 ---Helper function to get the corresponding coin amount from a `CoinSubType`. Returns 1 for modded sub-types.
 ---@param coinSubType CoinSubType
 ---@return integer
