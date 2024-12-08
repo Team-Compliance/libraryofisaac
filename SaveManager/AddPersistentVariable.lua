@@ -24,6 +24,9 @@ function TSIL.SaveManager.AddPersistentVariable(mod, variableName, value, persis
 			variables = {}
 		}
 		PersistentData[mod.Name] = modPersistentData
+	else
+		-- Update the mod table, it might have changed from using luamod
+		modPersistentData.mod = mod
 	end
 
 	local modVariables = modPersistentData.variables
@@ -31,7 +34,7 @@ function TSIL.SaveManager.AddPersistentVariable(mod, variableName, value, persis
 	local foundVariable = modVariables[variableName]
 
 	if foundVariable ~= nil then
-		--The variable already exists
+		-- The variable already exists
 		return
 	end
 
