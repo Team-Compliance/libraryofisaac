@@ -16,6 +16,8 @@
     * `TSIL.SaveManager.GetPersistentPlayerVariable(mod: ModReference, variableName: string, player: EntityPlayer)`: Returns the current value of a per-player persistent variable for the given player.
     * `TSIL.SaveManager.SetPersistentPlayerVariable(mod: ModReference, variableName: string, player: EntityPlayer, newValue: any)`: Sets the current value of a per-player persitent variable for the given player.
 
+* Added appropiate lua annotations to `TSIL.Utils.Math.Lerp` so it now also accepts `Vector` parameters.
+
 ### Changes
 
 * Save Manager uses the Repentogon Glowing Hourglass callbacks to ensure mod persistent data works the same as vanilla data when using Glowing Hourglass.

@@ -6514,6 +6514,7 @@ end
 ---@param b number
 ---@param t number
 ---@return number
+---@overload fun(a: Vector, b: Vector, t: number): Vector
 function TSIL.Utils.Math.Lerp(a, b, t)
 end
 
