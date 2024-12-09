@@ -1,17 +1,4 @@
-local restoreGlowingHourGlassDataOnNextRoom = false
 local loadedDataOnThisRun = false
-
-
-local function OnGlowingHourglassUse()
-    restoreGlowingHourGlassDataOnNextRoom = true
-end
-TSIL.__AddInternalCallback(
-    "SAVE_MANAGER_USE_GLOWING_HOURGLASS",
-    ModCallbacks.MC_USE_ITEM,
-    OnGlowingHourglassUse,
-    CallbackPriority.IMPORTANT,
-    CollectibleType.COLLECTIBLE_GLOWING_HOUR_GLASS
-)
 
 
 local function OnPlayerInit()
@@ -20,7 +7,6 @@ local function OnPlayerInit()
     end
 
     loadedDataOnThisRun = true
-    restoreGlowingHourGlassDataOnNextRoom = false
 
     TSIL.SaveManager.LoadFromDisk()
 
@@ -69,17 +55,34 @@ TSIL.__AddInternalCallback(
 
 local function OnNewRoomEarly()
     TSIL.SaveManager.RestoreDefaultsForAllFeaturesKey("room")
-
-    if restoreGlowingHourGlassDataOnNextRoom then
-        restoreGlowingHourGlassDataOnNextRoom = false
-        TSIL.SaveManager.RestoreGlowingHourGlassBackup()
-    else
-        TSIL.SaveManager.MakeGlowingHourGlassBackup()
-    end
 end
 TSIL.__AddInternalCallback(
     "SAVE_MANAGER_PRE_NEW_ROOM",
     TSIL.Enums.CustomCallback.POST_NEW_ROOM_EARLY,
     OnNewRoomEarly,
+    CallbackPriority.IMPORTANT
+)
+
+
+---@param slot integer
+local function OnGlowingHourglassSave(_, slot)
+    TSIL.SaveManager.MakeGlowingHourGlassBackup(slot)
+end
+TSIL.__AddInternalCallback(
+    "SAVE_MANAGER_GLOWING_HOURGLASS_SAVE",
+    ModCallbacks.MC_POST_GLOWING_HOURGLASS_SAVE,
+    OnGlowingHourglassSave,
+    CallbackPriority.IMPORTANT
+)
+
+
+---@param slot integer
+local function OnGlowingHourglassLoad(_, slot)
+    TSIL.SaveManager.RestoreGlowingHourGlassBackup(slot)
+end
+TSIL.__AddInternalCallback(
+    "SAVE_MANAGER_GLOWING_HOURGLASS_LOAD",
+    ModCallbacks.MC_POST_GLOWING_HOURGLASS_LOAD,
+    OnGlowingHourglassLoad,
     CallbackPriority.IMPORTANT
 )

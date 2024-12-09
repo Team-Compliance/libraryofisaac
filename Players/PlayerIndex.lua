@@ -9,7 +9,7 @@ function TSIL.Players.GetPlayerIndex(player, differentiateSoulAndForgotten)
 		differentiateSoulAndForgotten = false
 	end
 
-	local playerToUse = player;
+	local playerToUse = player
 	local isSubPlayer = player:IsSubPlayer()
 	if isSubPlayer then
 		local playerParent = TSIL.Players.GetSubPlayerParent(player)

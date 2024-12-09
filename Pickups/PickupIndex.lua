@@ -98,7 +98,7 @@ local function TrackDespawningPickupMetadata(entity, pickupIndex)
             "pickupDataTreasureRooms_PICKUP_INDEX"
         )
         treasurePickups[pickupIndex] = pickupDescription
-    elseif roomType == RoomType.BOSS then
+    elseif roomType == RoomType.ROOM_BOSS then
         local bossPickups = TSIL.SaveManager.GetPersistentVariable(
             TSIL.__MOD,
             "pickupDataBossRooms_PICKUP_INDEX"

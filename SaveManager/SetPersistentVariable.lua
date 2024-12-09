@@ -8,8 +8,6 @@
 function TSIL.SaveManager.SetPersistentVariable(mod, variableName, newValue, overrideType)
 	local PersistentData = TSIL.__VERSION_PERSISTENT_DATA.PersistentData
 
-	local tables = TSIL.Utils.Tables
-
 	local modPersistentData = PersistentData[mod.Name]
 
 	if modPersistentData == nil then
