@@ -5723,6 +5723,20 @@ end
 function TSIL.Run.CanRunUnlockAchievements()
 end
 
+--- Creates a new per-player persistent variable.
+--- 
+--- Acts exactly the same as a regular variable created with `TSIL.SaveManager.AddPersistentVariable`, but
+--- allows you to use `TSIL.SaveManager.GetPersistentPlayerVariable` and `TSIL.SaveManager.SetPersistentPlayerVariable`.
+---@param mod table
+---@param variableName string
+---@param defaultValue any
+---@param persistenceMode VariablePersistenceMode
+---@param differentiateSoulAndForgotten? boolean @Default: false | Whether the Soul and Forgotten should be counted as separate players.
+---@param ignoreGlowingHourglass? boolean @Default: false
+---@param conditionalSave? fun(): boolean
+function TSIL.SaveManager.AddPersistentPlayerVariable(mod, variableName, defaultValue, persistenceMode, differentiateSoulAndForgotten, ignoreGlowingHourglass, conditionalSave)
+end
+
 --- Adds a variable to the save manager.
 --- The variable name must be unique within your mod.
 ---@param mod table
@@ -5732,6 +5746,14 @@ end
 ---@param ignoreGlowingHourglass? boolean @Default: false
 ---@param conditionalSave? fun(): boolean
 function TSIL.SaveManager.AddPersistentVariable(mod, variableName, value, persistenceMode, ignoreGlowingHourglass, conditionalSave)
+end
+
+--- Gets a per-player variable from the save manager.
+---@param mod table
+---@param variableName string
+---@param player EntityPlayer
+---@return any
+function TSIL.SaveManager.GetPersistentPlayerVariable(mod, variableName, player)
 end
 
 --- Gets a variable from the save manager.
@@ -5761,6 +5783,14 @@ end
 ---@param mod table
 ---@param variableName string
 function TSIL.SaveManager.ResetPersistentVariable(mod, variableName)
+end
+
+--- Sets a per-player variable from the save manager.
+---@param mod table
+---@param variableName string
+---@param player EntityPlayer
+---@param newValue any
+function TSIL.SaveManager.SetPersistentPlayerVariable(mod, variableName, player, newValue)
 end
 
 --- Sets a variable from the save manager.

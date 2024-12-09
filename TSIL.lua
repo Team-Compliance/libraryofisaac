@@ -111,6 +111,15 @@ function LOCAL_TSIL.Init(FolderName)
 		--- @type table<string, ModPersistentData>
 		TSIL.__VERSION_PERSISTENT_DATA.PersistentData = {}
 
+		---@class PlayerPersistentVariable
+		---@field default any
+		---@field differentiateSoulAndForgotten boolean?
+
+		--- Table where the keys represent the name of the mod and the values represent some data
+		--- about the per-player persistent variables
+		--- @type table<string, table<string, PlayerPersistentVariable>>
+		TSIL.__VERSION_PERSISTENT_DATA.PersistentPlayerData = {}
+
 		--- @type table<integer, table<string, table<string, any>>>
 		TSIL.__VERSION_PERSISTENT_DATA.GlowingHourglassPersistentDataBackup = {}
 	end

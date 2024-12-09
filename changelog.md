@@ -5,11 +5,16 @@
 ### Additions
 
 * Added `TSIL.Pause.PausePlayer` and related functions.
-    * `TSIL.Pause.PausePlayer(EntityPlayer)`: Completely stops the player, removing its controls and making it intangible. Keep in mind that this only lasts for the current room.
-    * `TSIL.Pause.UnpausePlayer(EntityPlayer)`: Restores the player that was paused before.
-    * `TSIL.Pause.IsPlayerPaused(EntityPlayer)`: Checks if a player has been paused.
+    * `TSIL.Pause.PausePlayer(player: EntityPlayer)`: Completely stops the player, removing its controls and making it intangible. Keep in mind that this only lasts for the current room.
+    * `TSIL.Pause.UnpausePlayer(player: EntityPlayer)`: Restores the player that was paused before.
+    * `TSIL.Pause.IsPlayerPaused(player: EntityPlayer)`: Checks if a player has been paused.
     * `TSIL.Pause.PauseAllPlayers()`: Pauses all players.
     * `TSIL.Pause.UnpauseAllPlayers()`: Unpauses all players.
+
+* Added per-player persistent variables to Save Manager.
+    * `TSIL.SaveManager.AddPersistentPlayerVariable(mod: ModReference, variableName: string, defaultValue: any, persistenceMode: VariablePersistenceMode, differentiateSoulAndForgotten: boolean?, ignoreGlowingHourglass: boolean?, conditionalSave: fun(): boolean?)`: Adds a new per-player persistent variable to the Save Manager. 
+    * `TSIL.SaveManager.GetPersistentPlayerVariable(mod: ModReference, variableName: string, player: EntityPlayer)`: Returns the current value of a per-player persistent variable for the given player.
+    * `TSIL.SaveManager.SetPersistentPlayerVariable(mod: ModReference, variableName: string, player: EntityPlayer, newValue: any)`: Sets the current value of a per-player persitent variable for the given player.
 
 ### Changes
 
