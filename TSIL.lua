@@ -88,14 +88,18 @@ function LOCAL_TSIL.Init(FolderName)
 
 	if not rawget(TSIL, "__PROXY").__VERSION_PERSISTENT_DATA then
 		TSIL.__VERSION_PERSISTENT_DATA = {}
+	end
 
+	if not TSIL.__VERSION_PERSISTENT_DATA.RegisteredCustomCallbacks then
 		---@class RegisteredCustomCallback
 		---@field Version number
 		---@field Trigger function
 
 		---@type table<CustomCallback, RegisteredCustomCallback>
 		TSIL.__VERSION_PERSISTENT_DATA.RegisteredCustomCallbacks = {}
+	end
 
+	if not TSIL.__VERSION_PERSISTENT_DATA.PersistentData then
 		--- @class PersistentVariable
 		--- @field value any
 		--- @field default any
@@ -110,7 +114,10 @@ function LOCAL_TSIL.Init(FolderName)
 		--- Table where the keys represent the name of the mod
 		--- @type table<string, ModPersistentData>
 		TSIL.__VERSION_PERSISTENT_DATA.PersistentData = {}
+	end
 
+
+	if not TSIL.__VERSION_PERSISTENT_DATA.PersistentPlayerData then
 		---@class PlayerPersistentVariable
 		---@field default any
 		---@field differentiateSoulAndForgotten boolean?
@@ -119,7 +126,9 @@ function LOCAL_TSIL.Init(FolderName)
 		--- about the per-player persistent variables
 		--- @type table<string, table<string, PlayerPersistentVariable>>
 		TSIL.__VERSION_PERSISTENT_DATA.PersistentPlayerData = {}
+	end
 
+	if not TSIL.__VERSION_PERSISTENT_DATA.GlowingHourglassPersistentDataBackup then
 		--- @type table<integer, table<string, table<string, any>>>
 		TSIL.__VERSION_PERSISTENT_DATA.GlowingHourglassPersistentDataBackup = {}
 	end
@@ -128,8 +137,8 @@ function LOCAL_TSIL.Init(FolderName)
 	local scripts = require(TSIL.__LOCAL_FOLDER .. ".scripts")
 
 	for _, script in ipairs(scripts) do
-		local hasError, error = pcall(function ()
-			require(TSIL.__LOCAL_FOLDER .. "." ..  script)
+		local hasError, error = pcall(function()
+			require(TSIL.__LOCAL_FOLDER .. "." .. script)
 		end)
 
 		--TODO: Handle not found files better (it is expected)

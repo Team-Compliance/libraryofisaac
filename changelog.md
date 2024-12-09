@@ -27,6 +27,7 @@
 * Save Manager now restores run persistent variables when using Glowing Hourglass.
 * Pickup Index persists correctly on boss rooms during ascent.
 * Save Manager keeps working even after using the `luamod` command. Previously it would still work, but it wouldn't be able to load/save the file when exiting/countinuing the run.
+* Fixed an error that could happen with version persistent data when loading old versions of the library. 
 
 ### Removed
 
